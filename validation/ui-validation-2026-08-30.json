@@ -1,0 +1,46 @@
+{
+  "validator": "ui-validator (headless Chromium over CDP)",
+  "target": "https://sb-1m31d7ewrvr4.vercel.run",
+  "validatedUtc": "2026-08-30T09:45:00Z",
+  "result": "PASS — 3/3 runs, 0 failed assertions, 0 console errors, 0 page errors, no fixes required",
+  "runs": [
+    {
+      "label": "after-desktop-1440x900",
+      "viewport": "1440x900",
+      "exitCode": 0,
+      "checks": [
+        "HTTP 200, page title renders",
+        "cover slide active (#s1.active), text 'Strategic Overview' + 'Private' rendered, no 'undefined' anywhere",
+        "chrome visible: #progress, #menuBtn, #dots, #next, voice dock #vdock, voice orb #vorb",
+        "15 .slide sections, 15 nav dots, window.AIREVDECK.count === 15",
+        "cover hero image decoded (naturalWidth > 100)"
+      ]
+    },
+    {
+      "label": "after-nav-intel-1440x900",
+      "viewport": "1440x900",
+      "exitCode": 0,
+      "checks": [
+        "clicked #next twice -> #s3.active (Intel partnership slide) visible",
+        "rendered text: 'announced October 2025', 'Gaudi', 'Muhammed Khalid' (verbatim quote attribution)",
+        "Intel brand image decoded (naturalWidth > 100)",
+        "progress bar scaleX within 0.01 of 3/15 = 0.2 (animated progress indicator working)"
+      ]
+    },
+    {
+      "label": "after-mobile-menu-390x844",
+      "viewport": "390x844 (mobile emulation)",
+      "exitCode": 0,
+      "checks": [
+        "clicked #menuBtn -> #menuOverlay.open visible",
+        "section menu lists 'Pipeline (HubSpot)' and 'Qualcomm'",
+        "voice dock #vdock visible on mobile"
+      ]
+    }
+  ],
+  "screenshots": [
+    "after-desktop-1440x900.png",
+    "after-nav-intel-1440x900.png",
+    "after-mobile-menu-390x844.png"
+  ]
+}
