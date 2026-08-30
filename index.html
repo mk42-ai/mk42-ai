@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AIREV — Strategic Overview for the Chairman. Interactive briefing. Private & Confidential. 30 August 2026.">
+<title>AIREV — Strategic Overview for the Chairman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg2:#F7FAF8;
+    --ink:#10201B;
+    --ink-dim:#44584F;
+    --ink-faint:#66786F;
+    --emerald:#0E7A5F;
+    --emerald-b:#12B886;
+    --gold:#A5884B;
+    --hair:rgba(16,32,27,.10);
+    --hair2:rgba(16,32,27,.16);
+    --panel:rgba(14,122,95,.035);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:radial-gradient(1300px 800px at 72% 18%, var(--bg2) 0%, var(--bg) 62%);
+    color:var(--ink);
+    font-family:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:rgba(18,184,134,.28)}
+
+  /* ---------- slide chrome ---------- */
+  .slide{
+    position:fixed; inset:0;
+    display:flex;
+    padding:8vh 12vw 13vh;
+    overflow-y:auto;
+    opacity:0; visibility:hidden;
+    transform:translateX(var(--ex,54px));
+    transition:opacity .55s ease, transform .55s ease, visibility 0s linear .55s;
+    pointer-events:none;
+  }
+  .slide.active{
+    opacity:1; visibility:visible; transform:translateX(0);
+    transition-delay:0s; pointer-events:auto;
+  }
+  .slide-inner{margin:auto; width:100%; max-width:1460px}
+
+  .slide .rise{opacity:0; transform:translateY(16px); transition:opacity .7s ease var(--d,0s), transform .7s ease var(--d,0s)}
+  .slide.active .rise{opacity:1; transform:none}
+
+  .eyebrow{
+    font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--emerald); margin-bottom:22px;
+  }
+  .eyebrow .n{color:var(--gold); margin-right:.9em}
+  h1.display{
+    font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+    font-weight:500; font-size:clamp(34px,4.4vw,60px); line-height:1.1; letter-spacing:-.01em;
+  }
+  h2.title{
+    font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+    font-weight:500; font-size:clamp(25px,2.7vw,38px); line-height:1.15; letter-spacing:-.005em;
+  }
+  .lede{color:var(--ink-dim); font-size:14.5px; line-height:1.7; font-weight:300}
+  .gold-rule{width:76px; height:1px; background:linear-gradient(90deg,var(--gold),rgba(201,169,106,0)); margin:30px 0}
+  .closing{
+    margin-top:30px; font-size:13.5px; color:var(--ink-dim); line-height:1.7; font-weight:300;
+  }
+  .closing.center{text-align:center}
+  .fnote{font-size:10.5px; color:var(--ink-faint); line-height:1.65; margin-top:14px}
+  .proj{color:var(--gold); font-style:normal}
+
+  /* ---------- wordmark pills & monograms ---------- */
+  .pill{
+    display:inline-flex; align-items:center; gap:.6em;
+    border:1px solid var(--hair2); border-radius:999px;
+    padding:.55em 1.15em; font-size:10.5px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink);
+    background:rgba(14,122,95,.05); white-space:nowrap;
+  }
+  .pill .dt{width:6px; height:6px; border-radius:50%; background:var(--emerald-b); flex:none}
+  .pill.gold .dt{background:var(--gold)}
+  .mono{
+    width:30px; height:30px; border-radius:50%; flex:none;
+    border:1px solid rgba(165,136,75,.55); color:var(--gold);
+    font-size:10px; letter-spacing:.08em; display:inline-flex; align-items:center; justify-content:center;
+  }
+
+  /* ---------- brand logo with fallback ---------- */
+  .brandmark{position:absolute; top:34px; left:44px; z-index:5}
+  .logo-img{height:30px; display:block}
+  .logo-img.invert{filter:none}
+  .logo-pill{display:none}
+  .logo-failed .logo-img{display:none}
+  .logo-failed .logo-pill{display:inline-flex}
+
+  /* ---------- slide 2: stats ---------- */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:36px}
+  .stat{background:var(--bg); padding:26px 24px 24px}
+  .stat .k{font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px}
+  .stat .v{font-family:"Playfair Display",Georgia,serif; font-size:clamp(22px,2.2vw,34px); color:var(--ink); line-height:1.15}
+  .stat .s{margin-top:10px; font-size:11.5px; color:var(--ink-dim); font-weight:300}
+  .marq{margin-top:34px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+  .marq .lbl{font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint)}
+
+  /* ---------- slide 3: revenue timeline ---------- */
+  .tl{position:relative; height:150px; margin-top:34px}
+  .tl .track{position:absolute; left:5%; right:5%; top:58px; height:1px; background:var(--hair2)}
+  .tl-node{
+    position:absolute; top:58px; transform:translate(-50%,-50%);
+    background:none; border:none; cursor:pointer; color:inherit; font:inherit;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tl-node .knob{
+    width:var(--r,26px); height:var(--r,26px); border-radius:50%;
+    border:1px solid var(--emerald-b); background:rgba(18,184,134,.10);
+    transition:background .3s, box-shadow .3s, border-color .3s;
+  }
+  .tl-node:hover .knob,.tl-node:focus-visible .knob{background:rgba(18,184,134,.30)}
+  .tl-node.on .knob{background:var(--emerald-b); box-shadow:0 0 0 9px rgba(18,184,134,.10)}
+  .tl-node .yr{position:absolute; top:-34px; left:50%; transform:translateX(-50%); font-size:10.5px; font-weight:600; letter-spacing:.22em; color:var(--ink-dim); white-space:nowrap}
+  .tl-node .amt{position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%); font-family:"Playfair Display",Georgia,serif; font-size:19px; color:var(--ink); white-space:nowrap}
+  .tl-node .amt small{font-size:10.5px; font-family:"Inter",sans-serif; color:var(--ink-faint); letter-spacing:.08em; display:block; text-align:center; margin-top:2px}
+  .comp{border:1px solid var(--hair); background:var(--panel); padding:22px 26px; margin-top:26px; min-height:150px}
+  .comp-pane[hidden]{display:none}
+  .comp-pane .cp-title{font-family:"Playfair Display",Georgia,serif; font-size:19px; margin-bottom:8px}
+  .comp-pane .cp-body{font-size:13px; color:var(--ink-dim); line-height:1.7; font-weight:300}
+
+  /* bridge bars */
+  .bridge{margin-top:16px}
+  .brow{display:flex; align-items:center; gap:14px; margin-top:9px}
+  .brow .blbl{width:186px; text-align:right; font-size:11px; color:var(--ink-dim); letter-spacing:.04em; flex:none}
+  .brow .btrk{flex:1; height:16px; position:relative; background:rgba(16,32,27,.06)}
+  .brow .bval{width:120px; flex:none; font-size:12px; color:var(--ink)}
+  .brow .bval small{color:var(--ink-faint); font-size:10px}
+  .bfill{position:absolute; left:0; top:0; bottom:0; background:var(--emerald)}
+  .bfill.proj{background:repeating-linear-gradient(45deg,rgba(18,184,134,.55) 0 6px,rgba(18,184,134,.22) 6px 12px)}
+  .bgap{position:absolute; top:0; bottom:0; border:1px dashed rgba(165,136,75,.65)}
+  .btotal{position:absolute; top:-4px; bottom:-4px; width:1px; background:var(--gold)}
+
+  .engines{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:22px}
+  .engine{border:1px solid var(--hair); background:var(--panel); padding:16px 18px}
+  .engine .pill{font-size:9.5px; margin-bottom:12px}
+  .engine p{font-size:12.5px; color:var(--ink-dim); line-height:1.6; font-weight:300}
+
+  /* ---------- slide 4: burn ---------- */
+  .headline{font-family:"Playfair Display",Georgia,serif; font-size:clamp(19px,1.9vw,26px); line-height:1.5; max-width:64ch; margin-top:6px}
+  .compare{display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--hair); margin-top:28px}
+  .colx{padding:22px 26px}
+  .colx.a{border-right:1px solid var(--hair); box-shadow:inset 2px 0 0 var(--emerald)}
+  .colx.b{box-shadow:inset 2px 0 0 rgba(16,32,27,.14)}
+  .colx h3{font-size:10.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px}
+  .kv{display:flex; justify-content:space-between; gap:18px; padding:9px 0; border-bottom:1px solid var(--hair); font-size:13px}
+  .kv:last-child{border-bottom:none}
+  .kv .k{color:var(--ink-dim); font-weight:300}
+  .kv .v{color:var(--ink); font-weight:500; text-align:right}
+  .colx .note{font-size:12.5px; color:var(--ink-dim); line-height:1.7; font-weight:300; padding:9px 0; border-bottom:1px solid var(--hair)}
+  .colx .note:last-child{border-bottom:none}
+
+  .bm{margin-top:26px}
+  .bm .bm-title{font-size:10.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px}
+  .bmrow{display:flex; align-items:center; gap:14px; margin-top:10px}
+  .bmrow .blbl{width:186px; text-align:right; font-size:11px; color:var(--ink-dim); flex:none}
+  .bmrow .btrk{flex:1; height:18px; position:relative; background:rgba(16,32,27,.06)}
+  .bmrow .bval{width:120px; flex:none; font-size:12px; color:var(--ink)}
+  .bm-em{position:absolute; left:0; top:0; bottom:0; width:18%; background:var(--emerald-b)}
+  .bm-range{position:absolute; top:3px; bottom:3px; left:34%; width:66%;
+    border:1px solid rgba(165,136,75,.7);
+    background:repeating-linear-gradient(45deg,rgba(201,169,106,.16) 0 6px,rgba(201,169,106,.04) 6px 12px)}
+  .bm-plus{position:absolute; right:-16px; top:50%; transform:translateY(-50%); color:var(--gold); font-size:12px}
+  .bm-scale{display:flex; margin:8px 0 0 200px; font-size:9.5px; color:var(--ink-faint)}
+  .bm-scale span{flex:1}
+
+  /* ---------- slide 5: investment history ---------- */
+  .split{display:grid; grid-template-columns:1.04fr .96fr; gap:44px; align-items:start; margin-top:30px}
+  table.it{width:100%; border-collapse:collapse; font-size:12.5px}
+  .it th{font-size:9.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); text-align:left; padding:10px 10px 12px; border-bottom:1px solid var(--hair2)}
+  .it td{padding:13px 10px; border-bottom:1px solid var(--hair); color:var(--ink-dim); vertical-align:top; line-height:1.55; font-weight:300}
+  .it td.inv{color:var(--ink); font-weight:500}
+  .it td.inv small{display:block; color:var(--ink-faint); font-weight:300; margin-top:3px; font-size:10.5px}
+  .it td.mult{color:var(--emerald); font-weight:500; white-space:nowrap}
+  .it td small.sub{color:var(--ink-faint); font-size:10.5px}
+  #chartWrap{position:relative; border:1px solid var(--hair); background:var(--panel); padding:18px 18px 8px}
+  #chartTip{
+    position:absolute; opacity:0; pointer-events:none; z-index:5;
+    background:#FFFFFF; border:1px solid var(--hair2); padding:8px 12px;
+    font-size:11px; color:var(--ink); line-height:1.5; max-width:230px;
+    transition:opacity .2s; box-shadow:0 8px 24px rgba(16,32,27,.18);
+  }
+  #chartTip b{color:var(--emerald)}
+  .barg{cursor:pointer}
+  .barg rect{transition:opacity .25s}
+  .barg:hover rect,.barg:focus-visible rect{opacity:.82}
+  .legend{display:flex; gap:22px; margin:6px 0 4px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint)}
+  .legend span{display:inline-flex; align-items:center; gap:8px}
+  .legend i{width:10px; height:10px; display:inline-block}
+  .legend .le{background:var(--gold)}
+  .legend .lt{background:var(--emerald-b)}
+
+  /* ---------- slide 6: ranked cards ---------- */
+  .ranks{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:26px}
+  .rcard{border:1px solid var(--hair); background:var(--panel); padding:16px 16px 14px; display:flex; flex-direction:column; min-height:158px}
+  .rcard .top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+  .rcard .rn{font-family:"Playfair Display",Georgia,serif; font-size:27px; color:var(--gold); line-height:1}
+  .rcard .pill{font-size:9px; padding:.55em 1em}
+  .rcard .body{margin-top:12px; font-size:11.5px; color:var(--ink-dim); line-height:1.65; font-weight:300}
+  .rcard .body b{color:var(--ink); font-weight:500}
+  .rcard .body .q{color:var(--ink)}
+  .cons{margin-top:auto; padding-top:9px; border-top:1px solid var(--hair); font-size:9.8px; color:var(--ink-faint); line-height:1.55}
+  .cons b{color:var(--ink-dim); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:8.8px}
+
+  /* ---------- slide 7: arithmetic ---------- */
+  .arith{display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:8px}
+  .arith .row{
+    width:min(680px,86%); padding:22px 0;
+    font-family:"Playfair Display",Georgia,serif; font-size:clamp(19px,2.1vw,29px);
+    border-bottom:1px solid var(--hair);
+  }
+  .arith .row:first-child{border-top:1px solid var(--hair)}
+  .editable{
+    margin-top:36px; display:inline-block; padding:14px 22px;
+    border:1px dashed rgba(165,136,75,.65); border-radius:3px;
+    color:var(--ink-dim); font-size:13px; line-height:1.6; letter-spacing:.02em;
+    min-width:min(600px,84%); outline:none; cursor:text; transition:border-color .25s, color .25s;
+  }
+  .editable:hover{border-color:var(--gold)}
+  .editable:focus{border-color:var(--gold); color:var(--ink); border-style:solid}
+  .ed-tag{margin-top:10px; font-size:9px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint)}
+
+  /* ---------- slide 8: post-raise sequence ---------- */
+  .tl8{position:relative; height:132px; margin-top:30px}
+  .tl8 .track{position:absolute; left:5%; right:5%; top:52px; height:1px;
+    background:linear-gradient(90deg,var(--emerald) 0%,var(--emerald-b) 45%,var(--gold) 100%); opacity:.55}
+  .tl8-node{
+    position:absolute; top:52px; transform:translate(-50%,-50%);
+    background:none; border:none; cursor:pointer; color:inherit; font:inherit;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tl8-node .knob{width:18px; height:18px; border-radius:50%; border:1px solid var(--emerald-b); background:var(--bg); transition:background .3s, box-shadow .3s}
+  .tl8-node:last-of-type .knob{border-color:var(--gold)}
+  .tl8-node:hover .knob,.tl8-node:focus-visible .knob{background:rgba(18,184,134,.35)}
+  .tl8-node.on .knob{background:var(--emerald-b); box-shadow:0 0 0 8px rgba(18,184,134,.10)}
+  .tl8-node.on:last-of-type .knob{background:var(--gold); box-shadow:0 0 0 8px rgba(201,169,106,.10)}
+  .tl8-node .dt8{position:absolute; top:-32px; left:50%; transform:translateX(-50%); font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); white-space:nowrap}
+  .tl8-node .tg8{position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%); font-size:11.5px; color:var(--ink); white-space:nowrap}
+  .tl8-node .tg8 small{color:var(--gold); font-size:9.5px}
+
+  /* ---------- slide 9: closing ---------- */
+  .s9-center{text-align:center}
+  .s9-center .eyebrow{margin-bottom:26px}
+  .s9-line{margin-top:30px; color:var(--ink-dim); font-size:14.5px; line-height:1.8; font-weight:300}
+
+  /* ---------- nav chrome ---------- */
+  .zone{position:fixed; top:0; bottom:66px; width:9vw; z-index:40; cursor:pointer}
+  #zoneL{left:0} #zoneR{right:0}
+  .nav-arrow{
+    position:fixed; top:50%; transform:translateY(-50%); z-index:70;
+    width:42px; height:42px; border-radius:50%;
+    border:1px solid var(--hair2); background:rgba(255,255,255,.88);
+    color:var(--ink-dim); cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:color .25s, border-color .25s, opacity .25s;
+  }
+  .nav-arrow:hover{color:var(--ink); border-color:var(--emerald-b)}
+  .nav-arrow:disabled{opacity:.25; cursor:default}
+  #prev{left:20px} #next{right:20px}
+  #dots{position:fixed; bottom:58px; left:50%; transform:translateX(-50%); z-index:70; display:flex; gap:10px}
+  .dot{width:7px; height:7px; border-radius:50%; border:1px solid var(--hair2); background:transparent; cursor:pointer; padding:0; transition:background .3s, border-color .3s, transform .3s}
+  .dot:hover{border-color:var(--emerald-b)}
+  .dot.on{background:var(--emerald-b); border-color:var(--emerald-b); transform:scale(1.25)}
+
+  footer{
+    position:fixed; left:0; right:0; bottom:0; z-index:60; pointer-events:none;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 30px;
+    font-size:9.5px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  footer .fc{position:absolute; left:50%; transform:translateX(-50%)}
+  footer .fr{margin-left:auto}
+
+  .hint{margin-top:44px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint)}
+
+  /* ---------- AIREV Insights voice mic (additive) ---------- */
+  #airev-mic{
+    position:fixed; right:26px; bottom:84px; z-index:80;
+    width:52px; height:52px; border-radius:50%;
+    border:1px solid rgba(165,136,75,.55);
+    background:radial-gradient(circle at 32% 28%, #136B52 0%, #0E7A5F 55%, #0A5442 100%);
+    box-shadow:0 10px 28px rgba(16,32,27,.22), 0 0 0 1px rgba(255,255,255,.7);
+    color:#E8ECE9; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .25s, box-shadow .25s, border-color .25s, opacity .25s;
+  }
+  #airev-mic:hover{transform:translateY(-2px); border-color:var(--gold)}
+  #airev-mic:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  #airev-mic svg{width:20px; height:20px; position:relative}
+  #airev-mic .ring{position:absolute; inset:-6px; border-radius:50%; pointer-events:none}
+  #airev-mic.live{border-color:var(--emerald-b)}
+  #airev-mic.live .ring{animation:airev-pulse 1.8s ease-out infinite}
+  #airev-mic.busy{opacity:.65; cursor:wait}
+  #airev-mic.err{border-color:#B0605A; box-shadow:0 10px 28px rgba(16,32,27,.22), 0 0 0 3px rgba(176,96,90,.28)}
+  @keyframes airev-pulse{
+    0%{box-shadow:0 0 0 0 rgba(18,184,134,.38)}
+    100%{box-shadow:0 0 0 18px rgba(18,184,134,0)}
+  }
+
+  /* ---------- responsive & motion ---------- */
+  @media (max-width:1080px){
+    .slide{padding:7vh 8vw 15vh}
+    .stats,.engines{grid-template-columns:repeat(2,1fr)}
+    .ranks{grid-template-columns:repeat(2,1fr)}
+    .split{grid-template-columns:1fr; gap:28px}
+    .compare{grid-template-columns:1fr}
+    .colx.a{border-right:none; border-bottom:1px solid var(--hair)}
+    .brow .blbl,.bmrow .blbl{width:120px; font-size:10px}
+    .brandmark{left:8vw}
+  }
+  @media (max-width:640px){
+    .ranks{grid-template-columns:1fr}
+    .zone{width:14vw}
+    .nav-arrow{display:none}
+    footer .fc{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important}
+  }
+
+  /* ===================== v2 interactive-app additions ===================== */
+  #progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:90;background:rgba(16,32,27,.08)}
+  #progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);
+    background:linear-gradient(90deg,var(--emerald),var(--emerald-b));transition:transform .45s ease}
+  #menuBtn{position:fixed;top:22px;right:26px;z-index:95;display:inline-flex;align-items:center;gap:9px;
+    padding:9px 14px;border:1px solid var(--hair2);background:rgba(255,255,255,.86);backdrop-filter:blur(8px);
+    border-radius:999px;cursor:pointer;font:600 11px/1 "Inter",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+  #menuBtn:hover{border-color:var(--emerald);color:var(--emerald)}
+  #menuOverlay{position:fixed;inset:0;z-index:94;background:rgba(247,250,248,.96);backdrop-filter:blur(14px);
+    display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease, visibility 0s linear .3s}
+  #menuOverlay.open{opacity:1;visibility:visible;transition-delay:0s}
+  .menu-list{display:grid;grid-template-columns:repeat(2,minmax(280px,420px));gap:10px 42px;max-height:80vh;overflow:auto;padding:20px}
+  .menu-item{display:flex;align-items:baseline;gap:14px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1px solid transparent;background:none;text-align:left;font-family:"Inter",sans-serif}
+  .menu-item .no{font:600 11px/1 "Inter";letter-spacing:.18em;color:var(--gold);min-width:26px}
+  .menu-item .tt{font-size:16px;color:var(--ink-dim)}
+  .menu-item:hover,.menu-item.on{border-color:var(--hair2);background:#fff}
+  .menu-item.on .tt{color:var(--emerald);font-weight:600}
+  .split2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,3.4vw,58px);align-items:center;width:100%}
+  .split2.tight{align-items:start}
+  .imgpanel{margin:0;border:1px solid var(--hair2);border-radius:16px;overflow:hidden;background:#fff;
+    box-shadow:0 24px 60px -30px rgba(14,122,95,.25)}
+  .imgpanel img{display:block;width:100%;height:auto}
+  .imgpanel.orb{max-width:330px;margin:26px auto 0;border-radius:20px}
+  .news-strip{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+  .news-strip.three{grid-template-columns:repeat(3,1fr);margin-top:22px}
+  .news-card{margin:0;border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:#fff}
+  .news-card img{display:block;width:100%;height:150px;object-fit:cover}
+  .news-strip:not(.three) .news-card img{height:170px}
+  .news-card figcaption{padding:8px 12px;font:500 10.5px/1.35 "Inter";letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .facts{list-style:none;display:grid;gap:12px;margin:6px 0 18px}
+  .facts li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.55;color:var(--ink-dim)}
+  .facts li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--emerald-b)}
+  .facts b{color:var(--ink);font-weight:600}
+  .qrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  .qcard{border:1px solid var(--hair2);border-left:3px solid var(--gold);border-radius:12px;background:var(--panel);padding:16px 18px;margin-top:12px}
+  .qcard p{font-family:"Playfair Display",serif;font-size:14.5px;line-height:1.6;color:var(--ink);font-style:italic}
+  .qcard .attr{margin-top:10px;font:600 10.5px/1.4 "Inter";letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+  .pulse-grid{display:grid;gap:12px}
+  .pcard{border:1px solid var(--hair2);border-radius:12px;background:#fff;padding:14px 16px}
+  .pcard .pk{font:600 10.5px/1 "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--emerald);margin-bottom:7px}
+  .pcard p{font-size:14px;line-height:1.5;color:var(--ink-dim)}
+  .pcard b{color:var(--ink)}
+  .pk.gold{color:var(--gold)}
+  .answer{border:1px solid var(--hair2);border-radius:14px;background:var(--panel);padding:18px 20px;margin-top:16px}
+  .answer .pk{font:600 10.5px/1 "Inter";letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+  .stats.four{grid-template-columns:repeat(4,1fr)}
+  .stats.vgrid{grid-template-columns:repeat(2,1fr)}
+  .pipe-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(20px,3vw,48px);margin-top:22px;align-items:start}
+  .hbars{display:grid;gap:9px}
+  .hbar{display:grid;grid-template-columns:200px 1fr 74px;gap:12px;align-items:center}
+  .hlab{font:600 12.5px/1.25 "Inter";color:var(--ink)}
+  .hlab i{display:block;font:400 10.5px/1.3 "Inter";font-style:normal;color:var(--ink-faint);margin-top:2px}
+  .htrack{height:14px;border-radius:7px;background:rgba(16,32,27,.06);overflow:hidden}
+  .hfill{display:block;height:100%;width:0;border-radius:7px;background:linear-gradient(90deg,var(--emerald),var(--emerald-b));transition:width 1s cubic-bezier(.2,.7,.2,1) .15s}
+  .slide.active .hfill{width:var(--w)}
+  .hval{font:600 12.5px/1 "Inter";color:var(--emerald);text-align:right;font-variant-numeric:tabular-nums}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .chips .lbl{flex-basis:100%;font:600 10.5px/1 "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
+  .pill.sm{font-size:10.5px;padding:5px 10px}
+  .closedbar{margin-top:16px;padding:11px 14px;border:1px solid rgba(165,136,75,.35);border-radius:10px;background:rgba(165,136,75,.06);font-size:12.5px;color:var(--ink-dim)}
+  .contact{margin-top:12px;padding:11px 14px;border:1px solid var(--hair2);border-radius:10px;background:#fff;font-size:12.5px;color:var(--ink-dim)}
+  .contact b{color:var(--emerald)}
+  @media (max-width:1080px){
+    .split2,.pipe-grid{grid-template-columns:1fr}
+    .qrow,.news-strip.three{grid-template-columns:1fr}
+    .stats.four{grid-template-columns:repeat(2,1fr)}
+    .menu-list{grid-template-columns:1fr}
+    .hbar{grid-template-columns:130px 1fr 64px}
+    #menuBtn{top:14px;right:14px}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress" role="presentation"><i></i></div>
+<button id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menuOverlay">
+  <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 3h12M1 7h12M1 11h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  Menu
+</button>
+<div id="menuOverlay" role="dialog" aria-label="Section menu"><nav class="menu-list" id="menuList"></nav></div>
+
+<div class="zone" id="zoneL" aria-hidden="true"></div>
+<div class="zone" id="zoneR" aria-hidden="true"></div>
+
+<button class="nav-arrow" id="prev" aria-label="Previous slide" disabled>
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<button class="nav-arrow" id="next" aria-label="Next slide">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div id="dots" role="tablist" aria-label="Slide navigation"></div>
+
+<footer>
+  <span>Private &amp; Confidential</span>
+  <span class="fc">AIREV · Strategic Overview · 30 August 2026</span>
+  <span class="fr"><span id="slideNum">1</span> / <span id="slideTotal">15</span></span>
+</footer>
+
+<section class="slide" id="s1" data-title="Cover" data-narr="cover" aria-label="Cover"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="split2">
+    <div>
+      <div class="eyebrow rise" style="--d:.05s">Private &amp; Confidential · 30 August 2026</div>
+      <h1 class="display rise" style="--d:.15s">AIREV — Strategic Overview<br>for the Chairman</h1>
+      <div class="gold-rule rise" style="--d:.28s"></div>
+      <p class="lede rise" style="--d:.36s">Prepared for H.E. Dr. Thani Al Zeyoudi, Non-Executive Chairman, AIREV.<br>
+      An interactive briefing with live partnership, pipeline and community intelligence.</p>
+      <div class="hint rise" style="--d:.55s">Arrow keys · Space · Click edges · Swipe · <b>M</b> for menu</div>
+    </div>
+    <figure class="imgpanel rise" style="--d:.3s"><img src="assets/brand-hero.png" alt="AIREV sovereign agentic AI hero visual"></figure>
+  </div></div></section>
+
+<section class="slide" id="s2" data-title="Platform momentum" data-narr="where-we-stand" aria-label="Platform momentum"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="eyebrow rise" style="--d:.02s"><span class="n">02</span>The Platform</div>
+  <h2 class="title rise" style="--d:.08s">Platform momentum</h2>
+  <div class="split2 tight">
+    <div>
+      <div class="stats vgrid rise" style="--d:.18s">
+        <div class="stat"><div class="k">Users</div><div class="v">4M+</div><div class="s">across the OnDemand platform</div></div>
+        <div class="stat"><div class="k">AI agents</div><div class="v">300+</div><div class="s">in 50+ languages</div></div>
+        <div class="stat"><div class="k">Tokens processed</div><div class="v">6.8T</div><div class="s">Q2 2026 · ~6× YoY</div></div>
+        <div class="stat"><div class="k">Deployment</div><div class="v">Sovereign</div><div class="s">cloud, on-prem &amp; on-device</div></div>
+      </div>
+      <div class="marq rise" style="--d:.3s"><span class="lbl">Marquee counterparties</span>
+        <span class="pill"><span class="dt"></span>Intel</span><span class="pill"><span class="dt"></span>Qualcomm</span>
+        <span class="pill"><span class="dt"></span>Tenstorrent</span><span class="pill"><span class="dt"></span>G42 / Core42</span>
+        <span class="pill"><span class="dt"></span>Redington</span></div>
+      <p class="closing rise" style="--d:.4s">OnDemand is a no- and low-code operating system for building, deploying and managing autonomous AI agents — designed from inception to run without mandatory cloud dependency.</p>
+    </div>
+    <figure class="imgpanel rise" style="--d:.26s"><img src="assets/brand-platform-layers.png" alt="OnDemand platform architecture layers"></figure>
+  </div></div></section>
+
+<section class="slide" id="s3" data-title="Intel partnership" data-narr="intel-partnership" aria-label="Intel partnership"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="eyebrow rise" style="--d:.02s"><span class="n">03</span>Strategic Partnerships</div>
+  <h2 class="title rise" style="--d:.08s">AIREV × Intel — announced October 2025</h2>
+  <div class="split2">
+    <div>
+      <ul class="facts rise" style="--d:.18s">
+        <li><b>Platform optimization</b> — OnDemand tuned for Intel <b>Xeon</b> processors and <b>Gaudi</b> AI accelerators.</li>
+        <li><b>Joint go-to-market</b> — co-selling, co-marketing, technical demos, customer pilots and workshops.</li>
+        <li><b>Reach</b> — Intel ecosystem alignment in the US and globally, anchored from the UAE.</li>
+      </ul>
+      <div class="qcard rise" style="--d:.3s"><p>“Partnering with Intel allows us to accelerate our vision of delivering enterprise-grade AI at scale. By optimizing OnDemand for Gaudi and Xeon and aligning with Intel’s ecosystem in the US and globally, we are setting a strong foundation for joint innovation and market impact.”</p><div class="attr">Muhammed Khalid · Founder &amp; CEO, AIREV</div></div>
+    </div>
+    <div>
+      <figure class="imgpanel rise" style="--d:.24s"><img src="assets/brand-intel-partnership.png" alt="AIREV and Intel partnership visual"></figure>
+      <div class="news-strip rise" style="--d:.36s">
+        <figure class="news-card"><img src="assets/news-intel-gulfnews.gif" alt="Gulf News — Intel and AIREV partner to propel AI innovation"><figcaption>Gulf News · Oct 2025</figcaption></figure>
+      </div>
+    </div>
+  </div></div></section>
+
+<section class="slide" id="s4" data-title="Intel on-device" data-narr="intel-ondevice" aria-label="Intel on-device expansion"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="eyebrow rise" style="--d:.02s"><span class="n">04</span>Strategic Partnerships</div>
+  <h2 class="title rise" style="--d:.08s">December 2025 — 300+ agents, fully on-device</h2>
+  <p class="lede rise" style="--d:.14s">OnDemand’s 300+ AI agents brought fully on-device to Intel next-generation AI PCs — no cloud dependency; data never leaves the PC. Endorsed by H.E. Dr. Thani bin Ahmed Al Zeyoudi, UAE Minister for Foreign Trade and AIREV Chairman.</p>
+  <div class="qrow rise" style="--d:.24s">
+    <div class="qcard"><p>“I am excited for the work between Intel and AIREV to deliver immediate value to our customers using Intel AI PCs. AIREV’s OnDemand platform offers a complete agentic AI solution that’s optimized for the latest Intel architecture.”</p><div class="attr">Greg Ernst · Chief Revenue Officer, Intel</div></div>
+    <div class="qcard"><p>“We’re not building another chatbot — we’re delivering AI agents that take action, automate workflows, and get real work done. And because everything runs on-device, your data never leaves your PC.”</p><div class="attr">Muhammed Khalid · Founder &amp; CEO, AIREV</div></div>
+    <div class="qcard"><p>“AIREV’s OnDemand platform represents exactly the kind of software innovation that showcases the true capabilities and potential of Intel AI PCs. This partnership brings differentiated, production-ready AI capabilities to our customers from day one.”</p><div class="attr">Taha Khalifa · GM Middle East &amp; Africa, Intel</div></div>
+  </div>
+  <div class="news-strip three rise" style="--d:.36s">
+    <figure class="news-card"><img src="assets/news-intel-ondevice-gec.webp" alt="GEC Newswire — AIREV and Intel launch fully on-device AI agents"><figcaption>GEC Newswire · Dec 2025</figcaption></figure>
+    <figure class="news-card"><img src="assets/news-intel-aipc-techafrica.png" alt="TechAfrica News — autonomous AI agents on next-generation AI PCs"><figcaption>TechAfrica News · Dec 2025</figcaption></figure>
+    <figure class="news-card"><img src="assets/brand-ondevice-aipc.png" alt="On-device AI agents on Intel AI PCs"><figcaption>On-device: no cloud dependency</figcaption></figure>
+  </div></div></section>
+
+<section class="slide" id="s5" data-title="Qualcomm" data-narr="qualcomm" aria-label="Qualcomm agreement"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="eyebrow rise" style="--d:.02s"><span class="n">05</span>Strategic Partnerships</div>
+  <h2 class="title rise" style="--d:.08s">AIREV × Qualcomm — sovereign AI, edge to appliance</h2>
+  <div class="split2">
+    <div>
+      <ul class="facts rise" style="--d:.16s">
+        <li><b>Dragonwing integration</b> — OnDemand on Qualcomm Dragonwing products, incl. the <b>Dragonwing AI On-Prem Appliance</b> for sovereign AI deployments.</li>
+        <li><b>Regional first</b> — AIREV is the first UAE company to sell AI software to a <b>Fortune 50</b> company.</li>
+        <li><b>Scale</b> — 4M+ users · 300+ agents · 50+ languages · 6.8T tokens in Q2 2026 (~6× YoY).</li>
+      </ul>
+      <div class="qcard rise" style="--d:.26s"><p>“As well as attracting the world’s best technology services, the UAE is now creating and exporting them, providing the latest evidence of the positive journey of the UAE’s AI sector.”</p><div class="attr">H.E. Dr. Thani bin Ahmed Al Zeyoudi · UAE Minister for Foreign Trade · Chairman, AIREV</div></div>
+      <div class="qcard rise" style="--d:.34s"><p>“With Qualcomm, we can put capable, advanced AI agents virtually every place our customers work – from on-premises infrastructure to intelligent edge deployments.”</p><div class="attr">Muhammad Khalid · Founder &amp; CEO, AIREV</div></div>
+      <div class="qcard rise" style="--d:.42s"><p>“Bringing AIREV’s OnDemand platform to Qualcomm Dragonwing products expands the ways enterprises and governments can deploy capable and efficient AI agents.”</p><div class="attr">Wassim Chourbaji · SVP &amp; President EMEA, Qualcomm Technologies</div></div>
+    </div>
+    <div>
+      <figure class="imgpanel rise" style="--d:.22s"><img src="assets/brand-qualcomm-partnership.png" alt="AIREV and Qualcomm sovereign AI appliance visual"></figure>
+      <div class="news-strip rise" style="--d:.34s">
+        <figure class="news-card"><img src="assets/news-qualcomm-zawya.webp" alt="Zawya — AIREV and Qualcomm to advance autonomous AI"><figcaption>Zawya press release · 2026</figcaption></figure>
+      </div>
+    </div>
+  </div></div></section>
+
+<section class="slide" id="s6" data-title="Community pulse" data-narr="community-pulse" aria-label="Community pulse"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="eyebrow rise" style="--d:.02s"><span class="n">06</span>Market Context</div>
+  <h2 class="title rise" style="--d:.08s">Community pulse — why sovereign wins the argument</h2>
+  <div class="split2">
+    <div class="pulse-grid rise" style="--d:.18s">
+      <div class="pcard"><div class="pk">Infrastructure strain</div><p>Data-center construction hit <b>$50B</b> this year — and split US unions into camps that “don’t agree on anything.”</p></div>
+      <div class="pcard"><div class="pk">Training-data gig economy</div><p>Startups paying contractors millions for knowledge-work training data — “The Work of Helping A.I. Destroy Work.”</p></div>
+      <div class="pcard"><div class="pk">Open source at a crossroads</div><p>The Debian AI vote has divided the community; disclosure and trust are now table stakes.</p></div>
+      <div class="pcard"><div class="pk">Consolidation pressure</div><p>Open-weight AI companies are the Valley’s hottest acquisition targets.</p></div>
+      <div class="pcard"><div class="pk">Consumer backlash</div><p>“Tech backlash reaches fever pitch as AI angst collides with social-media fears.”</p></div>
+    </div>
+    <div>
+      <figure class="imgpanel rise" style="--d:.24s"><img src="assets/brand-sovereign-edge.png" alt="Sovereign AI at the edge"></figure>
+      <div class="answer rise" style="--d:.34s">
+        <div class="pk gold">The AIREV answer</div>
+        <ul class="facts">
+          <li><b>On-device by design</b> — data never leaves the PC or the premises.</li>
+          <li><b>Sovereign deployments</b> — on-prem appliances with Qualcomm; AI PCs with Intel.</li>
+          <li><b>No cloud dependency</b> — privacy and cost concerns answered directly.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="fnote rise" style="--d:.44s">Source: community sentiment sampled from technology / AI subreddits, 30 Aug 2026.</p></div></section>
+
+<section class="slide" id="s7" data-title="Pipeline (HubSpot)" data-narr="pipeline" aria-label="Pipeline dashboard"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="eyebrow rise" style="--d:.02s"><span class="n">07</span>Commercial Engine</div>
+  <h2 class="title rise" style="--d:.06s">Pipeline dashboard — live from HubSpot CRM</h2>
+  <div class="stats four rise" style="--d:.12s">
+    <div class="stat"><div class="k">Open pipeline</div><div class="v">$41.8M</div><div class="s">48 open deals</div></div>
+    <div class="stat"><div class="k">Tracked deals</div><div class="v">55</div><div class="s">enterprise &amp; government</div></div>
+    <div class="stat"><div class="k">Strategic (≥$2M)</div><div class="v">$34.0M</div><div class="s">Intel · Tenstorrent · Qualcomm · ADNOC</div></div>
+    <div class="stat"><div class="k">Closed-won</div><div class="v">$90K</div><div class="s">BNFITS</div></div>
+  </div>
+  <div class="pipe-grid">
+    <div class="hbars rise" style="--d:.2s"><div class="hbar rise" style="--d:.18s"><span class="hlab">Intel<i>AI PC Preload</i></span><span class="htrack"><span class="hfill" style="--w:100.0%"></span></span><span class="hval">$14.0M</span></div>
+<div class="hbar rise" style="--d:.22s"><span class="hlab">Tenstorrent<i>OEM Preload</i></span><span class="htrack"><span class="hfill" style="--w:71.4%"></span></span><span class="hval">$10.0M</span></div>
+<div class="hbar rise" style="--d:.26s"><span class="hlab">ADNOC<i>Energy AI</i></span><span class="htrack"><span class="hfill" style="--w:14.5%"></span></span><span class="hval">$2.0M</span></div>
+<div class="hbar rise" style="--d:.30s"><span class="hlab">Qualcomm<i>OEM Preload</i></span><span class="htrack"><span class="hfill" style="--w:14.3%"></span></span><span class="hval">$2.0M</span></div>
+<div class="hbar rise" style="--d:.34s"><span class="hlab">Intel<i>Dell Resell</i></span><span class="htrack"><span class="hfill" style="--w:14.3%"></span></span><span class="hval">$2.0M</span></div>
+<div class="hbar rise" style="--d:.38s"><span class="hlab">Intel<i>Cisco Resell</i></span><span class="htrack"><span class="hfill" style="--w:14.3%"></span></span><span class="hval">$2.0M</span></div>
+<div class="hbar rise" style="--d:.42s"><span class="hlab">Intel<i>AWS Resell</i></span><span class="htrack"><span class="hfill" style="--w:14.3%"></span></span><span class="hval">$2.0M</span></div>
+<div class="hbar rise" style="--d:.46s"><span class="hlab">ADCCI AI Agents Development<i></i></span><span class="htrack"><span class="hfill" style="--w:10.8%"></span></span><span class="hval">$1.5M</span></div></div>
+    <div>
+      <div class="chips rise" style="--d:.3s"><span class="lbl">Also in pipeline</span><span class="pill sm"><span class="dt"></span>DU</span> <span class="pill sm"><span class="dt"></span>DHA</span> <span class="pill sm"><span class="dt"></span>ADQ</span> <span class="pill sm"><span class="dt"></span>Mashreq</span> <span class="pill sm"><span class="dt"></span>e&amp;</span> <span class="pill sm"><span class="dt"></span>DP World</span> <span class="pill sm"><span class="dt"></span>RTA</span> <span class="pill sm"><span class="dt"></span>Digital Dubai</span> <span class="pill sm"><span class="dt"></span>Etihad</span> <span class="pill sm"><span class="dt"></span>Emirates</span> <span class="pill sm"><span class="dt"></span>M42</span> <span class="pill sm"><span class="dt"></span>Khazna</span> <span class="pill sm"><span class="dt"></span>OSN</span> <span class="pill sm"><span class="dt"></span>AMD</span> <span class="pill sm"><span class="dt"></span>Lenovo</span> <span class="pill sm"><span class="dt"></span>HPE</span> <span class="pill sm"><span class="dt"></span>Supermicro</span> <span class="pill sm"><span class="dt"></span>WWT</span> <span class="pill sm"><span class="dt"></span>F1</span> <span class="pill sm"><span class="dt"></span>Moro HUB</span> <span class="pill sm"><span class="dt"></span>DEWA</span> <span class="pill sm"><span class="dt"></span>Alpha Data</span> <span class="pill sm"><span class="dt"></span>Kuwait</span> <span class="pill sm"><span class="dt"></span>e&amp; × Qualcomm</span></div>
+      <div class="closedbar rise" style="--d:.4s"><b>Closed-lost watch:</b> MoD $789,653 · Tiada $400K · Astra Tech $250K</div>
+      <div class="contact rise" style="--d:.48s"><b>Key contact</b> · Amin Mohamad — amin@alphadxb.com · Sales Specialist, Digital Transformation Dept. · opportunity stage</div>
+    </div>
+  </div>
+  <p class="fnote rise" style="--d:.55s">Source: HubSpot CRM (contacts, companies, deals) · retrieved 30 Aug 2026 · amounts in USD.</p></div></section>
+
+<section class="slide" id="s8" data-title="Where we stand" data-narr="position" aria-label="Where we stand">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s"><span class="n">08</span>The Position</div>
+    <h2 class="title rise" style="--d:.08s">Where we stand</h2>
+    <div class="stats rise" style="--d:.18s">
+      <div class="stat">
+        <div class="k">Valuation</div>
+        <div class="v">$215M</div>
+        <div class="s">current mark</div>
+      </div>
+      <div class="stat">
+        <div class="k">Total primary capital raised</div>
+        <div class="v">$10M</div>
+        <div class="s">since inception</div>
+      </div>
+      <div class="stat">
+        <div class="k">Revenue trajectory</div>
+        <div class="v">$1.0M → $1.2M → $6.0M</div>
+        <div class="s">Y1 → Y2 → Y3 · Y3 ~5x YoY <span class="proj">(projected)</span></div>
+      </div>
+      <div class="stat">
+        <div class="k">Burn</div>
+        <div class="v">~$4.5M<span style="font-size:.55em">/yr</span></div>
+        <div class="s">excluding scaling</div>
+      </div>
+    </div>
+    <div class="marq rise" style="--d:.28s">
+      <span class="lbl">Marquee counterparties</span>
+      <span class="pill"><span class="dt"></span>Qualcomm</span>
+      <span class="pill"><span class="dt"></span>Intel</span>
+      <span class="pill"><span class="dt"></span>Redington</span>
+      <span class="pill"><span class="dt"></span>G42 / Core42</span>
+      <span class="pill"><span class="dt"></span>Tenstorrent</span>
+    </div>
+    <p class="closing rise" style="--d:.38s">For every ~$10M invested, roughly 20x equity value has been created — $10M primary → $215M. Arithmetic, not adjectives.</p>
+  </div>
+</section>
+
+<section class="slide" id="s9" data-title="Revenue snapshot" data-narr="revenue" aria-label="Revenue snapshot">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s"><span class="n">09</span>Trajectory</div>
+    <h2 class="title rise" style="--d:.08s">Revenue snapshot</h2>
+
+    <div class="tl rise" style="--d:.16s">
+      <div class="track"></div>
+      <button class="tl-node" data-scope="rev" data-pane="y1" style="left:9%; --r:22px" aria-label="Year 1, $1.0M">
+        <span class="knob"></span><span class="yr">Y1</span><span class="amt">$1.0M</span>
+      </button>
+      <button class="tl-node" data-scope="rev" data-pane="y2" style="left:50%; --r:26px" aria-label="Year 2, $1.2M">
+        <span class="knob"></span><span class="yr">Y2</span><span class="amt">$1.2M</span>
+      </button>
+      <button class="tl-node on" data-scope="rev" data-pane="y3" style="left:91%; --r:44px" aria-label="Year 3, current, $6.0M projected">
+        <span class="knob"></span><span class="yr">Y3 · Current</span><span class="amt">$6.0M<small>projected</small></span>
+      </button>
+    </div>
+
+    <div class="comp rise" style="--d:.26s" id="comp-rev">
+      <div class="comp-pane" data-pane="y1" hidden>
+        <div class="cp-title">Y1 — $1.0M</div>
+        <div class="cp-body">School Hack; raw professional services.</div>
+      </div>
+      <div class="comp-pane" data-pane="y2" hidden>
+        <div class="cp-title">Y2 — $1.2M</div>
+        <div class="cp-body">Services on OnDemand; platform-led.</div>
+      </div>
+      <div class="comp-pane" data-pane="y3">
+        <div class="cp-title">Y3 (current) — $6.0M <span class="proj">(projected)</span></div>
+        <div class="cp-body">$1.4M recognised to date + $3.9M closing in-year <span class="proj">(projected)</span> → ~5x YoY <span class="proj">(projected)</span>.</div>
+        <div class="bridge">
+          <div class="brow">
+            <span class="blbl">Recognised to date</span>
+            <span class="btrk"><span class="bfill" style="width:23.3%"></span></span>
+            <span class="bval">$1.4M</span>
+          </div>
+          <div class="brow">
+            <span class="blbl">Closing in-year <small class="proj">(projected)</small></span>
+            <span class="btrk"><span class="bfill proj" style="width:65%"></span></span>
+            <span class="bval">$3.9M</span>
+          </div>
+          <div class="brow">
+            <span class="blbl">Y3 total <small class="proj">(projected)</small></span>
+            <span class="btrk">
+              <span class="bfill" style="width:23.3%"></span>
+              <span class="bfill proj" style="left:23.3%; width:65%"></span>
+              <span class="bgap" style="left:88.3%; width:11.7%"></span>
+              <span class="btotal" style="left:100%"></span>
+            </span>
+            <span class="bval">$6.0M <small>· gap $0.7M</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="engines rise" style="--d:.36s">
+      <div class="engine">
+        <span class="pill"><span class="dt"></span>Qualcomm</span>
+        <p>Signed TLA — $100/unit perpetual licence.</p>
+      </div>
+      <div class="engine">
+        <span class="pill"><span class="dt"></span>Intel</span>
+        <p>AI PC collaboration.</p>
+      </div>
+      <div class="engine">
+        <span class="pill"><span class="dt"></span>Redington</span>
+        <p>140,000 AI PCs (recognised).</p>
+      </div>
+      <div class="engine">
+        <span class="pill gold"><span class="dt"></span>Presidential Court JV</span>
+        <p>Sovereign deployment vehicle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s10" data-title="Burn discipline" data-narr="burn" aria-label="Burn discipline">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s"><span class="n">10</span>Capital Discipline</div>
+    <h2 class="title rise" style="--d:.08s">Burn discipline</h2>
+    <p class="headline rise" style="--d:.16s">Burn ~$4.5M/yr excluding scaling; runway to ~1 November 2026 (≈2 months, <span class="proj">projected</span>) — which is why this round matters now.</p>
+
+    <div class="compare rise" style="--d:.26s">
+      <div class="colx a">
+        <h3>AIREV</h3>
+        <div class="kv"><span class="k">Monthly burn</span><span class="v">~$375K</span></div>
+        <div class="kv"><span class="k">Valuation</span><span class="v">$215M</span></div>
+        <div class="kv"><span class="k">Revenue growth</span><span class="v">~5x <span class="proj">(projected)</span></span></div>
+      </div>
+      <div class="colx b">
+        <h3>Industry norm</h3>
+        <div class="note">Series A/B AI companies commonly burn $1–3M+ per month.</div>
+        <div class="note">Frontier-AI labs burn orders of magnitude more.</div>
+      </div>
+    </div>
+
+    <div class="bm rise" style="--d:.36s">
+      <div class="bm-title">Burn multiple — capital efficiency</div>
+      <div class="bmrow">
+        <span class="blbl">AIREV — implied</span>
+        <span class="btrk"><span class="bm-em"></span></span>
+        <span class="bval">~0.9x <small class="proj" style="font-size:9.5px">(FY projected)</small></span>
+      </div>
+      <div class="bmrow">
+        <span class="blbl">Peer norm</span>
+        <span class="btrk"><span class="bm-range"></span><span class="bm-plus">+</span></span>
+        <span class="bval">1.7x – 5.0x+</span>
+      </div>
+      <div class="bm-scale"><span>0x</span><span>1x</span><span>2x</span><span>3x</span><span>4x</span><span>5x+</span></div>
+      <div class="fnote">Burn multiple per David Sacks / Craft Ventures; SaaS median 1.7x at $1–3M ARR (Benchmarkit/MetricHQ); Series A/B AI burn $1–3M+/month (industry reporting, 2025–26). AIREV multiple computed on projected FY figures.</div>
+    </div>
+
+    <p class="closing rise" style="--d:.46s">AIREV reached $215M and ~5x growth on a burn most AI companies spend in a single quarter.</p>
+  </div>
+</section>
+
+<section class="slide" id="s11" data-title="Investment history" data-narr="investment" aria-label="Investment history">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s"><span class="n">11</span>Capital Table</div>
+    <h2 class="title rise" style="--d:.08s">Investment history</h2>
+    <div class="split rise" style="--d:.18s">
+      <div>
+        <table class="it">
+          <thead>
+            <tr><th>Investor</th><th>Entry</th><th>Entry valuation</th><th>Today · $215M</th><th>Unrealised multiple</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="inv">G42</td>
+              <td>$2.5M</td>
+              <td>$10M post</td>
+              <td>~$53.8M <small class="sub">implied</small></td>
+              <td class="mult">~21.5x</td>
+            </tr>
+            <tr>
+              <td class="inv">VentureWave</td>
+              <td>$2.0M</td>
+              <td>$60M <small class="sub">internally marked at $80M</small></td>
+              <td>~$5.4M <small class="sub">implied vs $80M mark</small></td>
+              <td class="mult">~2.7x <small class="sub" style="color:var(--ink-faint)">wants to invest more</small></td>
+            </tr>
+            <tr>
+              <td class="inv">Nabyl</td>
+              <td>$1.6M <small class="sub">secondary</small></td>
+              <td>$80M</td>
+              <td>~$4.3M <small class="sub">implied</small></td>
+              <td class="mult">~2.7x</td>
+            </tr>
+            <tr>
+              <td class="inv">Angels<small>Eyad · Bob Grim · David Bennett</small></td>
+              <td>Balance of $10M primary</td>
+              <td>Various early entries</td>
+              <td>—</td>
+              <td class="mult" style="color:var(--ink-dim)">various</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="fnote">Multiples unrealised, at current $215M valuation.</div>
+      </div>
+
+      <div id="chartWrap">
+        <div class="legend"><span><i class="le"></i>Entry valuation</span><span><i class="lt"></i>Today · $215M</span></div>
+        <svg viewBox="0 0 460 292" width="100%" role="img" aria-label="Per-investor entry valuation versus today's $215M valuation">
+          <!-- reference line at $215M -->
+          <line x1="38" y1="24" x2="442" y2="24" stroke="#A5884B" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>
+          <text x="442" y="16" fill="#66786F" font-size="9" text-anchor="end" letter-spacing="1.5">TODAY · $215M</text>
+          <!-- baseline -->
+          <line x1="38" y1="252" x2="442" y2="252" stroke="rgba(16,32,27,.16)" stroke-width="1"/>
+
+          <!-- G42 -->
+          <g class="barg" tabindex="0" data-tip="G42 — $2.5M at $10M post · ~21.5x unrealised at $215M">
+            <title>G42 — $2.5M at $10M post · ~21.5x unrealised at $215M</title>
+            <rect x="76"  y="241.3" width="32" height="10.7" fill="#A5884B"/>
+            <rect x="114" y="24"    width="32" height="228"  fill="#0E7A5F"/>
+            <text x="92"  y="233" fill="#A5884B" font-size="10" text-anchor="middle">$10M</text>
+            <text x="92"  y="270" fill="#44584F" font-size="11" text-anchor="middle">G42</text>
+          </g>
+          <!-- VentureWave -->
+          <g class="barg" tabindex="0" data-tip="VentureWave — $2.0M at $60M (internally marked $80M) · ~2.7x unrealised at $215M">
+            <title>VentureWave — $2.0M at $60M (internally marked $80M) · ~2.7x unrealised at $215M</title>
+            <rect x="210" y="188.4" width="32" height="63.6" fill="#A5884B"/>
+            <rect x="248" y="24"    width="32" height="228"  fill="#0E7A5F"/>
+            <text x="226" y="180" fill="#A5884B" font-size="10" text-anchor="middle">$60M</text>
+            <text x="226" y="270" fill="#44584F" font-size="11" text-anchor="middle">VentureWave</text>
+          </g>
+          <!-- Nabyl -->
+          <g class="barg" tabindex="0" data-tip="Nabyl — $1.6M secondary at $80M · ~2.7x unrealised at $215M">
+            <title>Nabyl — $1.6M secondary at $80M · ~2.7x unrealised at $215M</title>
+            <rect x="344" y="167.2" width="32" height="84.8" fill="#A5884B"/>
+            <rect x="382" y="24"    width="32" height="228"  fill="#0E7A5F"/>
+            <text x="360" y="159" fill="#A5884B" font-size="10" text-anchor="middle">$80M</text>
+            <text x="360" y="270" fill="#44584F" font-size="11" text-anchor="middle">Nabyl</text>
+          </g>
+        </svg>
+        <div class="fnote" style="margin-top:2px">Angels: various early entries — not charted. Hover or focus a pair for the unrealised multiple.</div>
+        <div id="chartTip" role="status"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s12" data-title="Investor conversations" data-narr="investors" aria-label="Current investor conversations">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s"><span class="n">12</span>The Round</div>
+    <h2 class="title rise" style="--d:.08s">Current investor conversations</h2>
+    <div class="ranks rise" style="--d:.18s">
+      <div class="rcard">
+        <div class="top"><span class="rn">1</span><span class="pill gold"><span class="dt"></span>HH Sheikh Theyab vehicle</span></div>
+        <div class="body"><span class="q">“Priority one.”</span><br>A relationship to be led at the appropriate level, at the appropriate pace.</div>
+      </div>
+      <div class="rcard">
+        <div class="top"><span class="rn">2</span><span class="pill"><span class="dt"></span>B Capital</span></div>
+        <div class="body"><b>~$13B AUM.</b> Co-founder Eduardo Saverin <span class="mono" aria-hidden="true">ES</span> — Facebook co-founder, net worth ~$30B per Forbes.<br><span class="q">“Exceptional fit for IPO ambitions.”</span></div>
+      </div>
+      <div class="rcard">
+        <div class="top"><span class="rn">3</span><span class="pill"><span class="dt"></span>Krishan</span></div>
+        <div class="body"><b>$5M.</b><br>Positive — includes the merger.<br>Negative — not a marquee name.</div>
+      </div>
+      <div class="rcard">
+        <div class="top"><span class="rn">4</span><span class="pill"><span class="dt"></span>Nabyl</span></div>
+        <div class="body">Further Ventures / SDF fund / family office.</div>
+      </div>
+      <div class="rcard">
+        <div class="top"><span class="rn">5</span><span class="pill"><span class="dt"></span>VentureWave</span></div>
+        <div class="body">Existing investor; wants to increase.</div>
+      </div>
+      <div class="rcard">
+        <div class="top"><span class="rn">6</span><span class="pill"><span class="dt"></span>Itqan Investments</span></div>
+        <div class="body">Saudi PE/VC led by Eyad Omari.</div>
+        <div class="cons"><b>Considerations</b> — potential structural complications; to be scoped in diligence.</div>
+      </div>
+      <div class="rcard">
+        <div class="top"><span class="rn">7</span><span class="pill"><span class="dt"></span>KBW Ventures</span></div>
+        <div class="body">HRH Prince Khaled bin Alwaleed bin Talal. Credible investor with X/SpaceX/Tesla and Saudi-market association.</div>
+        <div class="cons"><b>Considerations</b> — geopolitical/political sensitivities to be weighed respectfully.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s13" data-title="The arithmetic" data-narr="arithmetic" aria-label="What the arithmetic says">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s; text-align:center"><span class="n">13</span>Summary</div>
+    <h2 class="title rise" style="--d:.08s; text-align:center; margin-bottom:34px">What the arithmetic says</h2>
+    <div class="arith">
+      <div class="row rise" style="--d:.16s">$10M in.</div>
+      <div class="row rise" style="--d:.24s">$215M today.</div>
+      <div class="row rise" style="--d:.32s">~5x revenue year over year <span class="proj">(projected)</span>.</div>
+      <div class="row rise" style="--d:.40s">Burn: a fraction of industry norm.</div>
+    </div>
+    <div class="rise" style="--d:.5s; text-align:center">
+      <span class="editable" id="editable" contenteditable="true" spellcheck="false">MK to complete: the ask / next step — [click to edit]</span>
+      <div class="ed-tag">Editable field — MK to complete</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s14" data-title="Post-raise sequence" data-narr="sequence" aria-label="Post-raise sequence">
+  <div class="slide-inner">
+    <div class="eyebrow rise" style="--d:.02s"><span class="n">14</span>Roadmap</div>
+    <h2 class="title rise" style="--d:.08s">Post-raise sequence</h2>
+
+    <div class="tl8 rise" style="--d:.16s">
+      <div class="track"></div>
+      <button class="tl8-node on" data-scope="seq" data-pane="m1" style="left:8%" aria-label="Immediately post-raise">
+        <span class="knob"></span><span class="dt8">Post-raise</span><span class="tg8">Close &amp; ship</span>
+      </button>
+      <button class="tl8-node" data-scope="seq" data-pane="m2" style="left:38.6%" aria-label="By 1 January 2027">
+        <span class="knob"></span><span class="dt8">By 1 Jan 2027</span><span class="tg8">$500M round <small>projected</small></span>
+      </button>
+      <button class="tl8-node" data-scope="seq" data-pane="m3" style="left:69.2%" aria-label="Q2 2027">
+        <span class="knob"></span><span class="dt8">Q2 2027</span><span class="tg8">$1B round <small>projected</small></span>
+      </button>
+      <button class="tl8-node" data-scope="seq" data-pane="m4" style="left:93%" aria-label="Thereafter, IPO">
+        <span class="knob"></span><span class="dt8">Thereafter</span><span class="tg8">IPO</span>
+      </button>
+    </div>
+
+    <div class="comp rise" style="--d:.26s; min-height:120px" id="comp-seq">
+      <div class="comp-pane" data-pane="m1">
+        <div class="cp-title">Immediately post-raise</div>
+        <div class="cp-body">Close the Presidential Court JV and ship the 140,000 AI PCs.</div>
+      </div>
+      <div class="comp-pane" data-pane="m2" hidden>
+        <div class="cp-title">By 1 January 2027</div>
+        <div class="cp-body">Close a $500M round. Targets: Intel Capital, Qualcomm Ventures, Georgian. <span class="proj">— projected</span></div>
+      </div>
+      <div class="comp-pane" data-pane="m3" hidden>
+        <div class="cp-title">Q2 2027</div>
+        <div class="cp-body">Close a $1B private round; would make AIREV the first UAE AI company in the Middle East to reach unicorn status, and among the fastest in the region at ~3.5 years. <span class="proj">— projected</span></div>
+      </div>
+      <div class="comp-pane" data-pane="m4" hidden>
+        <div class="cp-title">Thereafter</div>
+        <div class="cp-body">IPO.</div>
+      </div>
+    </div>
+
+    <p class="closing rise" style="--d:.36s">AIREV remains open to sovereign options throughout.</p>
+  </div>
+</section>
+
+<section class="slide" id="s15" data-title="AIREV Insights" data-narr="closing" aria-label="AIREV Insights"><span class="brandmark"><img class="logo-img invert" alt="AIREV — OnDemand" src="assets/logo-od-black.png" onerror="this.parentNode.classList.add('logo-failed')"><span class="pill logo-pill"><span class="dt"></span>AIREV · OnDemand</span></span><div class="slide-inner">
+  <div class="s9-center" style="text-align:center">
+    <img src="assets/logo-green.png" alt="OnDemand" style="height:34px;margin:0 auto 26px" class="rise">
+    <div class="eyebrow rise" style="--d:.05s; justify-content:center">Closing</div>
+    <h2 class="title rise" style="--d:.14s; font-size:clamp(30px,3.6vw,50px)">AIREV Insights</h2>
+    <p class="s9-line rise" style="--d:.26s">Ask anything about this overview. Voice narration guides every slide — press play on the voice dock, or navigate and let it follow you.</p>
+    <figure class="imgpanel orb rise" style="--d:.36s"><img src="assets/brand-voice-orb.png" alt="AIREV voice assistant orb"></figure>
+  </div></div></section>
+
+<script>
+(function(){
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dotsWrap = document.getElementById('dots');
+  var numEl = document.getElementById('slideNum');
+  var totalEl = document.getElementById('slideTotal');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var progress = document.querySelector('#progress i');
+  var menuBtn = document.getElementById('menuBtn');
+  var menuOverlay = document.getElementById('menuOverlay');
+  var menuList = document.getElementById('menuList');
+  var idx = 0;
+  var listeners = [];
+
+  totalEl.textContent = String(slides.length);
+
+  slides.forEach(function(s, i){
+    var d = document.createElement('button');
+    d.className = 'dot';
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', function(){ go(i, i > idx ? 1 : -1); });
+    dotsWrap.appendChild(d);
+    var mi = document.createElement('button');
+    mi.className = 'menu-item';
+    mi.innerHTML = '<span class="no">' + String(i + 1).padStart(2, '0') + '</span><span class="tt">' +
+      (s.getAttribute('data-title') || s.getAttribute('aria-label') || ('Slide ' + (i + 1))) + '</span>';
+    mi.addEventListener('click', function(){ closeMenu(); go(i); });
+    menuList.appendChild(mi);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+  var items = Array.prototype.slice.call(menuList.children);
+
+  function go(i, dir){
+    if (i < 0 || i >= slides.length) return;
+    if (i === idx && slides[i].classList.contains('active')) return;
+    dir = (typeof dir === 'number') ? dir : (i > idx ? 1 : -1);
+    var incoming = slides[i];
+    incoming.style.setProperty('--ex', (dir >= 0 ? '' : '-') + '54px');
+    slides.forEach(function(s){ s.classList.remove('active'); });
+    void incoming.offsetWidth;
+    incoming.classList.add('active');
+    idx = i;
+    numEl.textContent = String(i + 1);
+    dots.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+    items.forEach(function(m, k){ m.classList.toggle('on', k === i); });
+    prev.disabled = (i === 0);
+    next.disabled = (i === slides.length - 1);
+    progress.style.transform = 'scaleX(' + ((i + 1) / slides.length) + ')';
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+    listeners.forEach(function(cb){ try { cb(i, incoming); } catch (e) {} });
+  }
+
+  function openMenu(){ menuOverlay.classList.add('open'); menuBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ menuOverlay.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', function(){ menuOverlay.classList.contains('open') ? closeMenu() : openMenu(); });
+  menuOverlay.addEventListener('click', function(e){ if (e.target === menuOverlay) closeMenu(); });
+
+  prev.addEventListener('click', function(){ go(idx - 1, -1); });
+  next.addEventListener('click', function(){ go(idx + 1, 1); });
+  document.getElementById('zoneL').addEventListener('click', function(){ go(idx - 1, -1); });
+  document.getElementById('zoneR').addEventListener('click', function(){ go(idx + 1, 1); });
+
+  window.addEventListener('keydown', function(e){
+    if (e.target && (e.target.isContentEditable || /INPUT|TEXTAREA/.test(e.target.tagName))) return;
+    if (e.key === 'Escape'){ closeMenu(); return; }
+    if (e.key === 'm' || e.key === 'M'){ e.preventDefault(); menuOverlay.classList.contains('open') ? closeMenu() : openMenu(); return; }
+    if (menuOverlay.classList.contains('open')) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); go(idx + 1, 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp'){ e.preventDefault(); go(idx - 1, -1); }
+    else if (e.key === 'Home'){ e.preventDefault(); go(0, -1); }
+    else if (e.key === 'End'){ e.preventDefault(); go(slides.length - 1, 1); }
+  });
+
+  var tx = 0, ty = 0;
+  window.addEventListener('touchstart', function(e){ tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY; }, {passive:true});
+  window.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)){ if (dx < 0) go(idx + 1, 1); else go(idx - 1, -1); }
+  }, {passive:true});
+
+  /* interactive timelines (revenue + post-raise sequence) */
+  function wireTimeline(scope, compId){
+    var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-scope="' + scope + '"]'));
+    var comp = document.getElementById(compId);
+    if (!comp || !nodes.length) return;
+    var panes = Array.prototype.slice.call(comp.querySelectorAll('.comp-pane'));
+    function show(key, node){
+      panes.forEach(function(p){ p.hidden = (p.getAttribute('data-pane') !== key); });
+      nodes.forEach(function(n){ n.classList.toggle('on', n === node); });
+    }
+    nodes.forEach(function(n){
+      var key = n.getAttribute('data-pane');
+      n.addEventListener('mouseenter', function(){ show(key, n); });
+      n.addEventListener('click', function(){ show(key, n); });
+      n.addEventListener('focus', function(){ show(key, n); });
+    });
+  }
+  wireTimeline('rev', 'comp-rev');
+  wireTimeline('seq', 'comp-seq');
+
+  /* investment-history chart tooltip */
+  var tip = document.getElementById('chartTip');
+  var wrap = document.getElementById('chartWrap');
+  if (tip && wrap){
+    Array.prototype.slice.call(document.querySelectorAll('.barg')).forEach(function(g){
+      g.addEventListener('mouseenter', function(){ tip.innerHTML = g.getAttribute('data-tip'); tip.style.opacity = '1'; });
+      g.addEventListener('mousemove', function(e){
+        var r = wrap.getBoundingClientRect();
+        var x = e.clientX - r.left + 14, y = e.clientY - r.top - 12;
+        x = Math.min(x, r.width - 240);
+        tip.style.left = Math.max(6, x) + 'px';
+        tip.style.top = Math.max(6, y) + 'px';
+      });
+      g.addEventListener('mouseleave', function(){ tip.style.opacity = '0'; });
+      g.addEventListener('focus', function(){ tip.innerHTML = g.getAttribute('data-tip'); tip.style.left = '18px'; tip.style.top = '34px'; tip.style.opacity = '1'; });
+      g.addEventListener('blur', function(){ tip.style.opacity = '0'; });
+    });
+  }
+
+  /* public API for the voice module */
+  window.AIREVDECK = {
+    go: go,
+    next: function(){ go(idx + 1, 1); },
+    prev: function(){ go(idx - 1, -1); },
+    get index(){ return idx; },
+    get count(){ return slides.length; },
+    slide: function(i){ return slides[i == null ? idx : i]; },
+    onChange: function(cb){ if (typeof cb === 'function') listeners.push(cb); }
+  };
+
+  /* deep link */
+  var h = parseInt((location.hash || '').replace(/[^0-9]/g, ''), 10);
+  var start = (!isNaN(h) && h >= 1 && h <= slides.length) ? h - 1 : 0;
+  go(start, 1);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "airev-strategic-overview-app",
+  "version": "2.0.0",
+  "private": true,
+  "description": "AIREV — Strategic Overview for the Chairman. Interactive presentation web app with voice narration.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
