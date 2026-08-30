@@ -1,0 +1,22 @@
+{
+  "name": "airev-strategic-overview-app",
+  "private": true,
+  "version": "2.1.0",
+  "description": "AIREV — Strategic Overview for the Chairman. Single-file interactive deck with voice narration, live dilution model, HubSpot pipeline deep dive and post-money runway view.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node scripts/deck-check.mjs",
+    "lint": "node scripts/deck-check.mjs && eslint .",
+    "build": "node scripts/build.mjs",
+    "test": "npm run lint && npm run build"
+  },
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0"
+  }
+}
