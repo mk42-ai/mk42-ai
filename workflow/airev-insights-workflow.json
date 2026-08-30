@@ -1,0 +1,42 @@
+{
+  "workflowId": "6a93fafbccfc34e5ad071e66",
+  "name": "AIREV Insights \u2014 Voice Assistant Live Context",
+  "status": "active",
+  "activationVerified": true,
+  "createdUtc": "2026-08-30T09:43:03Z",
+  "trigger": {
+    "type": "webhook"
+  },
+  "executeUrl": "https://gateway.on-demand.io/automation/public/v1/webhook/workflow/6a93fafbccfc34e5ad071e66/execute",
+  "payloadEnvelope": {
+    "payload": {
+      "action": "ask|narrate|start|stop",
+      "question": "<optional presenter question>",
+      "slideIndex": 1,
+      "slideTitle": "<current slide>"
+    }
+  },
+  "liveContext": [
+    {
+      "source": "HubSpot CRM (contacts, companies, deals)",
+      "pluginId": "plugin-1788071049"
+    },
+    {
+      "source": "User file directory (semantic file retrieval)",
+      "pluginId": "plugin-1743257072"
+    },
+    {
+      "source": "Zoho Mail (search + summarize inbox)",
+      "pluginId": "plugin-1784351533",
+      "credentialStatus": "connected \u2014 active company OAuth configuration (no credentials stored in this repo)"
+    }
+  ],
+  "delivery": [
+    {
+      "channel": "email",
+      "addresses": [
+        "mk@airev.ae"
+      ]
+    }
+  ]
+}
