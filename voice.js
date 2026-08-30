@@ -90,6 +90,28 @@
   var ICON_PLAY = '<svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M3 2.2v9.6l8-4.8z"/></svg>';
   var ICON_PAUSE = '<svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg>';
 
+
+  /* ---------- AIREV Insights workflow wiring (live context: HubSpot CRM,
+     file directory, Zoho Mail). Fire-and-forget context pings; failures
+     never affect narration. Workflow: 6a93fafbccfc34e5ad071e66 (active). ---------- */
+  var INSIGHTS_EXECUTE_URL = 'https://gateway.on-demand.io/automation/public/v1/webhook/workflow/6a93fafbccfc34e5ad071e66/execute';
+  function insightsPing(action) {
+    try {
+      var s = window.AIREVDECK.slide();
+      fetch(INSIGHTS_EXECUTE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ payload: {
+          action: action,
+          slideIndex: window.AIREVDECK.index + 1,
+          slideTitle: s ? (s.getAttribute('data-title') || '') : '',
+          workflow: 'AIREV Insights',
+          source: 'airev-chairman-deck-v2'
+        } })
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
   /* ---------- state ---------- */
   var live = false;          // narration mode on/off
   var auto = true;           // auto-narrate on slide change
@@ -228,7 +250,7 @@
     live = !live;
     orb.setAttribute('aria-pressed', String(live));
     orb.setAttribute('aria-label', live ? 'Stop voice narration' : 'Start voice narration');
-    if (live) { narrate(); } else { stopAll(); playBtn.disabled = true; replayBtn.disabled = true; setStatus('Voice off — tap the orb'); }
+    if (live) { insightsPing('start'); narrate(); } else { insightsPing('stop'); stopAll(); playBtn.disabled = true; replayBtn.disabled = true; setStatus('Voice off — tap the orb'); }
   });
 
   playBtn.addEventListener('click', function () {
