@@ -6,6 +6,17 @@ const path = require('path');
 const PORT = process.env.PORT || 5173;
 const HOST = process.env.HOST || '0.0.0.0';
 const FILE = path.join(__dirname, 'index.html');
+const ASSETS_DIR = path.join(__dirname, 'assets');
+
+// Content types for the on-disk assets we actually serve (deal banners etc).
+const ASSET_CONTENT_TYPES = {
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.webp': 'image/webp'
+};
 
 const server = http.createServer((req, res) => {
   const url = (req.url || '/').split('?')[0];
@@ -29,6 +40,32 @@ const server = http.createServer((req, res) => {
     res.writeHead(204);
     return res.end();
   }
+  // Deal images (and anything else dropped under assets/) are served straight
+  // off disk. The path is normalized and traversal-guarded so a crafted
+  // "/assets/../server.js" style URL can never escape the assets directory.
+  if (url.startsWith('/assets/')) {
+    const rel = decodeURIComponent(url.slice('/assets/'.length));
+    const resolved = path.normalize(path.join(ASSETS_DIR, rel));
+    if (resolved !== ASSETS_DIR && !resolved.startsWith(ASSETS_DIR + path.sep)) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      return res.end('not found');
+    }
+    return fs.readFile(resolved, (err, buf) => {
+      if (err) {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        return res.end('not found');
+      }
+      const ext = path.extname(resolved).toLowerCase();
+      const contentType = ASSET_CONTENT_TYPES[ext] || 'application/octet-stream';
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Cache-Control': 'no-store',
+        'Content-Length': buf.length
+      });
+      res.end(buf);
+    });
+  }
+
   if (/\.(?:js|css|png|jpe?g|gif|svg|webp|ico|json|map|woff2?)$/i.test(url)) {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     return res.end('not found');

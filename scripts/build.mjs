@@ -43,6 +43,27 @@ for (const [src, name] of artefacts) {
   console.log(`  + dist/${name.padEnd(48)} ${bytes(buf.length)}`);
 }
 
+/* ---------- 2b. copy local assets (deal images etc.) into dist/ ---------- */
+const ASSETS_SRC = path.join(ROOT, 'assets');
+let assetCount = 0;
+if (fs.existsSync(ASSETS_SRC)) {
+  const copyTree = (from, to) => {
+    ensureDir(to);
+    for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+      const s = path.join(from, entry.name);
+      const d = path.join(to, entry.name);
+      if (entry.isDirectory()) { copyTree(s, d); continue; }
+      const buf = fs.readFileSync(s);
+      fs.writeFileSync(d, buf);
+      total += buf.length;
+      assetCount += 1;
+      console.log(`  + dist/${path.relative(DIST_DIR, d).padEnd(48)} ${bytes(buf.length)}`);
+    }
+  };
+  copyTree(ASSETS_SRC, path.join(DIST_DIR, 'assets'));
+  console.log(`  assets: ${assetCount} file(s) copied into dist/assets/`);
+}
+
 fs.writeFileSync(
   path.join(DIST_DIR, 'build-info.json'),
   JSON.stringify(

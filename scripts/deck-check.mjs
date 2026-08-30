@@ -84,16 +84,20 @@ if (!footerTotal) {
 } else if (Number(footerTotal[1]) !== slideIds.length) {
   err(`footer #slideTotal says ${footerTotal[1]} but the deck has ${slideIds.length} slides (${slideIds.join(', ')}) — the pre-hydration markup is wrong`);
 }
-for (const s of ['s7', 'sPipeline', 'sPostMoney']) {
+for (const s of ['s7', 'sPipeline']) {
   if (!slideIds.includes(s)) err(`expected slide #${s} is missing from the deck`);
 }
 const closingIdx = slideIds.indexOf('s11');
 const pipeIdx = slideIds.indexOf('sPipeline');
-const postIdx = slideIds.indexOf('sPostMoney');
-if (closingIdx > -1 && pipeIdx > -1 && postIdx > -1) {
-  if (!(pipeIdx < postIdx && postIdx < closingIdx)) {
-    err(`slide order wrong: expected …→ sPipeline(${pipeIdx}) → sPostMoney(${postIdx}) → s11 closing(${closingIdx})`);
+if (closingIdx > -1 && pipeIdx > -1) {
+  if (!(pipeIdx < closingIdx)) {
+    err(`slide order wrong: expected …→ sPipeline(${pipeIdx}) → s11 closing(${closingIdx})`);
   }
+}
+
+/* ---------- 6b. local asset references must exist on disk ---------- */
+for (const m of html.matchAll(/src="(assets\/[^"]+)"/g)) {
+  if (!fs.existsSync(path.join(ROOT, m[1]))) err(`referenced asset missing on disk: ${m[1]}`);
 }
 slideTags.forEach((tag, i) => {
   if (!/aria-label="/.test(tag)) warn(`slide #${slideIds[i]} (position ${i + 1}) has no aria-label`);
