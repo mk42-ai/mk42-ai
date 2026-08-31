@@ -2,7 +2,7 @@
   "name": "airev-strategic-overview-app",
   "private": true,
   "version": "2.1.0",
-  "description": "AIREV — Strategic Overview for the Chairman. Single-file interactive deck with voice narration, live dilution model, HubSpot pipeline deep dive and post-money runway view.",
+  "description": "AIREV — Strategic Overview prepared exclusively for B Capital. Single-file interactive deck with voice narration, live dilution model and HubSpot pipeline deep dive.",
   "main": "server.js",
   "engines": {
     "node": ">=18"
