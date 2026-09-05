@@ -1,10 +1,10 @@
 /* ==========================================================================
    AIREV deck · "Ask the deck" — collapsible RAG assistant (chat.js)
    Vanilla ES2020, no build step, no dependencies, inline SVG icons.
-   Backend: POST /api/chat (Vercel serverless function) → OnDemand chat session per
-   visitor + knowledge-plugin RAG over the scrubbed data room. The document library
-   (labels + OnDemand media ids) comes from ./library.json; downloads resolve via
-   /api/media?id=<mediaId>.
+   Backend: POST /api/chat (Vercel serverless function) → OnDemand agent (chat project
+   whose system prompt embeds the scrubbed data room) with one chat session per visitor.
+   The document library (labels + OnDemand media ids) comes from ./library.json;
+   downloads resolve via /api/media?id=<mediaId>.
    API    : window.AirevChat = { open, close, toggle, isOpen, ask, ready, library, docs, sessionId, backend }
    Events : document → chat:ready, chat:opened, chat:closed, chat:answered, chat:error
    ========================================================================== */

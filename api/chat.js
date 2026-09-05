@@ -1,19 +1,24 @@
-/* POST /api/chat — OnDemand-backed assistant for the two-year strategy deck.
+/* POST /api/chat — OnDemand-agent-backed assistant for the two-year strategy deck.
    Body: { query: string, sessionId?: string, visitorId?: string }
-   • creates an OnDemand chat session per visitor (POST /chat/v1/sessions) when no sessionId is supplied
-   • proxies the question to POST /chat/v1/sessions/{id}/query (sync, knowledge-plugin RAG)
-   • returns the grounded answer plus citation/source metadata mapped to the deck's document library.
-   GET /api/chat → health/config (no secrets). */
+   Request path (per OnDemand's live public API docs, 2026-09-05):
+     1. GET  /chat/v1/projects/{agentId}            → the agent (system prompt embeds the document registry + scrubbed data room)
+     2. POST /chat/v1/sessions { externalUserId, projectId }  → one chat session per visitor, filed in the agent
+        (a stored sessionId is re-used only if GET /chat/v1/sessions/{id} confirms it belongs to the agent)
+     3. POST /chat/v1/sessions/{id}/query           → sync, fulfillmentOnly, modelConfigs.fulfillmentPrompt = agent system prompt
+   No knowledge plugin, no media plugin and no local passage retrieval sit on this path any more.
+   The answer's "SOURCES:" line is mapped to the deck's document library for citation chips + downloads.
+   GET /api/chat → health/config (no secrets, no prompt text). */
 'use strict';
 
-const { CONFIG, createSession, submitQuery, redact } = require('./_lib/ondemand.js');
-const { retrieve } = require('./_lib/retrieve.js');
+const { CONFIG, getAgent, createSession, sessionBelongsToAgent, submitQuery, redact } = require('./_lib/ondemand.js');
 const library = require('../airev-two-year-strategy-2026-2028/library.json');
 
-const DOCS = (library.docs || []).map((d) => ({ ...d, norm: norm(d.label) }));
+/* The deck itself is one of the agent's sources (narrative + roadmap); citations of it open the deck. */
+const DECK_DOC = { id: 'deck', label: 'AIREV Two-Year Strategy 2026–2028 — interactive deck', type: 'deck', pages: null, mediaId: null, file: null, download: './' };
+const DOCS = [...(library.docs || []), DECK_DOC].map((d) => ({ ...d, norm: norm(d.label) }));
 
 function norm(s) {
-  return String(s || '').toLowerCase().replace(/\(scrubbed extract\)|\.txt$/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  return String(s || '').toLowerCase().replace(/\(scrubbed extract\)|\(narrative\)|\(roadmap[^)]*\)|\.txt$/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 }
 function tokens(s) { return new Set(norm(s).split(' ').filter((t) => t.length > 2)); }
 function similarity(a, b) {
@@ -33,6 +38,13 @@ function matchDoc(title) {
   }
   return bestScore >= 0.6 ? best : null;
 }
+function downloadFor(doc) {
+  if (!doc) return null;
+  if (doc.download) return doc.download;
+  if (doc.mediaId) return `/api/media?id=${encodeURIComponent(doc.mediaId)}`;
+  if (doc.file) return `/api/media?doc=${encodeURIComponent(doc.id)}`;
+  return null;
+}
 
 /** Split "SOURCES: a | b" off the answer and map the titles to library documents. */
 function extractCitations(answer) {
@@ -50,7 +62,7 @@ function extractCitations(answer) {
     if (seen.has(key)) return;
     seen.add(key);
     citations.push(doc
-      ? { docId: doc.id, label: doc.label, type: doc.type, pages: doc.pages || null, mediaId: doc.mediaId || null, download: doc.mediaId ? `/api/media?id=${encodeURIComponent(doc.mediaId)}` : null, source: 'sources-line' }
+      ? { docId: doc.id, label: doc.label, type: doc.type, pages: doc.pages || null, mediaId: doc.mediaId || null, download: downloadFor(doc), source: 'sources-line' }
       : { docId: null, label: rawTitle, type: null, pages: null, mediaId: null, download: null, source: 'sources-line' });
   };
   for (const t of titles) push(matchDoc(t), t);
@@ -81,11 +93,21 @@ function send(res, status, payload) {
   res.end(JSON.stringify(payload));
 }
 
+/** Re-use the visitor's session when it still belongs to the agent; otherwise open a new one inside the agent. */
+async function ensureSession(sessionId, externalUserId) {
+  if (sessionId && await sessionBelongsToAgent(sessionId)) return { sessionId, created: false };
+  return { sessionId: await createSession(externalUserId), created: true };
+}
+
 module.exports = async function handler(req, res) {
   if (req.method === 'GET') {
+    const keyConfigured = Boolean(process.env.ONDEMAND_API_KEY);
+    let agent = null, error = null;
+    if (keyConfigured) { try { agent = await getAgent(); } catch (err) { error = redact((err && err.message) || 'agent unavailable'); } }
     return send(res, 200, {
-      ok: true, backend: 'ondemand', endpointId: CONFIG.endpointId, knowledgePluginId: CONFIG.knowledgePluginId,
-      documents: DOCS.length, keyConfigured: Boolean(process.env.ONDEMAND_API_KEY)
+      ok: Boolean(agent), backend: 'ondemand-agent', agentId: CONFIG.agentId,
+      agent: agent ? { name: redact(agent.name), endpointId: agent.endpointId, promptChars: agent.promptChars, updatedAt: agent.updatedAt, fetchedAt: agent.fetchedAt } : null,
+      documents: DOCS.length - 1, keyConfigured, error
     });
   }
   if (req.method !== 'POST') { res.setHeader('Allow', 'GET, POST'); return send(res, 405, { ok: false, error: 'Method not allowed' }); }
@@ -98,39 +120,31 @@ module.exports = async function handler(req, res) {
   const startedAt = Date.now();
 
   try {
-    let sessionId = String(body.sessionId || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 64) || null;
-    let created = false;
-    if (!sessionId) { sessionId = await createSession(externalUserId); created = true; }
-
-    // Evidence passages from the same scrubbed library that was ingested into OnDemand (deterministic citations).
-    // OnDemand applies a size cap to the fulfilment prompt on the RAG path (~3.3K characters end-to-end were
-    // verified to reach the model), so the evidence is budgeted: five passages, 430 characters each.
-    const passages = retrieve(query, 5);
-    const evidence = passages.length
-      ? 'DATA-ROOM EVIDENCE (each passage starts with its exact document title; rely on these and on any retrieved documents, and cite the titles):\n' +
-        passages.map((p, i) => `[${i + 1}] # ${p.label}\n${p.text.slice(0, 430)}`).join('\n')
-      : '';
+    const agent = await getAgent();
+    const requested = String(body.sessionId || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 64) || null;
+    let { sessionId, created } = await ensureSession(requested, externalUserId);
 
     let data;
     try {
-      data = await submitQuery(sessionId, query, evidence);
+      data = await submitQuery(sessionId, query, agent);
     } catch (err) {
-      // A stale/unknown session id (e.g. cleared server-side): open a fresh session once and retry.
+      // A session that vanished between the check and the query: open a fresh one inside the agent and retry once.
       if (!created && err && (err.status === 404 || err.status === 400)) {
         sessionId = await createSession(externalUserId); created = true;
-        data = await submitQuery(sessionId, query, evidence);
+        data = await submitQuery(sessionId, query, agent);
       } else throw err;
+    }
+    if (!String(data.answer || '').trim() || data.status === 'failed') {
+      // Rare empty/failed completion: one more attempt on the same session before surfacing an error.
+      const again = await submitQuery(sessionId, query, agent);
+      if (String(again.answer || '').trim()) data = again;
+      else { const e = new Error('The assistant returned an empty answer'); e.status = 502; throw e; }
     }
 
     const parsed = extractCitations(redact(data.answer || ''));
     const seen = new Set();
     const citations = [];
     for (const c of parsed.citations) { const key = c.docId || 'raw:' + c.label; if (!seen.has(key)) { seen.add(key); citations.push({ ...c, label: redact(c.label) }); } }
-    for (const p of passages) {                                  // evidence passages the model was given, in rank order
-      if (seen.has(p.docId)) continue;
-      seen.add(p.docId);
-      citations.push({ docId: p.docId, label: redact(p.label), type: p.type, pages: p.pages, mediaId: p.mediaId, download: p.mediaId ? `/api/media?id=${encodeURIComponent(p.mediaId)}` : null, source: 'library-passage' });
-    }
     const cited = citations.filter((c) => c.docId);            // drop unmatched raw titles when we have real documents
     const finalCitations = (cited.length ? cited : citations).slice(0, 5);
     const m = data.metrics || {};
@@ -143,13 +157,12 @@ module.exports = async function handler(req, res) {
       answer: parsed.text || redact(data.answer || ''),
       citations: finalCitations,
       sourceTitles: parsed.sourceTitles.map(redact),
-      evidencePassages: passages.length,
       grounded: finalCitations.length > 0,
-      metrics: { ragTimeSec: m.ragTimeSec ?? null, fulfillmentTimeSec: m.fulfillmentTimeSec ?? null, totalTimeSec: m.totalTimeSec ?? null, inputTokens: m.inputTokens ?? null, outputTokens: m.outputTokens ?? null, apiMs: Date.now() - startedAt },
-      backend: { provider: 'ondemand', endpointId: CONFIG.endpointId, knowledgePluginId: CONFIG.knowledgePluginId }
+      metrics: { ragTimeSec: null, fulfillmentTimeSec: m.fulfillmentTimeSec ?? null, totalTimeSec: m.totalTimeSec ?? null, inputTokens: m.inputTokens ?? null, outputTokens: m.outputTokens ?? null, apiMs: Date.now() - startedAt },
+      backend: { provider: 'ondemand', mode: 'agent-system-prompt', agentId: agent.id, endpointId: agent.endpointId, promptChars: agent.promptChars }
     });
   } catch (err) {
-    const status = err && err.status === 503 ? 503 : 502;
+    const status = err && (err.status === 503 || err.status === 504) ? err.status : 502;
     return send(res, status, { ok: false, error: redact((err && err.message) || 'Upstream error'), upstreamStatus: err && err.status ? err.status : null });
   }
 };

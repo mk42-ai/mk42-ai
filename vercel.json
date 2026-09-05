@@ -2,8 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/chat.js": {
-      "maxDuration": 60,
-      "includeFiles": "airev-two-year-strategy-2026-2028/library/**"
+      "maxDuration": 60
     },
     "api/media.js": {
       "maxDuration": 20

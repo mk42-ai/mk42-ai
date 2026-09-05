@@ -29,19 +29,20 @@ npm run dev        # serves on http://0.0.0.0:4173
 - `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
 - `chat.js` / `chat.css` — collapsible assistant UI; calls `/api/chat` (OnDemand) and renders cited answers with per-document downloads
 - `library.json` — document library: label, type, pages, OnDemand media id (downloads resolve through `/api/media`)
-- `library/*.txt` — the 49 scrubbed data-room extracts that were ingested into OnDemand via the Media API (also used as evidence passages by `/api/chat`)
+- `library/*.txt` — the 49 scrubbed data-room extracts; their full text is embedded in the OnDemand agent's system prompt (they are also the downloadable copies behind the citation chips)
 - `styles.css` — design tokens (emerald / gold / Inter / Playfair; chapter cards in the OnDemand brand gradient)
 - `assets/` — hero art, press photos, charts, partner logos and OnDemand brand glyphs
 - `server.js` — zero-dependency static server
 
-## Backend (OnDemand)
+## Backend (OnDemand agent)
 
-The assistant is served by two Vercel serverless functions at the repository root:
+The assistant is served by two Vercel serverless functions at the repository root. Every call follows OnDemand's live public API documentation (Projects API, Chat API, Fulfillment Prompts, Media API — read on 2026-09-05):
 
-- `api/chat.js` — creates one OnDemand chat session per visitor (`POST /chat/v1/sessions`), submits the question with the knowledge plugin (`POST /chat/v1/sessions/{id}/query`, sync) plus budgeted evidence passages from `library/`, and returns `{answer, citations[], metrics, sessionId}`.
-- `api/media.js` — resolves a document id to a fresh OnDemand-hosted download URL (`GET /media/v1/public/file?externalUserId=…`).
+- **The agent** is an OnDemand chat project (`ONDEMAND_AGENT_ID`, default `6a9c566598ed33a866ffbf13`) whose system prompt embeds the confidentiality rules, the registry of the 15 data-room source files (their storage URLs), the deck narrative and all 49 scrubbed extracts. Nothing is uploaded through the Media API for retrieval and no knowledge plugin is attached — the data room travels inside the system prompt.
+- `api/chat.js` — reads the agent (`GET /chat/v1/projects/{agentId}`, cached per instance), opens one session per visitor filed in the agent (`POST /chat/v1/sessions` with `projectId`; a stored session is re-used only if `GET /chat/v1/sessions/{id}` confirms it belongs to the agent), then submits every typed question with `POST /chat/v1/sessions/{id}/query` (`responseMode: sync`, `fulfillmentOnly: true`, `modelConfigs.fulfillmentPrompt` = the agent's system prompt, which carries the required `Context: {context}` / `Question: {question}` variables) and returns `{answer, citations[], metrics, sessionId}`. The answer's final `SOURCES:` line is mapped to `library.json` for the citation chips.
+- `api/media.js` — resolves a document id to a fresh OnDemand-hosted download URL (`GET /media/v1/public/file?externalUserId=…`); this is the download path only, not the chat path.
 
-Configuration is environment-only: `ONDEMAND_API_KEY` (required — set on the Vercel project, never committed), optional `ONDEMAND_KNOWLEDGE_PLUGIN_ID`, `ONDEMAND_ENDPOINT_ID`, `ONDEMAND_LIBRARY_USER`. Locally: `ONDEMAND_API_KEY=… npm run dev` mounts the same handlers at `/api/*`.
+Configuration is environment-only: `ONDEMAND_API_KEY` (required — set on the Vercel project, never committed), optional `ONDEMAND_AGENT_ID`, `ONDEMAND_ENDPOINT_ID` (overrides the endpoint saved on the agent), `ONDEMAND_LIBRARY_USER`, `ONDEMAND_TIMEOUT_MS`. Locally: `ONDEMAND_API_KEY=… npm run dev` mounts the same handlers at `/api/*`.
 
 ## Confidentiality
 

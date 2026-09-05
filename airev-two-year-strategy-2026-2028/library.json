@@ -1,9 +1,9 @@
 {
  "built": "2026-09-05",
- "backend": "ondemand",
- "knowledgePluginId": "plugin-1752333751",
+ "backend": "ondemand-agent",
+ "agentId": "6a9c566598ed33a866ffbf13",
  "libraryExternalUserId": "vvip-deck-library",
- "note": "Scrubbed data-room extracts ingested into OnDemand via the Media API; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV'. Downloads resolve through /api/media.",
+ "note": "Scrubbed data-room extracts; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV'. Answers come from the OnDemand agent whose system prompt embeds the document registry and these extracts; downloads resolve through /api/media (OnDemand-hosted copies of the extracts).",
  "docs": [
   {
    "id": "im",
