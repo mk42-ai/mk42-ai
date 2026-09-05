@@ -1,0 +1,11 @@
+{
+  "name": "airev-two-year-strategy-deck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era. Interactive spatial strategy deck (no build step, no dependencies).",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=18" }
+}

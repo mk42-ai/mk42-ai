@@ -1,0 +1,199 @@
+# VVIP Sovereign JV — financial model v13 (xlsx)
+
+Source type: XLSX · — pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+Cover · VVIP Sovereign JV — FINANCIAL MODEL
+Cover · Version v13 · 3 September 2026
+Cover · MODEL OVERVIEW
+Cover · This model presents the 10-year financial outlook for the VVIP Sovereign JV across two technology delivery models and two financing structures. It covers revenue, operating costs, funding needs, partner returns and capital requirements.
+
+operating costs, funding needs, partner returns and capital requirements.
+Cover · HOW THE MODEL FLOWS
+Cover · Control & Assumptions → Demand & Compute → Engine & Monthly → Outputs & Risk
+Cover · Inputs drive demand and compute requirements, which feed the operating model, cash profile, partner returns and capital analysis.
+Cover · FOUR SCENARIOS
+Cover · Proprietary / No Facility: Proprietary delivery model without the concessional facility.
+Cover · Proprietary / Facility: Proprietary delivery model with the concessional facility.
+
+/ Facility: Proprietary delivery model with the concessional facility.
+Cover · Open-source / No Facility: Open-source delivery model without the concessional facility.
+Cover · Open-source / Facility: Open-source delivery model with the concessional facility.
+Cover · Technology route determines the operating cost profile; facility availability determines the financing structure.
+
+cost profile; facility availability determines the financing structure.
+Cover · REVENUE & GEOGRAPHY
+Cover · Platform revenue: Billable seats × AED 1,000 per seat per month; Year-1 anchor billing starts February 2027
+Cover · FDE revenue: Additional operating revenue from forward-deployed engineering
+Cover · Tenancy add-ons: Additional operating revenue from tenancy services
+Cover · UAE Base Case: 500 UAE anchor seats contracted in January 2027 + UAE share of each new seat cohort
+Cover · International Upside: International share of each new seat cohort, shown separately from the UAE Base Case
+
+share of each new seat cohort, shown separately from the UAE Base Case
+Cover · Capital note: committed capital is based on the full operating model; solvency capital is assessed separately on the subscription engine.
+Cover · WORKBOOK GUIDE
+Cover · Control: Scenario selection and headline outputs
+Cover · Assumptions: Core model inputs
+Cover · Demand: Seat trajectory and geographic split
+Cover · Compute: Infrastructure and compute requirements
+Cover · Engine: Annual economics and partner returns
+Cover · Monthly: Monthly cash profile
+Cover · Outputs: Consolidated reporting
+
+Cover · Monthly: Monthly cash profile
+Cover · Outputs: Consolidated reporting
+Cover · Risk: Committed capital and solvency analysis
+Cover · Draws: Monte Carlo calculations
+Cover · Yellow cells indicate inputs to be confirmed. All other model cells are stated assumptions or formula-driven.
+Control · Control — every toggle in the model
+Control · Scenario toggles update the integrated economics and partner returns. Committed capital is formula-driven from the four-option funding model; monthly funding and subscription-engine solvency stress are shown separately in Outputs.
+
+and subscription-engine solvency stress are shown separately in Outputs.
+Control · TOGGLES
+Control · Subscription price: 1000 | AED per seat per month
+Control · Delivery model: 2 | Open-source
+Control · Concessional facility: No
+Control · Seat geography case: 1 | UAE Base Case
+Control · Compute delivery route: 4 | 4 — first 3 operating months on open APIs; Core42 from selected sovereign start month; Month-6 owned-cluster decision gate
+Control · Sovereign capacity start month: 4 | month — Route 4 only
+Control · Switch threshold (seats) — routes 1 and 3 only: 2000 | used by routes 1 and 3 only
+
+threshold (seats) — routes 1 and 3 only: 2000 | used by routes 1 and 3 only
+Control · M0 = model start point at 1 January 2027. M1 = January 2027, the first operating month. The 500 Year-1 anchor seats are contracted in January; subscription billing begins in M2 (February 2027). Route 4 uses open APIs until the selected sovereign start month; the owned-cluster decision remains at Month 6.
+
+selected sovereign start month; the owned-cluster decision remains at Month 6.
+Control · Year-1 subscription billing start month: 2 | February 2027 — first billing month | route list (do not edit)
+Control · 1 — API first, convert at threshold
+Control · 2 — rented from the start, quality upgrade year 5
+Control · 3 — fast rented, quality converts at threshold
+Control · 4 — first 3 operating months on open APIs; Core42 from selected sovereign start month; Month-6 owned-cluster decision gate
+Control · HEADLINE — active option: geography list (do not edit)
+
+decision gate
+Control · HEADLINE — active option: geography list (do not edit)
+Control · Committed capital (AED M): 20.4 | UAE Base Case
+Control · Equity per party (AED M): 10.2 | UAE + International Upside
+Control · Concessional facility (AED M): 0
+Control · VVIP Sovereign JV partner NPV (AED M): 60.2
+Control · AIREV NPV (AED M): 30.09
+Control · Callable cash per party (MoU 2.3): To be agreed
+Control · Active option: Open-source · 1000 AED · all-equity · UAE Base Case
+Assumptions · Assumptions — every input in the model, in one place
+Assumptions · Blue font = input.
+
+— every input in the model, in one place
+Assumptions · Blue font = input. Pale yellow = external input required. Low / Base / High ranges drive the Monte Carlo on the Risk sheet.
+Assumptions · A. DELIVERY, PRICING & ANCHORS
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Anchor committed seats: seats | 500 | fact | Approximately 500 anchor seats — contracting target by end-January 2027; subscription billing starts February 2027.
+
+target by end-January 2027; subscription billing starts February 2027.
+Assumptions · VVIP Sovereign JV partner internal seats: seats | 100 | fact | VVIP Sovereign JV partner user base
+Assumptions · Subscription price: AED/seat/mo | 1000 | decision | Set on Control. A decision variable, not an uncertainty — excluded from the simulation.
+Assumptions · B.
+
+variable, not an uncertainty — excluded from the simulation.
+Assumptions · B. SEAT TRAJECTORY — start plus Year-5 and Year-10 targets
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Start seats (Year 1): seats | 500 | input | Approximately 500 anchor seats — contracted in January 2027; subscription billing starts February 2027.
+
+seats — contracted in January 2027; subscription billing starts February 2027.
+Assumptions · Proprietary — Year 5 seats: seats | 2600 | 2000 | 3000 | low | Original plan target; range is the adoption risk
+Assumptions · Proprietary — growth Years 6-10: %/yr | 0.08 | 0.04 | 0.12 | low | Steady-state growth after the launch ramp
+Assumptions · Open-source — Year 5 seats: seats | 6000 | 2000 | 8000 | low | Low / Base / High = 1% / 2% / 5% paid penetration
+
+| 6000 | 2000 | 8000 | low | Low / Base / High = 1% / 2% / 5% paid penetration
+Assumptions · Open-source — growth Years 6-10: %/yr | 0.1 | 0.05 | 0.2 | low | Steady-state growth; wider range reflects open-source network effects
+Assumptions · C. PEOPLE
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Owner / signing-expert cost, fully loaded: AED/yr | 700,000 | 600,000 | 820,000 | medium | VVIP Sovereign JV partner internal salary ranges (Jul 2026)
+
+820,000 | medium | VVIP Sovereign JV partner internal salary ranges (Jul 2026)
+Assumptions · AI engineer cost, fully loaded: AED/yr | 420,000 | 420,000 | 420,000 | fact | Confirmed fully-loaded AIREV engineering cost.
+Assumptions · VVIP Sovereign JV partner seconded FTEs: x | 3 | 3 | 3 | high | Needed to own initial set of products
+Assumptions · AIREV seconded FTEs: x | 5 | 5 | 5 | fact | Five AIREV engineers in the initial secondment.
+Assumptions · D.
+
+5 | 5 | fact | Five AIREV engineers in the initial secondment.
+Assumptions · D. PLATFORM & INFRASTRUCTURE
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Platform infrastructure at 200 seats: USD/yr | 57,000 | 40,000 | 85,000 | medium | Azure Retail Prices API (uaenorth), line-by-line build-up
+Assumptions · Platform scaling exponent (sublinear): x | 0.63 | 0.45 | 0.8 | medium | Measured 57,127 at 200 seats to 147,694 at 900 seats
+Assumptions · Seat count platform base is priced at: seats | 200 | fact | Basis of the platform quote
+
+platform base is priced at: seats | 200 | fact | Basis of the platform quote
+Assumptions · Identity & access per seat: AED/yr | 120 | 90 | 160 | medium | Entra ID P1 equivalent
+Assumptions · FX rate: AED/USD | 3.67 | fact | Central Bank of the UAE peg
+Assumptions · Tooling, security & misc: AED/yr | 300,000 | 200,000 | 450,000 | medium | Security, observability and developer tooling
+Assumptions · Contingency on direct cost: % | 0.1 | input | Policy allowance; central overrun expectation
+Assumptions · E.
+
+| 0.1 | input | Policy allowance; central overrun expectation
+Assumptions · E. TOKEN DEMAND
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Pro-tier tokens per 5-hour window: tokens | 44,000 | 35,000 | 55,000 | medium | lord.technology (2026)
+Assumptions · Sessions per workday: x | 1.5 | 1 | 2 | low | VVIP Sovereign JV partner estimate
+Assumptions · Power-user multiplier: x | 20 | fact | Max 20x tier
+Assumptions · Very-serious multiplier: x | 10 | fact | Max 10x tier
+
+20x tier
+Assumptions · Very-serious multiplier: x | 10 | fact | Max 10x tier
+Assumptions · Casual (free) tokens per day: tokens | 22,000 | 15,000 | 30,000 | low | Free-tier estimate
+Assumptions · Share — power users: % | 0.1 | input | VVIP Sovereign JV partner observed mix
+Assumptions · Share — very serious: % | 0.3 | input | VVIP Sovereign JV partner observed mix
+Assumptions · Share — regular: % | 0.3 | input | VVIP Sovereign JV partner observed mix
+Assumptions · Share — casual: % | 0.3 | input | VVIP Sovereign JV partner observed mix
+
+· Share — casual: % | 0.3 | input | VVIP Sovereign JV partner observed mix
+Assumptions · Output share of tokens: % | 0.45 | 0.35 | 0.55 | medium | Context plus generation split
+Assumptions · Days per year: days | 365 | fact | Annualised over the full year
+Assumptions · F. COMPUTE — HARDWARE, ROUTES & API
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Fast model throughput (V4-Flash): tok/s/GPU | 1200 | 900 | 1500 | medium | H200; 13B active parameters
+Assumptions · Fast model replica: GPUs | 8 | fact | 284B fits one 8-GPU node
+
+Assumptions · Fast model replica: GPUs | 8 | fact | 284B fits one 8-GPU node
+Assumptions · Quality 1T throughput: tok/s/GPU | 400 | 300 | 500 | medium | SemiAnalysis InferenceX, 1T MoE on H200
+Assumptions · Quality 1T replica: GPUs | 8 | fact | 1T fits one node
+Assumptions · Quality 3T throughput (Kimi K3): tok/s/GPU | 400 | 300 | 500 | medium | 1T-class decode
+Assumptions · Quality 3T replica: GPUs | 64 | fact | 2.8T needs rack-scale, about eight nodes
+Assumptions · Kimi K3 (3T) start year: year | 5 | input | Quality pool moves to 3T from this year
+
+K3 (3T) start year: year | 5 | input | Quality pool moves to 3T from this year
+Assumptions · H200 reserved rental (Core42): $/GPU-hr | 2.5 | 2.3 | 3.4 | medium | Reserved sovereign H200 capacity rate used for the Core42 hosting case.
+Assumptions · GPU utilisation: % | 0.5 | 0.4 | 0.65 | medium | Production LLM serving runs 40-65% (spheron.network 2026)
+Assumptions · Router share to the fast pool: % | 0.8 | 0.7 | 0.9 | medium | Routine work directed to the fast model
+Assumptions · Peak hours per year: h | 2080 | fact | Business hours
+Assumptions · Shoulder hours per year: h | 1040 | fact
+
+| fact | Business hours
+Assumptions · Shoulder hours per year: h | 1040 | fact
+Assumptions · Off-peak hours per year: h | 5640 | fact | Nights and weekends
+Assumptions · Token share — peak: % | 0.6 | input | Demand concentration
+Assumptions · Token share — shoulder: % | 0.25 | input
+Assumptions · Token share — off-peak: % | 0.15 | input
+Assumptions · V4-Flash API — input: $/Mtok | 0.14 | 0.11 | 0.18 | high | DeepSeek API docs, cache-miss list rate
+Assumptions · V4-Flash API — output: $/Mtok | 0.28 | 0.22 | 0.36 | high | DeepSeek API docs
+
+V4-Flash API — output: $/Mtok | 0.28 | 0.22 | 0.36 | high | DeepSeek API docs
+Assumptions · Kimi K3 API — input: $/Mtok | 3 | 2.4 | 3.8 | high | Moonshot Kimi platform, cache-miss list rate
+Assumptions · Kimi K3 API — output: $/Mtok | 15 | 12 | 19 | high | Moonshot Kimi platform
+Assumptions · G. DATA SUBSCRIPTIONS
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Wave-1 core data (5 sources): USD/yr | 47,240 | 38,000 | 58,000 | medium | Devex, Moody's Orbis, OpenSanctions, EM-DAT, Candid
+
+38,000 | 58,000 | medium | Devex, Moody's Orbis, OpenSanctions, EM-DAT, Candid
+Assumptions · Wave-2 additions (15 sources): USD/yr | 210,753 | 160,000 | 270,000 | low | ACLED, EIU, Preqin, IEA, IHME, UN Comtrade
+Assumptions · Wave-3 buffers: USD/yr | 4850 | 3000 | 7000 | low | OpenAlex overflow, UN Tourism, IUCN
+Assumptions · Wave-2 start year: year | 3 | input | Second data wave gated on usage evidence
+Assumptions · Data-subscription escalation (Yr4+): %/yr | 0.05 | 0.03 | 0.08 | medium | Typical enterprise renewal uplift 3-8%
+
+%/yr | 0.05 | 0.03 | 0.08 | medium | Typical enterprise renewal uplift 3-8%
+Assumptions · Wave-2 phase-in — Year 1: % | 0.2205 | input | Reproduces the agreed Year-1 data spend
+Assumptions · Wave-2 phase-in — Year 2: % | 0.7779 | input | Reproduces the agreed Year-2 data spend
+Assumptions · H. OVERHEADS & FINANCING
+Assumptions · Input: Unit | Base | Low | High | Confidence | Source / basis
+Assumptions · Customer support & success: % revenue | 0.09 | 0.06 | 0.12 | medium | SaaS support/success opex benchmark
+
+% revenue | 0.09 | 0.06 | 0.12 | medium | SaaS support/success opex benchmark
+Assumptions · Go-to-market — proprietary: % ext revenue | 0.1 | 0.07 | 0.14 | medium | Enterprise sales motion
+Assumptions · Go-to-market — open-source: % ext revenue | 0.22 | 0.16 | 0.28 | medium | Open-core motion carries heavier GTM

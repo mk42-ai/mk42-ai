@@ -1,0 +1,433 @@
+# AIREV Investment Memorandum — Series A2 (Aug 2026)
+
+Source type: PDF · 12 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+The Sovereign Harness — the Agentic
+Operating System for the Sovereign AI Era
+INVESTMENT MEMORANDUM
+Series A2 | Prepared to support the Investment Committee evaluation of Further Ventures
+August 2026
+STRICTLY CONFIDENTIAL — NOT FOR DISTRIBUTION
+Prepared by AIREV Holding Limited (ADGM) for Further Ventures Limited solely to support Investment
+Committee deliberations.
+
+Further Ventures Limited solely to support Investment
+Committee deliberations. This memorandum summarises signed commercial agreements at a level
+consistent with AIREV’s confidentiality obligations to its counterparties; underlying agreements and the
+company financial model are available in the data room under NDA. Financial projections are
+management-prepared (base case) and unaudited.
+
+1.  Executive summary
+It took 2.5 years of R&D to build the sovereign harness. The product is the first moat, the factory pre-load
+distribution is the second — and 2026 revenue is entirely platform licensing.
+
+distribution is the second — and 2026 revenue is entirely platform licensing.
+2.5 years of R&D built what does not otherwise exist in this region: OnDemand, a hybrid agentic AI
+operating system — the sovereign harness — that runs on-device, on-premise, air-gapped or in cloud with
+no cloud dependency, carrying 300+ pre-built agents, 3,000+ tools and ~97K verified users, certified SOC 2
+Type I & II and ISO 27001:2022, and validated through engineering- and legal-grade diligence at Qualcomm,
+Intel and Tenstorrent — all three signed.
+Product-market fit is proven and paid for.
+
+and Tenstorrent — all three signed.
+Product-market fit is proven and paid for. Revenue moved from ~USD 1.0M of raw professional services in
+year one to ~USD 1.2M of services delivered on the OnDemand platform in 2025 — including the
+competitively won, fully delivered USD 250K Statement of Work for Qualcomm Technologies, Inc. (SOW
+AIR-626951) — and steps up to USD 6.0M in 2026, all of it platform licensing revenue: per-device royalties,
+enterprise licenses and perpetual licenses. The services era is over; it did its job.
+Distribution is manufactured , not bought.
+
+era is over; it did its job.
+Distribution is manufactured , not bought. Under the signed Qualcomm TLA, OnDemand is factory pre-
+loaded across five silicon families at USD 100 per activated unit, perpetual; the signed Intel collaboration
+carries the offline harness onto Intel AI PCs at the Panther Lake launch. The financial model has 111,000
+devices carrying OnDemand by end-2026, compounding to ~1.05M by 2029.
+
+111,000
+devices carrying OnDemand by end-2026, compounding to ~1.05M by 2029.
+T he channel layer is signed on every axis: Core42 (G42) and ADQ master services agreements anchor the
+domestic sovereign estate; Redington Gulf distributes across eight MENA markets plus the whole of Africa
+on a published price card; Alpha Data resells a white-label OnDemand across the UAE under a signed MoU;
+World Wide Technology (WWT) — one of the world’s largest technology resellers — is countersigned as an
+authorized reseller, opening its global enterprise base and US public-sector contracting rails; WISER
+
+its global enterprise base and US public-sector contracting rails; WISER
+Technology delivers into Europe; Tenstorrent co-sells a joint hardware-plus-harness Integrated Offering
+globally.
+S overeign-grade governance. H.E. Dr. Thani bin Ahmed Al Zeyoudi, UAE Minister of Foreign Trade, serves
+as Non-Executive Chairman; the institutional cap table is anchored in the Abu Dhabi ecosystem.
+T he ask is the model’s output, checked against the market.
+
+Dhabi ecosystem.
+T he ask is the model’s output, checked against the market. AIREV’s financial model prices Series A2
+at USD 200M pre-money on a conservative 6.32x multiple of FY2029 contracted exit ARR, with a DCF cross-
+check 15% higher at USD 229M — while agentic-AI peers fund at ~40–100x+ current ARR (LangChain USD
+1.25B; n8n USD 2.5B; Sierra USD 10B; Glean USD 7.2B; Cognition USD 26B). At ~33x 2026 licensing revenue,
+the entry sits ~45% below the peer median.
+2.  Investment thesis: the sovereign harness
+Models commoditise; the harness compounds.
+
+thesis: the sovereign harness
+Models commoditise; the harness compounds. The sovereign segment of the harness market has exactly
+one purpose-built supplier between Europe and Asia — and it took 2.5 years to build.
+Agent = Model + Harness . Enterprises do not deploy raw models; they deploy agents — a model wrapped in
+orchestration, tools, data access, governance and audit. The harness holds the customer as models rotate
+underneath it. OnDemand is that harness, packaged as an operating system.
+Sovereignty is the wedge — and it cannot be retrofitted .
+
+an operating system.
+Sovereignty is the wedge — and it cannot be retrofitted . Government and regulated-enterprise buyers in
+the GCC and the Global South require AI inside their perimeter. Cloud-first Western platforms would need
+years of re-architecture to run air-gapped; OnDemand was engineered for it from day one — verified air-
+gapped on the edge, validated on Intel Core Ultra, fully offline on AI PCs. The 2.5-year R&D lead is the entry
+barrier.
+
+Ultra, fully offline on AI PCs. The 2.5-year R&D lead is the entry
+barrier.
+
+The market is large and compounding: AI-agents market estimated at USD 7.84B in 2025, projected to USD
+52.62B by 2030 at a 46.3% CAGR (MarketsandMarkets, 2025).
+Timing: the UAE’s July 2026 move into US EAR Country Group A:5 eases approved access to advanced US
+AI technology — and AIREV is already the agentic OS layer on Qualcomm-based sovereign infrastructure
+programmes, with the silicon relationships signed.
+3.
+
+sovereign infrastructure
+programmes, with the silicon relationships signed.
+3.  Company snapshot
+Muhammed Khalid
+CEO & Founder
+Youssef Youssef
+COO & Co-Founder
+Kayaan Unwalla
+CSO & Co-Founder
+H.E. Dr. Thani bin Ahmed Al Zeyoudi
+UAE Minister of Foreign Trade —
+Non-Executive Chairman
+4.  The product: 2.5 years of R&D, compounded
+The harness is not a wrapper — it is an operating system built layer by layer over 2.5 years, and its depth is
+documented inside counterparties’ own signed agreements.
+
+and its depth is
+documented inside counterparties’ own signed agreements.
+4.1  What OnDemand is
+As recorded in the signed Intel MOU, OnDemand transforms a machine into “a
+complete, sovereign, and enterprise-grade AI development and deployment platform”
+— an Agentic AI Operating System spanning five layers:
+
+4.2  What the 2.5 years of engineering effort bought
+The hybrid deployment engine peers deferred: one codebase running on-device, on-premise, air-gapped
+and in cloud — the single hardest architectural constraint in the category, and the one sovereign buyers pay
+for.
+
+architectural constraint in the category, and the one sovereign buyers pay
+for.
+Hardware-level optimisation, proven by the vendors themselves: Intel-approved benchmarks show up to
+94% better time-to-first-token and up to 94% better LLM performance on Core Ultra X7 358H vs Core Ultra 7
+265H (54% / 18% vs 268V); two joint white papers published with Intel; certified images per Qualcomm
+platform delivered under the TLA.
+
+with Intel; certified images per Qualcomm
+platform delivered under the TLA.
+A production update machine, not a demo: quarterly releases validated against every eligible hardware
+profile, delivered OTA and as offline ISO — contracted for 36 months under the Qualcomm license, with a
+99.9% activation-infrastructure SLA.
+A compliance estate most startups never build: SOC 2 Type I & II and ISO 27001:2022, plus the IP-title, no-
+restrictive-code, privacy and third-party-software warranty standard demanded by a US tier-1 licensor.
+
+and third-party-software warranty standard demanded by a US tier-1 licensor.
+S cale in production: ~97K verified users; Agent Compute Runtime launched with 50 day-zero skills; the
+marketplace, builder and orchestration layers hardened by live enterprise workloads.
+And the investment continues: the financial model carries a dedicated R&D line alongside a capitalized
+platform-development programme — the harness compounds while competitors start from zero.
+
+programme — the harness compounds while competitors start from zero.
+Paid PMF from year one: customers paid for outcomes delivered on the platform before any distribution
+agreement existed — culminating in Qualcomm’s SOW AIR-626951 (USD 250K, Q1 2025), delivered on schedule:
+OnDemand ported to Cloud AI 100 Ultra and integrated into the Qualcomm AI Inference Suite and Playground.
+5.
+
+Ultra and integrated into the Qualcomm AI Inference Suite and Playground.
+5.  The first moat: the product
+Silicon vendors do not sign perpetual licenses for slideware — the deepest diligence AIREV has faced was
+run by Qualcomm’s, Intel’s and Tenstorrent’s own engineering and legal teams, and all three signed.
+Code-level validation . The Qualcomm TLA grants QTI source-code scan rights (Open Source Review by
+Qualcomm’s SAST and legal teams) with termination-and-refund remedies for non-compliance.
+
+SAST and legal teams) with termination-and-refund remedies for non-compliance. Clearing that
+bar — warranties on IP title, no restrictive code, privacy and third-party software — is itself a moat signal.
+Hybrid + air-gapped capability peers lack . Cloud-first peers cannot serve air-gapped sovereign estates;
+OnDemand’s hybrid engine is licensed, not roadmapped — written into the Qualcomm license scope and the
+Intel deliverables.
+
+— written into the Qualcomm license scope and the
+Intel deliverables.
+36-month contractual entrenchment : L1–L3 support, quarterly validated updates and activation-
+infrastructure SLAs lock the harness into counterparties’ operating cadence for years.
+White-label, sublicensing and marketplace rights under the Qualcomm license extend reach through
+partners without AIREV’s own salesforce.
+
+6.  Commercial traction — the signed facts
+Every claim in this section traces to an executed document available in the data room.
+
+7.
+
+in this section traces to an executed document available in the data room.
+
+7.  Revenue: services proved the platform — licensing now scales it
+Each revenue year is a different business: year one sold hours, 2025 sold the platform through services, and
+2026 is entirely platform licensing.
+7.1  The 2026 licensing engine — correlated to the financial model
+7.2  Royalty unit economics
+The Qualcomm license is uniform at USD 100 per activated unit across all five silicon families — AI PCs, edge
+
+at USD 100 per activated unit across all five silicon families — AI PCs, edge
+servers, industrial gateways, AR glasses and hyperscale inference cards — at near-zero marginal cost of delivery:
+Redington renewals at ~35% of year-1 license fees convert channel sales into a recurring annuity; the per-unit
+structure carries no procurement friction, which is precisely what makes factory pre-load across five product lines
+feasible.
+
+7.3  Trajectory — AIREV financial model, base case
+AIREV financial model (base case), management-prepared, available in the data room.
+
+financial model (base case), management-prepared, available in the data room. 2026 revenue is the platform-licensing base per management; 2027–2029 are
+model projections. The company is EBITDA-positive from 2026; gross revenue retention is 100% across the horizon.
+8.  The second moat: distribution manufactured into the silicon
+Software companies buy distribution customer by customer; AIREV manufactured it into the devices.
+Displacing a factory pre-loaded OS requires re-manufacturing, not re-procurement.
+OnDemand is not sold device-by-device — it ships inside them.
+
+re-procurement.
+OnDemand is not sold device-by-device — it ships inside them. Under the signed Qualcomm TLA, the harness
+is pre-loaded during OEM manufacturing (golden image, firmware integration, Kubernetes-native activation
+across the AI200/AI250 rack line), and every activated unit generates USD 100 of perpetual license revenue at
+near-zero marginal cost. The signed Intel collaboration mirrors the motion on Intel AI PCs: a fully offline
+OnDemand for Windows, OpenVINO-optimised, timed to the Panther Lake launch with a six-month client-
+market marketing exclusivity.
+
+the Panther Lake launch with a six-month client-
+market marketing exclusivity. The channel layer then pulls the pre-loaded estate through to sovereign and
+enterprise buyers.
+THE DISTRIBUTION MOAT
+One OS, pre-loaded at the factory — sold by the silicon, pulled by the channel
+
+8.1  The distribution vectors
+8.2  The domestic anchor
+Core42 (G42): MSA in place since 2024 — a SOW framework under which Core42 procures AIREV services for
+the benefit of the entire Core42/G42 group; ecosystem anchor and primary domestic channel.
+
+of the entire Core42/G42 group; ecosystem anchor and primary domestic channel.
+ADQ: MSA signed 10 July 2025 with pre-agreed rate card and OnDemand platform pricing (SaaS from USD
+10K/month); deliverables shareable across ADQ affiliates and Abu Dhabi government entities — the sovereign-
+wealth operating layer.
+Government and enterprise delivery: multi-agent architectures and enterprise programmes for Abu Dhabi
+entities delivered through the G42 ecosystem channel.
+
+programmes for Abu Dhabi
+entities delivered through the G42 ecosystem channel.
+Sovereign programmes: OnDemand positioned as the agentic OS layer on Qualcomm-based sovereign AI
+infrastructure programmes in international markets — the domestic footprint is the reference estate for the
+Global South.
+
+9.  Valuation: priced by the model, checked against the market
+Two independent methods inside AIREV’s own financial model land on or above USD 200M — and the peer
+market prices comparable platforms at multiples AIREV is not asking for.
+
+peer
+market prices comparable platforms at multiples AIREV is not asking for.
+9.1  The model prices the round
+9.2  Peer group — agentic platforms and harnesses
+Sources: techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation · pitchbook.com/news/articles/ai-agent-startup-n8n-lands-2-5b-
+valuation-with-180m-series-c · bloomberg.com/news/articles/2025-09-04/bret-taylor-s-ai-startup-sierra-reaches-10-billion-valuation · techcrunch.com/2025/11/21/bret-
+
+· techcrunch.com/2025/11/21/bret-
+taylors-sierra-reaches-100m-arr-in-under-two-years · glean.com/press/glean-raises-150m-series-f-at-7-2b-valuation · sacra.com/c/cognition · forbes.com (Writer, Nov 2024)
+· techcrunch.com/2024/11/28/ai-agent-startup-dev-agents-has-raised-a-massive-56m-seed-round-at-a-500m-valuation. Peer ARR figures are press-reported estimates
+at/near the round date; multiples are illustrative round-valuation ÷ reported ARR.
+9.3  Triangulation
+Peer multiple with a quality haircut. 2026 revenue is 100% licensing — the like-for-like comparison peers
+claim with “ARR”.
+
+is 100% licensing — the like-for-like comparison peers
+claim with “ARR”. Even at the peer-floor ~38x (Writer), USD 6.0M of licensing revenue supports USD 228M; at
+the ~60x median it supports USD 360M. The ask is 33x.
+T he /dev/agents anchor. The market paid USD 500M for an agent-OS team with no product and no revenue.
+AIREV, at 40% of that price, brings ~USD 2.2M of delivered revenue, 2.5 years of R&D embodied in a certified
+product, and signed distribution with Qualcomm, Intel, Tenstorrent, Redington, Core42 (G42) and ADQ.
+S trategic scarcity.
+
+Intel, Tenstorrent, Redington, Core42 (G42) and ADQ.
+S trategic scarcity. For an Abu Dhabi IC specifically: AIREV is the region’s agentic-OS asset — chaired by the
+UAE Minister of Foreign Trade, under signed MSAs with Core42 (G42) and ADQ, and embedded with the US
+silicon partners — Qualcomm, Intel, Tenstorrent — anchoring the UAE’s post-A:5 AI build-out.
+
+9.4  Sensitivity — the model’s own multiple grid (USD M)
+Multiple grid as computed in the AIREV financial model (Valuation sheet); DCF sensitivity across WACC 16–24% and terminal growth 2–4% spans USD 202M–416M.
+10.
+
+across WACC 16–24% and terminal growth 2–4% spans USD 202M–416M.
+10.  Proposed transaction
+Appendix A.  Agreement abstracts
+One-paragraph abstracts of each executed instrument; full texts in the data room. Summaries are provided
+under the confidentiality frameworks of the underlying agreements and are for IC use only.
+A.1  Qualcomm Technologies, Inc. — Statement of Work AIR-626951 (eff.
+
+use only.
+A.1  Qualcomm Technologies, Inc. — Statement of Work AIR-626951 (eff. 31 Jan 2025)
+Fixed-scope SOW under QTI’s procurement terms: AIREV to integrate OnDemand into Qualcomm Playground,
+develop agent/workflow/key-management/playground/media APIs executing on Cloud AI 100 Ultra within the
+Qualcomm AI Inference Suite, deliver customised documentation and UI dashboards, and joint go-to-market
+introductions. USD 250,000 in two milestones. Delivered Q1 2025.
+A.2  Qualcomm Technologies, Inc. — Technology License Agreement (eff.
+
+Q1 2025.
+A.2  Qualcomm Technologies, Inc. — Technology License Agreement (eff. 1 Jun 2026)
+Perpetual, worldwide, sublicensable (as expressly permitted), non-exclusive license of the AIREV Agentic OS
+technology package to QTI for use in and with QTI products across Snapdragon X, Cloud AI 100/Ultra,
+Dragonwing IQ-X, Snapdragon XR2/AR1 and AI200/AI250 platforms, including distribution through multiple
+tiers and factory pre-load. USD 100 per activated unit pay-as-you-go (volume tiers USD 90 / USD 80 /
+negotiated), no upfront fee.
+
+unit pay-as-you-go (volume tiers USD 90 / USD 80 /
+negotiated), no upfront fee. AIREV obligations: certified images per platform within 30 days; L1–L3 support and
+quarterly validated updates for 36 months; AR/VR smart-glasses runtime R&D; 99.9% activation-server SLA;
+SOC 2 Type II maintenance. R&D and platform-enablement work is carved out to separately negotiated SOWs.
+California law; UNCITRAL arbitration (San Diego).
+
+A.3  Intel Corporation (UK) Ltd — AI PC MOU (eff.
+
+arbitration (San Diego).
+
+A.3  Intel Corporation (UK) Ltd — AI PC MOU (eff. 12 Dec 2025)
+Framework (binding as to confidentiality, IP reservation, governing law — England & Wales) recording the
+engagement: develop an optimised, fully offline OnDemand for Windows on Intel XPU architectures (validated
+on Panther Lake; functional on LNL, WCL, MTL, ARL), OpenVINO integration, NPU inference, downloadable
+packaged delivery, sales demo and documentation.
+
+NPU inference, downloadable
+packaged delivery, sales demo and documentation. Intel provides engineering support, marketing/promotion
+and channel field training; joint “better-together” campaign; OnDemand offered six months of Intel AI PC client-
+market marketing exclusivity. Timeline: beta 15 Jan 2026 → production-ready offline version 26 Feb 2026 —
+delivered to timeline.
+A.4  Redington Gulf FZE — Distribution MoA (eff.
+
+2026 —
+delivered to timeline.
+A.4  Redington Gulf FZE — Distribution MoA (eff. 18 Jun 2026)
+Non-exclusive authorised distributor/reseller of OnDemand (Agentic OS) and services across UAE, Oman, KSA,
+Qatar, Kuwait, Bahrain, Jordan, Egypt and the whole of Africa. Annual license price card USD 110K (Starter 32
+seats) / USD 200K (Growth 64) / USD 360K (Scale 128+); year-2+ renewals ~35% of year 1; custom agent
+development USD 15–75K; orchestration USD 8–40K; support tiers to USD 22K; Quick Start bundles USD 125–
+520K. Margins: 8% AIREV-led, 15–20% partner-led.
+
+Quick Start bundles USD 125–
+520K. Margins: 8% AIREV-led, 15–20% partner-led. 180-day deal registration protection; 1-year term auto-
+renewing; Dubai law.
+A.5  WISER Technology Consulting EAD — Partnership MoU (signed 13/16 Feb 2026)
+Framework for promotion, sale and joint delivery of OnDemand to enterprise and government clients; WISER
+acts as non-exclusive reseller and implementation partner combining AIREV’s platform with WISER’s solution
+structuring and scaled delivery capacity; lighthouse use case to be jointly agreed; deal-registration and
+
+capacity; lighthouse use case to be jointly agreed; deal-registration and
+opportunity-protection mechanism; quarterly business reviews; 12-month initial term.
+A.6  Core42 Technology Projects L.L.C — Master Services Agreement (2024)
+MSA between Core42 Technology Projects L.L.C (G42 group) and AIREV Holdings Ltd, dated 2024 and
+countersigned by Core42’s CEO.
+
+group) and AIREV Holdings Ltd, dated 2024 and
+countersigned by Core42’s CEO. SOW framework under which Core42 requests services from AIREV, each SOW
+forming part of the Agreement; services and deliverables expressly for the benefit of the entire Core42 Group;
+non-exclusive both ways; time-of-essence milestones with liquidated damages and service credits set per SOW;
+performance bond of no less than 10% of SOW fees from a first-class Abu Dhabi bank; audit and records rights;
+England & Wales law with exclusive ADGM jurisdiction.
+
+audit and records rights;
+England & Wales law with exclusive ADGM jurisdiction.
+A.7  ADQ Management Holding Company LLC — Master Services Agreement (10 Jul 2025)
+MSA between ADQ Management Holding Company LLC and School Hack FZ-LLC (AIREV Holding Limited’s
+operating entity), ref. ADQ-GM00040-2025-00513, signed by both parties. Engagement-letter framework
+operated through ADQ’s online procurement portal.
+
+Engagement-letter framework
+operated through ADQ’s online procurement portal. Schedule 1 fixes the consultant rate card (roles priced up to
+AED 1.62M/year) and AIREV OnDemand platform pricing: custom agent tools USD 15K / 35K / 75K / 150K per
+tool by complexity; agent configuration & orchestration USD 25K / 60K / 120K; SaaS access from USD 10K per
+month covering 10,000 monthly agent tasks plus USD 1.00 per 1,000 additional tasks (3-month minimum).
+Deliverables may be shared across ADQ affiliates and Abu Dhabi government entities; Abu Dhabi law and
+courts.
+A.8  Tenstorrent USA, Inc.
+
+Dhabi government entities; Abu Dhabi law and
+courts.
+A.8  Tenstorrent USA, Inc. — Commercial Collaboration Agreement (eff. 1 Sep 2025)
+DocuSign-completed agreement between Tenstorrent USA, Inc. and AIREV Holdings Limited. The Parties
+combine Tenstorrent AI hardware and the AIREV Software into a jointly marketed Integrated Offering, with joint
+sales opportunities under a lead-registration regime and mutual referral services: AIREV pays Tenstorrent 5% of
+software-license revenue and 10% of post-sales consulting revenue from eligible referrals; Tenstorrent pays
+
+10% of post-sales consulting revenue from eligible referrals; Tenstorrent pays
+AIREV 5% of product revenue from AIREV referrals; fees capped at USD 500K per referral. Initial marketing
+commitments: co-branded GITEX and Leap presence targeting six major events/campaigns per year; AIREV to
+train 100% of Tenstorrent’s global sales team by end-2025; minimum 10 qualified leads per quarter; 5% quarter-
+on-quarter Integrated Offering revenue growth target from Q1 2026. One-year term, auto-renewing;
+Massachusetts law.
+
+growth target from Q1 2026. One-year term, auto-renewing;
+Massachusetts law.
+
+A.9  Alpha Data PJSC — White-Label Reseller MoU (signed 17 Sep / 8 Oct 2025)
+MoU between AIREV Holding Limited and Alpha Data PJSC (Dubai), signed by Alpha Data’s Chief Operating
+Officer and AIREV’s Founder/CEO. Alpha Data acts as a non-exclusive reseller of the OnDemand platform with
+white-label platform access — presenting OnDemand to its clients under Alpha Data branding within agreed
+guidelines.
+
+OnDemand to its clients under Alpha Data branding within agreed
+guidelines. AIREV provides initial and ongoing sales/technical training; the Parties run joint workshops, co-
+branded marketing and shared go-to-market campaigns targeting enterprise and government clients; Alpha
+Data owns prospecting, billing, invoicing and the client relationship; reseller margin / revenue-share structure
+agreed in a separate annex. Territory: UAE. Quarterly joint business reviews; designated partnership managers;
+IP in OnDemand remains solely with AIREV, white-label use on a license basis.
+
+IP in OnDemand remains solely with AIREV, white-label use on a license basis. 12-month initial term, renewable;
+60-day termination notice; UAE law, Dubai courts.
+A.10  World Wide Technology, LLC — Reseller Agreement (made 4 Dec 2025; countersigned 20 Jan 2026)
+Reseller Agreement between World Wide Technology, LLC (Maryland Heights, Missouri) and Airev Holding
+Limited, executed by WWT’s Chief Financial Officer and AIREV’s Founder/CEO.
+
+Limited, executed by WWT’s Chief Financial Officer and AIREV’s Founder/CEO. WWT and its affiliates are
+appointed authorized resellers of AIREV products and services in the agreed territory; pricing to WWT per
+AIREV quotations, statements of work and ordering documents, with WWT free to set its own customer-facing
+pricing; invoicing via WWT’s Coupa procurement platform on net-60 terms; one-year product/services warranty;
+supply-chain compliance representations (48 CFR 52.204-23/25).
+
+warranty;
+supply-chain compliance representations (48 CFR 52.204-23/25). Exhibit D incorporates US federal and state
+Government Contract flow-down terms (FAR/DFARS regimes) for sales made in support of US government
+contracts — establishing the contracting rails for AIREV products to reach US public-sector estates through
+WWT. One-year term, automatically renewing; Missouri law.
+Appendix B.
+
+through
+WWT. One-year term, automatically renewing; Missouri law.
+Appendix B.  Basis of preparation
+Executed documents reviewed: Qualcomm SOW AIR-626 951; Qualcomm Technology License Agreement; Intel
+AI PC MOU (DocuSign-executed); Redington Gulf MoA (DocuSign-executed); WISER Partnership MoU (signed);
+Core42 MSA (countersigned by Core42 CEO); ADQ MSA (signed by both parties); Tenstorrent Commercial
+Collaboration Agreement (DocuSign-completed); Alpha Data PJSC white-label reseller MoU (signed); World
+Wide Technology (WWT) Reseller Agreement (countersigned).
+
+MoU (signed); World
+Wide Technology (WWT) Reseller Agreement (countersigned).
+Financial data: AIREV financial model (base case), management-prepared and unaudited — revenue streams,
+ARR build, installed-device schedule, margins and the valuation methods summarised in Section 9; historical
+revenue per management accounts.
+Product metrics (users, agents, tools, benchmarks as approved by Intel, certification status) are management-
+provided.
+Peer valuation data: public press reporting as cited in Section 9; ARR figures are third-party estimates, not
+company disclosures, except where stated.
+
+are third-party estimates, not
+company disclosures, except where stated.
+Currency: USD. This memorandum is not an offer of securities and contains no audited financial statements.
+AIREV Holding Limited — Investment Memorandum | Strictly Confidential | Prepared for Further Ventures Investment Committee —
+August 2026

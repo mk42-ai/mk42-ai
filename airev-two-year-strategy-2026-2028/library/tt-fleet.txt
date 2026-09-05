@@ -1,0 +1,531 @@
+# Tenstorrent Galaxy fleet deployment map
+
+Source type: PDF · 4 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+D E P L O Y M E N T M A P · V 1 P L A N N I N G D R A F T · 2 3 A U G 2 0 2 6 · I N T E R N A L
+23-Galaxy Tenstorrent Inference Fleet
+Containerised serving of Kimi K3 (flagship) and DeepSeek V4-Flash-Vision (workhorse) at a blended 4–5M
+tokens per minute — hardware, container stack, capacity math and rollout
+BLACKHOLE CHIPS
+23 TB
+GDDR6 @ 368 TB/S AGG.
+529 PF
+BLOCK FP8 COMPUTE
+~200–230 kW
+AVG IT LOAD · 6 RACKS
+$2.9–4.4M
+ALL-IN CAPEX EST.
+
+BLOCK FP8 COMPUTE
+~200–230 kW
+AVG IT LOAD · 6 RACKS
+$2.9–4.4M
+ALL-IN CAPEX EST.
+EXECUTIVE SUMMARY
+FLEET AT A GLANCE
+POOL
+UNITS MODEL (BUILD)
+PARAMS TOT /
+ACTIVE
+PRECISION
+WEIGHTS REPLICAS
+ROLE
+Flagship
+Kimi K3 (27/07 weights)
+2.8T / ~50B
+MXFP4
+QAT
+~1.4 TB
+4× 2-unit
+pairs
+Deep reasoning & agents, 1M ctx, native
+vision
+Workhorse 13
+DeepSeek V4-Flash-0731 →
+Vision-Exp
+284B / 13B
+FP4 + FP8
+~167 GB
+13× single
+High-volume agentic, doc + chart vision,
+1M ctx
+Reserve
+Floating (either)
+Spare +
+canary
+Failover, canary releases, aux
+(embeddings, OCR, guardrails)
+Target envelope.
+
+Failover, canary releases, aux
+(embeddings, OCR, guardrails)
+Target envelope. 4–5M TPM blended (input + output, fleet-wide) = 67–83k tok/s sustained. Assumed traffic mix 80–85% input / 15–
+20% output, typical of agentic + document-vision loads; that implies ~500–800 concurrent generations at 25–35 tok/s/user with prefill
+bursts well above 0.5M tok/s. Own-cost at target utilisation models to ~$0.7–0.9 per M blended tokens over 3 years.
+
+at target utilisation models to ~$0.7–0.9 per M blended tokens over 3 years. If “4/5M TPM”
+meant per-model rather than blended total, the fleet roughly doubles — flag before ordering
+Buy 23× Galaxy Blackhole (6U air-cooled, 32 chips, 1 TB GDDR6 @ 16 TB/s, 23 PFLOPS FP8, 8–10 kW, GA since Apr 2026) —
+hardware $2.5–3.7M at $110k GA-reported vs $160k current list; negotiate supercluster rates through the Tenstorrent relationship
+Placement is forced by memory: Kimi K3’s ~1.4 TB MXFP4 weights exceed a single 1 TB system → 4 replicas on 2-unit tensor-
+
+TB MXFP4 weights exceed a single 1 TB system → 4 replicas on 2-unit tensor-
+parallel pairs (8 units); V4-Flash’s ~167 GB fits one unit with ~830 GB left for KV → 13 single-unit replicas; 2 units stay as hot
+spare + canary
+Container stack is off the shelf: tt-kmd driver → TT-Metalium runtime → vLLM Tenstorrent plugin, packaged by tt-inference-
+server as Docker images with a Helm chart on Kubernetes, fronted by an OpenAI-compatible gateway with per-tenant token
+metering
+Capacity is decode-gated: conservative kernels model 2.6–4.0M TPM blended at an 80/20 input/output mix — speculative
+
+kernels model 2.6–4.0M TPM blended at an 80/20 input/output mix — speculative
+decoding (V4-Flash ships its DSpark module; K3 has MTP) is the lever that clears the target at a modeled 4.3–6.8M TPM
+Two gates before fleet-wide commit: neither model is on Tenstorrent’s validated list yet (Kimi K2 and DeepSeek V3/R1 are) —
+run a 1-unit port benchmark then a 4-unit pilot before the full PO; and V4-Flash-Vision-Exp is API-only since 21/08 with no first-
+party weights on HF — launch on V4-Flash-0731 (MIT) and swap when vision weights land
+
+Hardware — buy list, power and racks
+02 · HARDWARE & FACILITY
+
+weights land
+
+Hardware — buy list, power and racks
+02 · HARDWARE & FACILITY
+GALAXY BLACKHOLE — UNIT SPEC (OFFICIAL)
+Accelerators
+32× Blackhole ASIC (RISC-V Tensix cores)
+Compute
+23 PFLOPS Block FP8 per system
+On-chip SRAM
+6.2 GB @ 2.9 PB/s
+DRAM
+1 TB GDDR6 @ 16 TB/s aggregate
+Internal fabric
+10× 400 GbE per ASIC — 32 TB/s Ethernet
+mesh, no proprietary interconnect
+Scale-out
+Up to 56× 800 GbE QSFP-DD — 11.2 TB/s
+(populate only what the topology needs)
+Host
+1× AMD EPYC 9004 (≤32c), ≤576 GB DDR5
+ECC, 2× 960 GB NVMe (+ optional expansion)
+Form factor
+6U rackmount, air-cooled, front-to-back
+Power
+
+optional expansion)
+Form factor
+6U rackmount, air-cooled, front-to-back
+Power
+8–10 kW avg / 12 kW max
+Price
+$160k list (Aug 2026); $110k reported at Apr GA;
+4-unit supercluster $640k list / $440k at GA
+DOES IT FIT IN MEMORY? (THIS DRIVES THE
+PLACEMENT)
+MODEL
+WEIGHTS FIT
+KV HEADROOM
+Kimi K3
+2.8T MXFP4
+~1.4 TB
+> 1 TB → 2-
+unit pair (2
+TB)
+~0.6 TB/pair; KDA linear attention
+keeps KV small → hundreds of
+100k+ streams
+V4-Flash
+284B FP4/
+FP8
+~167 GB
+Single unit
+~830 GB; CSA/HCA-compressed
+KV → thousands of doc-length
+streams, 1M-ctx jobs OK
+
+GB; CSA/HCA-compressed
+KV → thousands of doc-length
+streams, 1M-ctx jobs OK
+Host NVMe (1.92 TB stock) holds one K3 shard (~700 GB) + V4 weights +
+OS; order the internal expansion on K3 hosts for multi-model caching and fast
+re-shard
+FLEET BILL OF MATERIALS (ESTIMATES)
+ITEM
+QTY EST. COST
+Galaxy Blackhole systems
+$2.53–
+3.68M
+800G leaf switches (32-port) for pair links + spine
+$90–140k
+400G ToR / mgmt switches
+$30–50k
+Optics + DACs (800G pair DACs, 400G uplinks)
+lot
+$60–120k
+Racks, 3-phase PDUs, containment (40–50 kW/rack)
+$50–90k
+Weights/artifact storage node (~20 TB NVMe, MinIO/NFS
+
+(40–50 kW/rack)
+$50–90k
+Weights/artifact storage node (~20 TB NVMe, MinIO/NFS
++ registry)
+$40–80k
+Spares kit (PSUs, fans, optics, 1 host board)
+$50–100k
+Integration, cabling, burn-in
+$80–150k
+Total capex
+$2.9–4.4M
+FACILITY ENVELOPE
+IT load
+184–230 kW avg, 276 kW peak (units only)
+Racks
+6 — five with 4× 6U + ToR, one with 3× +
+storage/gateway
+Cooling
+Air, front-to-back; needs a 40–50 kW/rack high-
+density row or rear-door heat exchangers
+Facility power
+240–345 kW at PUE 1.3–1.5 → 2.1–3.0 GWh/yr
+Energy cost
+$190–360k/yr at $0.09–0.12/kWh (UAE
+commercial band)
+Colo alternative
+
+cost
+$190–360k/yr at $0.09–0.12/kWh (UAE
+commercial band)
+Colo alternative
+$150–250 per kW-IT/month → $415–690k/yr all-
+in
+Bandwidth
+2× diverse 10–100G internet/peering; all
+inference traffic stays in-hall
+Sequencing note. Order at P0 start: system lead + integration
+realistically 6–10 weeks post-GA — the fleet-build phase is supply-
+gated, not engineering-gated.
+
+weeks post-GA — the fleet-build phase is supply-
+gated, not engineering-gated. 800G optics are the second-longest lead
+item; pairs can run on DACs day 1
+RACK & POOL MAP — 23 UNITS + STORAGE ACROSS 6 RACKS, POOLS COLOUR-CODED
+R1 · K3 · ≤40 kW
+ToR / mgmt
+K3 pair A — unit 1
+K3 pair A — unit 2
+K3 pair B — unit 1
+K3 pair B — unit 2
+R2 · K3 · ≤40 kW
+ToR / mgmt
+K3 pair C — unit 1
+K3 pair C — unit 2
+K3 pair D — unit 1
+K3 pair D — unit 2
+R3 · V4 · ≤40 kW
+ToR / mgmt
+V4-Flash r1
+V4-Flash r2
+V4-Flash r3
+V4-Flash r4
+R4 · V4 · ≤40 kW
+ToR / mgmt
+V4-Flash r5
+V4-Flash r6
+V4-Flash r7
+V4-Flash r8
+
+r4
+R4 · V4 · ≤40 kW
+ToR / mgmt
+V4-Flash r5
+V4-Flash r6
+V4-Flash r7
+V4-Flash r8
+R5 · V4 · ≤40 kW
+ToR / mgmt
+V4-Flash r9
+V4-Flash r10
+V4-Flash r11
+V4-Flash r12
+R6 · mixed · ≤35 kW
+800G leaf pair
+V4-Flash r13
+Reserve — canary
+Reserve — hot spare
+Storage + gateway
+Kimi K3 pairs (8)
+DeepSeek V4-Flash (13)
+Reserve (2)
+Direct 800G tensor-parallel pair link (DAC)
+All units uplink 2×400G to leaf; API traffic north-south, TP traffic stays in-rack
+
+Serving stack, then the capacity math
+03 · SOFTWARE & CAPACITY
+SOFTWARE STACK, BOTTOM TO TOP (ALL OPEN SOURCE)
+LAYER
+COMPONENT
+DEPLOYMENT NOTES
+Host & driver
+
+BOTTOM TO TOP (ALL OPEN SOURCE)
+LAYER
+COMPONENT
+DEPLOYMENT NOTES
+Host & driver
+Ubuntu 22.04/24.04, tt-kmd kernel module, tt-flash
+firmware, hugepages, tt-smi, tt-topology
+tt-installer bootstraps a node in one command; bake into a golden image
+(Ansible/MAAS) for 23-node repeatability
+Runtime
+TT-Metalium / TT-NN kernel + op library; TT-Forge
+(MLIR) compile path
+Vendor line: “90% of HuggingFace models just work” — true for functionality,
+not speed; production graphs are hand-optimised per model
+Serving
+tt-inference-server: prebuilt Docker images, vLLM
+
+per model
+Serving
+tt-inference-server: prebuilt Docker images, vLLM
+Tenstorrent plugin (continuous batching, paged KV),
+SGLang plugin, benchmark workflows
+One serving container per unit exposing OpenAI-compatible endpoints; same
+image runs LLM, VLM, embedding and TTS classes
+Orchestration
+Kubernetes (RKE2/kubeadm) + tt-inference-server
+Helm chart
+1 pod : 1 Galaxy, pinned by node label; K3 = 2-node tensor-parallel over
+direct 800G links with pod affinity; devices exposed via privileged/hostPath
+— no mature official K8s device plugin yet; close this gap with TT
+Gateway
+
+— no mature official K8s device plugin yet; close this gap with TT
+Gateway
+OpenAI-compatible router (LiteLLM / Envoy), per-
+tenant quotas + token metering, priority classes,
+retry & failover to reserve pool
+Model-name routing: kimi-k3 → flagship pairs, v4-flash[-vision] →
+workhorse pool; slots straight into OnDemand ACR as a serving backend
+Weights & data
+MinIO/NFS weights store, per-host NVMe cache,
+signed manifests
+Blue-green weight rollouts: stage on reserve units → canary 5% → flip pool
+by label; ~5–10 TB versioned store is plenty
+Observability
+
+5% → flip pool
+by label; ~5–10 TB versioned store is plenty
+Observability
+Prometheus + Grafana; vLLM metrics (TTFT, TPOT,
+queue depth), tt-smi exporter (power, temps, link
+health), token accounting export
+SLOs: p50 TTFT < 2 s at 32k ctx, p95 < 6 s; per-model TPM dashboards
+feed the capacity re-plan
+CAPACITY MODEL — DECODE IS THE CONSTRAINT, SO SIZE AGAINST IT
+Method: decode is memory-bandwidth-bound → ceiling = BW ÷ active bytes/token; apply an achieved-efficiency band; prefill is compute-bound and effectively
+free at this mix.
+
+band; prefill is compute-bound and effectively
+free at this mix. All figures are engineering estimates pending P0 benchmarks — no public K3/V4-on-Galaxy numbers exist yet
+POOL
+REPLICASACTIVE BYTES /
+TOKEN
+BW PER REPLICA
+CEILING
+TOK/S
+ACHIEVED (35–
+55%)
+POOL DECODE
+TOK/S
+V4-Flash (13B act., FP4/FP8 + KV
+reads)
+13× 1 unit~10 GB
+16 TB/s
+~1,600
+560–880
+7,300–11,400
+Kimi K3 (50B act., MXFP4 + KV)
+4× 2-unit
+pair
+~27 GB
+32 TB/s (cross-node TP tax
+→ 25–40%)
+~1,185
+300–475
+1,200–1,900
+Fleet decode — base
+8,500–13,300
+…with speculative decode ×1.7 (V4
+DSpark, K3 MTP)
+14,500–22,600
+
+8,500–13,300
+…with speculative decode ×1.7 (V4
+DSpark, K3 MTP)
+14,500–22,600
+Prefill check: V4-Flash ~26 GFLOP/token → tens to hundreds of thousands of tok/s per unit burst; Tenstorrent demoed a 100k-token prompt in <4 s TTFT on a
+671B-class model. Fleet prefill ≥ 0.5M tok/s — not binding at an 80/20 mix
+BLENDED TPM — SENSITIVITY ON THE TWO DRIVERS
+OUTPUT SHARE OF MIX
+BASE KERNELS
++ SPEC-DECODE (×1.7)
+15% (prefill-heavy agents)
+3.4–5.3M
+5.8–9.0M
+20% (planning case)
+2.6–4.0M
+4.3–6.8M ✓
+30% (chat-heavy)
+1.7–2.7M
+2.9–4.5M
+Verdict.
+
+(planning case)
+2.6–4.0M
+4.3–6.8M ✓
+30% (chat-heavy)
+1.7–2.7M
+2.9–4.5M
+Verdict. The 23-unit fleet clears 4–5M blended TPM with
+speculative decoding on and an output share ≤20%. If the
+mix runs hotter: move the 2 reserve units into the V4 pool
+(+~1,300 tok/s decode), shed K3 chat traffic to V4, or add one
+supercluster.
+
+(+~1,300 tok/s decode), shed K3 chat traffic to V4, or add one
+supercluster. Quick math: 4.5M TPM = 75k tok/s; at 20%
+output that is 15k decode tok/s — inside the spec-decode band
+(14.5–22.6k)
+
+Rollout, risks and the counter-case
+04 · EXECUTION
+ROLLOUT — GATE THE FLEET PO ON P0/P1 RESULTS
+PHASE
+WINDOW
+SCOPE
+EXIT CRITERIA
+P0 Bring-up
+Wk 0–2 (Sep)
+1 unit: tt-installer, firmware, V4-Flash-0731 on vLLM-TT;
+benchmark vs the model on p3
+≥500 tok/s sustained decode; TTFT <5 s at
+100k ctx; numbers within 30% of model
+P1 Pilot
+Wk 2–6 (Sep–Oct)
+
+TTFT <5 s at
+100k ctx; numbers within 30% of model
+P1 Pilot
+Wk 2–6 (Sep–Oct)
+4-unit supercluster: K3 2-node TP port with TT engineering;
+load + chaos tests; K8s/Helm hardening
+K3 pair ≥300 tok/s; node-kill failover <60 s; 72
+h soak clean
+P2 Fleet build
+Wk 6–10 (Oct–Nov)
+All 23 racked + fabric, gateway, observability, weight pipeline,
+golden images
+Burn-in complete; synthetic 3M TPM
+sustained 24 h
+P3 Ramp
+Wk 10–14 (Nov–
+Dec)
+Production traffic to 4–5M TPM; spec-decode tuning; canary
+channel; Vision-Exp weight swap when published
+SLOs green 2 consecutive weeks at target
+TPM
+
+weight swap when published
+SLOs green 2 consecutive weeks at target
+TPM
+TOP RISKS AND MITIGATIONS
+RISK
+L / I
+MITIGATION
+Neither K3 (KDA attention) nor V4-Flash (CSA/HCA
+attention) is TT-validated; kernel/porting work of unknown
+depth
+High / High
+P0/P1 gates before fleet PO; co-engineer with Tenstorrent; fallback that keeps
+the fleet earning: Kimi K2 + DeepSeek V3/R1 are already TT-supported
+V4-Flash-Vision-Exp weights not published (API-only
+since 21/08)
+Med / Med
+Launch on 0731 text/tool build (MIT); community vision ports stay off-prod;
+swap on first-party release
+
+build (MIT); community vision ports stay off-prod;
+swap on first-party release
+Throughput model misses — no public K3/V4-on-Galaxy
+benchmarks
+Med / High
+All numbers are ceilings × efficiency, not vendor quotes; P0 result re-sizes the
+fleet (23 can flex to 16 or 28) before full commitment
+List price drifted $110k → $160k in 4 months; supply
+tightness
+Med / Med
+Lock supercluster pricing now through the TT relationship; PO at P0 start
+Software maturity — independent reviews still flag rough
+edges in the TT stack
+Med / Med
+
+— independent reviews still flag rough
+edges in the TT stack
+Med / Med
+Pin tested image versions; support contract; SGLang as the alternate serving
+path
+Single EPYC host per unit is a per-unit SPOF; 800G
+optics lead times
+Med / Low
+K8s reschedules to reserve pool; spares kit on site; DACs for pair links day 1
+COUNTER-ARGUMENTS — READ BEFORE
+COMMITTING
+ASSUMPTIONS I MADE
+SOURCES
+tenstorrent.com/hardware/galaxy · tenstorrent.com/en/solutions/llm-inference ·
+theregister.com/2026/04/28/tenstorrent_galaxy_blackhole_ai_servers_ga ·
+
+·
+theregister.com/2026/04/28/tenstorrent_galaxy_blackhole_ai_servers_ga ·
+hpcwire.com/off-the-wire/tenstorrent-announces-general-availability-of-galaxy-
+blackhole-ai-system · wccftech.com/tenstorrent-vows-to-crush-everyone-
+galaxy-blackhole-hits-350-tokens-on-deepseek-r1-undercut-nvidia-gb300-ai-
+tco · github.com/tenstorrent/tt-inference-server · huggingface.co/deepseek-ai/
+DeepSeek-V4-Flash (+ -0731, -Base) · api-docs.deepseek.com/news/
+news260821 · openrouter.ai/deepseek/deepseek-v4-flash-vision-exp ·
+huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-
+
+·
+huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-
+open-wei · huggingface.co/blog/ResterChed/deepseek-v4-flash-official-release
+· tomshardware.com (Kimi K3 weights release)
+The API undercuts you on pure $/token: DeepSeek prices V4-Flash-
+Vision at $0.22/$0.66 per M tok — ~$0.31 blended vs ~$0.7–0.9 own-cost.
+
+Vision at $0.22/$0.66 per M tok — ~$0.31 blended vs ~$0.7–0.9 own-cost.
+The fleet case rests on sovereignty, air-gap and K3-class control — which
+is the actual thesis; concede the point for non-sovereign overflow traffic
+A GPU cluster is the boring alternative: 4–6 B200/GB200-class nodes
+likely match this throughput on mature software day 1; TT wins claimed $/
+token (TT: $6 vs ~$30/M on 671B-class decode) and openness, loses
+ecosystem maturity — P0/P1 is the honest test
+24 beats 23: six clean 4-unit superclusters price, rack and pair better; the
+
+24 beats 23: six clean 4-unit superclusters price, rack and pair better; the
+23rd unit buys nothing structural — consider 24 or drop to 22
+Vision volume on the flagship: K3 already has native vision — if doc-
+vision dominates, some “workhorse” traffic may belong on K3 pairs,
+changing the 8/13 split
+“K3/3.1” = Kimi K3, 27/07 open weights; no K3.1 announced as of 23/08 —
+treated as a drop-in successor when it ships
+“Vision 22/08” = DeepSeek-V4-Flash-Vision-Exp, API launch 21/08 UTC
+(22/08 GST)
+4–5M TPM = blended input+output across the whole fleet, 80–85% / 15–
+20% mix
+
+4–5M TPM = blended input+output across the whole fleet, 80–85% / 15–
+20% mix
+Throughput figures are engineering estimates (BW ÷ bytes/token × 25–
+55%), pending P0 benchmarks; prices are public list/reported, pre-
+negotiation

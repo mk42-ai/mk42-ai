@@ -1,0 +1,499 @@
+{
+ "built": "2026-09-05",
+ "backend": "ondemand-agent",
+ "agentId": "6a9c566598ed33a866ffbf13",
+ "libraryExternalUserId": "vvip-deck-library",
+ "note": "Scrubbed data-room extracts; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV'. Answers come from the OnDemand agent whose system prompt embeds the document registry and these extracts; downloads resolve through /api/media (OnDemand-hosted copies of the extracts).",
+ "docs": [
+  {
+   "id": "im",
+   "label": "AIREV Investment Memorandum — Series A2 (Aug 2026)",
+   "type": "pdf",
+   "pages": 12,
+   "mediaId": "6a9c4b18c383ee57cedb57d0",
+   "mediaName": "AIREV Investment Memorandum — Series A2 (Aug 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.235Z",
+   "file": "library/im.txt"
+  },
+  {
+   "id": "export",
+   "label": "AIREV — The UAE Export Story: Agentic AI for the World",
+   "type": "pdf",
+   "pages": 11,
+   "mediaId": "6a9c4b18c383ee57cedb57d1",
+   "mediaName": "AIREV — The UAE Export Story: Agentic AI for the World (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.316Z",
+   "file": "library/export.txt"
+  },
+  {
+   "id": "redington",
+   "label": "Redington — signed ISV distribution agreement (18 Jun 2026)",
+   "type": "pdf",
+   "pages": 11,
+   "mediaId": "6a9c4b18d97dc615d38afaa7",
+   "mediaName": "Redington — signed ISV distribution agreement (18 Jun 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.357Z",
+   "file": "library/redington.txt"
+  },
+  {
+   "id": "alphadata",
+   "label": "MoU — AIREV × Alpha Data (white-label reseller)",
+   "type": "pdf",
+   "pages": 4,
+   "mediaId": "6a9c4b18c7b1b42890d90c35",
+   "mediaName": "MoU — AIREV × Alpha Data (white-label reseller) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.314Z",
+   "file": "library/alphadata.txt"
+  },
+  {
+   "id": "qc-ar1-sow",
+   "label": "Qualcomm AR1 technical SOW — e& opportunity",
+   "type": "pdf",
+   "pages": 32,
+   "mediaId": "6a9c4b18c7b1b42890d90c36",
+   "mediaName": "Qualcomm AR1 technical SOW — e& opportunity (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.322Z",
+   "file": "library/qc-ar1-sow.txt"
+  },
+  {
+   "id": "sov-defense",
+   "label": "Sovereign Defense OS — joint licensing agreement (v8)",
+   "type": "pdf",
+   "pages": 20,
+   "mediaId": "6a9c4b18d97dc615d38afaa6",
+   "mediaName": "Sovereign Defense OS — joint licensing agreement (v8) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.357Z",
+   "file": "library/sov-defense.txt"
+  },
+  {
+   "id": "bcap-revrec",
+   "label": "Commercial model & revenue recognition brief — B Capital",
+   "type": "pdf",
+   "pages": 3,
+   "mediaId": "6a9c4b18c383ee57cedb57d2",
+   "mediaName": "Commercial model & revenue recognition brief — B Capital (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.777Z",
+   "file": "library/bcap-revrec.txt"
+  },
+  {
+   "id": "bcap-visuals",
+   "label": "B Capital partnership visuals",
+   "type": "pdf",
+   "pages": 14,
+   "mediaId": "6a9c4b6cc383ee57cedb583f",
+   "mediaName": "B Capital partnership visuals (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:03:40.968Z",
+   "file": "library/bcap-visuals.txt"
+  },
+  {
+   "id": "jv-boardpack",
+   "label": "VVIP Sovereign JV — executive board pack (Aug 2026 – Jan 2027)",
+   "type": "pdf",
+   "pages": 2,
+   "mediaId": "6a9c4b18c7b1b42890d90c3f",
+   "mediaName": "VVIP Sovereign JV — executive board pack (Aug 2026 – Jan 2027) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.87Z",
+   "file": "library/jv-boardpack.txt"
+  },
+  {
+   "id": "tt-fleet",
+   "label": "Tenstorrent Galaxy fleet deployment map",
+   "type": "pdf",
+   "pages": 4,
+   "mediaId": "6a9c4b18c383ee57cedb57d5",
+   "mediaName": "Tenstorrent Galaxy fleet deployment map (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.828Z",
+   "file": "library/tt-fleet.txt"
+  },
+  {
+   "id": "journey",
+   "label": "AIREV — The Journey & Strategic Validation",
+   "type": "pdf",
+   "pages": 15,
+   "mediaId": "6a9c4b19c7b1b42890d90c40",
+   "mediaName": "AIREV — The Journey & Strategic Validation (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.955Z",
+   "file": "library/journey.txt"
+  },
+  {
+   "id": "jv-model",
+   "label": "VVIP Sovereign JV — financial model v13 (xlsx)",
+   "type": "xlsx",
+   "pages": null,
+   "mediaId": "6a9c4b19c7b1b42890d90c41",
+   "mediaName": "VVIP Sovereign JV — financial model v13 (xlsx) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:16.992Z",
+   "file": "library/jv-model.txt"
+  },
+  {
+   "id": "kairos-loi",
+   "label": "Draft AIREV × Kairoswealth strategic merger LOI (23 Aug 2026)",
+   "type": "docx",
+   "pages": null,
+   "mediaId": "6a9c4b19c383ee57cedb57de",
+   "mediaName": "Draft AIREV × Kairoswealth strategic merger LOI (23 Aug 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:17.418Z",
+   "file": "library/kairos-loi.txt"
+  },
+  {
+   "id": "jv-bizplan",
+   "label": "VVIP Sovereign JV — joint-venture business plan",
+   "type": "pdf",
+   "pages": 17,
+   "mediaId": "6a9c4b19c383ee57cedb57df",
+   "mediaName": "VVIP Sovereign JV — joint-venture business plan (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:17.509Z",
+   "file": "library/jv-bizplan.txt"
+  },
+  {
+   "id": "jv-sixgate",
+   "label": "VVIP Sovereign JV — six-gate executive summary (Sep 2026 – Mar 2027)",
+   "type": "pdf",
+   "pages": 2,
+   "mediaId": "6a9c4b19d97dc615d38afabb",
+   "mediaName": "VVIP Sovereign JV — six-gate executive summary (Sep 2026 – Mar 2027) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:17.678Z",
+   "file": "library/jv-sixgate.txt"
+  },
+  {
+   "id": "jv-brief",
+   "label": "VVIP Sovereign JV — executive brief",
+   "type": "pdf",
+   "pages": 1,
+   "mediaId": "6a9c4b19d97dc615d38afab8",
+   "mediaName": "VVIP Sovereign JV — executive brief (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:17.525Z",
+   "file": "library/jv-brief.txt"
+  },
+  {
+   "id": "jv-gantt",
+   "label": "VVIP Sovereign JV — executive Gantt workplan",
+   "type": "pdf",
+   "pages": 1,
+   "mediaId": "6a9c4b19d97dc615d38afab9",
+   "mediaName": "VVIP Sovereign JV — executive Gantt workplan (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:17.675Z",
+   "file": "library/jv-gantt.txt"
+  },
+  {
+   "id": "jv-implplan",
+   "label": "VVIP Sovereign JV — six-month implementation plan",
+   "type": "pdf",
+   "pages": 85,
+   "mediaId": "6a9c4b1ac383ee57cedb57e2",
+   "mediaName": "VVIP Sovereign JV — six-month implementation plan (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.119Z",
+   "file": "library/jv-implplan.txt"
+  },
+  {
+   "id": "jv-implsummary",
+   "label": "VVIP Sovereign JV — implementation plan executive summary",
+   "type": "pdf",
+   "pages": 1,
+   "mediaId": "6a9c4b1ad97dc615d38afabf",
+   "mediaName": "VVIP Sovereign JV — implementation plan executive summary (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.196Z",
+   "file": "library/jv-implsummary.txt"
+  },
+  {
+   "id": "jv-mou",
+   "label": "VVIP Sovereign JV — MoU draft",
+   "type": "docx",
+   "pages": null,
+   "mediaId": "6a9c4b1ac383ee57cedb57e3",
+   "mediaName": "VVIP Sovereign JV — MoU draft (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.185Z",
+   "file": "library/jv-mou.txt"
+  },
+  {
+   "id": "jv-architecture",
+   "label": "VVIP Sovereign JV — proposed sovereign architecture",
+   "type": "pdf",
+   "pages": 1,
+   "mediaId": "6a9c4b1ad97dc615d38afac1",
+   "mediaName": "VVIP Sovereign JV — proposed sovereign architecture (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.435Z",
+   "file": "library/jv-architecture.txt"
+  },
+  {
+   "id": "ts-itqan",
+   "label": "Series A2 term sheet — Itqan (V6, 11 May 2026)",
+   "type": "pdf",
+   "pages": 18,
+   "mediaId": "6a9c4b1ac7b1b42890d90c59",
+   "mediaName": "Series A2 term sheet — Itqan (V6, 11 May 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.456Z",
+   "file": "library/ts-itqan.txt"
+  },
+  {
+   "id": "ts-redacted",
+   "label": "Series A2 draft term sheet (redacted)",
+   "type": "pdf",
+   "pages": 18,
+   "mediaId": "6a9c4b1ac7b1b42890d90c5d",
+   "mediaName": "Series A2 draft term sheet (redacted) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.706Z",
+   "file": "library/ts-redacted.txt"
+  },
+  {
+   "id": "ts-terra",
+   "label": "Draft term sheet — Terra (clean, with changes)",
+   "type": "docx",
+   "pages": null,
+   "mediaId": "6a9c4b1ac7b1b42890d90c60",
+   "mediaName": "Draft term sheet — Terra (clean, with changes) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.742Z",
+   "file": "library/ts-terra.txt"
+  },
+  {
+   "id": "ts-sme",
+   "label": "SME agentic-AI marketplace term sheet summary",
+   "type": "pdf",
+   "pages": 9,
+   "mediaId": "6a9c4b1ac7b1b42890d90c61",
+   "mediaName": "SME agentic-AI marketplace term sheet summary (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:18.849Z",
+   "file": "library/ts-sme.txt"
+  },
+  {
+   "id": "redington-proposal",
+   "label": "Redington partnership proposal",
+   "type": "pdf",
+   "pages": 8,
+   "mediaId": "6a9c4b1bc7b1b42890d90c67",
+   "mediaName": "Redington partnership proposal (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:19.17Z",
+   "file": "library/redington-proposal.txt"
+  },
+  {
+   "id": "redington-report",
+   "label": "Redington partnership report",
+   "type": "pdf",
+   "pages": 10,
+   "mediaId": "6a9c4b1bc7b1b42890d90c69",
+   "mediaName": "Redington partnership report (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:19.377Z",
+   "file": "library/redington-report.txt"
+  },
+  {
+   "id": "qc-tla",
+   "label": "Qualcomm Technology License Agreement — signed (31 Jul)",
+   "type": "pdf",
+   "pages": 35,
+   "mediaId": "6a9c4b1bc383ee57cedb57f3",
+   "mediaName": "Qualcomm Technology License Agreement — signed (31 Jul) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:19.33Z",
+   "file": "library/qc-tla.txt"
+  },
+  {
+   "id": "intel-mou",
+   "label": "Intel AI PC MOU (December 2025, V3)",
+   "type": "pdf",
+   "pages": 13,
+   "mediaId": "6a9c4b1bd97dc615d38afacc",
+   "mediaName": "Intel AI PC MOU (December 2025, V3) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:19.326Z",
+   "file": "library/intel-mou.txt"
+  },
+  {
+   "id": "qc-tla-risk",
+   "label": "Qualcomm TLA — legal risk analysis",
+   "type": "pdf",
+   "pages": 27,
+   "mediaId": "6a9c4b1bc7b1b42890d90c72",
+   "mediaName": "Qualcomm TLA — legal risk analysis (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:19.523Z",
+   "file": "library/qc-tla-risk.txt"
+  },
+  {
+   "id": "qc-sow-companion",
+   "label": "Qualcomm SOW No.1 — option 2 companion",
+   "type": "docx",
+   "pages": null,
+   "mediaId": "6a9c4b1cd97dc615d38afad3",
+   "mediaName": "Qualcomm SOW No.1 — option 2 companion (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.002Z",
+   "file": "library/qc-sow-companion.txt"
+  },
+  {
+   "id": "channel-program",
+   "label": "OnDemand channel enablement program",
+   "type": "docx",
+   "pages": null,
+   "mediaId": "6a9c4b1bd97dc615d38afad2",
+   "mediaName": "OnDemand channel enablement program (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:19.838Z",
+   "file": "library/channel-program.txt"
+  },
+  {
+   "id": "press-dragonwing",
+   "label": "Press pack — OnDemand × Qualcomm Dragonwing",
+   "type": "pdf",
+   "pages": 28,
+   "mediaId": "6a9c4b1cd97dc615d38afad4",
+   "mediaName": "Press pack — OnDemand × Qualcomm Dragonwing (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.057Z",
+   "file": "library/press-dragonwing.txt"
+  },
+  {
+   "id": "product-datasheet",
+   "label": "OnDemand product data sheet",
+   "type": "pdf",
+   "pages": 12,
+   "mediaId": "6a9c4b1cc383ee57cedb57f4",
+   "mediaName": "OnDemand product data sheet (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.056Z",
+   "file": "library/product-datasheet.txt"
+  },
+  {
+   "id": "system-requirements",
+   "label": "OnDemand system requirements",
+   "type": "pdf",
+   "pages": 15,
+   "mediaId": "6a9c4b1cc7b1b42890d90c7f",
+   "mediaName": "OnDemand system requirements (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.433Z",
+   "file": "library/system-requirements.txt"
+  },
+  {
+   "id": "od-overview",
+   "label": "OnDemand — the world's first decentralized agentic AI operating system",
+   "type": "pdf",
+   "pages": 5,
+   "mediaId": "6a9c4b1cc7b1b42890d90c8c",
+   "mediaName": "OnDemand — the world's first decentralized agentic AI operating system (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.67Z",
+   "file": "library/od-overview.txt"
+  },
+  {
+   "id": "amd",
+   "label": "OnDemand × AMD",
+   "type": "pdf",
+   "pages": 10,
+   "mediaId": "6a9c4b1cc7b1b42890d90c8b",
+   "mediaName": "OnDemand × AMD (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.654Z",
+   "file": "library/amd.txt"
+  },
+  {
+   "id": "ad-diversification",
+   "label": "Abu Dhabi economic diversification priorities 2026–2031",
+   "type": "pdf",
+   "pages": 13,
+   "mediaId": "6a9c4b1cd97dc615d38afad7",
+   "mediaName": "Abu Dhabi economic diversification priorities 2026–2031 (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:20.787Z",
+   "file": "library/ad-diversification.txt"
+  },
+  {
+   "id": "moft-nepal",
+   "label": "MoFT Nepal executive preview (Aug 2026)",
+   "type": "pdf",
+   "pages": 9,
+   "mediaId": "6a9c4b1dd97dc615d38afad8",
+   "mediaName": "MoFT Nepal executive preview (Aug 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.108Z",
+   "file": "library/moft-nepal.txt"
+  },
+  {
+   "id": "moft-paraguay",
+   "label": "MoFT Paraguay executive preview (Aug 2026)",
+   "type": "pdf",
+   "pages": 10,
+   "mediaId": "6a9c4b1dd97dc615d38afad9",
+   "mediaName": "MoFT Paraguay executive preview (Aug 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.314Z",
+   "file": "library/moft-paraguay.txt"
+  },
+  {
+   "id": "angola",
+   "label": "Angola sovereign-AI proposal (modular data centres)",
+   "type": "html",
+   "pages": null,
+   "mediaId": "6a9c4b1dc383ee57cedb5803",
+   "mediaName": "Angola sovereign-AI proposal (modular data centres) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.317Z",
+   "file": "library/angola.txt"
+  },
+  {
+   "id": "chairman-overview",
+   "label": "Chairman strategic overview (30 Aug 2026)",
+   "type": "html",
+   "pages": null,
+   "mediaId": "6a9c4b1dc7b1b42890d90c97",
+   "mediaName": "Chairman strategic overview (30 Aug 2026) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.437Z",
+   "file": "library/chairman-overview.txt"
+  },
+  {
+   "id": "aid-deck",
+   "label": "Sovereign agentic AI for aid — deck",
+   "type": "pptx",
+   "pages": 8,
+   "mediaId": "6a9c4b1dc7b1b42890d90caa",
+   "mediaName": "Sovereign agentic AI for aid — deck (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.702Z",
+   "file": "library/aid-deck.txt"
+  },
+  {
+   "id": "modular-aid",
+   "label": "Modular AI for humanitarian aid — deck",
+   "type": "pptx",
+   "pages": 15,
+   "mediaId": "6a9c4b1dd97dc615d38afadc",
+   "mediaName": "Modular AI for humanitarian aid — deck (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.912Z",
+   "file": "library/modular-aid.txt"
+  },
+  {
+   "id": "qc-eand-deck",
+   "label": "Qualcomm × Entity X × e& agentic-AI partnership deck",
+   "type": "pptx",
+   "pages": 6,
+   "mediaId": "6a9c4b1ec7b1b42890d90cac",
+   "mediaName": "Qualcomm × Entity X × e& agentic-AI partnership deck (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:21.943Z",
+   "file": "library/qc-eand-deck.txt"
+  },
+  {
+   "id": "qc-ar1-standard-sow",
+   "label": "Qualcomm AR1 standard SOW — e& project statement",
+   "type": "pdf",
+   "pages": 6,
+   "mediaId": "6a9c4b1ed97dc615d38afadd",
+   "mediaName": "Qualcomm AR1 standard SOW — e& project statement (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:22.247Z",
+   "file": "library/qc-ar1-standard-sow.txt"
+  },
+  {
+   "id": "revrec",
+   "label": "Commercial model & revenue recognition",
+   "type": "pdf",
+   "pages": 1,
+   "mediaId": "6a9c4b1ec383ee57cedb5811",
+   "mediaName": "Commercial model & revenue recognition (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:22.516Z",
+   "file": "library/revrec.txt"
+  },
+  {
+   "id": "jv-bizplan-2",
+   "label": "VVIP Sovereign JV — business plan (earlier edition)",
+   "type": "pdf",
+   "pages": 7,
+   "mediaId": "6a9c4b1ed97dc615d38afae0",
+   "mediaName": "VVIP Sovereign JV — business plan (earlier edition) (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:22.627Z",
+   "file": "library/jv-bizplan-2.txt"
+  },
+  {
+   "id": "tt-fleet-v2",
+   "label": "Tenstorrent Galaxy fleet deployment map v2",
+   "type": "pdf",
+   "pages": 12,
+   "mediaId": "6a9c4b1ed97dc615d38afadf",
+   "mediaName": "Tenstorrent Galaxy fleet deployment map v2 (scrubbed extract).txt",
+   "uploadedAt": "2026-09-05T17:02:22.583Z",
+   "file": "library/tt-fleet-v2.txt"
+  }
+ ]
+}
