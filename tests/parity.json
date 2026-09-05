@@ -1,0 +1,55 @@
+{
+  "baselineCommit": "e9885aeab2b3f8e180f1faebdeeea3a92e4b1bd1",
+  "originalSectionIds": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9"
+  ],
+  "finalSectionIds": [
+    "s1",
+    "s2",
+    "s-platform",
+    "s-exports",
+    "s-readiness",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s-jv",
+    "s-ma",
+    "s7",
+    "s-execution",
+    "s8",
+    "s9"
+  ],
+  "retainedOriginalSections": 9,
+  "addedSections": 6,
+  "changes": {
+    "s1": "Expanded original hero into export ambition and seven-device explorer; private audience identity removed.",
+    "s2": "Retained headline cards; corrected current valuation to memorandum context; source/status caveats added.",
+    "s3": "Retained revenue timeline and bridge; replaced unsupported shipment claim and anonymized JV.",
+    "s4": "Retained burn cards and comparison; historical/nonverified qualifications added.",
+    "s5": "Retained investment table/SVG and tooltip interaction; investor identities anonymized;215M treated as historical snapshot.",
+    "s6": "Retained seven pipeline entries/order; identifying investor details removed.",
+    "s7": "Retained arithmetic-summary role and editable field; added valuation/DCF qualification.",
+    "s8": "Retained four-node sequence/drilldown; reordered first UAE pilot before provisional valuation and Africa option.",
+    "s9": "Retained Insights entry and control; remote workflow disabled for confidentiality and replaced by local evidence guide."
+  },
+  "retainedBehaviors": [
+    "previous/next",
+    "chapter/dot navigation",
+    "keyboard navigation",
+    "touch swipe",
+    "revenue drilldown",
+    "investment tooltip",
+    "sequence drilldown",
+    "editable presenter note"
+  ],
+  "intentionalSecurityChange": "No remote voice workflow, no raw source images, no external client data submission."
+}

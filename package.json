@@ -1,0 +1,18 @@
+{
+  "name": "airev-export-strategy-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "In-place extension of the existing vanilla HTML/CSS/JavaScript strategy presentation.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "lint": "node --check strategy-app.mjs && node --check strategy-data.mjs && node --check strategy-utils.mjs && node --check server.mjs && node --check scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

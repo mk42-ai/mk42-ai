@@ -1,0 +1,18 @@
+import test,{before,after} from 'node:test';
+import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {once} from 'node:events';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+let child,origin;
+before(async()=>{const port=21000+Math.floor(Math.random()*10000);origin='http://127.0.0.1:'+port;child=spawn(process.execPath,['server.mjs'],{cwd:root,env:{...process.env,HOST:'127.0.0.1',PORT:String(port)},stdio:['ignore','pipe','pipe']});await Promise.race([once(child.stdout,'data'),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Server did not start')),6000))]);});
+after(()=>{if(child)child.kill('SIGTERM');});
+test('root serves the extended original presentation',async()=>{const r=await fetch(origin);assert.equal(r.status,200);assert.match(await r.text(),/OnDemand:<br>The <em>ARM/);});
+test('original entrypoint remains accessible with sanitized content',async()=>{const r=await fetch(origin+'/airev-strategic-overview-chairman-2026-08-30.html');assert.equal(r.status,200);assert.match(await r.text(),/VVIP Sovereign JV/);});
+test('Git metadata is not served',async()=>assert.equal((await fetch(origin+'/.git/config')).status,404));
+test('README and package configuration are not served',async()=>{assert.equal((await fetch(origin+'/README.md')).status,404);assert.equal((await fetch(origin+'/package.json')).status,404);});
+test('unallowlisted paths and traversal are rejected',async()=>{assert.equal((await fetch(origin+'/sources/S06.docx')).status,404);assert.equal((await fetch(origin+'/%2e%2e/.git/config')).status,404);});
+test('server refuses remote-submission methods',async()=>assert.equal((await fetch(origin,{method:'POST',body:'test'})).status,405));
+test('response blocks external client connections and indexing',async()=>{const r=await fetch(origin);assert.match(r.headers.get('content-security-policy'),/connect-src 'none'/);assert.match(r.headers.get('content-security-policy'),/object-src 'none'/);assert.equal(r.headers.get('x-robots-tag'),'noindex, nofollow, noarchive');assert.equal(r.headers.get('referrer-policy'),'no-referrer');assert.equal(r.headers.get('cache-control'),'no-store');});
+test('modules and all seven concept assets have correct MIME and nonempty bytes',async()=>{const m=await fetch(origin+'/strategy-app.mjs');assert.match(m.headers.get('content-type'),/javascript/);for(const name of ['cctv','drone','laptop','modular-data-centre','on-prem-appliance','robot','smart-glasses']){const r=await fetch(origin+'/assets/'+name+'.webp');assert.equal(r.status,200);assert.equal(r.headers.get('content-type'),'image/webp');assert.ok((await r.arrayBuffer()).byteLength>1000);}});

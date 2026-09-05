@@ -1,0 +1,322 @@
+
+  :root{
+    --bg:#FFFFFF;
+    --bg2:#F7FAF8;
+    --ink:#10201B;
+    --ink-dim:#44584F;
+    --ink-faint:#66786F;
+    --emerald:#0E7A5F;
+    --emerald-b:#12B886;
+    --gold:#A5884B;
+    --hair:rgba(16,32,27,.10);
+    --hair2:rgba(16,32,27,.16);
+    --panel:rgba(14,122,95,.035);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:radial-gradient(1300px 800px at 72% 18%, var(--bg2) 0%, var(--bg) 62%);
+    color:var(--ink);
+    font-family:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:rgba(18,184,134,.28)}
+
+  /* ---------- slide chrome ---------- */
+  .slide{
+    position:fixed; inset:0;
+    display:flex;
+    padding:8vh 12vw 13vh;
+    overflow-y:auto;
+    opacity:0; visibility:hidden;
+    transform:translateX(var(--ex,54px));
+    transition:opacity .55s ease, transform .55s ease, visibility 0s linear .55s;
+    pointer-events:none;
+  }
+  .slide.active{
+    opacity:1; visibility:visible; transform:translateX(0);
+    transition-delay:0s; pointer-events:auto;
+  }
+  .slide-inner{margin:auto; width:100%; max-width:1460px}
+
+  .slide .rise{opacity:0; transform:translateY(16px); transition:opacity .7s ease var(--d,0s), transform .7s ease var(--d,0s)}
+  .slide.active .rise{opacity:1; transform:none}
+
+  .eyebrow{
+    font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--emerald); margin-bottom:22px;
+  }
+  .eyebrow .n{color:var(--gold); margin-right:.9em}
+  h1.display{
+    font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+    font-weight:500; font-size:clamp(34px,4.4vw,60px); line-height:1.1; letter-spacing:-.01em;
+  }
+  h2.title{
+    font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+    font-weight:500; font-size:clamp(25px,2.7vw,38px); line-height:1.15; letter-spacing:-.005em;
+  }
+  .lede{color:var(--ink-dim); font-size:14.5px; line-height:1.7; font-weight:300}
+  .gold-rule{width:76px; height:1px; background:linear-gradient(90deg,var(--gold),rgba(201,169,106,0)); margin:30px 0}
+  .closing{
+    margin-top:30px; font-size:13.5px; color:var(--ink-dim); line-height:1.7; font-weight:300;
+  }
+  .closing.center{text-align:center}
+  .fnote{font-size:10.5px; color:var(--ink-faint); line-height:1.65; margin-top:14px}
+  .proj{color:var(--gold); font-style:normal}
+
+  /* ---------- wordmark pills & monograms ---------- */
+  .pill{
+    display:inline-flex; align-items:center; gap:.6em;
+    border:1px solid var(--hair2); border-radius:999px;
+    padding:.55em 1.15em; font-size:10.5px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink);
+    background:rgba(14,122,95,.05); white-space:nowrap;
+  }
+  .pill .dt{width:6px; height:6px; border-radius:50%; background:var(--emerald-b); flex:none}
+  .pill.gold .dt{background:var(--gold)}
+  .mono{
+    width:30px; height:30px; border-radius:50%; flex:none;
+    border:1px solid rgba(165,136,75,.55); color:var(--gold);
+    font-size:10px; letter-spacing:.08em; display:inline-flex; align-items:center; justify-content:center;
+  }
+
+  /* ---------- brand logo with fallback ---------- */
+  .brandmark{position:absolute; top:34px; left:44px; z-index:5}
+  .logo-img{height:30px; display:block}
+  .logo-img.invert{filter:none}
+  .logo-pill{display:none}
+  .logo-failed .logo-img{display:none}
+  .logo-failed .logo-pill{display:inline-flex}
+
+  /* ---------- slide 2: stats ---------- */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:36px}
+  .stat{background:var(--bg); padding:26px 24px 24px}
+  .stat .k{font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px}
+  .stat .v{font-family:"Playfair Display",Georgia,serif; font-size:clamp(22px,2.2vw,34px); color:var(--ink); line-height:1.15}
+  .stat .s{margin-top:10px; font-size:11.5px; color:var(--ink-dim); font-weight:300}
+  .marq{margin-top:34px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+  .marq .lbl{font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint)}
+
+  /* ---------- slide 3: revenue timeline ---------- */
+  .tl{position:relative; height:150px; margin-top:34px}
+  .tl .track{position:absolute; left:5%; right:5%; top:58px; height:1px; background:var(--hair2)}
+  .tl-node{
+    position:absolute; top:58px; transform:translate(-50%,-50%);
+    background:none; border:none; cursor:pointer; color:inherit; font:inherit;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tl-node .knob{
+    width:var(--r,26px); height:var(--r,26px); border-radius:50%;
+    border:1px solid var(--emerald-b); background:rgba(18,184,134,.10);
+    transition:background .3s, box-shadow .3s, border-color .3s;
+  }
+  .tl-node:hover .knob,.tl-node:focus-visible .knob{background:rgba(18,184,134,.30)}
+  .tl-node.on .knob{background:var(--emerald-b); box-shadow:0 0 0 9px rgba(18,184,134,.10)}
+  .tl-node .yr{position:absolute; top:-34px; left:50%; transform:translateX(-50%); font-size:10.5px; font-weight:600; letter-spacing:.22em; color:var(--ink-dim); white-space:nowrap}
+  .tl-node .amt{position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%); font-family:"Playfair Display",Georgia,serif; font-size:19px; color:var(--ink); white-space:nowrap}
+  .tl-node .amt small{font-size:10.5px; font-family:"Inter",sans-serif; color:var(--ink-faint); letter-spacing:.08em; display:block; text-align:center; margin-top:2px}
+  .comp{border:1px solid var(--hair); background:var(--panel); padding:22px 26px; margin-top:26px; min-height:150px}
+  .comp-pane[hidden]{display:none}
+  .comp-pane .cp-title{font-family:"Playfair Display",Georgia,serif; font-size:19px; margin-bottom:8px}
+  .comp-pane .cp-body{font-size:13px; color:var(--ink-dim); line-height:1.7; font-weight:300}
+
+  /* bridge bars */
+  .bridge{margin-top:16px}
+  .brow{display:flex; align-items:center; gap:14px; margin-top:9px}
+  .brow .blbl{width:186px; text-align:right; font-size:11px; color:var(--ink-dim); letter-spacing:.04em; flex:none}
+  .brow .btrk{flex:1; height:16px; position:relative; background:rgba(16,32,27,.06)}
+  .brow .bval{width:120px; flex:none; font-size:12px; color:var(--ink)}
+  .brow .bval small{color:var(--ink-faint); font-size:10px}
+  .bfill{position:absolute; left:0; top:0; bottom:0; background:var(--emerald)}
+  .bfill.proj{background:repeating-linear-gradient(45deg,rgba(18,184,134,.55) 0 6px,rgba(18,184,134,.22) 6px 12px)}
+  .bgap{position:absolute; top:0; bottom:0; border:1px dashed rgba(165,136,75,.65)}
+  .btotal{position:absolute; top:-4px; bottom:-4px; width:1px; background:var(--gold)}
+
+  .engines{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:22px}
+  .engine{border:1px solid var(--hair); background:var(--panel); padding:16px 18px}
+  .engine .pill{font-size:9.5px; margin-bottom:12px}
+  .engine p{font-size:12.5px; color:var(--ink-dim); line-height:1.6; font-weight:300}
+
+  /* ---------- slide 4: burn ---------- */
+  .headline{font-family:"Playfair Display",Georgia,serif; font-size:clamp(19px,1.9vw,26px); line-height:1.5; max-width:64ch; margin-top:6px}
+  .compare{display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--hair); margin-top:28px}
+  .colx{padding:22px 26px}
+  .colx.a{border-right:1px solid var(--hair); box-shadow:inset 2px 0 0 var(--emerald)}
+  .colx.b{box-shadow:inset 2px 0 0 rgba(16,32,27,.14)}
+  .colx h3{font-size:10.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px}
+  .kv{display:flex; justify-content:space-between; gap:18px; padding:9px 0; border-bottom:1px solid var(--hair); font-size:13px}
+  .kv:last-child{border-bottom:none}
+  .kv .k{color:var(--ink-dim); font-weight:300}
+  .kv .v{color:var(--ink); font-weight:500; text-align:right}
+  .colx .note{font-size:12.5px; color:var(--ink-dim); line-height:1.7; font-weight:300; padding:9px 0; border-bottom:1px solid var(--hair)}
+  .colx .note:last-child{border-bottom:none}
+
+  .bm{margin-top:26px}
+  .bm .bm-title{font-size:10.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px}
+  .bmrow{display:flex; align-items:center; gap:14px; margin-top:10px}
+  .bmrow .blbl{width:186px; text-align:right; font-size:11px; color:var(--ink-dim); flex:none}
+  .bmrow .btrk{flex:1; height:18px; position:relative; background:rgba(16,32,27,.06)}
+  .bmrow .bval{width:120px; flex:none; font-size:12px; color:var(--ink)}
+  .bm-em{position:absolute; left:0; top:0; bottom:0; width:18%; background:var(--emerald-b)}
+  .bm-range{position:absolute; top:3px; bottom:3px; left:34%; width:66%;
+    border:1px solid rgba(165,136,75,.7);
+    background:repeating-linear-gradient(45deg,rgba(201,169,106,.16) 0 6px,rgba(201,169,106,.04) 6px 12px)}
+  .bm-plus{position:absolute; right:-16px; top:50%; transform:translateY(-50%); color:var(--gold); font-size:12px}
+  .bm-scale{display:flex; margin:8px 0 0 200px; font-size:9.5px; color:var(--ink-faint)}
+  .bm-scale span{flex:1}
+
+  /* ---------- slide 5: investment history ---------- */
+  .split{display:grid; grid-template-columns:1.04fr .96fr; gap:44px; align-items:start; margin-top:30px}
+  table.it{width:100%; border-collapse:collapse; font-size:12.5px}
+  .it th{font-size:9.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); text-align:left; padding:10px 10px 12px; border-bottom:1px solid var(--hair2)}
+  .it td{padding:13px 10px; border-bottom:1px solid var(--hair); color:var(--ink-dim); vertical-align:top; line-height:1.55; font-weight:300}
+  .it td.inv{color:var(--ink); font-weight:500}
+  .it td.inv small{display:block; color:var(--ink-faint); font-weight:300; margin-top:3px; font-size:10.5px}
+  .it td.mult{color:var(--emerald); font-weight:500; white-space:nowrap}
+  .it td small.sub{color:var(--ink-faint); font-size:10.5px}
+  #chartWrap{position:relative; border:1px solid var(--hair); background:var(--panel); padding:18px 18px 8px}
+  #chartTip{
+    position:absolute; opacity:0; pointer-events:none; z-index:5;
+    background:#FFFFFF; border:1px solid var(--hair2); padding:8px 12px;
+    font-size:11px; color:var(--ink); line-height:1.5; max-width:230px;
+    transition:opacity .2s; box-shadow:0 8px 24px rgba(16,32,27,.18);
+  }
+  #chartTip b{color:var(--emerald)}
+  .barg{cursor:pointer}
+  .barg rect{transition:opacity .25s}
+  .barg:hover rect,.barg:focus-visible rect{opacity:.82}
+  .legend{display:flex; gap:22px; margin:6px 0 4px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint)}
+  .legend span{display:inline-flex; align-items:center; gap:8px}
+  .legend i{width:10px; height:10px; display:inline-block}
+  .legend .le{background:var(--gold)}
+  .legend .lt{background:var(--emerald-b)}
+
+  /* ---------- slide 6: ranked cards ---------- */
+  .ranks{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:26px}
+  .rcard{border:1px solid var(--hair); background:var(--panel); padding:16px 16px 14px; display:flex; flex-direction:column; min-height:158px}
+  .rcard .top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+  .rcard .rn{font-family:"Playfair Display",Georgia,serif; font-size:27px; color:var(--gold); line-height:1}
+  .rcard .pill{font-size:9px; padding:.55em 1em}
+  .rcard .body{margin-top:12px; font-size:11.5px; color:var(--ink-dim); line-height:1.65; font-weight:300}
+  .rcard .body b{color:var(--ink); font-weight:500}
+  .rcard .body .q{color:var(--ink)}
+  .cons{margin-top:auto; padding-top:9px; border-top:1px solid var(--hair); font-size:9.8px; color:var(--ink-faint); line-height:1.55}
+  .cons b{color:var(--ink-dim); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:8.8px}
+
+  /* ---------- slide 7: arithmetic ---------- */
+  .arith{display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:8px}
+  .arith .row{
+    width:min(680px,86%); padding:22px 0;
+    font-family:"Playfair Display",Georgia,serif; font-size:clamp(19px,2.1vw,29px);
+    border-bottom:1px solid var(--hair);
+  }
+  .arith .row:first-child{border-top:1px solid var(--hair)}
+  .editable{
+    margin-top:36px; display:inline-block; padding:14px 22px;
+    border:1px dashed rgba(165,136,75,.65); border-radius:3px;
+    color:var(--ink-dim); font-size:13px; line-height:1.6; letter-spacing:.02em;
+    min-width:min(600px,84%); outline:none; cursor:text; transition:border-color .25s, color .25s;
+  }
+  .editable:hover{border-color:var(--gold)}
+  .editable:focus{border-color:var(--gold); color:var(--ink); border-style:solid}
+  .ed-tag{margin-top:10px; font-size:9px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-faint)}
+
+  /* ---------- slide 8: post-raise sequence ---------- */
+  .tl8{position:relative; height:132px; margin-top:30px}
+  .tl8 .track{position:absolute; left:5%; right:5%; top:52px; height:1px;
+    background:linear-gradient(90deg,var(--emerald) 0%,var(--emerald-b) 45%,var(--gold) 100%); opacity:.55}
+  .tl8-node{
+    position:absolute; top:52px; transform:translate(-50%,-50%);
+    background:none; border:none; cursor:pointer; color:inherit; font:inherit;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tl8-node .knob{width:18px; height:18px; border-radius:50%; border:1px solid var(--emerald-b); background:var(--bg); transition:background .3s, box-shadow .3s}
+  .tl8-node:last-of-type .knob{border-color:var(--gold)}
+  .tl8-node:hover .knob,.tl8-node:focus-visible .knob{background:rgba(18,184,134,.35)}
+  .tl8-node.on .knob{background:var(--emerald-b); box-shadow:0 0 0 8px rgba(18,184,134,.10)}
+  .tl8-node.on:last-of-type .knob{background:var(--gold); box-shadow:0 0 0 8px rgba(201,169,106,.10)}
+  .tl8-node .dt8{position:absolute; top:-32px; left:50%; transform:translateX(-50%); font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); white-space:nowrap}
+  .tl8-node .tg8{position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%); font-size:11.5px; color:var(--ink); white-space:nowrap}
+  .tl8-node .tg8 small{color:var(--gold); font-size:9.5px}
+
+  /* ---------- slide 9: closing ---------- */
+  .s9-center{text-align:center}
+  .s9-center .eyebrow{margin-bottom:26px}
+  .s9-line{margin-top:30px; color:var(--ink-dim); font-size:14.5px; line-height:1.8; font-weight:300}
+
+  /* ---------- nav chrome ---------- */
+  .zone{position:fixed; top:0; bottom:66px; width:9vw; z-index:40; cursor:pointer}
+  #zoneL{left:0} #zoneR{right:0}
+  .nav-arrow{
+    position:fixed; top:50%; transform:translateY(-50%); z-index:70;
+    width:42px; height:42px; border-radius:50%;
+    border:1px solid var(--hair2); background:rgba(255,255,255,.88);
+    color:var(--ink-dim); cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:color .25s, border-color .25s, opacity .25s;
+  }
+  .nav-arrow:hover{color:var(--ink); border-color:var(--emerald-b)}
+  .nav-arrow:disabled{opacity:.25; cursor:default}
+  #prev{left:20px} #next{right:20px}
+  #dots{position:fixed; bottom:58px; left:50%; transform:translateX(-50%); z-index:70; display:flex; gap:10px}
+  .dot{width:7px; height:7px; border-radius:50%; border:1px solid var(--hair2); background:transparent; cursor:pointer; padding:0; transition:background .3s, border-color .3s, transform .3s}
+  .dot:hover{border-color:var(--emerald-b)}
+  .dot.on{background:var(--emerald-b); border-color:var(--emerald-b); transform:scale(1.25)}
+
+  footer{
+    position:fixed; left:0; right:0; bottom:0; z-index:60; pointer-events:none;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 30px;
+    font-size:9.5px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  footer .fc{position:absolute; left:50%; transform:translateX(-50%)}
+  footer .fr{margin-left:auto}
+
+  .hint{margin-top:44px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint)}
+
+  /* ---------- AIREV Insights voice mic (additive) ---------- */
+  #airev-mic{
+    position:fixed; right:26px; bottom:84px; z-index:80;
+    width:52px; height:52px; border-radius:50%;
+    border:1px solid rgba(165,136,75,.55);
+    background:radial-gradient(circle at 32% 28%, #136B52 0%, #0E7A5F 55%, #0A5442 100%);
+    box-shadow:0 10px 28px rgba(16,32,27,.22), 0 0 0 1px rgba(255,255,255,.7);
+    color:#E8ECE9; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .25s, box-shadow .25s, border-color .25s, opacity .25s;
+  }
+  #airev-mic:hover{transform:translateY(-2px); border-color:var(--gold)}
+  #airev-mic:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  #airev-mic svg{width:20px; height:20px; position:relative}
+  #airev-mic .ring{position:absolute; inset:-6px; border-radius:50%; pointer-events:none}
+  #airev-mic.live{border-color:var(--emerald-b)}
+  #airev-mic.live .ring{animation:airev-pulse 1.8s ease-out infinite}
+  #airev-mic.busy{opacity:.65; cursor:wait}
+  #airev-mic.err{border-color:#B0605A; box-shadow:0 10px 28px rgba(16,32,27,.22), 0 0 0 3px rgba(176,96,90,.28)}
+  @keyframes airev-pulse{
+    0%{box-shadow:0 0 0 0 rgba(18,184,134,.38)}
+    100%{box-shadow:0 0 0 18px rgba(18,184,134,0)}
+  }
+
+  /* ---------- responsive & motion ---------- */
+  @media (max-width:1080px){
+    .slide{padding:7vh 8vw 15vh}
+    .stats,.engines{grid-template-columns:repeat(2,1fr)}
+    .ranks{grid-template-columns:repeat(2,1fr)}
+    .split{grid-template-columns:1fr; gap:28px}
+    .compare{grid-template-columns:1fr}
+    .colx.a{border-right:none; border-bottom:1px solid var(--hair)}
+    .brow .blbl,.bmrow .blbl{width:120px; font-size:10px}
+    .brandmark{left:8vw}
+  }
+  @media (max-width:640px){
+    .ranks{grid-template-columns:1fr}
+    .zone{width:14vw}
+    .nav-arrow{display:none}
+    footer .fc{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important}
+  }

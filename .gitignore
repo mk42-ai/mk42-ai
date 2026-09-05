@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.ui-proof/
+*.log
+.env
+.env.*
+.vercel/

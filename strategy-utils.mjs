@@ -1,0 +1,6 @@
+export const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function operatingBreakEven(values){const i=values.findIndex(v=>v>=0);return i<0?null:i+1;}
+export function validateScenario(s){const errors=[];for(const k of ['seats','revenue','cost','surplus'])if(!Array.isArray(s[k])||s[k].length!==5||s[k].some(v=>!Number.isFinite(v)))errors.push(k+' must contain five finite source values');if(!errors.length){s.revenue.forEach((v,i)=>{if(Math.abs(v-s.cost[i]-s.surplus[i])>.000001)errors.push('Operating result mismatch at Y'+(i+1));});if(operatingBreakEven(s.surplus)!==s.breakEven)errors.push('Break-even does not match annual result');}return errors;}
+export function chartGeometry(values,width=600,height=205){const min=Math.min(0,...values),max=Math.max(1,...values),top=16,bottom=177,left=44,right=width-18,span=max-min||1;const y=v=>bottom-(v-min)/span*(bottom-top),x=i=>left+i*(right-left)/4;return{min,max,baseline:y(0),ticks:[min,min+span/2,max],points:values.map((v,i)=>({x:x(i),y:y(v),value:v,year:i+1})),y,width,height};}
+export function moneyM(v,digits=1){return 'AED '+v.toLocaleString('en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits})+'M';}
+export function safeIndex(index,length){return Math.max(0,Math.min(length-1,index));}
