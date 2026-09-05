@@ -1,0 +1,137 @@
+# VVIP Sovereign JV — executive board pack (Aug 2026 – Jan 2027)
+
+Source type: PDF · 2 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+VVIP Sovereign JV · EXECUTIVE BRIEF · PAGE 1 OF 2
+VVIP Sovereign JV — 6-Month Implementation Plan
+VVIP Sovereign JV partner · AIREV — 50/50 JV · Aug 2026 – Jan 2027 · v3 (2026-08-27) · Status: Mon 31 Aug 2026
+OBJECTIVE
+VVIP Sovereign JV partner — VVIP Sovereign JV partner Oﬃce of
+Development Aﬀairs — and AIREV form a
+50/50 joint venture, contributions matched in
+kind. Six months: from signed MoU to the ﬁrst
+anchor cohort live, subscriptions starting at
+the January 2027 launch.
+
+the ﬁrst
+anchor cohort live, subscriptions starting at
+the January 2027 launch.
+LAUNCH — GATE 5 (W20)
+Friday 8 January 2027
+First anchor cohort live · billing begins
+THE SIX-GATE LADDER — AUG 2026 → FEB 2027
+G1
+Sign & Formalise
+W1 · Fri 28 Aug 26
+✓ MoU signed
+G2
+Platform
+readiness &
+incorporation
+W7 · Fri 9 Oct 26
+G3
+VVIP Sovereign JV partner go-live —
+100 seats, 8
+products
+W12 · Fri 13 Nov 26
+G4
+Anchor
+contracting —
+~500 seats
+W17 · Fri 18 Dec 26
+G5
+Launch — cohort
+live, billing
+starts
+W20 · Fri 8 Jan 27
+G6
+Month-6 /
+owned-cluster
+decision
+W25 · Fri 12 Feb 27
+OUTCOMES BY THE MONTH-6 GATE
+
+/
+owned-cluster
+decision
+W25 · Fri 12 Feb 27
+OUTCOMES BY THE MONTH-6 GATE
+▪ ~500 anchor seats active across the ﬁve
+anchor entities
+▪ 8 owner-signed products live from the 16-
+product Wave-1 cohort
+▪ Wave-2 product cohort in service
+▪ Year-1 Q1 revenue in service: USD 810K
+▪ Month-6 / owned-cluster decision taken by the
+JV Board
+Anchors · seat blocks: VVIP Sovereign JV partner 100 · ADFD 100 · UAE Aid Agency
+140 · Erth Zayed Philanthropies 90 · Emirates Red Crescent
+DECISION WATCH — OPEN ITEMS
+● Contracting: Scenario A (8 wks) vs B (16 wks) —
+open; decide Mon 31 Aug 2026 (switch C3)
+
+Scenario A (8 wks) vs B (16 wks) —
+open; decide Mon 31 Aug 2026 (switch C3)
+● Go-live 8 not yet named; task owners are roles,
+not individuals
+● G6 (12 Feb 2027): extend rented compute
+bridge or commit to owned mini-cluster
+~500
+SEATS INCL. VVIP Sovereign JV partner’S 100
+ANCHOR ENTITIES
+TASKS / GATES
+16→8
+WAVE-1 → GO-LIVE
+PRODUCTS
+AED
+420k
+ENGINEER COST P.A.
+
+TASKS / GATES
+16→8
+WAVE-1 → GO-LIVE
+PRODUCTS
+AED
+420k
+ENGINEER COST P.A.
+USD
+7.63M
+YEAR-1 REVENUE
+TARGET
+CADENCE · Weekly delivery meeting · fortnightly steering committee · gate decisions G1–G6 as leadership
+checkpoints
+Private & Confidential · VVIP Sovereign JV — VVIP Sovereign JV · 6-Month Implementation Plan (Aug 2026 – Jan 2027) · v3 · Status: Mon 31 Aug 2026 Page 1 of 2
+
+VVIP Sovereign JV · EXECUTIVE WORKPLAN · PAGE 2 OF 2
+Executive Workplan — Swimlane Timeline
+Eight workstreams · one row each: Workstream → Weeks → Owner → Milestone · W1 = Mon 24 Aug
+2026
+CADENCE & LEADERSHIP UPDATES
+
+Weeks → Owner → Milestone · W1 = Mon 24 Aug
+2026
+CADENCE & LEADERSHIP UPDATES
+● Weekly delivery meeting · fortnightly steering
+committee (PMO, from W1)
+● First board meeting — W8 · 16 Oct 2026:
+Wave-1 budget release, gate calendar adopted
+● Evidence packs to leadership — Month-4
+(W15 · 4 Dec 2026) · Month-6 (W23 · 29 Jan 2027)
+● Gate decisions G1–G6 as leadership update
+points (dates on the ladder, page 1)
+NEXT 90 DAYS — WHAT GETS DONE
+Sep (M2) Secondments issued · sovereign tenant
+live in UAE North · term sheets to all ﬁve anchors
+Oct (M3) Venture incorporated · platform
+
+· term sheets to all ﬁve anchors
+Oct (M3) Venture incorporated · platform
+readiness certiﬁed (G2) · ﬁrst board · heads of
+terms agreed
+Nov (M4) All 8 Wave-1 products owner-signed ·
+VVIP Sovereign JV partner go-live — 100 seats (G3 · 13 Nov)
+Owners are shown as source roles (named individuals TBC, all 53 tasks). Headline window Aug 2026 – Jan 2027; G6 and tails run to
+mid-Feb 2027. Timeline drawn on the Scenario A (8-week) baseline; Scenario B (16-week) open (switch C3).
+
+on the Scenario A (8-week) baseline; Scenario B (16-week) open (switch C3).
+Private & Confidential · VVIP Sovereign JV — VVIP Sovereign JV · 6-Month Implementation Plan (Aug 2026 – Jan 2027) · v3 · Status: Mon 31 Aug 2026 Page 2 of 2
