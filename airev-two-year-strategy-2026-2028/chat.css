@@ -356,3 +356,15 @@
   #chat-panel, #chat-panel.closed, #chat-launcher { transition: none; }
   #chat-panel .chat-typing .dot { animation: none; opacity: .7; }
 }
+
+/* ---- v3 (OnDemand backend): answer body, meta line, error state ---- */
+#chat-panel .chat-answer p{margin:0 0 6px; font-size:13px; line-height:1.55; color:var(--ink,#10201B)}
+#chat-panel .chat-answer p:last-child{margin-bottom:0}
+#chat-panel .chat-answer ul{margin:4px 0 8px 16px; padding:0}
+#chat-panel .chat-answer li{font-size:12.8px; line-height:1.5; margin:0 0 4px}
+#chat-panel .chat-answer strong{font-weight:600}
+#chat-panel .chat-answer code{font-family:var(--mono,ui-monospace,monospace); font-size:12px; background:rgba(16,32,27,.06); padding:1px 4px; border-radius:4px}
+#chat-panel .chat-meta{font-size:10.5px; color:var(--ink-faint,#6C7E75); margin-top:8px; letter-spacing:.02em}
+#chat-panel .chat-error{display:flex; align-items:center; gap:6px; color:#8E3F2C; background:rgba(180,83,58,.08); border:1px solid rgba(180,83,58,.25); border-radius:8px; padding:8px 10px}
+#chat-panel .chat-error .chat-icon{flex:none}
+#chat-panel.busy #chat-input{opacity:.7}
