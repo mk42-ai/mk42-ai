@@ -23,7 +23,7 @@ const CONFIG = {
   libraryUser: process.env.ONDEMAND_LIBRARY_USER || 'vvip-deck-library',
   timeoutMs: Number(process.env.ONDEMAND_TIMEOUT_MS || 50000),
   agentCacheMs: Number(process.env.ONDEMAND_AGENT_CACHE_MS || 10 * 60 * 1000),
-  temperature: Number(process.env.ONDEMAND_TEMPERATURE || 0.2)
+  temperature: Number(process.env.ONDEMAND_TEMPERATURE || 0.1)
 };
 
 function apiKey() {
