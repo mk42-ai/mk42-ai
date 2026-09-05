@@ -1,12 +1,12 @@
-# AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era
+# AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era (v2)
 
-Interactive, spatial strategy deck (29 cards on a six-lane map) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
+Interactive, spatial strategy deck (31 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
 
 ## Run
 
 ```bash
 npm run dev        # serves on http://0.0.0.0:4173
-# or open index.html directly — the deck is static (HTML/CSS/JS, no dependencies)
+# or open index.html directly — static HTML/CSS/JS, no build step, no dependencies
 ```
 
 ## Navigate
@@ -15,20 +15,24 @@ npm run dev        # serves on http://0.0.0.0:4173
 |---|---|
 | → / Space | next card |
 | ← | previous card |
-| ↓ / ↑ | next / previous lane (chapter) |
+| ↓ / ↑ | next / previous lane — the camera pulls back and flies between lanes |
 | O / Esc | zoom out to the whole strategy map; click a card to fly to it |
 | N | speaker notes |
-| P | print / save as PDF (cards stack vertically) |
+| P | print / save as PDF |
+| Ask the deck | right-hand assistant: cited answers from the data room, per-document downloads |
 | `#12` in the URL | deep-link to card 12 |
 
 ## Structure
 
-- `index.html` — all 29 cards (content, source tags, speaker notes)
-- `content.js` — roadmap data (8 quarters), partner grid (16 routes), Athar scenario toggle, modular-DC cost-share toggle, valuation slider, charts
-- `deck.js` — spatial camera engine + a tiny dependency-free SVG chart kit
-- `styles.css` — design tokens (emerald / gold / Inter / Playfair), card, chart and chrome styles
+- `index.html` — the 31 cards (hero numbers, icon rows, progressive-disclosure reveals, source tags)
+- `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts
+- `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
+- `chat.js` / `chat.css` — collapsible RAG assistant (client-side BM25 over `library.json`, citation chips, downloads)
+- `library.json` — document library: file, signed URL, expiry, extracted & scrubbed passages
+- `styles.css` — design tokens (emerald / gold / Inter / Playfair; chapter cards in the OnDemand brand gradient)
+- `assets/` — hero art, press photos, charts, partner logos and OnDemand brand glyphs
 - `server.js` — zero-dependency static server
 
-## Sources
+## Confidentiality
 
-Investment Memorandum (Series A2, Aug 2026); Athar JV model v13 and executive summaries; Kairoswealth LOI (23 Aug 2026); Itqan term sheet V6 and redacted draft; Tenstorrent Galaxy fleet map (23 Aug 2026); UAE Export Story / Journey decks; Angola proposal; Qualcomm × e& deck; Chairman overview (30 Aug 2026); public sources as of 5 Sep 2026. See the final card, *Sources & caveats*.
+The sovereign joint-venture counterparty is referred to only as the **VVIP Sovereign JV** throughout the deck, the chatbot labels and the extracted passages. Signed download URLs in `library.json` expire between 7 and 12 September 2026 — refresh them from the data room when re-publishing.

@@ -33,22 +33,34 @@
     line.style.left=(minX)+'px'; line.style.width=(maxX-minX)+'px'; line.style.top=(y)+'px';
     canvas.insertBefore(line, canvas.firstChild);
     const lab=document.createElement('div'); lab.className='lane-label';
-    lab.innerHTML=`<b>${String(+k+1).padStart(2,'0')}</b>${arr[0].dataset.chapter||''}`;
+    lab.innerHTML=`<b>${String(+k+1).padStart(2,'0')}</b>${arr[0].dataset.chapter||''}<span class="lane-story"> · ${arr[0].dataset.story||''}</span>`;
     lab.style.left=(minX-W/2-1650)+'px'; lab.style.top=y+'px';
     canvas.insertBefore(lab, canvas.firstChild);
   });
 
   const fit=()=>Math.min(innerWidth/W,(innerHeight-70)/H)*0.94;
 
+  let offsetX=0, flyTimer=null;
   function camera(x,y,rot,scale){
-    canvas.style.transform=`translate(${innerWidth/2}px,${(innerHeight-8)/2}px) rotate(${-rot}deg) scale(${scale}) translate(${-x}px,${-y}px)`;
+    canvas.style.transform=`translate(${innerWidth/2-offsetX}px,${(innerHeight-8)/2}px) rotate(${-rot}deg) scale(${scale}) translate(${-x}px,${-y}px)`;
   }
   function goTo(i, opts={}){
     i=Math.max(0,Math.min(steps.length-1,i));
     const s=steps[i];
     const x=+s.dataset.x||0, y=+s.dataset.y||0, sc=+s.dataset.scale||1, rot=+s.dataset.rot||0;
+    const laneChange=!overview && steps[cur] && steps[cur].dataset.lane!==s.dataset.lane && !opts.silent && i!==cur;
     overview=false; body.classList.remove('overview');
-    camera(x,y,rot,fit()/sc);
+    if(flyTimer){ clearTimeout(flyTimer); flyTimer=null; }
+    if(laneChange && !body.classList.contains('no-anim')){
+      /* animated spatial transition between lanes: pull back to a mid-point, then dive into the target card */
+      const px=+steps[cur].dataset.x||0, py=+steps[cur].dataset.y||0;
+      canvas.style.transitionDuration='.6s';
+      camera((px+x)/2,(py+y)/2,0,fit()*0.28);
+      flyTimer=setTimeout(()=>{ canvas.style.transitionDuration='.85s'; camera(x,y,rot,fit()/sc); flyTimer=null; },600);
+    } else {
+      canvas.style.transitionDuration='';
+      camera(x,y,rot,fit()/sc);
+    }
     steps.forEach((t,j)=>{ t.classList.toggle('active',j===i); t.classList.toggle('past',j<i); t.classList.toggle('future',j>i); });
     cur=i;
     updateChrome();
@@ -92,6 +104,10 @@
     const n=steps[cur].querySelector('.notes');
     notes.innerHTML=`<h4>Speaker notes · ${String(cur+1).padStart(2,'0')}</h4>`+(n?n.innerHTML:'<p class="muted">No notes for this card.</p>');
   }
+
+  /* ---- assistant panel: keep the active card visible when the right-hand panel is open ---- */
+  document.addEventListener('chat:opened',()=>{ offsetX=innerWidth>1100?200:0; overview?showOverview():goTo(cur,{silent:true}); });
+  document.addEventListener('chat:closed',()=>{ offsetX=0; overview?showOverview():goTo(cur,{silent:true}); });
 
   /* ---- keyboard / touch ---- */
   addEventListener('keydown',e=>{
