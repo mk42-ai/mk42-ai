@@ -17,6 +17,19 @@
           "value": "no-store"
         }
       ]
+    },
+    {
+      "source": "/airev-two-year-strategy-2026-2028/library.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300"
+        }
+      ]
     }
   ],
   "redirects": [

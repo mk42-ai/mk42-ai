@@ -7,7 +7,8 @@
      3. POST /chat/v1/sessions/{id}/query           → sync, fulfillmentOnly, modelConfigs.fulfillmentPrompt = agent system prompt
    No knowledge plugin, no media plugin and no local passage retrieval sit on this path any more.
    The answer's "SOURCES:" line is mapped to the deck's document library for citation chips + downloads.
-   GET /api/chat → health/config (no secrets, no prompt text). */
+   GET /api/chat → health/config (no secrets, no prompt text). OPTIONS → CORS preflight for the deck's own hosts
+   (sandboxed embed iframes with an opaque origin). */
 'use strict';
 
 const { CONFIG, getAgent, createSession, sessionBelongsToAgent, submitQuery, redact } = require('./_lib/ondemand.js');
@@ -86,6 +87,24 @@ async function readBody(req) {
   });
 }
 
+/* The deck is also viewed inside embed / canvas iframes. A sandboxed iframe without allow-same-origin gets an opaque
+   origin ("null"), which turns the deck's own same-path fetch into a CORS request with a preflight — answer it for the
+   deck's own hosts (Vercel previews, the sandbox preview, local dev) so the assistant keeps working there too. */
+const ALLOWED_ORIGIN = /^(null|https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?|https:\/\/[a-z0-9.-]+\.vercel\.(app|run))$/i;
+function cors(req, res) {
+  const origin = String(req.headers.origin || '');
+  const host = String(req.headers.host || '');
+  if (!origin) return;
+  const sameHost = host && origin.replace(/^https?:\/\//i, '') === host;
+  if (sameHost || ALLOWED_ORIGIN.test(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin === 'null' ? '*' : origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Max-Age', '600');
+    res.setHeader('Vary', 'Origin');
+  }
+}
+
 function send(res, status, payload) {
   res.statusCode = status;
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -100,6 +119,8 @@ async function ensureSession(sessionId, externalUserId) {
 }
 
 module.exports = async function handler(req, res) {
+  cors(req, res);
+  if (req.method === 'OPTIONS') { res.statusCode = 204; res.setHeader('Cache-Control', 'no-store'); return res.end(); }
   if (req.method === 'GET') {
     const keyConfigured = Boolean(process.env.ONDEMAND_API_KEY);
     let agent = null, error = null;
@@ -110,7 +131,7 @@ module.exports = async function handler(req, res) {
       documents: DOCS.length - 1, keyConfigured, error
     });
   }
-  if (req.method !== 'POST') { res.setHeader('Allow', 'GET, POST'); return send(res, 405, { ok: false, error: 'Method not allowed' }); }
+  if (req.method !== 'POST') { res.setHeader('Allow', 'GET, POST, OPTIONS'); return send(res, 405, { ok: false, error: 'Method not allowed' }); }
 
   const body = await readBody(req);
   const query = String(body.query || '').trim().slice(0, 2000);

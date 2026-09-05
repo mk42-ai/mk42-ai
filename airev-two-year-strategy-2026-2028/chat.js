@@ -113,9 +113,11 @@
     docsList = h('div', { class: 'chat-docs-list', 'data-testid': 'chat-docs-list' });
     docsEl = h('section', { id: 'chat-docs', class: 'chat-docs', 'data-testid': 'chat-docs', hidden: true, 'aria-label': 'Library documents' }, docsList);
     thread = h('div', { id: 'chat-thread', class: 'chat-thread', 'data-testid': 'chat-thread', role: 'log', 'aria-live': 'polite' });
-    input = h('input', { id: 'chat-input', 'data-testid': 'chat-input', type: 'text', placeholder: 'Ask about valuation, partners, the JV, hardware…', autocomplete: 'off', 'aria-label': 'Your question' });
-    send = h('button', { id: 'chat-send', 'data-testid': 'chat-send', type: 'submit', 'aria-label': 'Send', title: 'Send', html: icon('send', 16) });
-    form = h('form', { id: 'chat-form', class: 'chat-form', 'data-testid': 'chat-form' }, [input, send]);
+    input = h('input', { id: 'chat-input', 'data-testid': 'chat-input', type: 'text', placeholder: 'Ask about valuation, partners, the JV, hardware…', autocomplete: 'off', enterkeyhint: 'send', 'aria-label': 'Your question' });
+    /* type="button": the composer is submitted from script (send click / Enter keydown), never through native form
+       submission — browsers block native submission inside sandboxed iframes (embed / canvas hosts without allow-forms). */
+    send = h('button', { id: 'chat-send', 'data-testid': 'chat-send', type: 'button', 'aria-label': 'Send', title: 'Send', html: icon('send', 16) });
+    form = h('form', { id: 'chat-form', class: 'chat-form', 'data-testid': 'chat-form', 'data-submit': 'script', action: '#', novalidate: true }, [input, send]);
     typingEl = h('div', { class: 'msg assistant chat-typing', 'data-testid': 'chat-typing', 'aria-label': 'Assistant is typing' }, [
       avatar(), h('div', { class: 'bubble', 'data-testid': 'chat-typing-bubble' }, [0, 1, 2].map(() => h('span', { class: 'dot', 'data-testid': 'chat-typing-dot' })))
     ]);
@@ -152,10 +154,10 @@
 
   function scrollDown() { thread.scrollTop = thread.scrollHeight; }
 
-  function addMsg(role, content) {
+  function addMsg(role, content, after) {
     const bubble = h('div', { class: 'bubble', 'data-testid': 'chat-bubble' }, content);
     const msg = h('div', { class: `msg ${role}`, 'data-testid': `chat-msg-${role}` }, role === 'assistant' ? [avatar(), bubble] : bubble);
-    thread.append(msg);
+    if (after && after.parentNode === thread) after.insertAdjacentElement('afterend', msg); else thread.append(msg);
     scrollDown();
     return msg;
   }
@@ -185,23 +187,29 @@
     ]);
   }
 
-  function renderAnswer(ans) {
+  function renderAnswer(ans, after) {
     const parts = [h('div', { class: 'chat-answer', 'data-testid': 'chat-answer', html: renderMarkdown(ans.answer || '') })];
     if (ans.citations && ans.citations.length) parts.push(h('div', { class: 'chat-cites', 'data-testid': 'chat-cites' }, ans.citations.map(citeChip)));
     const meta = ans.metrics && ans.metrics.ragTimeSec != null ? `Grounded by OnDemand · retrieval ${Number(ans.metrics.ragTimeSec).toFixed(1)}s · ${ans.backend && ans.backend.endpointId ? ans.backend.endpointId.replace(/^predefined-/, '') : 'model'}` : 'Answered by OnDemand';
     parts.push(h('div', { class: 'chat-meta', 'data-testid': 'chat-meta', text: meta }));
-    addMsg('assistant', parts);
+    addMsg('assistant', parts, after);
   }
 
-  function renderError(message) {
+  function renderError(message, after) {
     addMsg('assistant', [
       h('p', { class: 'chat-lead chat-warn chat-error', 'data-testid': 'chat-error', html: icon('warn', 14) + ' ' + esc(scrub(message)) }),
       h('p', { class: 'chat-meta', 'data-testid': 'chat-error-hint', text: 'Please try again in a moment. If this persists, the OnDemand service may be unavailable.' })
-    ]);
+    ], after);
   }
 
   /* --------------------------------------------------------------- behaviour */
-  function setBusy(b) { send.disabled = b; input.disabled = b; thread.setAttribute('aria-busy', String(b)); panel.classList.toggle('busy', b); }
+  let busy = false;
+  function setBusy(b) {
+    busy = b;
+    send.setAttribute('aria-busy', String(b));
+    thread.setAttribute('aria-busy', String(b));
+    panel.classList.toggle('busy', b);
+  }
 
   async function callApi(q) {
     const ctrl = new AbortController();
@@ -214,11 +222,9 @@
     } finally { clearTimeout(timer); }
   }
 
-  async function answer(q) {
+  async function answer(q, userMsg) {
     setBusy(true);
-    if (suggestEl) { suggestEl.remove(); suggestEl = null; }
-    addMsg('user', h('span', { class: 'chat-user-text', 'data-testid': 'chat-user-text', text: scrub(q) }));
-    thread.append(typingEl);
+    if (userMsg && userMsg.parentNode === thread) userMsg.insertAdjacentElement('afterend', typingEl); else thread.append(typingEl);
     scrollDown();
     let result;
     try {
@@ -226,13 +232,13 @@
       if (data.sessionId && data.sessionId !== sessionId) { sessionId = data.sessionId; store('session', 'airev-deck-session', sessionId); }
       result = { question: q, ...data, answer: scrub(data.answer || ''), citations: (data.citations || []).map((c) => ({ ...c, label: scrub(c.label || '') })), empty: !(data.answer || '').trim() };
       typingEl.remove();
-      renderAnswer(result);
+      renderAnswer(result, userMsg);
       emit('chat:answered', result);
     } catch (err) {
       typingEl.remove();
       const msg = err && err.name === 'AbortError' ? 'The assistant took too long to respond.' : (err && err.message) || 'The assistant is unavailable right now.';
       if (err && (err.status === 404 || err.status === 400)) { sessionId = null; store('session', 'airev-deck-session', null); }
-      renderError(msg);
+      renderError(msg, userMsg);
       result = { question: q, error: msg, answer: '', citations: [], empty: true };
       emit('chat:error', result);
     }
@@ -240,15 +246,27 @@
     return result;
   }
 
-  /** Ask a question; answers are serialised so rapid calls never interleave in the thread. */
+  /** Ask a question. The user bubble appears immediately; requests are serialised so answers never interleave,
+      and each answer is rendered directly under its own question even when several are queued. */
   function ask(question) {
     const q = String(question == null ? '' : question).trim();
     if (!q) return Promise.resolve(null);
     ensure();
     open();
-    const run = queue.then(() => answer(q));
+    if (suggestEl) { suggestEl.remove(); suggestEl = null; }
+    const userMsg = addMsg('user', h('span', { class: 'chat-user-text', 'data-testid': 'chat-user-text', text: scrub(q) }));
+    const run = queue.then(() => answer(q, userMsg));
     queue = run.catch(() => {});
     return run;
+  }
+
+  /** Submit whatever is typed in the composer (send button, Enter key, or the native form event). */
+  function submit() {
+    const q = input.value.trim();
+    input.focus({ preventScroll: true });
+    if (!q) return null;
+    input.value = '';
+    return ask(q);
   }
 
   function open() {
@@ -281,13 +299,18 @@
       docsEl.hidden = !show;
       docsToggle.setAttribute('aria-expanded', String(show));
     });
-    form.addEventListener('submit', (e) => {
+    /* Send button and Enter key are handled directly — they work even where native form submission is blocked
+       (sandboxed iframes without allow-forms, e.g. embed / canvas hosts). The submit event stays as a fallback. */
+    send.addEventListener('click', (e) => { e.preventDefault(); submit(); });
+    input.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' || e.shiftKey || e.altKey || e.ctrlKey || e.metaKey || e.isComposing || e.keyCode === 229) return;
       e.preventDefault();
-      const q = input.value.trim();
-      if (!q || send.disabled) return;
-      input.value = '';
-      ask(q);
+      submit();
     });
+    form.addEventListener('submit', (e) => { e.preventDefault(); submit(); });
+    /* Keys typed inside the assistant never reach the deck's slide shortcuts (Enter/Space/arrows/letters);
+       Escape still bubbles to the capture-phase handler below, which closes the panel. */
+    panel.addEventListener('keydown', (e) => { if (e.key !== 'Escape') e.stopPropagation(); });
     thread.addEventListener('click', (e) => {
       const chip = e.target.closest('.chat-suggestion');
       if (chip) { ask(chip.textContent); input.focus({ preventScroll: true }); }
@@ -331,7 +354,8 @@
 
   /* ------------------------------------------------------------- public API */
   window.AirevChat = {
-    open, close, toggle: () => (opened ? close() : open()), isOpen: () => opened, ask, ready,
+    open, close, toggle: () => (opened ? close() : open()), isOpen: () => opened, ask, submit, ready,
+    isBusy: () => busy,
     backend: 'ondemand',
     sessionId: () => sessionId,
     get library() { return library; },
