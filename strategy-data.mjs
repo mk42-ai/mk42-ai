@@ -45,7 +45,8 @@ export const strategy = {
         "facility": "No concessional facility",
         "evidence": "Source-reported forecast · unaudited",
         "source": "S05 · physical p.1 §2; p.2 §3",
-        "modelIndependentlyValidated": false
+        "modelIndependentlyValidated": false,
+        "entityScope": "Total VVIP Sovereign JV"
       },
       "international": {
         "id": "international",
@@ -91,7 +92,8 @@ export const strategy = {
         "facility": "No concessional facility",
         "evidence": "Source-reported forecast · unaudited",
         "source": "S05 · physical p.1 §2; p.2 §3",
-        "modelIndependentlyValidated": false
+        "modelIndependentlyValidated": false,
+        "entityScope": "Total VVIP Sovereign JV"
       }
     },
     "funding": {
@@ -115,7 +117,8 @@ export const strategy = {
       "Sovereign Partner NPV rate 3.5%; AIREV NPV rate 10%. Cashflow definitions, valuation date and NPV horizon are not disclosed in the summary.",
       "Five-year model years are not the eight execution quarters.",
       "No equity, facility or partner contribution is represented as cash received or an executed funding obligation."
-    ]
+    ],
+    "reportingScope": "Total VVIP Sovereign JV; not AIREV-attributable revenue, corporate cash or equity value."
   },
   "sources": {
     "S01": {
@@ -214,7 +217,7 @@ export const strategy = {
       "id": "modular-data-centre",
       "title": "Modular data centres",
       "status": "Proposed reference deployment",
-      "body": "Package compute, sovereign inference and the OnDemand harness as an exportable offer. The public Tenstorrent development-node announcement supports a technical relationship, not a completed modular facility.",
+      "body": "Package compute, sovereign inference and the OnDemand harness as an exportable offer. The public Tenstorrent development-node announcement supports technical collaboration, not a completed modular facility. The facility LOI was not recovered.",
       "gate": "Site, power, connectivity, performance acceptance, approvals and financing must all clear before commissioning.",
       "source": "P01 · 25 Jun 2025; S04 · slide 2; U01",
       "compute": "Intel · Tenstorrent",
@@ -799,7 +802,7 @@ export const strategy = {
     },
     {
       "id": "pilot",
-      "title": "02 · First proposed UAE modular deployment",
+      "title": "02 · AIREV’s first proposed UAE modular deployment",
       "body": "Commission, test and accept the proposed reference offer. The earlier technical development-node announcement is not proof that this future modular deployment exists.",
       "gates": [
         "Customer acceptance and reliability",

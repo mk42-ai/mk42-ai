@@ -51,5 +51,11 @@
     "sequence drilldown",
     "editable presenter note"
   ],
-  "intentionalSecurityChange": "No remote voice workflow, no raw source images, no external client data submission."
+  "intentionalSecurityChange": "No remote voice workflow, no raw source images, no external client data submission.",
+  "continuationChanges": {
+    "s-jv": "Added persistent total-venture reporting scope; no numerical changes.",
+    "s8": "Facility LOI unavailable is explicit; first proposed UAE milestone is company-specific.",
+    "navigation": "Larger chapter targets at all widths; selected chapter scrolls into the navigation window.",
+    "unchanged": "All15 sections,7 devices,3 layers,4 sectors,15 channels,8 quarters,source figures and existing functionality retained."
+  }
 }

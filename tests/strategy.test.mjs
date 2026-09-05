@@ -28,3 +28,6 @@ test('chart geometry supports negative operating results and remains finite',()=
 test('bounded navigation does not wrap outside the presentation',()=>{assert.equal(safeIndex(-1,15),0);assert.equal(safeIndex(15,15),14);assert.equal(safeIndex(3,15),3);});
 test('all seven optimized concept illustrations exist and are lightweight',async()=>{for(const d of D.devices){const st=await stat(path.join(root,d.image));assert.ok(st.size>1000&&st.size<200000);}assert.equal((await readdir(path.join(root,'assets'))).filter(n=>n.endsWith('.webp')).length,7);});
 test('native local evidence guide preserves Insights without remote transmission',()=>{assert.equal(D.insights.length,6);assert.match(source,/id="airev-mic"/);assert.match(source,/legacy remote voice hook has been disabled/);});
+
+test('financial reporting scope is total venture, never AIREV revenue',()=>{assert.match(D.model.reportingScope,/Total VVIP Sovereign JV/);for(const scenario of Object.values(D.model.scenarios))assert.equal(scenario.entityScope,'Total VVIP Sovereign JV');assert.match(source,/not AIREV-attributable revenue/);});
+test('missing facility LOI stays explicit and UAE first is company-specific',()=>{assert.match(source,/facility LOI was not recovered/);assert.match(D.infra[1].title,/AIREV’s first proposed/);assert.doesNotMatch(D.infra[1].title,/UAE-wide/);});

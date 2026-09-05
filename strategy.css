@@ -10,3 +10,14 @@
 .device-node:focus,.layer-button:focus,.quarter-button:focus,.infra-button:focus,.segmented button:focus,.channel-controls button:focus,.region-controls button:focus,.insight-controls button:focus{outline:3px solid #876426;outline-offset:4px}
 
 button.input-focused,select.input-focused,[contenteditable].input-focused,[role=button].input-focused{outline:3px solid #876426!important;outline-offset:4px!important}
+
+/* Accessible chapter navigation — minimum target sizing. */
+.presentation-nav{width:min(616px,calc(100% - 28px));max-width:calc(100% - 28px);gap:8px;padding:8px;box-sizing:border-box}
+.presentation-nav .nav-arrow{width:44px;height:44px;min-width:44px;flex:0 0 44px}
+.presentation-nav #dots{flex:1 1 auto;min-width:0;max-width:480px;gap:0;height:50px;padding:3px 0;scroll-padding-inline:6px}
+.presentation-nav .dot,.presentation-nav .dot.on{width:32px;min-width:32px;height:44px;flex:0 0 32px;transform:none!important;background:transparent;border-radius:8px;box-sizing:border-box}
+.presentation-nav .dot::before{left:calc(50% - 3px);top:19px;width:6px;height:6px}
+.presentation-nav .dot.on::before{left:calc(50% - 6px);top:19px;width:12px;height:6px;border-radius:5px}
+.presentation-nav .dot:focus-visible{outline-offset:-2px}
+.projection-scope{display:block;margin-top:6px;font-size:11px;color:inherit}
+@media(max-width:540px){.presentation-nav{gap:6px;padding:6px}.presentation-nav .dot,.presentation-nav .dot.on{width:28px;min-width:28px;flex-basis:28px}.presentation-nav #dots{max-width:none}.projection-scope{font-size:10px}}
