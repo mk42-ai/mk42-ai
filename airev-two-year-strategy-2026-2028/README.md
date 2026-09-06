@@ -1,6 +1,6 @@
 # AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era (v2)
 
-Interactive, spatial strategy deck (32 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
+Interactive, spatial strategy deck (29 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
 
 ## Run
 
@@ -24,7 +24,7 @@ npm run dev        # serves on http://0.0.0.0:4173
 
 ## Structure
 
-- `index.html` — the 32 cards (hero numbers, icon rows, progressive-disclosure reveals, source tags)
+- `index.html` — the 29 cards (hero numbers, icon rows, progressive-disclosure reveals, source tags)
 - `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts
 - `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
 - `chat.js` / `chat.css` — collapsible assistant UI; calls `/api/chat` (OnDemand) and renders cited answers with per-document downloads
