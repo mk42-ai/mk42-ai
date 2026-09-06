@@ -33,7 +33,8 @@ npm run dev        # serves on http://0.0.0.0:4173
 - `styles.css` — design tokens (emerald / gold / Inter / Playfair; chapter cards in the OnDemand brand gradient)
 - `assets/` — hero art, press photos, charts, partner logos and OnDemand brand glyphs
 - `api/` — the `/api/chat` and `/api/media` handlers (the repo-root `api/*.js` files are one-line shims that re-export them for Vercel), so the deck folder is self-contained
-- `assets/talent/` — committed static assets for card 08 “Talent · the India flywheel” (no hot-linked signed URLs anywhere in the deck)
+- card 08 “Talent · the India flywheel” is a fully coded diagram — inline SVG + CSS + JS in `index.html` / `styles.css` (a continuously rotating flywheel: IIT → AIREV India office · 6–12 months → top performers → UAE → UAE mandate); it carries no raster images, so `assets/talent/` no longer exists
+- `assets/cover-motion.mp4` + `assets/cover-motion-poster.jpg` — the cover’s looping motion hero (`<video autoplay muted loop playsinline>`, object-fit: cover, behind the cover text). Generated 2026-09-06 from the deck’s hero art (xAI vidgen request `8be9c01c-c978-9e7e-975f-85bbb04717f1`) and committed as a static asset: audio track removed, tail cross-faded into the head for a seamless ~7 s loop, faststart MP4 (H.264, 1168×768, 24 fps, ≈5.5 MB); the poster is its first frame (no hot-linked URLs anywhere in the deck)
 - `server.js` — zero-dependency dev/preview server: serves the deck, mounts `./api`, loads `./.env`, and proxies `/api/*` to the deployed Vercel API (`API_PROXY_BASE`) when no `ONDEMAND_API_KEY` is configured locally — a restored preview never answers “no such function”
 
 ## Backend (OnDemand agent)

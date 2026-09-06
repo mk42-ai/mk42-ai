@@ -365,39 +365,68 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 .lane-label .lane-story{color:rgba(14,122,95,.22); font-size:.6em}
 
 /* ---- 08 Talent · the India flywheel ---- */
-.talent{display:grid; grid-template-rows:auto auto; gap:12px; margin-top:6px}
-.talent-row{display:grid; gap:12px; min-height:0}
-.talent-row.top{grid-template-columns:1fr 1.3fr .95fr}
-.talent-row.bottom{grid-template-columns:1fr 1.45fr}
-.tpanel{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:11px 13px 12px; display:flex; flex-direction:column; min-height:0; gap:7px}
-.tpanel .k{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600}
-.tpanel .img{border-radius:8px; overflow:hidden; background:#0E332C; position:relative}
-.tpanel .img img{width:100%; height:100%; object-fit:cover; display:block}
-.tpanel .t-img{height:104px}
-.tpanel .t-img.tall{height:140px}
-.tpanel .img .cap{position:absolute; left:0; right:0; bottom:0; padding:8px 10px; font-size:10px; line-height:1.35; color:#EAF2F0; background:linear-gradient(180deg,rgba(4,41,34,0),rgba(4,41,34,.88))}
-.tpanel p{font-size:11.5px; line-height:1.45; color:var(--ink-dim); margin:0}
-.tpanel p b{color:var(--ink); font-weight:600}
-.tpanel .capline{font-size:10.5px; color:var(--ink-faint)}
-.tflow{display:flex; flex-wrap:wrap; align-items:center; gap:3px 5px; font-size:10.5px; color:var(--ink); font-weight:500}
-.tflow span{background:var(--emerald-soft); border-radius:6px; padding:2px 7px; white-space:nowrap}
-.tflow i{color:var(--gold); font-style:normal; font-weight:600}
-.tlogos{display:flex; align-items:center; gap:12px; margin-top:auto}
-.tlogos img{height:36px; width:auto; object-fit:contain}
-.tlogos small{font-size:10px; color:var(--ink-faint); line-height:1.35}
-.ceo-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px}
-.ceo{display:grid; grid-template-columns:58px 1fr; gap:9px; align-items:start; border:1px solid var(--hair); border-radius:10px; padding:9px; background:var(--panel)}
-.ceo img.portrait{width:58px; height:58px; border-radius:50%; object-fit:cover; object-position:top; border:2px solid #fff; box-shadow:0 2px 8px rgba(16,32,27,.15)}
-.ceo .nm{font-family:var(--serif); font-size:14.5px; line-height:1.15; color:var(--ink)}
-.ceo .ed{font-size:10px; color:var(--ink-dim); line-height:1.4; margin-top:3px}
-.ceo img.co{height:15px; width:auto; margin-top:6px; display:block}
-.ceo .cite{font-size:9px; color:var(--ink-faint); margin-top:4px; line-height:1.35}
-.quote{font-family:var(--serif); font-size:13.5px; line-height:1.35; color:var(--ink); border-left:3px solid var(--gold); padding-left:10px; margin-top:auto}
-.photo-grid{display:grid; grid-template-columns:1fr 1fr; gap:5px}
-.photo-grid .img{height:74px}
-.home-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:11px; align-items:start}
-.home-grid .img{height:150px}
-.home-grid p+p{margin-top:6px}
+/* ================= card 08 · coded talent flywheel — inline SVG + CSS + JS, no raster images ================= */
+.flywheel-stage{flex:1 1 auto; min-height:0; margin-top:8px; display:grid; grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+  border-radius:16px; overflow:hidden; color:#F6FFFF; border:1px solid #2E5049;
+  background:radial-gradient(760px 480px at 30% 45%, rgba(18,184,134,.18) 0%, rgba(18,184,134,0) 62%), linear-gradient(135deg,#042922 0%,#0B2E27 55%,#123B34 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 18px 50px rgba(4,41,34,.18)}
+.fw-canvas{position:relative; min-height:0; display:flex; align-items:center; justify-content:center; padding:8px 4px 8px 12px}
+.fw-svg{display:block; width:100%; height:100%; max-height:100%; font-family:var(--sans)}
+@keyframes fw-spin{from{transform:rotate(0deg)} to{transform:rotate(360deg)}}
+@keyframes fw-flow{to{stroke-dashoffset:-96}}
+@keyframes fw-pulse{0%,100%{opacity:.30} 50%{opacity:.62}}
+.fw-rotor{transform-origin:0 0; animation:fw-spin var(--fw-period,24s) linear infinite}
+.fw-orbit-rotor{transform-origin:0 0; animation:fw-spin var(--fw-period,24s) linear infinite}
+.fw-dash{stroke-dasharray:5 11; animation:fw-flow 2.4s linear infinite}
+.fw-dash.gold{animation-duration:3s}
+.fw-hub-glow{animation:fw-pulse 3.4s ease-in-out infinite}
+.fw-node .fw-box{fill:#0B2620; stroke:rgba(255,255,255,.16); stroke-width:1; transition:stroke .45s ease, fill .45s ease}
+.fw-node .fw-t{fill:#F6FFFF; font-size:14px; font-weight:600; letter-spacing:.01em}
+.fw-node .fw-s{fill:#9FB8AF; font-size:10.5px; font-weight:400}
+.fw-node .fw-badge{fill:#A5884B; transition:fill .45s ease}
+.fw-node .fw-badge-t{fill:#042922; font-size:10px; font-weight:700}
+.fw-node.on .fw-box{stroke:#4FC9A6; fill:#0F332B}
+.fw-node.on .fw-badge{fill:#E4CB8C}
+.fw-node.mandate .fw-box{stroke:rgba(228,203,140,.55)}
+.fw-node.mandate .fw-t{fill:#F1DFAF}
+.fw-node.mandate.on .fw-box{stroke:#E4CB8C; fill:#1B2F20}
+.fw-legend{padding:20px 24px 16px 22px; display:flex; flex-direction:column; min-height:0; border-left:1px solid rgba(255,255,255,.08); background:rgba(4,41,34,.35)}
+.fw-legend .fw-k{font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:#4FC9A6; font-weight:600; margin-bottom:10px}
+.fw-steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; counter-reset:fw}
+.fw-steps li{position:relative; padding:9px 12px 9px 40px; border-radius:10px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.03); transition:background .45s ease, border-color .45s ease}
+.fw-steps li::before{counter-increment:fw; content:counter(fw); position:absolute; left:12px; top:10px; width:20px; height:20px; border-radius:50%; background:rgba(165,136,75,.24); color:#E4CB8C; font-size:10.5px; font-weight:700; display:flex; align-items:center; justify-content:center}
+.fw-steps li b{display:block; font-size:13px; font-weight:600; color:#F6FFFF; letter-spacing:.005em}
+.fw-steps li span{display:block; font-size:11px; line-height:1.45; color:#AFC4BF; margin-top:2px; font-weight:300}
+.fw-steps li.on{background:rgba(18,184,134,.13); border-color:rgba(79,201,166,.6)}
+.fw-steps li.mandate{border-color:rgba(228,203,140,.35)}
+.fw-steps li.mandate::before{background:rgba(228,203,140,.30)}
+.fw-steps li.mandate b{color:#F1DFAF}
+.fw-steps li.mandate.on{background:rgba(165,136,75,.18); border-color:#E4CB8C}
+.fw-foot{margin-top:auto; padding-top:12px; display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:10.5px; color:#AFC4BF; line-height:1.4}
+.fw-foot b{color:#4FC9A6; font-weight:700}
+.fw-link{appearance:none; border:1px solid rgba(228,203,140,.55); background:rgba(228,203,140,.10); color:#F1DFAF; font:600 10.5px/1 var(--sans); letter-spacing:.06em; border-radius:999px; padding:7px 12px; cursor:pointer; white-space:nowrap; transition:background .2s ease}
+.fw-link:hover{background:rgba(228,203,140,.24)}
 #talent .fnote{padding-top:8px}
 #talent .fnote a{color:inherit; text-decoration:underline dotted}
-@media print{ .tpanel .img img{break-inside:avoid} }
+@media (prefers-reduced-motion:reduce){ .fw-rotor,.fw-orbit-rotor{animation-duration:120s} .fw-dash,.fw-hub-glow{animation:none} }
+@media print{ .fw-rotor,.fw-orbit-rotor,.fw-dash,.fw-hub-glow{animation:none} .flywheel-stage{break-inside:avoid} }
+
+/* ================= cover · looping motion hero video (autoplay · muted · loop · playsinline) ================= */
+.step.cover-video{background:#061A15; color:#F6FFFF; border-color:#2E5049}
+.step.cover-video .hero-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; pointer-events:none;
+  background:#061A15 url('assets/cover-motion-poster.jpg') center/cover no-repeat}
+.step.cover-video .hero-scrim{position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,41,34,.84) 0%,rgba(4,41,34,.62) 44%,rgba(4,41,34,.16) 100%), linear-gradient(180deg,rgba(4,41,34,.08) 0%,rgba(4,41,34,0) 35%,rgba(4,41,34,.50) 100%)}
+.step.cover-video .step-inner{position:relative; z-index:2}
+.step.cover-video .eyebrow{color:#4FC9A6}
+.step.cover-video h1.display{color:#F6FFFF; text-shadow:0 2px 28px rgba(0,0,0,.35)}
+.step.cover-video .lede{color:#CDE9DF}
+.step.cover-video .gold-rule{background:linear-gradient(90deg,#E4CB8C,rgba(228,203,140,0))}
+.step.cover-video .story-strip{color:#AFC4BF}
+.step.cover-video .story-strip .ss{background:rgba(255,255,255,.92); border-color:rgba(255,255,255,.4); color:var(--ink)}
+.step.cover-video .story-strip .ss.on{background:var(--emerald-b); border-color:var(--emerald-b); color:#042922}
+.step.cover-video .fnote{color:#AFC4BF}
+.step.cover-video .fnote b{color:#EAF2F0}
+.step.cover-video .ov-label{background:rgba(4,41,34,.88); color:#fff}
+.step.cover-video .ov-label small{color:#4FC9A6}
+@media print{ .step.cover-video .hero-video{display:none} .step.cover-video{background:#061A15 url('assets/cover-motion-poster.jpg') center/cover no-repeat} }

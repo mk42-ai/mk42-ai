@@ -24,7 +24,14 @@
 <div id="viewport"><div id="canvas">
 
 <!-- ============================ LANE 0 · POSITION · MANDATE ============================ -->
-<section class="step" id="cover" data-x="0" data-y="0" data-scale="1.25" data-lane="0" data-chapter="Position" data-story="Mandate" data-title="Two-Year Strategy 2026–2028">
+<section class="step cover-video" id="cover" data-x="0" data-y="0" data-scale="1.25" data-lane="0" data-chapter="Position" data-story="Mandate" data-title="Two-Year Strategy 2026–2028">
+  <!-- Looping motion hero (edit 2): generated 2026-09-06 (xAI vidgen request 8be9c01c-c978-9e7e-975f-85bbb04717f1),
+       committed as a static asset: audio track removed, tail cross-faded into the head for a seamless loop, faststart MP4.
+       autoplay + muted + loop + playsinline = plays the instant the presentation opens; the poster is its first frame. -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/cover-motion-poster.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback>
+    <source src="assets/cover-motion.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="step-inner">
     <div class="eyebrow rise"><img src="assets/brand/mark-emerald.svg" alt="" class="eyebrow-mark">AIREV · OnDemand — Private &amp; Confidential · 5 September 2026</div>
     <h1 class="display rise" style="--d:.1s">Two-Year Strategy<br>2026 – 2028</h1>
@@ -238,54 +245,133 @@
   <div class="step-inner">
     <div class="eyebrow"><span class="n">08</span>Talent · the India flywheel <span class="tag signed">● running since 2023</span></div>
     <h2 class="title rise" style="font-size:27px;max-width:1180px">Three years building a talent flywheel across India's best engineering colleges — and a plan to bring it home to the UAE.</h2>
-    <div class="talent rise" style="--d:.1s">
-      <div class="talent-row top">
-        <div class="tpanel">
-          <div class="k">1 · The flywheel</div>
-          <div class="img t-img"><img src="assets/talent/talent-flywheel.jpg" alt="Talent flywheel infographic: campus recruiting, hackathons, internships, full-time engineers, alumni referrals" loading="lazy"></div>
-          <div class="tflow"><span>IIT · NIT campus recruiting</span><i>→</i><span>hackathons</span><i>→</i><span>internships</span><i>→</i><span>full-time engineers</span><i>→</i><span>alumni referrals</span></div>
-          <p>One loop, running since 2023: every cohort recruits the next, and every hackathon seeds the next internship class.</p>
-          <div class="tlogos"><img src="assets/talent/logo-iit-kharagpur.png" alt="Indian Institute of Technology Kharagpur"><img src="assets/talent/logo-nit-tiruchirappalli.png" alt="National Institute of Technology Tiruchirappalli"><small>IIT Kharagpur · NIT Tiruchirappalli — the campuses the loop starts from</small></div>
-        </div>
-        <div class="tpanel">
-          <div class="k">2 · No coincidence</div>
-          <div class="ceo-grid">
-            <div class="ceo"><img class="portrait" src="assets/talent/portrait-sundar-pichai.jpg" alt="Sundar Pichai" loading="lazy"><div><div class="nm">Sundar Pichai</div><div class="ed">B.Tech Metallurgical Engineering, IIT Kharagpur, 1993 · Institute Silver Medal → CEO, Google &amp; Alphabet</div><img class="co" src="assets/talent/logo-google.svg" alt="Google"><div class="cite">Source: Alphabet Inc. DEF 14A (SEC, 2025); Stanford Report, Apr 2026; IIT KGP Alumni Foundation</div></div></div>
-            <div class="ceo"><img class="portrait" src="assets/talent/portrait-satya-nadella.jpg" alt="Satya Nadella" loading="lazy"><div><div class="nm">Satya Nadella</div><div class="ed">BE Electrical Engineering, 1988 · Manipal Institute of Technology (degree conferred by Mangalore University) → Chairman &amp; CEO, Microsoft</div><img class="co" src="assets/talent/logo-microsoft.png" alt="Microsoft"><div class="cite">Source: Microsoft official biography; UW–Milwaukee (MS CS 1990); Chicago Booth (MBA 1997)</div></div></div>
-          </div>
-          <div class="quote">It is no coincidence that two of the world's most consequential CEOs were trained in Indian engineering colleges — Pichai at IIT Kharagpur, Nadella at Manipal.</div>
-        </div>
-        <div class="tpanel">
-          <div class="k">3 · This is our India office</div>
-          <div class="img t-img tall"><img src="assets/talent/india-office.jpg" alt="AIREV India engineering office — concept visualisation" loading="lazy"><div class="cap">Bangalore engineering &amp; delivery hub — concept visualisation · opening Q1 2027 (card 22)</div></div>
-          <p>Follow-the-sun engineering with Abu Dhabi, a certified-image factory for five silicon families, and the pods that staff the sovereign estates.</p>
-        </div>
+    <div class="flywheel-stage rise" style="--d:.1s" id="talent-flywheel" data-period="24" aria-label="Talent flywheel: IIT, AIREV India office for six to twelve months, top performers move to the UAE, UAE mandate">
+      <div class="fw-canvas">
+        <svg class="fw-svg" viewBox="0 0 680 544" role="img" aria-labelledby="fw-title fw-desc" focusable="false">
+          <title id="fw-title">Talent flywheel — from IIT to the UAE mandate</title>
+          <desc id="fw-desc">A continuously rotating flywheel. Talent is sourced from IIT, grown in the AIREV India office for six to twelve months, the very best move to the UAE, and the UAE mandate funds the next cohort.</desc>
+          <defs>
+            <radialGradient id="fw-glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#12B886" stop-opacity=".30"/><stop offset=".55" stop-color="#12B886" stop-opacity=".07"/><stop offset="1" stop-color="#12B886" stop-opacity="0"/></radialGradient>
+            <linearGradient id="fw-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FC9A6"/><stop offset=".55" stop-color="#0E7A5F"/><stop offset="1" stop-color="#E4CB8C"/></linearGradient>
+            <radialGradient id="fw-hub" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#1B4A3F"/><stop offset="1" stop-color="#062119"/></radialGradient>
+            <marker id="fw-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4FC9A6"/></marker>
+            <marker id="fw-arrow-gold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#E4CB8C"/></marker>
+            <filter id="fw-soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+          </defs>
+
+          <!-- ground -->
+          <circle cx="340" cy="272" r="262" fill="url(#fw-glow)"/>
+          <circle cx="340" cy="272" r="200" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+          <circle cx="340" cy="272" r="150" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="2 7"/>
+
+          <!-- the flywheel itself: spins continuously (CSS keyframes, infinite) -->
+          <g transform="translate(340 272)">
+            <g class="fw-rotor">
+              <circle r="100" fill="none" stroke="url(#fw-rim)" stroke-width="12"/>
+              <circle r="86" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+              <circle r="72" fill="none" stroke="rgba(79,201,166,.38)" stroke-width="1.5" stroke-dasharray="3 9"/>
+              <g stroke="rgba(255,255,255,.32)" stroke-width="2" stroke-linecap="round">
+                <line x1="0" y1="-48" x2="0" y2="-84"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(45)"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(90)"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(135)"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(180)"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(225)"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(270)"/>
+                <line x1="0" y1="-48" x2="0" y2="-84" transform="rotate(315)"/>
+              </g>
+              <g fill="#F6FFFF" opacity=".92">
+                <rect x="-2.5" y="-110" width="5" height="14" rx="2"/>
+                <rect x="-2.5" y="-110" width="5" height="14" rx="2" transform="rotate(90)"/>
+                <rect x="-2.5" y="-110" width="5" height="14" rx="2" transform="rotate(180)"/>
+                <rect x="-2.5" y="-110" width="5" height="14" rx="2" transform="rotate(270)"/>
+                <rect x="-1.5" y="-108" width="3" height="9" rx="1.5" transform="rotate(45)" opacity=".7"/>
+                <rect x="-1.5" y="-108" width="3" height="9" rx="1.5" transform="rotate(135)" opacity=".7"/>
+                <rect x="-1.5" y="-108" width="3" height="9" rx="1.5" transform="rotate(225)" opacity=".7"/>
+                <rect x="-1.5" y="-108" width="3" height="9" rx="1.5" transform="rotate(315)" opacity=".7"/>
+              </g>
+            </g>
+          </g>
+          <!-- hub (static, upright) -->
+          <g transform="translate(340 272)">
+            <circle class="fw-hub-glow" r="58" fill="#12B886" opacity=".45" filter="url(#fw-soft)"/>
+            <circle r="46" fill="url(#fw-hub)" stroke="rgba(228,203,140,.65)" stroke-width="1.2"/>
+            <text y="-9" text-anchor="middle" fill="#E4CB8C" font-size="9.5" font-weight="700" letter-spacing="2.2">AIREV</text>
+            <text y="8" text-anchor="middle" fill="#F6FFFF" font-size="13" font-weight="600">OnDemand</text>
+            <text y="22" text-anchor="middle" fill="#9FB8AF" font-size="8.5">flywheel · since 2023</text>
+          </g>
+
+          <!-- directional flow, clockwise: IIT → India office → top performers → UAE mandate → (funds) IIT -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M433.9 95.4A200 200 0 0 1 534.9 227" stroke="rgba(79,201,166,.38)" stroke-width="2.5" marker-end="url(#fw-arrow)"/>
+            <path class="fw-dash" d="M433.9 95.4A200 200 0 0 1 534.9 227" stroke="#4FC9A6" stroke-width="2.5"/>
+            <path d="M534.9 317A200 200 0 0 1 433.9 448.6" stroke="rgba(79,201,166,.38)" stroke-width="2.5" marker-end="url(#fw-arrow)"/>
+            <path class="fw-dash" d="M534.9 317A200 200 0 0 1 433.9 448.6" stroke="#4FC9A6" stroke-width="2.5"/>
+            <path d="M246.1 448.6A200 200 0 0 1 145.1 317" stroke="rgba(79,201,166,.38)" stroke-width="2.5" marker-end="url(#fw-arrow)"/>
+            <path class="fw-dash" d="M246.1 448.6A200 200 0 0 1 145.1 317" stroke="#4FC9A6" stroke-width="2.5"/>
+            <path d="M145.1 227A200 200 0 0 1 246.1 95.4" stroke="rgba(228,203,140,.42)" stroke-width="2.5" marker-end="url(#fw-arrow-gold)"/>
+            <path class="fw-dash gold" d="M145.1 227A200 200 0 0 1 246.1 95.4" stroke="#E4CB8C" stroke-width="2.5"/>
+          </g>
+          <g class="fw-cap" font-size="10" fill="#9FB8AF" font-weight="500">
+            <text x="531" y="124">recruit<tspan x="531" dy="13">&amp; train</tspan></text>
+            <text x="531" y="412">grow for<tspan x="531" dy="13">6–12 months</tspan></text>
+            <text x="149" y="412" text-anchor="end">the very best<tspan x="149" dy="13">move to the UAE</tspan></text>
+            <text x="149" y="124" text-anchor="end" fill="#E4CB8C">mandate funds<tspan x="149" dy="13">the next cohort</tspan></text>
+          </g>
+
+          <!-- orbiting marker: one lap = one cohort; the legend follows it -->
+          <g transform="translate(340 272)">
+            <g class="fw-orbit-rotor">
+              <circle cx="0" cy="-200" r="9" fill="#E4CB8C" opacity=".35" filter="url(#fw-soft)"/>
+              <circle cx="0" cy="-200" r="4.5" fill="#F6FFFF"/>
+              <circle cx="0" cy="-200" r="3" fill="#E4CB8C" opacity=".8" transform="rotate(-7)"/>
+              <circle cx="0" cy="-200" r="2" fill="#E4CB8C" opacity=".45" transform="rotate(-14)"/>
+            </g>
+          </g>
+
+          <!-- stages (static, upright) -->
+          <g class="fw-nodes">
+            <g class="fw-node on" data-stage="0" transform="translate(340 60)">
+              <rect class="fw-box" x="-98" y="-28" width="196" height="56" rx="14"/>
+              <circle class="fw-badge" cx="-80" cy="0" r="11"/><text class="fw-badge-t" x="-80" y="3.5" text-anchor="middle">1</text>
+              <text class="fw-t" x="-64" y="-3" data-max="152">IIT</text>
+              <text class="fw-s" x="-64" y="13" data-max="152">talent sourced on campus</text>
+            </g>
+            <g class="fw-node" data-stage="1" transform="translate(552 272)">
+              <rect class="fw-box" x="-92" y="-28" width="184" height="56" rx="14"/>
+              <circle class="fw-badge" cx="-74" cy="0" r="11"/><text class="fw-badge-t" x="-74" y="3.5" text-anchor="middle">2</text>
+              <text class="fw-t" x="-58" y="-3" data-max="140">AIREV India Office</text>
+              <text class="fw-s" x="-58" y="13" data-max="140">6–12 months · Bangalore hub</text>
+            </g>
+            <g class="fw-node" data-stage="2" transform="translate(340 484)">
+              <rect class="fw-box" x="-114" y="-28" width="228" height="56" rx="14"/>
+              <circle class="fw-badge" cx="-96" cy="0" r="11"/><text class="fw-badge-t" x="-96" y="3.5" text-anchor="middle">3</text>
+              <text class="fw-t" x="-80" y="-3" data-max="184">Top performers → UAE</text>
+              <text class="fw-s" x="-80" y="13" data-max="184">the very best move to Abu Dhabi</text>
+            </g>
+            <g class="fw-node mandate" data-stage="3" transform="translate(128 272)">
+              <rect class="fw-box" x="-92" y="-28" width="184" height="56" rx="14"/>
+              <circle class="fw-badge" cx="-74" cy="0" r="11"/><text class="fw-badge-t" x="-74" y="3.5" text-anchor="middle">4</text>
+              <text class="fw-t" x="-58" y="-3" data-max="140">UAE Mandate</text>
+              <text class="fw-s" x="-58" y="13" data-max="140">AI Strategy 2031 · Objective 5</text>
+            </g>
+          </g>
+        </svg>
       </div>
-      <div class="talent-row bottom">
-        <div class="tpanel">
-          <div class="k">4 · On the ground</div>
-          <div class="photo-grid">
-            <div class="img"><img src="assets/talent/lpu-hackathon-2024-1.jpg" alt="Generative AI Hackathon award ceremony, Lovely Professional University, September 2024" loading="lazy"></div>
-            <div class="img"><img src="assets/talent/lpu-hackathon-2024-2.jpg" alt="Generative AI Hackathon prize presentation, Lovely Professional University, September 2024" loading="lazy"></div>
-            <div class="img"><img src="assets/talent/lpu-hackathon-2024-3.jpg" alt="Generative AI Hackathon, Lovely Professional University, September 2024" loading="lazy"></div>
-            <div class="img"><img src="assets/talent/lpu-hackathon-2024-4.jpg" alt="Generative AI Hackathon, Lovely Professional University, September 2024" loading="lazy"></div>
-          </div>
-          <p class="capline">Generative AI Hackathon, 13–14 Sept 2024, Lovely Professional University — AIREV-run, OnDemand-powered.</p>
-        </div>
-        <div class="tpanel">
-          <div class="k">5 · Bringing it home</div>
-          <div class="home-grid">
-            <div class="img"><img src="assets/talent/india-uae-bridge.jpg" alt="India-to-UAE talent bridge illustration" loading="lazy"></div>
-            <div>
-              <p><b>UAE National Strategy for Artificial Intelligence 2031 · Objective 5 — "Attract and train talent for future jobs enabled by AI".</b> The strategy targets upskilling about <b>2,000 STEM graduates a year</b> (a third of the UAE's STEM output), AI training for 100% of senior government leadership, and positioning the UAE as a <b>magnet for global talent</b>.</p>
-              <p>AIREV is a private-sector delivery vehicle for that mandate: engineers recruited and trained on OnDemand in India rotate into Abu Dhabi delivery pods, staff the sovereign estates and hand the loop to the next cohort — the flywheel exports talent as well as software.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <aside class="fw-legend">
+        <div class="fw-k">The loop · one revolution per cohort</div>
+        <ol class="fw-steps">
+          <li data-stage="0" class="on"><b>IIT</b><span>Talent sourced on campus — IIT / NIT recruiting, AIREV-run hackathons and internships. Every cohort recruits the next.</span></li>
+          <li data-stage="1"><b>AIREV India Office · 6–12 months</b><span>Cohorts build and ship on OnDemand in the Bangalore engineering &amp; delivery hub (card 22) — follow-the-sun engineering with Abu Dhabi.</span></li>
+          <li data-stage="2"><b>Top performers → UAE</b><span>The very best rotate into Abu Dhabi delivery pods, run the certified-image factory for five silicon families and staff the sovereign estates.</span></li>
+          <li data-stage="3" class="mandate"><b>UAE Mandate</b><span>National AI Strategy 2031 · Objective 5 — “attract and train talent for future jobs enabled by AI” (≈2,000 STEM graduates a year). Each placement funds the next campus intake: the flywheel exports talent as well as software.</span></li>
+        </ol>
+        <div class="fw-foot"><span>Fully coded — inline SVG + CSS + JS, no raster images · <b>●</b> running since 2023</span><button type="button" class="fw-link" data-goto="1" title="Jump to card 01 — The mandate">↳ card 01 · The mandate</button></div>
+      </aside>
     </div>
-    <div class="fnote">Sources: <a href="https://www.sec.gov/Archives/edgar/data/1652044/000130817925000511/goog012701-def14a.htm" target="_blank" rel="noopener">Alphabet Inc. DEF 14A (SEC)</a> · <a href="https://news.stanford.edu/stories/2026/04/sundar-pichai-commencement-speaker" target="_blank" rel="noopener">Stanford Report</a> · IIT KGP Alumni Foundation · <a href="https://news.microsoft.com/source/exec/satya-nadella/" target="_blank" rel="noopener">Microsoft official biography</a> · UW–Milwaukee · Chicago Booth · <a href="https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf" target="_blank" rel="noopener">UAE National Strategy for AI 2031 (ai.gov.ae)</a> · <a href="https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence" target="_blank" rel="noopener">UAE AI Charter (u.ae)</a>. Portraits: European Commission (CC BY 4.0) · Microsoft/Brian Smale (CC BY-SA 4.0). Office, flywheel and bridge visuals are illustrative. <b>All trademarks remain property of their respective owners.</b> <span class="src">WEB</span></div>
+    <div class="fnote">Sources: <a href="https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf" target="_blank" rel="noopener">UAE National Strategy for AI 2031 (ai.gov.ae)</a> · <a href="https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence" target="_blank" rel="noopener">UAE AI Charter (u.ae)</a> · Bangalore hub per card 22 · talent loop as run by AIREV since 2023 (management). The diagram is fully coded (inline SVG, CSS and JS) — no photographs, logos or generated images remain on this card. <span class="src">WEB</span></div>
   </div>
+  <aside class="notes"><p>One coded diagram, no images: the flywheel spins continuously and the gold marker walks the loop — talent sourced from IIT, grown in the AIREV India office for six to twelve months, the very best move to the UAE, and the UAE mandate (National AI Strategy 2031, Objective 5) funds the next cohort. The legend highlights the live stage; the gold button jumps to card 01, the mandate.</p></aside>
 </section>
 
 <section class="step" data-x="5100" data-y="2300" data-lane="2" data-chapter="Export engine" data-story="Partners" data-title="Routes to market — all signed">
@@ -791,6 +877,57 @@
 
 <script src="deck.js"></script>
 <script src="content.js"></script>
+<script>
+/* Card 08 — coded talent flywheel: keep the stage nodes and the legend in step with the orbiting marker,
+   auto-fit the node labels, and wire the "card 01 · The mandate" jump. The rotation itself is pure CSS (infinite). */
+(function(){
+  const stage=document.getElementById('talent-flywheel'); if(!stage) return;
+  const period=Math.max(4,+stage.dataset.period||24);                       /* seconds per revolution */
+  stage.style.setProperty('--fw-period',period+'s');
+  const nodes=[...stage.querySelectorAll('.fw-node')], items=[...stage.querySelectorAll('.fw-steps li')];
+  const orbit=stage.querySelector('.fw-orbit-rotor');
+  const t0=performance.now();
+  let last=-1;
+  function phase(){
+    const a=orbit&&orbit.getAnimations?orbit.getAnimations()[0]:null;
+    const ms=(a&&typeof a.currentTime==='number')?a.currentTime:(performance.now()-t0);
+    return ((ms/1000)%period+period)%period;
+  }
+  function tick(){
+    const idx=Math.floor(phase()/(period/4))%4;
+    if(idx!==last){
+      last=idx;
+      nodes.forEach(n=>n.classList.toggle('on',+n.dataset.stage===idx));
+      items.forEach(li=>li.classList.toggle('on',+li.dataset.stage===idx));
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  function fit(){
+    stage.querySelectorAll('.fw-node text[data-max]').forEach(tx=>{
+      const max=+tx.dataset.max; tx.style.fontSize='';
+      let fs=parseFloat(getComputedStyle(tx).fontSize), w=tx.getComputedTextLength(), guard=0;
+      while(w>max && guard++<6){ fs=fs*(max/w)*0.985; tx.style.fontSize=fs.toFixed(2)+'px'; w=tx.getComputedTextLength(); }
+    });
+  }
+  fit(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+  stage.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>{ if(window.deck) window.deck.goTo(+b.dataset.goto); }));
+  window.talentFlywheel={get stage(){return last;}, get phase(){return phase();}, period};
+})();
+/* Cover — looping motion hero: muted + inline so it starts the instant the deck opens; nudge play() back on
+   after tab switches or if a browser deferred autoplay until the first interaction. */
+(function(){
+  const v=document.querySelector('#cover video.hero-video'); if(!v) return;
+  v.muted=true; v.defaultMuted=true; v.loop=true; v.playsInline=true;
+  const play=()=>{ if(v.paused){ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); } };
+  play();
+  v.addEventListener('loadeddata',play);
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) play(); });
+  document.addEventListener('stepchange',play);
+  window.addEventListener('pointerdown',play,{once:true});
+  window.addEventListener('keydown',play,{once:true});
+})();
+</script>
 <script src="chat.js" defer></script>
 </body>
 </html>
