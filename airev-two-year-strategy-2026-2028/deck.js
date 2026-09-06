@@ -8,34 +8,6 @@
   const body=document.body;
   let cur=0, overview=false;
 
-  /* ---- mobile reader mode (≤640px): the fixed 1400×800 canvas is released into a vertical, phone-width flow.
-     Desktop (e.g. 1440×900) never enters this branch, so the spatial camera and layout are unchanged there. ---- */
-  const readerMQ=matchMedia('(max-width: 640px)');
-  let reader=false;
-  const FIT_SEL='table.t,.compare,.qtabs,.gates,.flow,.kpis,.story-strip,.icon-row,.logo-row,.pgrid,.hw,.lanes,.arc,.hero-row,.grid,.talent2,.tflow,.lpu-strip,.legend-row,.pills,.kv,.layer,.seq,.psr-head';
-  function clearFit(){ document.querySelectorAll('[data-mfit]').forEach(el=>{ el.style.zoom=''; el.removeAttribute('data-mfit'); }); }
-  function fitWide(){ /* viewport-based scale-to-fit: any block still wider than the card is zoomed down to fit (no horizontal scroll) */
-    if(!reader) return; clearFit();
-    const zoomOK=('zoom' in document.body.style);
-    for(let pass=0;pass<2;pass++){
-      document.querySelectorAll('.step-inner '+FIT_SEL.split(',').join(',.step-inner ')).forEach(el=>{
-        if(el.closest('[data-mfit]')) return;
-        const cw=el.clientWidth, sw=el.scrollWidth; if(!cw||sw<=cw+2) return;
-        if(zoomOK){ el.style.zoom=Math.max(.5,cw/sw).toFixed(3); el.setAttribute('data-mfit','zoom'); }
-        else { el.classList.add('tbl-scroll'); el.setAttribute('data-mfit','scroll'); }
-      });
-    }
-  }
-  function scrollToStep(s,silent){ const top=s.getBoundingClientRect().top+window.scrollY-62; window.scrollTo({top:Math.max(0,top),behavior:silent?'auto':'smooth'}); }
-  function applyMode(){
-    const on=readerMQ.matches;
-    if(on===reader) return false;
-    reader=on; body.classList.toggle('m-reader',on);
-    if(on){ overview=false; body.classList.remove('overview'); canvas.style.transform=''; fitWide(); }
-    else { clearFit(); window.scrollTo(0,0); }
-    return true;
-  }
-
   /* ---- place steps on the plane ---- */
   steps.forEach((s,i)=>{
     s.dataset.i=i;
@@ -76,14 +48,6 @@
     i=Math.max(0,Math.min(steps.length-1,i));
     const s=steps[i];
     const x=+s.dataset.x||0, y=+s.dataset.y||0, sc=+s.dataset.scale||1, rot=+s.dataset.rot||0;
-    if(reader){
-      overview=false; body.classList.remove('overview');
-      steps.forEach((t,j)=>{ t.classList.toggle('active',j===i); t.classList.toggle('past',j<i); t.classList.toggle('future',j>i); });
-      cur=i; updateChrome(); scrollToStep(s,!!opts.silent);
-      if(!opts.silent) history.replaceState(null,'','#'+(i+1));
-      document.dispatchEvent(new CustomEvent('stepchange',{detail:{index:i,step:s}}));
-      return;
-    }
     const laneChange=!overview && steps[cur] && steps[cur].dataset.lane!==s.dataset.lane && !opts.silent && i!==cur;
     overview=false; body.classList.remove('overview');
     if(flyTimer){ clearTimeout(flyTimer); flyTimer=null; }
@@ -104,7 +68,6 @@
     document.dispatchEvent(new CustomEvent('stepchange',{detail:{index:i,step:s}}));
   }
   function showOverview(){
-    if(reader){ goTo(0); return; }
     overview=true; body.classList.add('overview');
     const xs1=[],xs2=[],ys1=[],ys2=[];
     steps.forEach(s=>{ const x=+s.dataset.x||0,y=+s.dataset.y||0,sc=+s.dataset.scale||1;
@@ -143,8 +106,8 @@
   }
 
   /* ---- assistant panel: keep the active card visible when the right-hand panel is open ---- */
-  document.addEventListener('chat:opened',()=>{ if(reader) return; offsetX=innerWidth>1100?200:0; overview?showOverview():goTo(cur,{silent:true}); });
-  document.addEventListener('chat:closed',()=>{ if(reader) return; offsetX=0; overview?showOverview():goTo(cur,{silent:true}); });
+  document.addEventListener('chat:opened',()=>{ offsetX=innerWidth>1100?200:0; overview?showOverview():goTo(cur,{silent:true}); });
+  document.addEventListener('chat:closed',()=>{ offsetX=0; overview?showOverview():goTo(cur,{silent:true}); });
 
   /* ---- keyboard / touch ---- */
   addEventListener('keydown',e=>{
@@ -162,18 +125,9 @@
   });
   let tx=null,ty=null;
   addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; ty=e.touches[0].clientY; },{passive:true});
-  addEventListener('touchend',e=>{ if(tx===null||reader) return; const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty; tx=ty=null;
+  addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty; tx=ty=null;
     if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)){ dx<0?goTo(cur+1):goTo(cur-1); } });
-  addEventListener('resize',()=>{ body.classList.add('no-anim'); const switched=applyMode();
-    if(reader){ fitWide(); if(switched) goTo(cur,{silent:true}); }
-    else { overview?showOverview():goTo(cur,{silent:true}); }
-    setTimeout(()=>body.classList.remove('no-anim'),50); });
-  document.addEventListener('toggle',()=>{ if(reader) requestAnimationFrame(fitWide); },true);
-  /* reader mode: keep the counter / active card in step with what the reader has scrolled to */
-  let scrollTick=false;
-  addEventListener('scroll',()=>{ if(!reader||scrollTick) return; scrollTick=true; requestAnimationFrame(()=>{ scrollTick=false;
-    let best=cur, bd=Infinity; steps.forEach((t,j)=>{ const d=Math.abs(t.getBoundingClientRect().top-70); if(d<bd){ bd=d; best=j; } });
-    if(best!==cur){ cur=best; steps.forEach((t,j)=>{ t.classList.toggle('active',j===best); t.classList.toggle('past',j<best); t.classList.toggle('future',j>best); }); updateChrome(); history.replaceState(null,'','#'+(best+1)); } }); },{passive:true});
+  addEventListener('resize',()=>{ body.classList.add('no-anim'); overview?showOverview():goTo(cur,{silent:true}); setTimeout(()=>body.classList.remove('no-anim'),50); });
 
   /* ---- tiny SVG chart kit ---- */
   const C={em:'#0E7A5F', emb:'#12B886', gold:'#A5884B', ink:'#10201B', dim:'#44584F', faint:'#6C7E75', red:'#B4533A', grey:'#B8C4BE'};
@@ -181,10 +135,6 @@
   function niceMax(v){ const p=Math.pow(10,Math.floor(Math.log10(v||1))); const n=v/p; const m=n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10; return m*p; }
   function frame(el){ const r=el.getBoundingClientRect(); const w=Math.max(320, el.clientWidth||r.width||600), h=Math.max(180, el.clientHeight||r.height||260); return {w,h}; }
 
-  function legend(items,m,w,h){ const avail=w-m.l-m.r; const rows=[[]]; let lx=0;
-    items.forEach(it=>{ const iw=22+it.name.length*6.2; if(lx>0 && lx+iw>avail){ rows.push([]); lx=0; } rows[rows.length-1].push({name:it.name,color:it.color,x:m.l+lx}); lx+=iw; });
-    let g=''; rows.forEach((row,ri)=>{ const yb=h-3-(rows.length-1-ri)*13; row.forEach(it=>{ g+=`<rect x="${it.x}" y="${yb-9}" width="10" height="10" rx="2" fill="${it.color}"/><text x="${it.x+15}" y="${yb}" font-size="11" fill="${C.dim}">${it.name}</text>`; }); });
-    return g; }
   window.barChart=function(el,o){
     const {w,h}=frame(el); const m={l:52,r:14,t:20,b:44}; const iw=w-m.l-m.r, ih=h-m.t-m.b;
     const all=o.series.flatMap(s=>s.values.filter(v=>v!=null)); const maxV=niceMax(Math.max(...all)*1.12); const minV=Math.min(0,...all);
@@ -198,7 +148,7 @@
       if(o.values!==false) g+=`<text class="val" x="${x+(bw-3)/2}" y="${(v>=0?y1-5:y1+12)}" text-anchor="middle" font-size="10.5" fill="${C.ink}">${o.valFmt?o.valFmt(v):fmt(v)}</text>`; }); });
     g+='<g class="axis">'; o.labels.forEach((l,i)=>{ g+=`<text x="${m.l+gw*i+gw/2}" y="${h-m.b+18}" text-anchor="middle" font-size="11" fill="${C.dim}">${l}</text>`; }); g+='</g>';
     g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(0)}" y2="${y(0)}" stroke="${C.dim}" stroke-width="1"/>`;
-    if(o.series.length>1 && o.legend!==false){ g+=legend(o.series.map((s,si)=>({name:s.name,color:s.color||(si?C.gold:C.em)})),m,w,h); }
+    if(o.series.length>1 && o.legend!==false){ let lx=m.l; o.series.forEach((s,si)=>{ g+=`<rect x="${lx}" y="${h-12}" width="10" height="10" rx="2" fill="${s.color||(si?C.gold:C.em)}"/><text x="${lx+15}" y="${h-3}" font-size="11" fill="${C.dim}">${s.name}</text>`; lx+= 22 + s.name.length*6.2; }); }
     g+='</svg>'; el.innerHTML=g;
   };
   window.lineChart=function(el,o){
@@ -214,7 +164,7 @@
         if(o.values!==false && (!s.labelEvery || k%s.labelEvery===0)) g+=`<text class="val" x="${p.x}" y="${p.y-9+(s.labelDy||0)}" text-anchor="middle" font-size="10.5" fill="${col}">${o.valFmt?o.valFmt(p.v):fmt(p.v)}</text>`; }); });
     g+='<g class="axis">'; o.labels.forEach((l,i)=>{ g+=`<text x="${x(i)}" y="${h-m.b+18}" text-anchor="middle" font-size="11" fill="${C.dim}">${l}</text>`; }); g+='</g>';
     g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(0)}" y2="${y(0)}" stroke="${C.dim}" stroke-width="1"/>`;
-    if(o.legend!==false){ g+=legend(o.series.map((s,si)=>({name:s.name,color:s.color||[C.em,C.gold,C.red,C.emb][si%4]})),m,w,h); }
+    if(o.legend!==false){ let lx=m.l; o.series.forEach((s,si)=>{ const col=s.color||[C.em,C.gold,C.red,C.emb][si%4]; g+=`<rect x="${lx}" y="${h-12}" width="10" height="10" rx="2" fill="${col}"/><text x="${lx+15}" y="${h-3}" font-size="11" fill="${C.dim}">${s.name}</text>`; lx+=22+s.name.length*6.2; }); }
     g+='</svg>'; el.innerHTML=g;
   };
   window.hbarChart=function(el,o){
@@ -238,8 +188,7 @@
 
   /* ---- boot ---- */
   const start=Math.max(0,Math.min(steps.length-1,(parseInt((location.hash||'#1').slice(1),10)||1)-1));
-  applyMode(); body.classList.add('no-anim'); goTo(start,{silent:true}); setTimeout(()=>body.classList.remove('no-anim'),80);
-  if(reader){ addEventListener('load',()=>{ fitWide(); goTo(cur,{silent:true}); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitWide); }
+  body.classList.add('no-anim'); goTo(start,{silent:true}); setTimeout(()=>body.classList.remove('no-anim'),80);
   document.dispatchEvent(new CustomEvent('deckready'));
-  window.deck={goTo,showOverview,toggleOverview,steps,fitWide,get current(){return cur;},get reader(){return reader;}};
+  window.deck={goTo,showOverview,toggleOverview,steps,get current(){return cur;}};
 })();

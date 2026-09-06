@@ -232,16 +232,12 @@ body.overview #ov-hint{display:block}
   .lane-label,.lane-line{display:none}
   .step{position:relative; left:auto!important; top:auto!important; transform:none!important; margin:0 auto 24px; page-break-after:always; box-shadow:none; opacity:1}
   .step .rise{opacity:1; transform:none}
-  #print-brand{display:flex; align-items:center; gap:14px; padding:6px 0 14px; font:600 11px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint)}
-  #print-brand img{height:26px; width:auto}
-  #lightbox{display:none!important}
 }
 
 /* ================= v2 additions: visual storytelling ================= */
 #chrome-top .brand{display:flex; align-items:center; gap:10px}
 #chrome-top .brand-logo{height:22px; width:auto; display:block}
 #chrome-top .brand-sep{color:var(--gold)}
-#print-brand{display:none}
 .eyebrow-mark{height:14px; width:14px; vertical-align:-2px; margin-right:8px}
 .story-strip{display:flex; align-items:center; gap:10px; margin-top:26px; font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; color:var(--ink-faint)}
 .story-strip .ss{border:1px solid var(--hair2); border-radius:999px; padding:6px 12px; background:#fff}
@@ -405,139 +401,3 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 #talent .fnote{padding-top:8px}
 #talent .fnote a{color:inherit; text-decoration:underline dotted}
 @media print{ .tpanel .img img{break-inside:avoid} }
-
-
-/* ---- cover ---- */
-.step.cover{background-image:linear-gradient(90deg,rgba(4,41,34,.90) 0%,rgba(4,41,34,.72) 48%,rgba(4,41,34,.18) 100%),var(--img); background-position:center right}
-.step.cover .step-inner{justify-content:flex-end; padding-bottom:6px}
-.step.cover .cover-logo{height:44px; width:auto; align-self:flex-start; margin-bottom:auto}
-.step.cover .eyebrow{color:#E4CB8C; margin-bottom:18px}
-.step.cover h1.display{font-size:74px; line-height:1.02; letter-spacing:-.015em; color:#F6FFFF}
-.step.cover .lede{color:#DCEBE5}
-.step.cover .cover-for{font-family:var(--serif); font-size:15px; color:#CDE9DF; margin-top:18px}
-.step.cover .story-strip .ss{border-color:rgba(255,255,255,.28); color:#EAF2F0}
-.step.cover .story-strip .ss.on{background:#12B886; border-color:#12B886; color:#04291F}
-.step.cover .story-strip i{color:#E4CB8C}
-.step.cover .fnote{color:#AFC4BF} .step.cover .fnote b{color:#EAF2F0}
-.step.cover .ov-label{background:rgba(4,41,34,.88); color:#fff}
-
-/* ---- valuation arc (inline SVG) ---- */
-.arc-wrap{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:10px 12px 4px}
-.arc-chart text{text-rendering:geometricPrecision}
-
-/* ---- talent card v2: campuses + coded flywheel ---- */
-.talent2{display:grid; grid-template-rows:auto auto; gap:10px; margin-top:4px}
-.fw-row{display:grid; grid-template-columns:1fr 1.2fr 1fr; gap:14px; align-items:center}
-.campus{margin:0; border:1px solid var(--hair); border-radius:12px; overflow:hidden; background:#fff}
-.campus img{width:100%; height:138px; object-fit:cover; object-position:center; display:block}
-.campus figcaption{font-family:var(--serif); font-size:14px; text-align:center; padding:5px 10px; color:var(--ink); border-top:1px solid var(--hair)}
-.fw-center{display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px}
-.fw-center .k{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600}
-.fw-center .flywheel{width:196px; height:196px}
-.fw-cap{font-size:10.5px; line-height:1.4; color:var(--ink-dim); margin:0; max-width:430px}
-@keyframes fw-spin{to{transform:rotate(360deg)}}
-.flywheel .fw-ring{animation:fw-spin 36s linear infinite}
-@keyframes fw-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-.flywheel .fw-node{transform-box:fill-box; transform-origin:center; animation:fw-pulse 3.6s ease-in-out infinite; animation-delay:calc(var(--i) * .72s)}
-@media (prefers-reduced-motion: reduce){ .flywheel .fw-ring,.flywheel .fw-node{animation:none} }
-.talent-row.bottom2{grid-template-columns:1.2fr 1fr}
-.talent-row.bottom2 .tpanel{padding:9px 12px 10px; gap:5px}
-.talent-row.bottom2 .tpanel p{font-size:11px; line-height:1.4}
-.lpu-strip{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:4px}
-.lpu-strip .thumb{padding:0; border:1px solid var(--hair); border-radius:8px; overflow:hidden; background:#0E332C; cursor:zoom-in; width:74px; height:50px; flex:none}
-.lpu-strip .thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s ease}
-.lpu-strip .thumb:hover img{transform:scale(1.06)}
-.lpu-strip .thumb:focus-visible{outline:2px solid var(--emerald-b); outline-offset:2px}
-.lpu-strip .capline{flex:1 1 160px; font-size:10px; color:var(--ink-faint); line-height:1.35}
-
-/* ---- lightbox ---- */
-.lightbox{position:fixed; inset:0; z-index:60; background:rgba(4,41,34,.86); display:flex; align-items:center; justify-content:center; padding:32px}
-.lightbox[hidden]{display:none}
-.lightbox figure{margin:0; max-width:min(1200px,92vw); max-height:92vh; display:flex; flex-direction:column; gap:10px}
-.lightbox img{max-width:100%; max-height:80vh; border-radius:12px; box-shadow:0 30px 80px rgba(0,0,0,.45); object-fit:contain; background:#000}
-.lightbox figcaption{font:13px/1.4 var(--sans); color:#EAF2F0; text-align:center}
-.lb-close{position:absolute; top:18px; right:22px; width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.1); color:#fff; font-size:24px; line-height:1; cursor:pointer}
-.lb-close:hover{background:rgba(255,255,255,.22)}
-body.lb-open{overflow:hidden}
-
-/* ---- rebalanced capital cards ---- */
-.seq{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:12px}
-.seq-step{border:1px solid var(--hair); border-radius:10px; padding:10px 12px; font-size:11.5px; line-height:1.45; color:var(--ink-dim); background:var(--panel); position:relative}
-.seq-step .k{font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:5px}
-.seq-step+.seq-step::before{content:"→"; position:absolute; left:-9px; top:12px; color:var(--gold); font-weight:600; background:#fff; padding:0 1px}
-
-/* ---- 10 Partner scale & reach (restored, full-canvas) ---- */
-.psr{grid-template-columns:1.08fr .92fr; gap:28px; margin-top:8px; align-items:stretch}
-.psr-chart-wrap{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:14px 16px 10px; display:flex; flex-direction:column; min-height:0}
-.psr-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:4px}
-.psr-head .k{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600}
-.psr-head .legend-row{margin-top:0; font-size:10.5px}
-.psr-chart-wrap .pbar-chart{flex:1 1 0; min-height:0; width:100%; height:auto}
-.pbar-chart text{text-rendering:geometricPrecision}
-.psr-foot{margin-top:6px}
-.stat-grid{gap:16px}
-.tile.stat{display:flex; flex-direction:column; justify-content:center; gap:10px; padding:22px 24px}
-.tile.stat .k{font-size:11px; letter-spacing:.2em; color:var(--emerald); margin-bottom:0}
-.tile.stat .v{font-size:36px; line-height:1.08}
-.tile.stat .d{font-size:12.5px; line-height:1.5; margin-top:0}
-
-/* ---- mobile reader: scale-to-fit pass for narrow viewports (≤ 640px) ----
-   The spatial camera keeps the 1400×800 canvas for desktop (unchanged at 1440×900). Below 640px the camera
-   is released: cards flow vertically at the phone's own width, grids collapse, wide blocks are zoomed to fit
-   (deck.js m-reader), and type is set at phone-legible sizes — no pinch-zoom needed. */
-@media (max-width: 640px){
-  body.m-reader{overflow:auto; overflow-x:hidden; padding:58px 0 84px; -webkit-overflow-scrolling:touch}
-  body.m-reader #viewport{position:static; overflow:visible; perspective:none}
-  body.m-reader #canvas{position:static; transform:none!important; transition:none; width:auto; height:auto; will-change:auto}
-  body.m-reader .lane-label,body.m-reader .lane-line,body.m-reader #ov-hint,body.m-reader #help{display:none!important}
-  body.m-reader .step{position:relative; left:auto!important; top:auto!important; transform:none!important; width:auto; height:auto; min-height:0;
-    margin:0 10px 16px; padding:22px 18px 22px; opacity:1; border-radius:14px; box-shadow:0 12px 34px rgba(16,32,27,.08); scroll-margin-top:62px; overflow:visible}
-  body.m-reader .step.active{box-shadow:0 12px 34px rgba(14,122,95,.16); outline:2px solid rgba(18,184,134,.35); outline-offset:0}
-  body.m-reader .step .rise{opacity:1; transform:none; transition:none}
-  body.m-reader .step .ov-label{display:none!important}
-  body.m-reader .step.chapter::after{display:none}
-  body.m-reader .step-inner{height:auto; overflow:visible; display:block}
-  body.m-reader .step.cover .step-inner{display:flex}
-  body.m-reader .step.cover .cover-logo{margin-bottom:22px}
-  /* type scale for a 390px phone (canvas scale is 1, so these are real px) */
-  body.m-reader h1.display,body.m-reader .step.cover h1.display{font-size:34px; line-height:1.08}
-  body.m-reader h2.title{font-size:23px; line-height:1.18}
-  body.m-reader h3{font-size:17px}
-  body.m-reader .lede{font-size:14.5px; max-width:none}
-  body.m-reader .eyebrow{font-size:10.5px; letter-spacing:.18em; margin-bottom:12px}
-  body.m-reader .fnote{font-size:11px; margin-top:16px}
-  body.m-reader .small,body.m-reader .tile .d,body.m-reader .hero .hl,body.m-reader ul.clean li,body.m-reader ul.clean.tight li,body.m-reader table.t,body.m-reader .callout,body.m-reader .tpanel p,body.m-reader .qcol ul.clean li,body.m-reader .lane .lp,body.m-reader .flow .st .b,body.m-reader .hw .it .ds,body.m-reader .pcard .role,body.m-reader .pcard .more,body.m-reader .layer,body.m-reader .kv,body.m-reader .gate .w,body.m-reader .arc .node .hl,body.m-reader .kpi .kl,body.m-reader .fw-cap,body.m-reader .ceo .ed,body.m-reader .icon-row .ic{font-size:12.5px; line-height:1.5}
-  body.m-reader .compare{font-size:12px} body.m-reader table.t.compact td{font-size:12px; padding:6px 6px}
-  body.m-reader .tile .v{font-size:26px} body.m-reader .hero .hn{font-size:30px} body.m-reader .kpi .kn{font-size:24px} body.m-reader .arc .node .hn{font-size:28px} body.m-reader .pillar .pn{font-size:30px}
-  /* grids collapse to the phone width */
-  body.m-reader .cols,body.m-reader .cols.eq,body.m-reader .cols.wide,body.m-reader .psr{grid-template-columns:1fr; gap:14px; flex:none}
-  body.m-reader .grid.g3,body.m-reader .grid.g4,body.m-reader .grid.g5,body.m-reader .grid.g6,body.m-reader .hero-row,body.m-reader .hero-row.three,body.m-reader .pgrid,body.m-reader .hw,body.m-reader .flow,body.m-reader .arc,body.m-reader .kpis,body.m-reader .gates,body.m-reader .photo-grid{grid-template-columns:1fr 1fr; gap:10px}
-  body.m-reader .qtabs{grid-template-columns:repeat(4,1fr); gap:6px} body.m-reader .qbody,body.m-reader .qbody.five{grid-template-columns:1fr; gap:12px}
-  body.m-reader .lanes,body.m-reader .stack,body.m-reader .home-grid,body.m-reader .ceo-grid,body.m-reader .talent-row.top,body.m-reader .talent-row.bottom,body.m-reader .talent-row.bottom2,body.m-reader .fw-row{grid-template-columns:1fr}
-  body.m-reader .layer{grid-template-columns:1fr; gap:4px} body.m-reader .layer .lr{white-space:normal}
-  body.m-reader .flow .st::after{display:none}
-  body.m-reader .arc{padding-top:0; margin-top:10px} body.m-reader .arc .arc-line,body.m-reader .arc .node::before{display:none}
-  body.m-reader .compare{grid-template-columns:82px 1fr 1fr}
-  body.m-reader .story-strip{flex-wrap:wrap; gap:6px; font-size:10px; letter-spacing:.14em}
-  body.m-reader .hero{min-height:0; padding:12px 14px 12px}
-  body.m-reader .chart{height:230px!important; min-height:200px}
-  body.m-reader .img-card{min-height:200px} body.m-reader .img-card img{position:static; height:200px}
-  body.m-reader .campus img{height:120px} body.m-reader .fw-center .flywheel{width:220px; height:220px}
-  body.m-reader .lpu-strip .thumb{width:calc(50% - 4px); height:auto; aspect-ratio:3/2}
-  body.m-reader .tile.stat{padding:16px 18px} body.m-reader .tile.stat .v{font-size:26px}
-  body.m-reader #talent .fnote{padding-top:8px}
-  body.m-reader .psr-chart-wrap .pbar-chart{flex:none; width:100%; height:auto}
-  body.m-reader .seq{grid-template-columns:1fr 1fr} body.m-reader .seq-step+.seq-step::before{display:none}
-  body.m-reader .pgrid{grid-template-columns:1fr; gap:8px} body.m-reader .pcard{min-height:0} body.m-reader .tag.big{font-size:10.5px}
-  body.m-reader .src,body.m-reader .tag,body.m-reader .ceo .cite,body.m-reader .story-strip,body.m-reader .tpanel .capline,body.m-reader .lpu-strip .capline,body.m-reader .tile .k,body.m-reader .tpanel .k,body.m-reader .fw-center .k,body.m-reader .qtab .y,body.m-reader .qtab .m,body.m-reader .gate .dt,body.m-reader .flow .st .h,body.m-reader .flow .st .dt,body.m-reader .hw .it .cl,body.m-reader .pcard .reach,body.m-reader .kv dt,body.m-reader .arc .node .dt,body.m-reader .arc .node .tg,body.m-reader .compare .cmp-h,body.m-reader .compare .cmp-k,body.m-reader table.t th,body.m-reader .seq-step .k,body.m-reader .pillar .pt,body.m-reader .legend-row,body.m-reader .psr-head .k,body.m-reader .fw-cap,body.m-reader .lane .lr,body.m-reader .ceo .ed,body.m-reader .qcol h4{font-size:10.5px}
-  body.m-reader .chart .axis text,body.m-reader .chart .val,body.m-reader .chart .legend text{font-size:10.5px}
-  /* wide/table blocks: horizontal scroll fallback (deck.js zooms them to fit first) */
-  body.m-reader .tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
-  /* chrome */
-  body.m-reader #chrome-top{height:48px; padding:0 14px; background:rgba(255,255,255,.94); border-bottom:1px solid var(--hair); font-size:8.5px; letter-spacing:.08em; pointer-events:auto}
-  body.m-reader #chrome-top .brand-logo{height:18px}
-  body.m-reader #chrome-bottom{height:auto; padding:8px 12px 10px; gap:8px; background:rgba(255,255,255,.96); border-top:1px solid var(--hair)}
-  body.m-reader #chapters{display:none}
-  body.m-reader #nav{flex:1; justify-content:space-between}
-  body.m-reader #notes{left:12px; right:12px; width:auto; bottom:70px; max-height:50vh}
-}
