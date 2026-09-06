@@ -69,7 +69,10 @@ async function getAgent(force) {
   if (agentCache.inflight) return agentCache.inflight;
   agentCache.inflight = (async () => {
     try {
-      const j = await od('GET', `/chat/v1/projects/${encodeURIComponent(CONFIG.agentId)}`);
+      // Live route is /chat/v1/projects/{id}; the published spec lists /chat/v1/public/projects/{id} — try both.
+      let j;
+      try { j = await od('GET', `/chat/v1/projects/${encodeURIComponent(CONFIG.agentId)}`); }
+      catch (e1) { if (e1 && e1.status === 404) j = await od('GET', `/chat/v1/public/projects/${encodeURIComponent(CONFIG.agentId)}`); else throw e1; }
       const d = j && j.data;
       if (!d || !d.id) { const e = new Error('OnDemand agent not found'); e.status = 503; throw e; }
       let prompt = String(d.systemPrompt || '');

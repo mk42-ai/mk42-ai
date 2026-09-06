@@ -1,6 +1,6 @@
 # AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era (v2)
 
-Interactive, spatial strategy deck (31 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
+Interactive, spatial strategy deck (32 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
 
 ## Run
 
@@ -24,7 +24,7 @@ npm run dev        # serves on http://0.0.0.0:4173
 
 ## Structure
 
-- `index.html` — the 31 cards (hero numbers, icon rows, progressive-disclosure reveals, source tags)
+- `index.html` — the 32 cards (hero numbers, icon rows, progressive-disclosure reveals, source tags)
 - `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts
 - `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
 - `chat.js` / `chat.css` — collapsible assistant UI; calls `/api/chat` (OnDemand) and renders cited answers with per-document downloads
@@ -32,17 +32,19 @@ npm run dev        # serves on http://0.0.0.0:4173
 - `library/*.txt` — the 49 scrubbed data-room extracts; their full text is embedded in the OnDemand agent's system prompt (they are also the downloadable copies behind the citation chips)
 - `styles.css` — design tokens (emerald / gold / Inter / Playfair; chapter cards in the OnDemand brand gradient)
 - `assets/` — hero art, press photos, charts, partner logos and OnDemand brand glyphs
-- `server.js` — zero-dependency static server
+- `api/` — the `/api/chat` and `/api/media` handlers (the repo-root `api/*.js` files are one-line shims that re-export them for Vercel), so the deck folder is self-contained
+- `assets/talent/` — committed static assets for card 08 “Talent · the India flywheel” (no hot-linked signed URLs anywhere in the deck)
+- `server.js` — zero-dependency dev/preview server: serves the deck, mounts `./api`, loads `./.env`, and proxies `/api/*` to the deployed Vercel API (`API_PROXY_BASE`) when no `ONDEMAND_API_KEY` is configured locally — a restored preview never answers “no such function”
 
 ## Backend (OnDemand agent)
 
-The assistant is served by two Vercel serverless functions at the repository root. Every call follows OnDemand's live public API documentation (Projects API, Chat API, Fulfillment Prompts, Media API — read on 2026-09-05):
+The assistant is served by two Vercel serverless functions (`api/chat.js`, `api/media.js` at the repository root — shims over `airev-two-year-strategy-2026-2028/api/`). Every call follows OnDemand's live public API documentation (Projects API, Chat API, Fulfillment Prompts, Media API — read on 2026-09-05):
 
 - **The agent** is an OnDemand chat project (`ONDEMAND_AGENT_ID`, default `6a9c566598ed33a866ffbf13`) whose system prompt embeds the confidentiality rules, the registry of the 15 data-room source files (their storage URLs), the deck narrative and all 49 scrubbed extracts. Nothing is uploaded through the Media API for retrieval and no knowledge plugin is attached — the data room travels inside the system prompt.
 - `api/chat.js` — reads the agent (`GET /chat/v1/projects/{agentId}`, cached per instance), opens one session per visitor filed in the agent (`POST /chat/v1/sessions` with `projectId`; a stored session is re-used only if `GET /chat/v1/sessions/{id}` confirms it belongs to the agent), then submits every typed question with `POST /chat/v1/sessions/{id}/query` (`responseMode: sync`, `fulfillmentOnly: true`, `modelConfigs.fulfillmentPrompt` = the agent's system prompt, which carries the required `Context: {context}` / `Question: {question}` variables) and returns `{answer, citations[], metrics, sessionId}`. The answer's final `SOURCES:` line is mapped to `library.json` for the citation chips.
 - `api/media.js` — resolves a document id to a fresh OnDemand-hosted download URL (`GET /media/v1/public/file?externalUserId=…`); this is the download path only, not the chat path.
 
-Configuration is environment-only: `ONDEMAND_API_KEY` (required — set on the Vercel project, never committed), optional `ONDEMAND_AGENT_ID`, `ONDEMAND_ENDPOINT_ID` (overrides the endpoint saved on the agent), `ONDEMAND_LIBRARY_USER`, `ONDEMAND_TIMEOUT_MS`. Locally: `ONDEMAND_API_KEY=… npm run dev` mounts the same handlers at `/api/*`.
+Configuration is environment-only: `ONDEMAND_API_KEY` (required — set on the Vercel project, never committed), optional `ONDEMAND_AGENT_ID`, `ONDEMAND_ENDPOINT_ID` (overrides the endpoint saved on the agent), `ONDEMAND_LIBRARY_USER`, `ONDEMAND_TIMEOUT_MS`. Locally: copy `.env.example` to `.env` (git-ignored) and run `npm run dev` — the same handlers are mounted at `/api/*`; without a key the server proxies `/api/*` to the deployed preview.
 
 ## Confidentiality
 
