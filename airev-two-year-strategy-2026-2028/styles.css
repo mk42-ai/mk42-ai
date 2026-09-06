@@ -365,12 +365,12 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 .lane-label .lane-story{color:rgba(14,122,95,.22); font-size:.6em}
 
 /* ---- 08 Talent · the India flywheel ---- */
-/* ================= card 08 · coded talent flywheel — inline SVG + CSS + JS, no raster images ================= */
-.flywheel-stage{flex:1 1 auto; min-height:0; margin-top:8px; display:grid; grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
-  border-radius:16px; overflow:hidden; color:#F6FFFF; border:1px solid #2E5049;
-  background:radial-gradient(760px 480px at 30% 45%, rgba(18,184,134,.18) 0%, rgba(18,184,134,0) 62%), linear-gradient(135deg,#042922 0%,#0B2E27 55%,#123B34 100%);
+/* ================= card 08 · coded talent flywheel (inline SVG + CSS + JS) + proof strip + institution row ================= */
+.talent-grid{flex:1 1 auto; min-height:0; margin-top:8px; display:grid; grid-template-columns:556px minmax(0,1fr); gap:16px; align-items:stretch}
+.flywheel-stage{min-height:0; display:flex; align-items:center; justify-content:center; border-radius:16px; overflow:hidden; color:#F6FFFF; border:1px solid #2E5049;
+  background:radial-gradient(760px 480px at 42% 45%, rgba(18,184,134,.18) 0%, rgba(18,184,134,0) 62%), linear-gradient(135deg,#042922 0%,#0B2E27 55%,#123B34 100%);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 18px 50px rgba(4,41,34,.18)}
-.fw-canvas{position:relative; min-height:0; display:flex; align-items:center; justify-content:center; padding:8px 4px 8px 12px}
+.fw-canvas{position:relative; min-height:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:8px}
 .fw-svg{display:block; width:100%; height:100%; max-height:100%; font-family:var(--sans)}
 @keyframes fw-spin{from{transform:rotate(0deg)} to{transform:rotate(360deg)}}
 @keyframes fw-flow{to{stroke-dashoffset:-96}}
@@ -390,26 +390,44 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 .fw-node.mandate .fw-box{stroke:rgba(228,203,140,.55)}
 .fw-node.mandate .fw-t{fill:#F1DFAF}
 .fw-node.mandate.on .fw-box{stroke:#E4CB8C; fill:#1B2F20}
-.fw-legend{padding:20px 24px 16px 22px; display:flex; flex-direction:column; min-height:0; border-left:1px solid rgba(255,255,255,.08); background:rgba(4,41,34,.35)}
-.fw-legend .fw-k{font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:#4FC9A6; font-weight:600; margin-bottom:10px}
-.fw-steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; counter-reset:fw}
-.fw-steps li{position:relative; padding:9px 12px 9px 40px; border-radius:10px; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.03); transition:background .45s ease, border-color .45s ease}
-.fw-steps li::before{counter-increment:fw; content:counter(fw); position:absolute; left:12px; top:10px; width:20px; height:20px; border-radius:50%; background:rgba(165,136,75,.24); color:#E4CB8C; font-size:10.5px; font-weight:700; display:flex; align-items:center; justify-content:center}
-.fw-steps li b{display:block; font-size:13px; font-weight:600; color:#F6FFFF; letter-spacing:.005em}
-.fw-steps li span{display:block; font-size:11px; line-height:1.45; color:#AFC4BF; margin-top:2px; font-weight:300}
-.fw-steps li.on{background:rgba(18,184,134,.13); border-color:rgba(79,201,166,.6)}
-.fw-steps li.mandate{border-color:rgba(228,203,140,.35)}
-.fw-steps li.mandate::before{background:rgba(228,203,140,.30)}
-.fw-steps li.mandate b{color:#F1DFAF}
-.fw-steps li.mandate.on{background:rgba(165,136,75,.18); border-color:#E4CB8C}
-.fw-foot{margin-top:auto; padding-top:12px; display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:10.5px; color:#AFC4BF; line-height:1.4}
-.fw-foot b{color:#4FC9A6; font-weight:700}
-.fw-link{appearance:none; border:1px solid rgba(228,203,140,.55); background:rgba(228,203,140,.10); color:#F1DFAF; font:600 10.5px/1 var(--sans); letter-spacing:.06em; border-radius:999px; padding:7px 12px; cursor:pointer; white-space:nowrap; transition:background .2s ease}
-.fw-link:hover{background:rgba(228,203,140,.24)}
+/* right column: legend · proof strip · institutions */
+.talent-side{display:flex; flex-direction:column; gap:10px; min-height:0}
+.fw-legend{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:11px 13px 12px; display:flex; flex-direction:column; gap:8px}
+.fw-head{display:flex; align-items:center; justify-content:space-between; gap:10px}
+.fw-legend .fw-k{font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--emerald); font-weight:600}
+.fw-steps{list-style:none; margin:0; padding:0; display:grid; gap:7px; counter-reset:fw}
+.fw-steps.two{grid-template-columns:1fr 1fr}
+.fw-steps li{position:relative; padding:8px 11px 8px 36px; border-radius:10px; border:1px solid var(--hair); background:var(--panel); transition:background .45s ease, border-color .45s ease}
+.fw-steps li::before{counter-increment:fw; content:counter(fw); position:absolute; left:10px; top:9px; width:19px; height:19px; border-radius:50%; background:var(--gold-soft); color:#7A6230; font-size:10.5px; font-weight:700; display:flex; align-items:center; justify-content:center}
+.fw-steps li b{display:block; font-size:12.5px; font-weight:600; color:var(--ink); letter-spacing:.005em}
+.fw-steps li span{display:block; font-size:10.5px; line-height:1.42; color:var(--ink-dim); margin-top:2px}
+.fw-steps li.on{background:var(--emerald-soft); border-color:var(--emerald-b)}
+.fw-steps li.on::before{background:var(--emerald); color:#fff}
+.fw-steps li.mandate{border-color:rgba(165,136,75,.45)}
+.fw-steps li.mandate b{color:#7A6230}
+.fw-steps li.mandate.on{background:var(--gold-soft); border-color:var(--gold)}
+.fw-steps li.mandate.on::before{background:var(--gold); color:#fff}
+.fw-link{appearance:none; border:1px solid rgba(165,136,75,.55); background:var(--gold-soft); color:#7A6230; font:600 10.5px/1 var(--sans); letter-spacing:.06em; border-radius:999px; padding:7px 12px; cursor:pointer; white-space:nowrap; transition:background .2s ease}
+.fw-link:hover{background:rgba(165,136,75,.28)}
+.proof-strip{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:11px 13px 12px; flex:1 1 auto; min-height:0; display:flex; flex-direction:column}
+.ps-head{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-bottom:8px}
+.ps-head .k{font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--emerald); font-weight:600}
+.ps-head .ps-sub{font-size:10.5px; color:var(--ink-faint); margin-left:auto}
+.ps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; flex:1 1 auto; min-height:0}
+.ps-grid figure{margin:0; display:flex; flex-direction:column; min-height:0}
+.ps-grid img{width:100%; height:150px; object-fit:cover; display:block; border-radius:9px; border:1px solid var(--hair); background:#0E332C}
+.ps-grid figcaption{font-size:10.3px; line-height:1.4; color:var(--ink-dim); margin-top:6px}
+.ps-grid figcaption b{display:block; color:var(--ink); font-weight:600; font-size:10.8px}
+.inst-row{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:9px 13px 10px}
+.inst-row .k{font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--emerald); font-weight:600; margin-bottom:7px}
+.inst-logos{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; align-items:center}
+.inst{display:flex; align-items:center; gap:9px; min-width:0}
+.inst img{height:42px; width:42px; object-fit:contain; flex:none; background:#fff; border:1px solid var(--hair); border-radius:9px; padding:3px}
+.inst span{font-size:10.8px; line-height:1.3; color:var(--ink); font-weight:500}
 #talent .fnote{padding-top:8px}
 #talent .fnote a{color:inherit; text-decoration:underline dotted}
 @media (prefers-reduced-motion:reduce){ .fw-rotor,.fw-orbit-rotor{animation-duration:120s} .fw-dash,.fw-hub-glow{animation:none} }
-@media print{ .fw-rotor,.fw-orbit-rotor,.fw-dash,.fw-hub-glow{animation:none} .flywheel-stage{break-inside:avoid} }
+@media print{ .fw-rotor,.fw-orbit-rotor,.fw-dash,.fw-hub-glow{animation:none} .talent-grid{break-inside:avoid} .ps-grid img{break-inside:avoid} }
 
 /* ================= cover · looping motion hero video (autoplay · muted · loop · playsinline) ================= */
 .step.cover-video{background:#061A15; color:#F6FFFF; border-color:#2E5049}
@@ -430,3 +448,107 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 .step.cover-video .ov-label{background:rgba(4,41,34,.88); color:#fff}
 .step.cover-video .ov-label small{color:#4FC9A6}
 @media print{ .step.cover-video .hero-video{display:none} .step.cover-video{background:#061A15 url('assets/cover-motion-poster.jpg') center/cover no-repeat} }
+
+/* ================= roomy variants — fill the sparse cards at 1440×900 without changing the design system ================= */
+.colstack{display:flex; flex-direction:column; min-height:0}
+.grid.stretch{align-content:stretch}
+.grid.stretch .tile{display:flex; flex-direction:column; justify-content:center}
+.attach-strip{margin-top:12px}
+.flow.roomy .st{padding:14px 14px 12px}
+.flow.roomy .st .h{font-size:11px; margin-bottom:8px}
+.flow.roomy .st .b{font-size:12.6px; line-height:1.5}
+.flow.roomy .st .dt{font-size:11px; margin-top:8px}
+.flow.roomy .st.big{padding:20px 18px 16px}
+.flow.roomy .st.big img{width:34px; height:34px; margin-bottom:10px}
+.flow.roomy .st.big .h{font-size:11.5px}
+.flow.roomy .st.big .b{font-size:13.6px; line-height:1.55}
+.hero-row.tall .hero{min-height:132px; padding:20px 20px 16px}
+.hero-row.tall .hn{font-size:44px}
+.hero-row.tall .hl{font-size:12.6px; margin-top:10px}
+.lanes.roomy{flex:1 1 auto; min-height:0; align-items:stretch; gap:12px}
+.lanes.roomy .lane{padding:16px 16px 12px; display:flex; flex-direction:column}
+.lanes.roomy .lane .ln{font-size:22px}
+.lanes.roomy .lane .lr{font-size:12px; min-height:34px; margin:6px 0 10px}
+.lanes.roomy .lane .lp{font-size:13px; line-height:1.45; padding:8px 0}
+.hw.roomy{flex:1 1 auto; min-height:0; align-content:stretch; gap:12px}
+.hw.roomy .it{padding:14px 16px 12px}
+.hw.roomy .it .nm{font-size:18px}
+.hw.roomy .it .cl{font-size:10.5px}
+.hw.roomy .it .ds{font-size:12.4px; line-height:1.5}
+.hw.roomy .it .hl-logo{height:20px; max-width:130px}
+.grid.roomy{flex:1 1 auto; min-height:0; align-content:stretch}
+.grid.roomy .risk{padding:16px 18px 14px}
+.grid.roomy .risk b{font-size:18px; margin:10px 0 6px}
+.grid.roomy .risk p{font-size:13px; line-height:1.5}
+.kpis.roomy{grid-template-columns:repeat(4,1fr); flex:1 1 auto; min-height:0; align-content:stretch; gap:12px}
+.kpis.roomy .kpi{padding:16px 18px 14px; display:flex; flex-direction:column; justify-content:center}
+.kpis.roomy .kn{font-size:36px}
+.kpis.roomy .kl{font-size:12.5px; margin-top:8px}
+.qbody{align-items:stretch}
+.qcol{border:1px solid var(--hair); border-radius:10px; padding:12px 14px 10px; background:var(--panel)}
+.qcol h4{font-size:11px}
+.qcol ul.clean li{font-size:12.6px; line-height:1.45}
+.qtab{padding:12px 8px}
+.qtab .q{font-size:22px}
+.qtab .m{font-size:11px}
+figure.photo.tall img{height:250px}
+figure.photo.chart-img.tall img{height:256px}
+ul.clean.roomy li{font-size:13.4px; line-height:1.5; margin-bottom:9px}
+.gantt{margin-top:12px; border:1px solid var(--hair); border-radius:12px; background:#fff; padding:10px 14px 6px}
+.gantt svg{width:100%; height:auto; display:block; font-family:var(--sans)}
+.gantt .gk{font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; margin-bottom:4px}
+
+/* roomy · round 2 */
+.qcol{padding:14px 16px 12px}
+.qcol h4{font-size:11.5px; margin-bottom:10px}
+.qcol ul.clean li{font-size:13.4px; line-height:1.55; margin-bottom:11px}
+.qtab{padding:14px 10px}
+.qtab .q{font-size:24px}
+.qtab .m{font-size:11.5px}
+figure.photo.tall img{height:320px}
+figure.photo.chart-img.tall img{height:330px}
+.lanes.roomy .lane .ln{font-size:24px}
+.lanes.roomy .lane .lr{font-size:12.5px; min-height:0; margin:8px 0 10px}
+.lanes.roomy .lane .lp{font-size:13.6px; line-height:1.5; padding:11px 0}
+.lanes.roomy .lane .lp b{display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:3px}
+.lane-logos{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; margin:2px 0 10px; padding:8px 0 10px; border-top:1px dashed var(--hair2)}
+.lane-logos img{height:18px; width:auto; max-width:78px; object-fit:contain; filter:grayscale(1) contrast(1.05); opacity:.8}
+.hw.roomy .it{display:flex; flex-direction:column; justify-content:center; padding:18px 18px 16px}
+.hw.roomy .it .nm{font-size:20px}
+.hw.roomy .it .ds{font-size:13.2px; line-height:1.5; margin-top:4px}
+.hw.roomy .it .hl-logo{height:24px; max-width:140px; margin-bottom:10px}
+.grid.roomy .risk{display:flex; flex-direction:column; justify-content:center}
+.kpis.roomy .kn{font-size:44px}
+.kpis.roomy .kl{font-size:13.5px; margin-top:10px}
+.stack.roomy .layer{padding:14px 16px}
+.stack.roomy .layer .lh{font-size:18px}
+.stack.roomy .layer > div:not(.lh):not(.lr){font-size:13.4px; line-height:1.5}
+.gates.roomy .gate{padding:14px 12px}
+.gates.roomy .gate .g{font-size:22px}
+.gates.roomy .gate .dt{font-size:12px; margin:5px 0}
+.gates.roomy .gate .w{font-size:12.2px; line-height:1.45}
+table.t.compact.roomy td{padding:8px 8px; font-size:12.6px}
+table.t.compact.roomy th{font-size:10.5px; padding:8px}
+.grid.decisions .tile{padding:20px 22px}
+.grid.decisions .tile .k{font-size:11.5px; margin-bottom:10px}
+.grid.decisions .tile .d{font-size:14px; line-height:1.55; color:var(--ink)}
+.callout.big{font-size:15px; line-height:1.6; padding:16px 20px}
+.cols.eq.panels > div{border:1px solid var(--hair); border-radius:12px; background:var(--panel); padding:16px 18px}
+.cols.eq.panels details.reveal{margin-top:0}
+.cols.eq.panels details.reveal .reveal-body{background:#fff}
+ul.clean.roomy li{font-size:13.8px; line-height:1.55; margin-bottom:10px}
+
+/* roomy · round 3 — distribute content down stretched panels */
+.qcol{display:flex; flex-direction:column}
+.qcol ul.clean{flex:1 1 auto; display:flex; flex-direction:column; justify-content:space-evenly}
+.qcol ul.clean li{margin-bottom:0}
+.lanes.roomy .lane .lp{flex:1 1 auto; display:flex; flex-direction:column; justify-content:center; font-size:14px}
+.lanes.roomy .lane .ln{font-size:26px}
+.lanes.roomy .lane .lr{font-size:13px}
+.lane-logos img{height:22px; max-width:86px}
+.stack.roomy{height:100%; flex:1 1 auto; min-height:0}
+.stack.roomy .layer{flex:1 1 auto}
+.gates.four{grid-template-columns:repeat(4,1fr); margin-top:14px; flex:1 1 auto; min-height:0; align-content:stretch}
+.gates.four .gate{display:flex; flex-direction:column; justify-content:center; padding:16px 16px}
+.gates.four .gate .g{font-size:26px}
+.gates.four .gate .w{font-size:13px; line-height:1.5}
