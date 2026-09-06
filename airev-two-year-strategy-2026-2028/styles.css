@@ -526,6 +526,10 @@ body.lb-open{overflow:hidden}
   body.m-reader .lpu-strip .thumb{width:calc(50% - 4px); height:auto; aspect-ratio:3/2}
   body.m-reader .tile.stat{padding:16px 18px} body.m-reader .tile.stat .v{font-size:26px}
   body.m-reader #talent .fnote{padding-top:8px}
+  body.m-reader .psr-chart-wrap .pbar-chart{flex:none; width:100%; height:auto}
+  body.m-reader .seq{grid-template-columns:1fr 1fr} body.m-reader .seq-step+.seq-step::before{display:none}
+  body.m-reader .src,body.m-reader .tag,body.m-reader .ceo .cite,body.m-reader .story-strip,body.m-reader .tpanel .capline,body.m-reader .lpu-strip .capline,body.m-reader .tile .k,body.m-reader .tpanel .k,body.m-reader .fw-center .k,body.m-reader .qtab .y,body.m-reader .qtab .m,body.m-reader .gate .dt,body.m-reader .flow .st .h,body.m-reader .flow .st .dt,body.m-reader .hw .it .cl,body.m-reader .pcard .reach,body.m-reader .kv dt,body.m-reader .arc .node .dt,body.m-reader .arc .node .tg,body.m-reader .compare .cmp-h,body.m-reader .compare .cmp-k,body.m-reader table.t th,body.m-reader .seq-step .k,body.m-reader .pillar .pt,body.m-reader .legend-row,body.m-reader .psr-head .k,body.m-reader .fw-cap,body.m-reader .lane .lr,body.m-reader .ceo .ed,body.m-reader .qcol h4{font-size:10.5px}
+  body.m-reader .chart .axis text,body.m-reader .chart .val,body.m-reader .chart .legend text{font-size:10.5px}
   /* wide/table blocks: horizontal scroll fallback (deck.js zooms them to fit first) */
   body.m-reader .tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
   /* chrome */
