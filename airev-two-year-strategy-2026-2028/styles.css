@@ -465,3 +465,74 @@ body.lb-open{overflow:hidden}
 .seq-step{border:1px solid var(--hair); border-radius:10px; padding:10px 12px; font-size:11.5px; line-height:1.45; color:var(--ink-dim); background:var(--panel); position:relative}
 .seq-step .k{font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:5px}
 .seq-step+.seq-step::before{content:"→"; position:absolute; left:-9px; top:12px; color:var(--gold); font-weight:600; background:#fff; padding:0 1px}
+
+/* ---- 10 Partner scale & reach (restored, full-canvas) ---- */
+.psr{grid-template-columns:1.08fr .92fr; gap:28px; margin-top:8px; align-items:stretch}
+.psr-chart-wrap{border:1px solid var(--hair); border-radius:12px; background:#fff; padding:14px 16px 10px; display:flex; flex-direction:column; min-height:0}
+.psr-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:4px}
+.psr-head .k{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600}
+.psr-head .legend-row{margin-top:0; font-size:10.5px}
+.psr-chart-wrap .pbar-chart{flex:1 1 0; min-height:0; width:100%; height:auto}
+.pbar-chart text{text-rendering:geometricPrecision}
+.psr-foot{margin-top:6px}
+.stat-grid{gap:16px}
+.tile.stat{display:flex; flex-direction:column; justify-content:center; gap:10px; padding:22px 24px}
+.tile.stat .k{font-size:11px; letter-spacing:.2em; color:var(--emerald); margin-bottom:0}
+.tile.stat .v{font-size:36px; line-height:1.08}
+.tile.stat .d{font-size:12.5px; line-height:1.5; margin-top:0}
+
+/* ---- mobile reader: scale-to-fit pass for narrow viewports (≤ 640px) ----
+   The spatial camera keeps the 1400×800 canvas for desktop (unchanged at 1440×900). Below 640px the camera
+   is released: cards flow vertically at the phone's own width, grids collapse, wide blocks are zoomed to fit
+   (deck.js m-reader), and type is set at phone-legible sizes — no pinch-zoom needed. */
+@media (max-width: 640px){
+  body.m-reader{overflow:auto; overflow-x:hidden; padding:58px 0 84px; -webkit-overflow-scrolling:touch}
+  body.m-reader #viewport{position:static; overflow:visible; perspective:none}
+  body.m-reader #canvas{position:static; transform:none!important; transition:none; width:auto; height:auto; will-change:auto}
+  body.m-reader .lane-label,body.m-reader .lane-line,body.m-reader #ov-hint,body.m-reader #help{display:none!important}
+  body.m-reader .step{position:relative; left:auto!important; top:auto!important; transform:none!important; width:auto; height:auto; min-height:0;
+    margin:0 10px 16px; padding:22px 18px 22px; opacity:1; border-radius:14px; box-shadow:0 12px 34px rgba(16,32,27,.08); scroll-margin-top:62px; overflow:visible}
+  body.m-reader .step.active{box-shadow:0 12px 34px rgba(14,122,95,.16); outline:2px solid rgba(18,184,134,.35); outline-offset:0}
+  body.m-reader .step .rise{opacity:1; transform:none; transition:none}
+  body.m-reader .step .ov-label{display:none!important}
+  body.m-reader .step.chapter::after{display:none}
+  body.m-reader .step-inner{height:auto; overflow:visible; display:block}
+  body.m-reader .step.cover .step-inner{display:flex}
+  body.m-reader .step.cover .cover-logo{margin-bottom:22px}
+  /* type scale for a 390px phone (canvas scale is 1, so these are real px) */
+  body.m-reader h1.display,body.m-reader .step.cover h1.display{font-size:34px; line-height:1.08}
+  body.m-reader h2.title{font-size:23px; line-height:1.18}
+  body.m-reader h3{font-size:17px}
+  body.m-reader .lede{font-size:14.5px; max-width:none}
+  body.m-reader .eyebrow{font-size:10.5px; letter-spacing:.18em; margin-bottom:12px}
+  body.m-reader .fnote{font-size:11px; margin-top:16px}
+  body.m-reader .small,body.m-reader .tile .d,body.m-reader .hero .hl,body.m-reader ul.clean li,body.m-reader ul.clean.tight li,body.m-reader table.t,body.m-reader .callout,body.m-reader .tpanel p,body.m-reader .qcol ul.clean li,body.m-reader .lane .lp,body.m-reader .flow .st .b,body.m-reader .hw .it .ds,body.m-reader .pcard .role,body.m-reader .pcard .more,body.m-reader .layer,body.m-reader .kv,body.m-reader .gate .w,body.m-reader .arc .node .hl,body.m-reader .kpi .kl,body.m-reader .fw-cap,body.m-reader .ceo .ed,body.m-reader .icon-row .ic{font-size:12.5px; line-height:1.5}
+  body.m-reader .compare{font-size:12px} body.m-reader table.t.compact td{font-size:12px; padding:6px 6px}
+  body.m-reader .tile .v{font-size:26px} body.m-reader .hero .hn{font-size:30px} body.m-reader .kpi .kn{font-size:24px} body.m-reader .arc .node .hn{font-size:28px} body.m-reader .pillar .pn{font-size:30px}
+  /* grids collapse to the phone width */
+  body.m-reader .cols,body.m-reader .cols.eq,body.m-reader .cols.wide,body.m-reader .psr{grid-template-columns:1fr; gap:14px; flex:none}
+  body.m-reader .grid.g3,body.m-reader .grid.g4,body.m-reader .grid.g5,body.m-reader .grid.g6,body.m-reader .hero-row,body.m-reader .hero-row.three,body.m-reader .pgrid,body.m-reader .hw,body.m-reader .flow,body.m-reader .arc,body.m-reader .kpis,body.m-reader .gates,body.m-reader .photo-grid{grid-template-columns:1fr 1fr; gap:10px}
+  body.m-reader .qtabs{grid-template-columns:repeat(4,1fr); gap:6px} body.m-reader .qbody,body.m-reader .qbody.five{grid-template-columns:1fr; gap:12px}
+  body.m-reader .lanes,body.m-reader .stack,body.m-reader .home-grid,body.m-reader .ceo-grid,body.m-reader .talent-row.top,body.m-reader .talent-row.bottom,body.m-reader .talent-row.bottom2,body.m-reader .fw-row{grid-template-columns:1fr}
+  body.m-reader .layer{grid-template-columns:1fr; gap:4px} body.m-reader .layer .lr{white-space:normal}
+  body.m-reader .flow .st::after{display:none}
+  body.m-reader .arc{padding-top:0; margin-top:10px} body.m-reader .arc .arc-line,body.m-reader .arc .node::before{display:none}
+  body.m-reader .compare{grid-template-columns:82px 1fr 1fr}
+  body.m-reader .story-strip{flex-wrap:wrap; gap:6px; font-size:10px; letter-spacing:.14em}
+  body.m-reader .hero{min-height:0; padding:12px 14px 12px}
+  body.m-reader .chart{height:230px!important; min-height:200px}
+  body.m-reader .img-card{min-height:200px} body.m-reader .img-card img{position:static; height:200px}
+  body.m-reader .campus img{height:120px} body.m-reader .fw-center .flywheel{width:220px; height:220px}
+  body.m-reader .lpu-strip .thumb{width:calc(50% - 4px); height:auto; aspect-ratio:3/2}
+  body.m-reader .tile.stat{padding:16px 18px} body.m-reader .tile.stat .v{font-size:26px}
+  body.m-reader #talent .fnote{padding-top:8px}
+  /* wide/table blocks: horizontal scroll fallback (deck.js zooms them to fit first) */
+  body.m-reader .tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+  /* chrome */
+  body.m-reader #chrome-top{height:48px; padding:0 14px; background:rgba(255,255,255,.94); border-bottom:1px solid var(--hair); font-size:8.5px; letter-spacing:.08em; pointer-events:auto}
+  body.m-reader #chrome-top .brand-logo{height:18px}
+  body.m-reader #chrome-bottom{height:auto; padding:8px 12px 10px; gap:8px; background:rgba(255,255,255,.96); border-top:1px solid var(--hair)}
+  body.m-reader #chapters{display:none}
+  body.m-reader #nav{flex:1; justify-content:space-between}
+  body.m-reader #notes{left:12px; right:12px; width:auto; bottom:70px; max-height:50vh}
+}

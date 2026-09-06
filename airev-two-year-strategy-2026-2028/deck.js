@@ -8,6 +8,34 @@
   const body=document.body;
   let cur=0, overview=false;
 
+  /* ---- mobile reader mode (≤640px): the fixed 1400×800 canvas is released into a vertical, phone-width flow.
+     Desktop (e.g. 1440×900) never enters this branch, so the spatial camera and layout are unchanged there. ---- */
+  const readerMQ=matchMedia('(max-width: 640px)');
+  let reader=false;
+  const FIT_SEL='table.t,.compare,.qtabs,.gates,.flow,.kpis,.story-strip,.icon-row,.logo-row,.pgrid,.hw,.lanes,.arc,.hero-row,.grid,.talent2,.tflow,.lpu-strip,.legend-row,.pills,.kv,.layer';
+  function clearFit(){ document.querySelectorAll('[data-mfit]').forEach(el=>{ el.style.zoom=''; el.removeAttribute('data-mfit'); }); }
+  function fitWide(){ /* viewport-based scale-to-fit: any block still wider than the card is zoomed down to fit (no horizontal scroll) */
+    if(!reader) return; clearFit();
+    const zoomOK=('zoom' in document.body.style);
+    for(let pass=0;pass<2;pass++){
+      document.querySelectorAll('.step-inner '+FIT_SEL.split(',').join(',.step-inner ')).forEach(el=>{
+        if(el.closest('[data-mfit]')) return;
+        const cw=el.clientWidth, sw=el.scrollWidth; if(!cw||sw<=cw+2) return;
+        if(zoomOK){ el.style.zoom=Math.max(.5,cw/sw).toFixed(3); el.setAttribute('data-mfit','zoom'); }
+        else { el.classList.add('tbl-scroll'); el.setAttribute('data-mfit','scroll'); }
+      });
+    }
+  }
+  function scrollToStep(s,silent){ const top=s.getBoundingClientRect().top+window.scrollY-62; window.scrollTo({top:Math.max(0,top),behavior:silent?'auto':'smooth'}); }
+  function applyMode(){
+    const on=readerMQ.matches;
+    if(on===reader) return false;
+    reader=on; body.classList.toggle('m-reader',on);
+    if(on){ overview=false; body.classList.remove('overview'); canvas.style.transform=''; fitWide(); }
+    else { clearFit(); window.scrollTo(0,0); }
+    return true;
+  }
+
   /* ---- place steps on the plane ---- */
   steps.forEach((s,i)=>{
     s.dataset.i=i;
@@ -48,6 +76,14 @@
     i=Math.max(0,Math.min(steps.length-1,i));
     const s=steps[i];
     const x=+s.dataset.x||0, y=+s.dataset.y||0, sc=+s.dataset.scale||1, rot=+s.dataset.rot||0;
+    if(reader){
+      overview=false; body.classList.remove('overview');
+      steps.forEach((t,j)=>{ t.classList.toggle('active',j===i); t.classList.toggle('past',j<i); t.classList.toggle('future',j>i); });
+      cur=i; updateChrome(); scrollToStep(s,!!opts.silent);
+      if(!opts.silent) history.replaceState(null,'','#'+(i+1));
+      document.dispatchEvent(new CustomEvent('stepchange',{detail:{index:i,step:s}}));
+      return;
+    }
     const laneChange=!overview && steps[cur] && steps[cur].dataset.lane!==s.dataset.lane && !opts.silent && i!==cur;
     overview=false; body.classList.remove('overview');
     if(flyTimer){ clearTimeout(flyTimer); flyTimer=null; }
@@ -68,6 +104,7 @@
     document.dispatchEvent(new CustomEvent('stepchange',{detail:{index:i,step:s}}));
   }
   function showOverview(){
+    if(reader){ goTo(0); return; }
     overview=true; body.classList.add('overview');
     const xs1=[],xs2=[],ys1=[],ys2=[];
     steps.forEach(s=>{ const x=+s.dataset.x||0,y=+s.dataset.y||0,sc=+s.dataset.scale||1;
@@ -106,8 +143,8 @@
   }
 
   /* ---- assistant panel: keep the active card visible when the right-hand panel is open ---- */
-  document.addEventListener('chat:opened',()=>{ offsetX=innerWidth>1100?200:0; overview?showOverview():goTo(cur,{silent:true}); });
-  document.addEventListener('chat:closed',()=>{ offsetX=0; overview?showOverview():goTo(cur,{silent:true}); });
+  document.addEventListener('chat:opened',()=>{ if(reader) return; offsetX=innerWidth>1100?200:0; overview?showOverview():goTo(cur,{silent:true}); });
+  document.addEventListener('chat:closed',()=>{ if(reader) return; offsetX=0; overview?showOverview():goTo(cur,{silent:true}); });
 
   /* ---- keyboard / touch ---- */
   addEventListener('keydown',e=>{
@@ -125,9 +162,17 @@
   });
   let tx=null,ty=null;
   addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; ty=e.touches[0].clientY; },{passive:true});
-  addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty; tx=ty=null;
+  addEventListener('touchend',e=>{ if(tx===null||reader) return; const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty; tx=ty=null;
     if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)){ dx<0?goTo(cur+1):goTo(cur-1); } });
-  addEventListener('resize',()=>{ body.classList.add('no-anim'); overview?showOverview():goTo(cur,{silent:true}); setTimeout(()=>body.classList.remove('no-anim'),50); });
+  addEventListener('resize',()=>{ body.classList.add('no-anim'); const switched=applyMode();
+    if(reader){ fitWide(); if(switched) goTo(cur,{silent:true}); }
+    else { overview?showOverview():goTo(cur,{silent:true}); }
+    setTimeout(()=>body.classList.remove('no-anim'),50); });
+  /* reader mode: keep the counter / active card in step with what the reader has scrolled to */
+  let scrollTick=false;
+  addEventListener('scroll',()=>{ if(!reader||scrollTick) return; scrollTick=true; requestAnimationFrame(()=>{ scrollTick=false;
+    let best=cur, bd=Infinity; steps.forEach((t,j)=>{ const d=Math.abs(t.getBoundingClientRect().top-70); if(d<bd){ bd=d; best=j; } });
+    if(best!==cur){ cur=best; steps.forEach((t,j)=>{ t.classList.toggle('active',j===best); t.classList.toggle('past',j<best); t.classList.toggle('future',j>best); }); updateChrome(); history.replaceState(null,'','#'+(best+1)); } }); },{passive:true});
 
   /* ---- tiny SVG chart kit ---- */
   const C={em:'#0E7A5F', emb:'#12B886', gold:'#A5884B', ink:'#10201B', dim:'#44584F', faint:'#6C7E75', red:'#B4533A', grey:'#B8C4BE'};
@@ -188,7 +233,8 @@
 
   /* ---- boot ---- */
   const start=Math.max(0,Math.min(steps.length-1,(parseInt((location.hash||'#1').slice(1),10)||1)-1));
-  body.classList.add('no-anim'); goTo(start,{silent:true}); setTimeout(()=>body.classList.remove('no-anim'),80);
+  applyMode(); body.classList.add('no-anim'); goTo(start,{silent:true}); setTimeout(()=>body.classList.remove('no-anim'),80);
+  if(reader){ addEventListener('load',()=>{ fitWide(); goTo(cur,{silent:true}); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitWide); }
   document.dispatchEvent(new CustomEvent('deckready'));
-  window.deck={goTo,showOverview,toggleOverview,steps,get current(){return cur;}};
+  window.deck={goTo,showOverview,toggleOverview,steps,fitWide,get current(){return cur;},get reader(){return reader;}};
 })();

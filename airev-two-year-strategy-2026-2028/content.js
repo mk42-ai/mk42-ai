@@ -58,7 +58,7 @@
   /* ---------------- Charts ---------------- */
   function renderCharts(){
     const rev=$('#c-rev'); if(rev) barChart(rev,{labels:['Y1','2025','2026','2027E','2028E','2029E'],series:[{name:'Revenue (USD M)',values:[1.0,1.2,6.0,29.0,62.6,97.9]},{name:'Contracted exit ARR (USD M)',values:[null,null,1.5,9.6,19.4,31.7],color:'#A5884B'}],valFmt:v=>v.toFixed(1)});
-    const pc=$('#c-partners'); if(pc) hbarChart(pc,{labels:['Cisco (FY26)','WWT (stated)','e& (FY25)','NetApp (FY26)','Alpha Data (FY25)'],values:[63.33,20,19.9,6.925,0.68],colors:['#0E7A5F','#0E7A5F','#A5884B','#0E7A5F','#A5884B'],valFmt:v=>'$'+(v>=10?v.toFixed(1):v.toFixed(2))+'B'});
+    /* card 10 'Partner scale & reach' is a hand-composed inline SVG bar chart in index.html (exact values) — no runtime chart */
     const af=$('#c-africa'); if(af) barChart(af,{labels:['Africa DC build 2025','2031','MEA AI-DC 2026','2031 '],series:[{name:'USD B',values:[1.24,4.58,2.51,8.24]}],valFmt:v=>'$'+v.toFixed(2)+'B',legend:false});
     /* valuation arc is a hand-composed inline SVG in index.html (card 'The valuation arc') — no runtime chart */
     renderJV('uae'); renderDC(true); renderMult();
