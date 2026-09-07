@@ -104,7 +104,7 @@ h3{font-family:var(--serif); font-weight:500; font-size:19px; line-height:1.25; 
 .cols{display:grid; grid-template-columns:1.1fr .9fr; gap:34px; flex:1; min-height:0}
 .cols.eq{grid-template-columns:1fr 1fr}
 .cols.wide{grid-template-columns:1.35fr .65fr}
-.tile{background:var(--panel); border:1px solid var(--hair); border-radius:10px; padding:16px 18px}
+.tile{background:var(--card); border:1px solid var(--hair); border-radius:12px; padding:16px 18px; box-shadow:0 1px 0 rgba(16,32,27,.03), 0 10px 26px -14px rgba(16,32,27,.14)}
 .tile .k{font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; margin-bottom:8px}
 .tile .v{font-family:var(--serif); font-size:30px; line-height:1.05; color:var(--ink); font-weight:500}
 .tile .v small{font-family:var(--sans); font-size:12px; color:var(--ink-dim); font-weight:400; margin-left:4px}
@@ -629,3 +629,29 @@ body.mode-presentation #mode-pill{display:inline-block}
 .sr-lane-m i{color:var(--gold); font-style:normal; font-weight:600}
 @media (prefers-reduced-motion:reduce){ .sr-arc-flow,.sr-ring,.sr-hub-ring{animation:none} }
 @media print{ .sr-arc-flow,.sr-ring,.sr-hub-ring{animation:none} .sr-hint{display:none} }
+
+/* ================= card 10 · Partner scale & reach — one brand identifier per tile, aligned chart, equalised tiles (7 Sept 2026) ================= */
+.tile.em{box-shadow:0 12px 28px -14px rgba(14,122,95,.45)}
+.partner-cols{gap:32px}
+.partner-chart{flex:1 1 0; min-height:240px; height:auto}
+.partner-caption{margin-top:8px}
+.chart.partner-chart text{font-size:12.5px; fill:var(--ink-dim)}
+.chart.partner-chart text.val{font-size:13px; fill:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
+.partner-tiles{gap:16px; grid-template-rows:repeat(3,minmax(0,1fr)); align-content:stretch}
+.partner-tiles .tile{position:relative; padding:14px 18px 13px; justify-content:center}
+.partner-tiles .tile::after{content:""; position:absolute; left:18px; right:18px; bottom:0; height:2px; border-radius:2px 2px 0 0; background:linear-gradient(90deg,var(--gold),rgba(165,136,75,0)); opacity:.55; pointer-events:none}
+.partner-tiles .brand{display:flex; align-items:center; height:26px; margin-bottom:8px}
+.partner-tiles .tile-logo{display:block; height:24px; width:auto; max-width:150px; margin:0; filter:none; opacity:1; object-fit:contain; object-position:left center}
+.partner-tiles .tile-logo.lg{height:28px}
+.partner-tiles .tile-logo.md{height:26px}
+.partner-tiles .tile .v{font-size:22px; line-height:1.08; letter-spacing:-.005em}
+.partner-tiles .tile .v small{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); margin-left:6px}
+.partner-tiles .tile .d{margin-top:6px; font-size:11.5px; line-height:1.45}
+.attach-strip{margin-top:12px; gap:16px}
+.hero-row.attach-strip .hero{min-height:80px; padding:13px 18px 12px; display:flex; flex-direction:column; justify-content:center; box-shadow:0 1px 0 rgba(16,32,27,.03), 0 10px 26px -14px rgba(16,32,27,.14)}
+.hero-row.attach-strip .hn{font-size:30px; letter-spacing:-.01em}
+.hero-row.attach-strip .hl{margin-top:6px; font-size:12px; line-height:1.4}
+.hero-row.attach-strip .hero.em{background:linear-gradient(135deg,#0B6B53 0%,#0E7A5F 55%,#128A6B 100%); box-shadow:0 12px 28px -14px rgba(14,122,95,.5)}
+.fnote-row{display:flex; justify-content:space-between; align-items:baseline; gap:24px; margin-top:12px; padding-top:10px; border-top:1px solid var(--hair)}
+.fnote-row .fn-legend{white-space:nowrap; color:var(--ink-dim)}
+@media print{ .partner-tiles .tile, .hero-row.attach-strip .hero{box-shadow:none} }

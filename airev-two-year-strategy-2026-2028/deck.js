@@ -168,12 +168,17 @@
     g+='</svg>'; el.innerHTML=g;
   };
   window.hbarChart=function(el,o){
-    const {w,h}=frame(el); const m={l:150,r:70,t:8,b:8}; const iw=w-m.l-m.r, ih=h-m.t-m.b; const n=o.labels.length; const rh=ih/n; const maxV=niceMax(Math.max(...o.values)*1.05);
+    const {w,h}=frame(el); const m=Object.assign({l:150,r:70,t:8,b:8},o.margin||{}); const iw=w-m.l-m.r, ih=h-m.t-m.b; const n=o.labels.length; const rh=ih/n;
+    const maxV=o.max||(o.track?Math.max(...o.values):niceMax(Math.max(...o.values)*1.05));
+    const bh=o.barHeight?Math.min(o.barHeight,rh*0.8):rh*0.64, rx=o.rx!=null?o.rx:3, gap=o.labelGap||10;
+    const lstyle=o.labelSize?` style="font-size:${o.labelSize}px"`:'', vstyle=` style="font-variant-numeric:tabular-nums${o.valueSize?';font-size:'+o.valueSize+'px':''}"`;
     let g=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">`;
-    o.labels.forEach((l,i)=>{ const v=o.values[i]; const bw=v/maxV*iw; const yy=m.t+rh*i+rh*0.18; const col=(o.colors&&o.colors[i])||C.em;
-      g+=`<text x="${m.l-10}" y="${yy+rh*0.42}" text-anchor="end" font-size="11.5" fill="${C.ink}">${l}</text>`;
-      g+=`<rect x="${m.l}" y="${yy}" width="${bw}" height="${rh*0.64}" rx="3" fill="${col}"><title>${l}: ${o.valFmt?o.valFmt(v):v}</title></rect>`;
-      g+=`<text x="${m.l+bw+8}" y="${yy+rh*0.42}" font-size="11" fill="${C.ink}" font-weight="600">${o.valFmt?o.valFmt(v):v}</text>`; });
+    o.labels.forEach((l,i)=>{ const v=o.values[i]; const bw=Math.max(v/maxV*iw, o.minBar||0); const cy=m.t+rh*i+rh/2; const yy=cy-bh/2; const col=(o.colors&&o.colors[i])||C.em; const val=o.valFmt?o.valFmt(v):v;
+      g+=`<text x="${m.l-gap}" y="${cy}" text-anchor="end" dominant-baseline="central" font-size="11.5" fill="${C.ink}"${lstyle}>${l}</text>`;
+      if(o.track) g+=`<rect class="track" x="${m.l}" y="${yy}" width="${iw}" height="${bh}" rx="${rx}" fill="${o.trackColor||'rgba(16,32,27,.05)'}"/>`;
+      g+=`<rect class="bar" x="${m.l}" y="${yy}" width="${bw}" height="${bh}" rx="${rx}" fill="${col}"><title>${l}: ${val}</title></rect>`;
+      if(o.valuesAt==='edge') g+=`<text class="val" x="${w-(o.valueInset||4)}" y="${cy}" text-anchor="end" dominant-baseline="central" font-size="11" fill="${C.ink}" font-weight="600"${vstyle}>${val}</text>`;
+      else g+=`<text class="val" x="${m.l+bw+8}" y="${cy}" dominant-baseline="central" font-size="11" fill="${C.ink}" font-weight="600"${vstyle}>${val}</text>`; });
     g+='</svg>'; el.innerHTML=g;
   };
   window.donut=function(el,o){

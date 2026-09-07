@@ -58,7 +58,7 @@
   /* ---------------- Charts ---------------- */
   function renderCharts(){
     const rev=$('#c-rev'); if(rev) barChart(rev,{labels:['Y1','2025','2026','2027E','2028E','2029E'],series:[{name:'Revenue (USD M)',values:[1.0,1.2,6.0,29.0,62.6,97.9]},{name:'Contracted exit ARR (USD M)',values:[null,null,1.5,9.6,19.4,31.7],color:'#A5884B'}],valFmt:v=>v.toFixed(1)});
-    const pc=$('#c-partners'); if(pc) hbarChart(pc,{labels:['Cisco (FY26)','WWT (stated)','e& (FY25)','NetApp (FY26)','Alpha Data (FY25)'],values:[63.33,20,19.9,6.925,0.68],colors:['#0E7A5F','#0E7A5F','#A5884B','#0E7A5F','#A5884B'],valFmt:v=>'$'+(v>=10?v.toFixed(1):v.toFixed(2))+'B'});
+    const pc=$('#c-partners'); if(pc) hbarChart(pc,{labels:['Cisco (FY26)','WWT (stated)','e& (FY25)','NetApp (FY26)','Alpha Data (FY25)'],values:[63.33,20,19.9,6.925,0.68],colors:['#0E7A5F','#0E7A5F','#A5884B','#0E7A5F','#A5884B'],valFmt:v=>'$'+(v>=10?v.toFixed(1):v.toFixed(2))+'B',track:true,valuesAt:'edge',barHeight:34,rx:4,minBar:6,labelSize:12.5,valueSize:13,margin:{l:150,r:78,t:10,b:10}});
     const af=$('#c-africa'); if(af) barChart(af,{labels:['Africa DC build 2025','2031','MEA AI-DC 2026','2031 '],series:[{name:'USD B',values:[1.24,4.58,2.51,8.24]}],valFmt:v=>'$'+v.toFixed(2)+'B',legend:false});
     const val=$('#c-val'); if(val) lineChart(val,{labels:['Feb 2024','Dec 2025','May 2026','Aug 2026','Jan 2027 ○','Apr 2027 ○','Jul 2027 ○'],series:[{name:'Documented marks (USD M)',values:[10,90,137.85,200,null,null,null],area:true},{name:'The arc — low',values:[null,null,null,200,200,500,1000],color:'#A5884B',dash:'6,4'},{name:'The arc — high',values:[null,null,null,215,215,600,1000],color:'#B4533A',dash:'2,4',width:1.5}],valFmt:v=>'$'+v+'M'});
     renderJV('uae'); renderDC(true); renderMult();
