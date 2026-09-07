@@ -24,14 +24,16 @@ npm run dev        # serves on http://0.0.0.0:4173
 
 ## Structure
 
-- `index.html` — the 32 cards (hero numbers, icon rows, progressive-disclosure reveals, source tags)
+- `index.html` — the 33 cards (32 + the coded “Silk Road for AI” map card) (hero numbers, icon rows, progressive-disclosure reveals, source tags)
 - `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts
 - `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
 - `chat.js` / `chat.css` — collapsible assistant UI; calls `/api/chat` (OnDemand) and renders cited answers with per-document downloads
 - `library.json` — document library: label, type, pages, OnDemand media id (downloads resolve through `/api/media`)
 - `library/*.txt` — the 49 scrubbed data-room extracts; their full text is embedded in the OnDemand agent's system prompt (they are also the downloadable copies behind the citation chips)
+- `mode.js` — the Full / Presentation display mode (bottom-bar switch, `M` key, `localStorage`): Presentation redacts B Capital, Kairoswealth and the VVIP Sovereign JV deck-wide — text, attributes, logos, tooltips and the Ask-the-deck exchange — as Confidential Partner A / B / C
+- `silkroad-map.js` + `silkroad.js` — the coded “Silk Road for AI” card: Natural Earth 1:110m land (public domain) projected offline into an inline SVG, animated export arcs from the UAE hub to the five lanes, hover/click tooltips (redaction-aware)
 - `styles.css` — design tokens (emerald / gold / Inter / Playfair; chapter cards in the OnDemand brand gradient)
-- `assets/` — hero art, press photos, charts, partner logos and OnDemand brand glyphs
+- `assets/` — hero art, press photos, charts, partner logos (all sixteen routes plus ADEX/ADFD, Masdar, Space42, Kairoswealth, B Capital — served same-origin, never hot-linked; the anonymised VVIP Sovereign JV carries a coded emblem) and OnDemand brand glyphs
 - `api/` — the `/api/chat` and `/api/media` handlers (the repo-root `api/*.js` files are one-line shims that re-export them for Vercel), so the deck folder is self-contained
 - card 08 “Talent · the India flywheel” — a fully coded diagram (inline SVG + CSS + JS in `index.html` / `styles.css`: a continuously rotating flywheel, IIT → AIREV India office · 6–12 months → top performers → UAE → UAE mandate) plus an “Already on the ground in India” proof strip and an institution row
 - `assets/talent/` — the three event photographs behind the proof strip, committed as static assets (1600 px JPEG): `lpu-genai-hackathon-2024-award.jpg` (Generative AI Hackathon stage award, Lovely Professional University, 13–14 Sept 2024), `campus-activation-auditorium.jpg` and `campus-activation-felicitation.jpg` (campus activations at LPU and DTU)
