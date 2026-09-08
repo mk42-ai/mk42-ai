@@ -655,3 +655,67 @@ body.mode-presentation #mode-pill{display:inline-block}
 .fnote-row{display:flex; justify-content:space-between; align-items:baseline; gap:24px; margin-top:12px; padding-top:10px; border-top:1px solid var(--hair)}
 .fnote-row .fn-legend{white-space:nowrap; color:var(--ink-dim)}
 @media print{ .partner-tiles .tile, .hero-row.attach-strip .hero{box-shadow:none} }
+
+/* ================= 8 Sep 2026 · card 10 (partner scale), card 13 (valuation arc), cards 14–15 (cap table · dilution & control) ================= */
+.partner-caption .fn-fx{color:var(--ink-faint)}
+.arc.three{grid-template-columns:repeat(3,1fr); gap:18px}
+.arc.three .node{padding:14px 16px 12px}
+.arc .node .dl{margin-top:7px; font-size:10.5px; line-height:1.45; color:var(--ink-dim); min-height:15px; letter-spacing:0; text-transform:none}
+.arc .node .dl b{color:var(--ink); font-weight:600}
+.arc .node .dl .src{margin-left:4px}
+.arc-cols{gap:28px}
+.val-chart{flex:1 1 0; min-height:220px; height:auto}
+#mult-out .hero{min-height:0; padding:10px 12px 9px}
+#mult-out .hero .hn{font-size:24px}
+#mult-out .hero .hl{font-size:11px; line-height:1.35; margin-top:4px}
+.arc-foot{padding-top:8px}
+.arc-foot code,.cap-foot code{font:10.5px ui-monospace,Menlo,Consolas,monospace; color:var(--ink-dim)}
+.src.a{background:rgba(180,83,58,.10); color:#8E3F2C}
+/* card 14 · cap table with tabs */
+.cap-head{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:0}
+.cap-tabs{margin:0}
+.cap-kpis{display:flex; gap:10px}
+.cap-kpis .k{border:1px solid var(--hair); border-radius:10px; padding:6px 11px 5px; background:#fff; font-size:10px; color:var(--ink-dim); line-height:1.3; white-space:nowrap}
+.cap-kpis .k b{display:block; font-family:var(--serif); font-size:17px; color:var(--ink); font-weight:500; line-height:1.05; margin-bottom:2px; font-variant-numeric:tabular-nums}
+.cap-kpis .k .src{margin-left:5px}
+.cap-table-wrap{flex:1 1 auto; min-height:0; overflow:hidden; margin-top:8px}
+table.cap-table{font-size:11px}
+table.cap-table th{font-size:9.5px; padding:5px 6px; white-space:nowrap; letter-spacing:.1em}
+table.cap-table td{padding:2px 5px; font-size:10.6px; line-height:1.3; white-space:nowrap; vertical-align:middle}
+table.cap-table td.h{white-space:normal; min-width:300px}
+table.cap-table td:nth-child(2){white-space:normal; min-width:140px}
+table.cap-table th{padding:4px 5px}
+table.cap-table td .muted{font-size:10px}
+table.cap-table tr.founder td{background:rgba(14,122,95,.035)}
+table.cap-table tr.target td{color:var(--ink-dim)}
+table.cap-table tr.sub td{font-weight:600; background:var(--gold-soft); border-top:1px solid var(--hair2)}
+table.cap-table tr.total td{font-weight:600}
+table.cap-table tr.na td{color:var(--ink-faint)}
+table.cap-table .mark{height:14px; width:auto; max-width:60px; vertical-align:middle; margin-right:7px; object-fit:contain}
+table.cap-table .tag{font-size:8.5px; padding:1px 5px; margin-left:4px}
+/* card 15 · dilution & control */
+.dil-title{font-size:26px!important}
+.dil-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:20px; margin-top:0; align-items:start}
+.dil-chart{height:176px; min-height:176px}
+.dil-clauses{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px}
+.dil-clauses .callout{font-size:10.6px; line-height:1.42; padding:7px 11px}
+.dil-clauses .callout b{font-weight:600}
+.dil-foot{padding-top:6px}
+.dil-chart-wrap .legend-row{font-size:10.5px; margin-top:4px; gap:12px}
+.dil-side{display:flex; flex-direction:column; gap:7px}
+.dil-side .callout{font-size:10.6px; line-height:1.42; padding:8px 11px}
+.dil-side .callout b{font-weight:600}
+.dil-check{border:1px solid rgba(18,184,134,.45); background:rgba(18,184,134,.09); border-radius:10px; padding:6px 11px; font-size:10.4px; line-height:1.4; color:#0B5E4A; font-weight:600}
+.dil-check.fail{border-color:rgba(180,83,58,.5); background:rgba(180,83,58,.08); color:#8E3F2C}
+.dil-table-wrap{margin-top:8px}
+table.dil-table{font-size:10.5px}
+table.dil-table th{font-size:9.5px; padding:5px 6px; white-space:nowrap; letter-spacing:.1em}
+table.dil-table td{padding:2px 5px; white-space:nowrap; line-height:1.3; font-size:10.5px; vertical-align:middle}
+table.dil-table td.h{white-space:normal; min-width:215px}
+table.dil-table th{padding:4px 5px}
+table.dil-table td .muted{font-size:10px}
+table.dil-table tr.target td{color:var(--ink-dim)}
+table.dil-table tr.target td b{color:var(--ink)}
+table.dil-table tr.cross td{background:rgba(180,83,58,.07)}
+table.dil-table .tag{font-size:8.5px; padding:1px 5px; margin-left:4px}
+@media print{ .cap-tabs .pill:not(.on){display:none} table.cap-table td,table.dil-table td{white-space:normal} }

@@ -1,6 +1,6 @@
 # AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era (v2)
 
-Interactive, spatial strategy deck (32 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
+Interactive, spatial strategy deck (35 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
 
 ## Run
 
@@ -24,8 +24,8 @@ npm run dev        # serves on http://0.0.0.0:4173
 
 ## Structure
 
-- `index.html` — the 33 cards (32 + the coded “Silk Road for AI” map card) (hero numbers, icon rows, progressive-disclosure reveals, source tags)
-- `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts
+- `index.html` — the 35 cards (32 + the coded “Silk Road for AI” map card + the two Capital cards 14–15 added 8 Sep 2026: “Who came in, when, and at what” (cap table with By investor / $200M / $500M / $1B tabs) and “Round-by-round dilution and control” (waterfall, 50% control lines, Clause 11 / Clause 13 annotations, 100% self-check)) (hero numbers, icon rows, progressive-disclosure reveals, source tags)
+- `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts, and the `CAPITAL` model (reconciled cap table of 6 Nov 2025 + Schedule 2 prices + Series A2 at $200M pre + the $500M / $1B stages) that renders cards 13–15 at run time — `CAPITAL.assumedRaise` is the one labelled assumption (round sizes for the $500M / $1B stages are not documented); `window.capitalModel` exposes the computed ladder for QA
 - `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
 - `chat.js` / `chat.css` — collapsible assistant UI; calls `/api/chat` (OnDemand) and renders cited answers with per-document downloads
 - `library.json` — document library: label, type, pages, OnDemand media id (downloads resolve through `/api/media`)

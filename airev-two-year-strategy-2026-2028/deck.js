@@ -153,7 +153,7 @@
   };
   window.lineChart=function(el,o){
     const {w,h}=frame(el); const m={l:52,r:18,t:20,b:44}; const iw=w-m.l-m.r, ih=h-m.t-m.b;
-    const all=o.series.flatMap(s=>s.values.filter(v=>v!=null)); const maxV=niceMax(Math.max(...all)*1.12); const minV=Math.min(0,...all); const yMin=minV<0?-niceMax(-minV):0; const span=maxV-yMin;
+    const all=o.series.flatMap(s=>s.values.filter(v=>v!=null)); const maxV=o.yMax||niceMax(Math.max(...all)*1.12); const minV=Math.min(0,...all); const yMin=minV<0?-niceMax(-minV):0; const span=maxV-yMin;
     const y=v=>m.t+ih-((v-yMin)/span*ih); const n=o.labels.length; const x=i=>m.l+iw*(n===1?0.5:i/(n-1));
     let g=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">`;
     g+='<g class="grid">'; for(let i=0;i<=5;i++){ const v=yMin+span*i/5; g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l-8}" y="${y(v)+4}" text-anchor="end" font-size="10.5" fill="${C.faint}">${o.yFmt?o.yFmt(v):fmt(v)}</text>`; } g+='</g>';
@@ -161,7 +161,7 @@
       if(s.area){ g+=`<path d="M${pts[0].x},${y(0)} `+pts.map(p=>`L${p.x},${p.y}`).join(' ')+` L${pts[pts.length-1].x},${y(0)} Z" fill="${col}" opacity=".10"/>`; }
       g+=`<path d="M`+pts.map(p=>p.x+','+p.y).join(' L')+`" fill="none" stroke="${col}" stroke-width="${s.width||2.5}" stroke-dasharray="${s.dash||''}"/>`;
       pts.forEach((p,k)=>{ g+=`<circle cx="${p.x}" cy="${p.y}" r="4" fill="#fff" stroke="${col}" stroke-width="2"><title>${s.name} · ${o.labels[p.i]}: ${o.valFmt?o.valFmt(p.v):p.v}</title></circle>`;
-        if(o.values!==false && (!s.labelEvery || k%s.labelEvery===0)) g+=`<text class="val" x="${p.x}" y="${p.y-9+(s.labelDy||0)}" text-anchor="middle" font-size="10.5" fill="${col}">${o.valFmt?o.valFmt(p.v):fmt(p.v)}</text>`; }); });
+        if(o.values!==false && (!s.labelEvery || k%s.labelEvery===0) && !(s.skipLabels && s.skipLabels.includes(p.i))) g+=`<text class="val" x="${p.x}" y="${p.y-9+(s.labelDy||0)}" text-anchor="middle" font-size="10.5" fill="${col}">${o.valFmt?o.valFmt(p.v):fmt(p.v)}</text>`; }); });
     g+='<g class="axis">'; o.labels.forEach((l,i)=>{ g+=`<text x="${x(i)}" y="${h-m.b+18}" text-anchor="middle" font-size="11" fill="${C.dim}">${l}</text>`; }); g+='</g>';
     g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(0)}" y2="${y(0)}" stroke="${C.dim}" stroke-width="1"/>`;
     if(o.legend!==false){ let lx=m.l; o.series.forEach((s,si)=>{ const col=s.color||[C.em,C.gold,C.red,C.emb][si%4]; g+=`<rect x="${lx}" y="${h-12}" width="10" height="10" rx="2" fill="${col}"/><text x="${lx+15}" y="${h-3}" font-size="11" fill="${C.dim}">${s.name}</text>`; lx+=22+s.name.length*6.2; }); }
