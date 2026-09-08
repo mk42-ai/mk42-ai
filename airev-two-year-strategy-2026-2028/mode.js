@@ -16,9 +16,13 @@
     [/Robert(?:\s+John)?\s+Grim|Bob\s+Grim|\bGrim\b/g, 'Confidential Partner G'],
     [/David(?:\s+Bradley)?\s+Bennett|\bBennett\b/g, 'Confidential Partner H'],
     [/Inveniam(?:\s+Middle\s+East)?(?:\s+Ltd)?/g, 'Confidential Partner I'],
-    [/Itqan(?:\s+Financial\s+Services(?:\s+WLL)?|\s+Investments)?/g, 'Confidential Partner J']
+    [/Itqan(?:\s+Financial\s+Services(?:\s+WLL)?|\s+Investments)?/g, 'Confidential Partner J'],
+    /* founders are shown by their SHA initials only (Cl. 1.1: OT, YY, KU) */
+    [/Olu Melville Thomas(?:\s*\(OT\))?/g, 'OT'],
+    [/Youssef Ahmad Youssef(?:\s*\(YY\))?/g, 'YY'],
+    [/Kayaan Keki Unwalla(?:\s*\(KU\))?/g, 'KU']
   ];
-  const SENSITIVE = /Kairos\s?wealth|B Capital|Titian|Venture\s?wave|Nabyl|Further Ventures|Omari|\bGrim\b|Bennett|Inveniam|Itqan/i;
+  const SENSITIVE = /Kairos\s?wealth|B Capital|Titian|Venture\s?wave|Nabyl|Further Ventures|Omari|\bGrim\b|Bennett|Inveniam|Itqan|Olu Melville|Youssef Ahmad|Kayaan Keki/i;
   const ATTRS = ['title', 'alt', 'aria-label', 'data-title', 'placeholder', 'data-cap'];
   const BADGE = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 40"><rect width="132" height="40" rx="8" fill="#0E332C"/><text x="66" y="25" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" font-weight="600" letter-spacing="1.5" fill="#E4CB8C">CONFIDENTIAL</text></svg>');
   const redact = (s) => { s = String(s == null ? '' : s); for (const [re, rep] of RULES) s = s.replace(re, rep); return s; };
@@ -109,7 +113,7 @@
       if (mode === 'presentation' && init && typeof init.body === 'string' && /\/api\/chat/.test(url)) {
         const b = JSON.parse(init.body);
         if (b && typeof b.query === 'string') {
-          b.query += ' (Presentation mode: refer to B Capital only as "Confidential Partner A", to Kairoswealth only as "Confidential Partner B", and to the investors Titian, Venturewave, Nabyl / Further Ventures, Eyad Omari, Robert Grim, David Bennett, Inveniam and Itqan only as "Confidential Partner C" to "J" respectively; the sovereign counterparty is always called the VVIP Sovereign JV; never use those real names in your answer.)';
+          b.query += ' (Presentation mode: refer to B Capital only as "Confidential Partner A", to Kairoswealth only as "Confidential Partner B", and to the investors Titian, Venturewave, Nabyl / Further Ventures, Eyad Omari, Robert Grim, David Bennett, Inveniam and Itqan only as "Confidential Partner C" to "J" respectively, and to the founders only by their initials OT, YY and KU; the sovereign counterparty is always called the VVIP Sovereign JV; never use those real names in your answer.)';
           init = Object.assign({}, init, { body: JSON.stringify(b) });
         }
       }

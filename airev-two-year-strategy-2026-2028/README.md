@@ -1,6 +1,6 @@
 # AIREV — Two-Year Strategy 2026–2028 · The ARM of the Agentic Era (v2)
 
-Interactive, spatial strategy deck (35 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
+Interactive, spatial strategy deck (34 cards on a six-lane map, story flow Mandate → Proof → Partners → Capital → Scale) prepared for the Chairman and Board — Private & Confidential, 5 September 2026.
 
 ## Run
 
@@ -24,13 +24,13 @@ npm run dev        # serves on http://0.0.0.0:4173
 
 ## Structure
 
-- `index.html` — the 35 cards (32 + the coded “Silk Road for AI” map card + the two Capital cards 14–15 added 8 Sep 2026: “Who came in, when, and at what” (cap table with By investor / $200M / $500M / $1B tabs) and “Round-by-round dilution and control” (waterfall, 50% control lines, Clause 11 / Clause 13 annotations, 100% self-check)) (hero numbers, icon rows, progressive-disclosure reveals, source tags)
-- `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts, and the `CAPITAL` model (reconciled cap table of 6 Nov 2025 + Schedule 2 prices + Series A2 at $200M pre + the $500M / $1B stages) that renders cards 13–15 at run time — `CAPITAL.assumedRaise` is the one labelled assumption (round sizes for the $500M / $1B stages are not documented); `window.capitalModel` exposes the computed ladder for QA
+- `index.html` — the 34 cards (the “Export lanes” card was removed 8 Sep 2026; the coded “Silk Road for AI” map card carries the five lanes; Capital cards 13–14 added 8 Sep 2026: “Who came in, when, and at what” (register sorted by shares held, re-priced at $200M / $500M / $1B on three adjustable raise inputs) and “Round-by-round dilution and control” (waterfall, 50% control lines, Clause 11 / Clause 13 annotations, 100% self-check)) (hero numbers, icon rows, progressive-disclosure reveals, source tags)
+- `content.js` — eight-quarter roadmap, sixteen signed routes to market, JV scenario toggle, modular-DC cost-share toggle, valuation slider, charts, and the `CAPITAL` model (reconciled cap table of 6 Nov 2025 + Schedule 2 prices + Series A2 at $200M pre + the $500M / $1B stages) that renders cards 12–14 at run time from three raise inputs (`window.capitalRaise`, sessionStorage-persisted; the $500M / $1B defaults are illustrative because no document states those round sizes); `window.capitalModel` exposes the computed ladder for QA
 - `deck.js` — spatial camera engine (with animated lane transitions) + dependency-free SVG chart kit
 - `chat.js` / `chat.css` — collapsible assistant UI; calls `/api/chat` (OnDemand) and renders cited answers with per-document downloads
 - `library.json` — document library: label, type, pages, OnDemand media id (downloads resolve through `/api/media`)
 - `library/*.txt` — the 49 scrubbed data-room extracts; their full text is embedded in the OnDemand agent's system prompt (they are also the downloadable copies behind the citation chips)
-- `mode.js` — the Full / Presentation display mode (bottom-bar switch, `M` key, `localStorage`): Presentation redacts B Capital, Kairoswealth and the cap-table investor names (Titian, Venturewave, Nabyl, Omari, Grim, Bennett, Inveniam, Itqan → Confidential Partner A–J) deck-wide; the VVIP Sovereign JV alias stays visible in both modes — text, attributes, logos, tooltips and the Ask-the-deck exchange — as Confidential Partner A / B / C
+- `mode.js` — the Full / Presentation display mode (bottom-bar switch, `M` key, `localStorage`): Presentation redacts B Capital, Kairoswealth and the cap-table investor names (Titian, Venturewave, Nabyl, Omari, Grim, Bennett, Inveniam, Itqan → Confidential Partner A–J) deck-wide and shows the founders by initials (OT / YY / KU); the VVIP Sovereign JV alias stays visible in both modes — text, attributes, logos, tooltips and the Ask-the-deck exchange — as Confidential Partner A / B / C
 - `silkroad-map.js` + `silkroad.js` — the coded “Silk Road for AI” card: Natural Earth 1:110m land (public domain) projected offline into an inline SVG, animated export arcs from the UAE hub to the five lanes, hover/click tooltips (redaction-aware)
 - `styles.css` — design tokens (emerald / gold / Inter / Playfair; chapter cards in the OnDemand brand gradient)
 - `assets/` — hero art, press photos, charts, partner logos (all sixteen routes plus ADEX/ADFD, Masdar, Space42, Kairoswealth, B Capital — served same-origin, never hot-linked; the anonymised VVIP Sovereign JV carries a coded emblem) and OnDemand brand glyphs
