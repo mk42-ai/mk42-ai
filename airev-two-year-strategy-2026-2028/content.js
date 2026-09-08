@@ -62,9 +62,9 @@
     const rev=$('#c-rev'); if(rev) barChart(rev,{labels:['Y1','2025','2026','2027E','2028E','2029E'],series:[{name:'Revenue (USD M)',values:[1.0,1.2,6.0,29.0,62.6,97.9]},{name:'Contracted exit ARR (USD M)',values:[null,null,1.5,9.6,19.4,31.7],color:'#A5884B'}],valFmt:v=>v.toFixed(1)});
     /* Card 10 (slide 13) — latest fiscal-year revenue of the six largest signed routes, USD B, ordered by size.
        WEB: Cisco 10-K FY2026 63.33; Qualcomm 10-K FY2025 (fiscal year ended 28 Sep 2025, filed 5 Nov 2025) 44.284; WWT stated ~20; e& FY2025 19.9 (AED→USD);
-       Redington audited consolidated FY2026 (year ended 31 Mar 2026, results 13 May 2026) ₹1,19,162.36 crore ÷ RBI reference rate 94.6543 = 12.59 (company headline $13.5B; FY2025 was ₹99,333.65 crore = 11.61); NetApp 10-K FY2026 6.925.
+       Redington audited consolidated FY2026 (year ended 31 Mar 2026, results 13 May 2026) ₹1,19,162.36 crore ÷ FY-average ECB USD/INR 88.3851 (255 business days, api.frankfurter.dev) = 13.48 (company headline $13.5B; FY2025 was ₹99,333.65 crore ÷ 84.5426 = 11.75); NetApp 10-K FY2026 6.925.
        Gold bars are converted from a local currency (AED / INR). Alpha Data (FY25, $0.68B) was dropped from this chart on 8 Sep 2026 — it remains a signed route on card 09. */
-    const pc=$('#c-partners'); if(pc) hbarChart(pc,{labels:['Cisco (FY26)','Qualcomm (FY25)','WWT (stated)','e& (FY25)','Redington (FY26)','NetApp (FY26)'],values:[63.33,44.284,20,19.9,12.59,6.925],colors:['#0E7A5F','#0E7A5F','#0E7A5F','#A5884B','#A5884B','#0E7A5F'],valFmt:v=>'$'+(v>=10?v.toFixed(1):v.toFixed(2))+'B',track:true,valuesAt:'edge',barHeight:30,rx:4,minBar:6,labelSize:12.5,valueSize:13,margin:{l:160,r:78,t:8,b:8}});
+    const pc=$('#c-partners'); if(pc) hbarChart(pc,{labels:['Cisco (FY26)','Qualcomm (FY25)','WWT (stated)','e& (FY25)','Redington (FY26)','NetApp (FY26)'],values:[63.33,44.284,20,19.9,13.48,6.925],colors:['#0E7A5F','#0E7A5F','#0E7A5F','#A5884B','#A5884B','#0E7A5F'],valFmt:v=>'$'+(v>=10?v.toFixed(1):v.toFixed(2))+'B',track:true,valuesAt:'edge',barHeight:30,rx:4,minBar:6,labelSize:12.5,valueSize:13,margin:{l:160,r:78,t:8,b:8}});
     const af=$('#c-africa'); if(af) barChart(af,{labels:['Africa DC build 2025','2031','MEA AI-DC 2026','2031 '],series:[{name:'USD B',values:[1.24,4.58,2.51,8.24]}],valFmt:v=>'$'+v.toFixed(2)+'B',legend:false});
     /* Card 13 (slide 16) — documented marks: $10M Feb 2024 (seed post-money, CO/S2), $90M Dec 2025 (Series A-1 close, journey deck), $137.85M May 2026 (Itqan TS V6 pre-money), $200M Aug 2026 (Series A2 pre-money, IM/CO).
        The arc — management target: $200M (Jan 2027) → $500M (≈ Apr 2027) → $1B (≈ Jul 2027). The former 'arc — high' line ($215M → $600M) and the $500–600M band were removed on 8 Sep 2026; a '$250M Jan 2027' mark is not supported by any document and is not plotted. */
@@ -75,7 +75,7 @@
 
   /* ================= Capital · cards 14–15 (slides 17–18) and the dilution rows on card 13 (slide 16) =================
      ONE source of truth, computed at run time:
-       CT  reconciled cap table — AIREV Holding Limited, "Final Cap table post Series-A1", 6 Nov 2025: 11 register lines, 108,792 fully diluted
+       CT  reconciled cap table — AIREV Holding Limited, "Final Cap table post Series-A1", dated 11/6/2025: 11 register lines, 108,792 fully diluted
            shares including the 5,000 unissued B Shares of the Share Incentive Scheme (no votes, Cl. 5.2). Founders (Cl. 1.1: OT, YY, KU) = 66,219 sh.
        S2  Amended & Restated SHA (Nov 2025), Schedule 2 Preferred Shareholders — PDF pp. 88–91: Part 1 Seed (Core42 25,000 @ $100.00 = $2,500,000),
            Part 2 Series A-1 (Titian 5,000 @ $800.00 = $4,000,000; Venturewave 3,448 @ $580.00 = $2,000,000), Part 3 Angel (Bennett 250 @ $800 = $200,000;
@@ -86,7 +86,7 @@
        A   assumption — the $500M and $1B stages have no documented round size (IM, CO, card 20 list the layers without amounts): modelled at 10% of
            pre-money. Change CAPITAL.assumedRaise and every figure on cards 13–15 recomputes. Whole shares, rounded down; price = pre-money ÷ FD shares before. */
   const CAPITAL={
-    registerDate:'6 Nov 2025',
+    registerDate:'11/6/2025 (as printed)',
     todayMarkM:215,
     a2:{preM:200, raiseM:5, when:'Jan 2027', tsPreM:137.85},
     assumedRaise:{r500:50, r1b:100},           /* USD M — ASSUMPTION (10% of pre-money); not in any document */
@@ -117,12 +117,12 @@
       {key:'a1first',label:'Series A-1 first close · VentureWave',   when:'2025',         pps:580,    raised:2000000,   src:'S2', page:'p89'},
       {key:'angel',  label:'Series A-1 final close (a) · Angel', when:'Nov 2025',     pps:800,    raised:275000,    src:'S2', page:'p90'},
       {key:'a1final',label:'Series A-1 final close (b) · Titian',   when:'Nov 2025',     pps:800,    raised:4000000,   src:'S2', page:'p89'},
-      {key:'a2',     label:'Series A2 · $200M pre-money',              when:'Jan 2027',     preM:200,   raiseM:5,         src:'TS', target:true},
-      {key:'r500',   label:'$500M stage',                              when:'≈ Apr 2027',   preM:500,                     src:'A',  target:true},
-      {key:'r1b',    label:'$1B stage',                                when:'≈ Jul 2027',   preM:1000,                    src:'A',  target:true}
+      {key:'a2',     label:'Series A2 · $200M pre-money', short:'Series A2',              when:'Jan 2027',     preM:200,   raiseM:5,         src:'TS', target:true},
+      {key:'r500',   label:'$500M round · illustrative $50M', short:'$500M round',                              when:'≈ Apr 2027',   preM:500,                     src:'A',  target:true},
+      {key:'r1b',    label:'$1B round · illustrative $100M', short:'$1B round',                                when:'≈ Jul 2027',   preM:1000,                    src:'A',  target:true}
     ]
   };
-  const SRC_TITLE={CT:'reconciled cap table, 6 Nov 2025',S2:'A&R SHA Schedule 2, PDF pp. 88–91',TS:'Itqan Series A2 term sheet V6, 11 May 2026',CO:'Chairman overview, 30 Aug 2026',IM:'Investment Memorandum, Aug 2026',A:'assumption — not in any document (CAPITAL.assumedRaise in content.js)'};
+  const SRC_TITLE={CT:'reconciled cap table, dated 11/6/2025',S2:'A&R SHA Schedule 2, PDF pp. 88–91',TS:'Itqan Series A2 term sheet V6, 11 May 2026',CO:'Chairman overview, 30 Aug 2026',IM:'Investment Memorandum, Aug 2026',A:'illustrative assumption — no document states this round size (CAPITAL.assumedRaise in content.js)'};
   const chip=k=>`<span class="src${k==='A'?' a':''}" title="${esc(SRC_TITLE[k]||k)}">${k}</span>`;
   const fUSD=v=>v==null?'—':(Math.abs(v)>=1e9?'$'+(v/1e9).toFixed(2)+'B':Math.abs(v)>=1e6?'$'+(v/1e6).toFixed(2)+'M':'$'+Math.round(v).toLocaleString('en-US'));
   const fM=v=>v==null?'—':(v>=1000?'$'+(v/1000).toFixed(v%1000?2:1).replace(/\.?0+$/,'')+'B':'$'+(Number.isInteger(v)?v:v.toFixed(2))+'M');
@@ -155,7 +155,11 @@
         o.newShares=members.reduce((a,h)=>a+h.shares,0); o.preSh=sh; o.postSh=sh+o.newShares; o.preMoney=r.pps*o.preSh; o.postMoney=r.pps*o.postSh; sh=o.postSh;
       }
       o.dilution=o.postSh?o.newShares/o.postSh*100:0;
-      o.foundersFD=founderSh/o.postSh*100; o.foundersVote=founderSh/(o.postSh-pool)*100;
+      o.foundersFD=founderSh/o.postSh*100; o.foundersVote=founderSh/(o.postSh-pool)*100; o.poolPct=pool/o.postSh*100;
+      /* Major Investors (Cl. 1.1: Core42, Titian, Venture Wave) — aggregate after the round with no take-up, and with full Clause 13 pre-emption (each keeps its pre-round FD %) */
+      { const miIds={c42:'seed',tit:'a1final',vw:'a1first'}; const idx=k=>CAPITAL.rounds.findIndex(x=>x.key===k); const here=idx(r.key);
+        const miSh=H.filter(h=>miIds[h.id]&&idx(miIds[h.id])<=here).reduce((a,h)=>a+h.shares,0);
+        o.miPct=miSh/o.postSh*100; const prev=rounds[rounds.length-1]; o.miPctFull=(r.preM!=null&&prev)?prev.miPctFullChain:o.miPct; o.miPctFullChain=(r.preM!=null&&prev)?prev.miPctFullChain:o.miPct; }
       /* self-check: every line on the register at this point sums to 100.00% */
       const lines=H.filter(h=>!h.roundKey||CAPITAL.rounds.findIndex(x=>x.key===h.roundKey)<=CAPITAL.rounds.findIndex(x=>x.key===r.key)).map(h=>h.shares).concat(stageHolders.map(h=>h.shares));
       o.sumPct=lines.reduce((a,v)=>a+v,0)/o.postSh*100; o.lines=lines.length;
@@ -183,66 +187,62 @@
 
   /* ---- card 13 (slide 16): the dilution line under each stage ---- */
   $$('.arc .node .dl[data-dil]').forEach(el=>{ const r=CM.byKey[el.dataset.dil]; if(!r) return;
-    el.innerHTML=`<b>${fM(r.raiseM)}</b> raised${r.src==='A'?' (assumed)':''} · <b>${fP(r.dilution)}</b> sold · founders <b>${fP(r.foundersFD)}</b> after ${chip(r.src)}`;
+    el.innerHTML=`<b>${fM(r.raiseM)}</b> raised${r.src==='A'?' (illustrative)':''} · <b>${fP(r.dilution)}</b> sold · founders <b>${fP(r.foundersFD)}</b> after ${chip(r.src)}`;
     el.dataset.raisedM=r.raiseM; el.dataset.pctSold=r.dilution.toFixed(2); el.dataset.foundersAfter=r.foundersFD.toFixed(2); });
 
-  /* ---- card 14 (slide 17): who came in, when, and at what ---- */
+  /* ---- card 14 (slide 18): who came in, when, and at what — one table, one row per investor ---- */
   const capT=$('#cap-table'), capK=$('#cap-kpis');
-  function holderCell(h){ const nm=h.short?`${esc(h.name)} <span class="muted">(${esc(h.short)})</span>`:esc(h.name); return `<td class="h" title="${esc(h.note||h.name)}">${h.logo?`<img class="mark" src="${h.logo}" alt="${esc(h.short||h.name)}">`:''}${nm}${h.founder?' <span class="tag signed">founder</span>':''}${h.pool?' <span class="tag target">pool</span>':''}${h.target?' <span class="tag target">target ○</span>':''}</td>`; }
-  function renderCap(tab){
+  const MARKS_M=[200,500,1000];
+  function nameCell(h,extraTag){ return `<td class="h" title="${esc(h.note||h.name)}">${h.logo?`<img class="mark" src="${h.logo}" alt="${esc(h.short||h.name)}">`:''}${esc(h.name.replace(/ RSC Ltd$/,'').replace(/ Limited$/,''))}${h.short?` <span class="muted">(${esc(h.short)})</span>`:''}${extraTag||''}</td>`; }
+  function renderCapTable(){
     if(!capT) return;
-    const m=CM.marks[tab==='inv'?'today':tab]; const rows=[];
-    const fdShares=m.totalSh;
-    if(tab==='inv'){
-      capT.innerHTML=`<thead><tr><th>Holder</th><th>Round · class</th><th>Entry</th><th class="n">Entry valuation</th><th class="n">Price / share</th><th class="n">$ invested</th><th class="n">% bought at entry</th><th class="n">Shares</th><th class="n">% held today (FD)</th><th>Src</th></tr></thead>`;
-      const tb=document.createElement('tbody');
-      CM.H.forEach(h=>{ const tr=document.createElement('tr'); tr.className=(h.founder?'founder':'')+(h.pool?' pool':''); tr.dataset.id=h.id;
-        const ev=h.entryValM!=null?`$${h.entryValM.toFixed(1)}M post${h.implied?' <span class="muted">*</span>':''}${h.co?` <span class="muted">(CO ${esc(h.co)})</span>`:''}`:(h.founder||h.pool?'—':'n/s');
-        tr.innerHTML=holderCell(h)+`<td>${esc(h.round)} <span class="muted">· ${esc(h.cls)}</span></td><td>${esc(h.entry)}</td><td class="n">${ev}</td><td class="n">${fPPS(h.pps)}</td><td class="n">${h.cost!=null?fUSD(h.cost):'—'}</td><td class="n">${h.pctAtEntry!=null?fP(h.pctAtEntry)+(h.implied?' <span class="muted">*</span>':''):'—'}</td><td class="n" data-v="${h.shares}">${fN(h.shares)}</td><td class="n" data-v="${(h.shares/fdShares*100).toFixed(4)}">${fP(h.shares/fdShares*100)}</td><td>${chip(h.src)}${h.implied?chip('A'):''}</td>`;
-        tb.appendChild(tr); });
-      CAPITAL.offRegister.forEach(h=>{ const tr=document.createElement('tr'); tr.className='na'; tr.dataset.id=h.id; tr.innerHTML=holderCell(h)+`<td>${esc(h.round)}</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${chip(h.src)}</td>`; tr.title=h.note; tb.appendChild(tr); });
-      const sub=document.createElement('tr'); sub.className='sub'; sub.innerHTML=`<td class="h">Founders' collective (OT · YY · KU)</td><td>Ordinary</td><td></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n" data-v="${CM.founderSh}">${fN(CM.founderSh)}</td><td class="n" data-v="${(CM.founderSh/fdShares*100).toFixed(4)}">${fP(CM.founderSh/fdShares*100)}</td><td>${chip('CT')}</td>`; tb.appendChild(sub);
-      const tot=document.createElement('tr'); tot.className='total'; const inv=CM.H.reduce((a,h)=>a+(h.cost||0),0); tot.innerHTML=`<td class="h">Total · register as at ${CAPITAL.registerDate}</td><td>11 lines</td><td></td><td class="n"></td><td class="n"></td><td class="n">${fUSD(inv)}</td><td class="n"></td><td class="n" data-v="${fdShares}">${fN(fdShares)}</td><td class="n" data-sum="${m.sumPct.toFixed(4)}">${fP(m.sumPct)} ✓</td><td>${chip('CT')}</td>`; tb.appendChild(tot);
-      capT.appendChild(tb);
-    } else {
-      const t=CM.marks.today;
-      capT.innerHTML=`<thead><tr><th>Holder</th><th>Round · class</th><th class="n">Shares</th><th class="n">% at the ${esc(m.label)} mark</th><th class="n">$ value at ${esc(m.label)}</th><th class="n">Multiple on entry</th><th class="n">Gain vs cost</th><th class="n">today · $${CAPITAL.todayMarkM}M mark</th><th>Src</th></tr></thead>`;
-      const tb=document.createElement('tbody');
-      m.holders.forEach(h=>{ const tr=document.createElement('tr'); tr.className=(h.founder?'founder':'')+(h.pool?' pool':'')+(h.target?' target':''); tr.dataset.id=h.id;
-        const own=h.stage&&m.stages[m.stages.length-1]===h.stage; const v=own?h.cost:h.shares*m.pps, pct=h.shares/m.totalSh*100, mult=h.cost?v/h.cost:null, gain=h.cost&&!own?v-h.cost:null, tv=h.stage?null:h.shares*t.pps;
-        tr.innerHTML=holderCell(h)+`<td>${esc(h.round)}</td><td class="n" data-v="${h.shares}">${fN(h.shares)}</td><td class="n" data-v="${pct.toFixed(4)}">${fP(pct)}</td><td class="n" data-v="${Math.round(v)}">${fUSD(v)}</td><td class="n">${mult!=null?fX(mult):'—'}</td><td class="n">${gain!=null?(gain>=0?'+':'−')+fUSD(Math.abs(gain)):(own?'<span class="muted">entry</span>':'—')}</td><td class="n">${tv!=null?fUSD(tv)+(h.cost?' <span class="muted">('+fX(tv/h.cost)+')</span>':''):'<span class="muted" title="not yet on the register at today\u2019s mark">n/a</span>'}</td><td>${chip(h.src)}${h.implied?chip('A'):''}</td>`;
-        tb.appendChild(tr); });
-      CAPITAL.offRegister.forEach(h=>{ const tr=document.createElement('tr'); tr.className='na'; tr.dataset.id=h.id; tr.innerHTML=holderCell(h)+`<td>${esc(h.round)}</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${chip(h.src)}</td>`; tr.title=h.note; tb.appendChild(tr); });
-      const fv=CM.founderSh*m.pps; const sub=document.createElement('tr'); sub.className='sub'; sub.innerHTML=`<td class="h">Founders' collective (OT · YY · KU)</td><td>Ordinary</td><td class="n" data-v="${CM.founderSh}">${fN(CM.founderSh)}</td><td class="n" data-v="${m.foundersFD.toFixed(4)}">${fP(m.foundersFD)}</td><td class="n">${fUSD(fv)}</td><td class="n">—</td><td class="n">—</td><td class="n">${fUSD(CM.founderSh*t.pps)}</td><td>${chip('CT')}</td>`; tb.appendChild(sub);
-      const tot=document.createElement('tr'); tot.className='total'; tot.innerHTML=`<td class="h">Total · ${m.holders.length} lines · price ${fPPS(m.pps)} / share</td><td>post-money ${fM(+(m.postMoney/1e6).toFixed(1))}</td><td class="n" data-v="${m.totalSh}">${fN(m.totalSh)}</td><td class="n" data-sum="${m.sumPct.toFixed(4)}">${fP(m.sumPct)} ✓</td><td class="n">${fUSD(m.postMoney)}</td><td class="n"></td><td class="n"></td><td class="n">${fUSD(t.postMoney)}</td><td>${chip(m.src)}</td>`; tb.appendChild(tot);
-      capT.appendChild(tb);
-    }
-    capT.dataset.tab=tab; capT.dataset.sum=m.sumPct.toFixed(4);
-    if(capK){ const a2=CM.byKey.a2, r5=CM.byKey.r500, r1=CM.byKey.r1b;
-      capK.innerHTML=`<div class="k"><b>${fP(CM.founderSh/CM.todaySh*100)}</b>founders' collective today · FD${chip('CT')}</div><div class="k"><b>${fP(a2.foundersFD)}</b>after Series A2 · $5M at $200M pre${chip('TS')}</div><div class="k"><b>${fP(r5.foundersFD)} → ${fP(r1.foundersFD)}</b>after the $500M / $1B stages${chip('A')}</div><div class="k"><b>${fPPS(m.pps)}</b>${tab==='inv'?'per share at today\u2019s $'+CAPITAL.todayMarkM+'M mark':'per share at the '+esc(m.label)+' mark'}</div>`; }
-    $$('.cap-tabs .pill').forEach(b=>{ const on=b.dataset.tab===tab; b.classList.toggle('on',on); b.setAttribute('aria-selected',String(on)); });
+    const t=CM.marks.today; const fd=CM.todaySh; const pct=sh=>sh/fd*100; const val=(sh,markM)=>sh/fd*markM*1e6;
+    const head=`<thead><tr><th>Investor</th><th>Round · class</th><th>Date</th><th class="n">Entry<br>valuation</th><th class="n">USD<br>invested</th><th class="n">% bought<br>post-round</th><th class="n">% today (FD)</th><th class="n">Value @ $${CAPITAL.todayMarkM}M<br>today</th><th class="n">@ $200M</th><th class="n">@ $500M</th><th class="n">@ $1B</th><th class="n">Multiple<br>on entry</th><th>Src</th></tr></thead>`;
+    const rows=[];
+    const money4=(sh)=>`<td class="n" data-v="${Math.round(val(sh,CAPITAL.todayMarkM))}">${fUSD(val(sh,CAPITAL.todayMarkM))}</td>`+MARKS_M.map(m=>`<td class="n" data-v="${Math.round(val(sh,m))}">${fUSD(val(sh,m))}</td>`).join('');
+    const dash4='<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td>';
+    /* founders — a single row, no cash entry */
+    rows.push(`<tr class="founder sub" data-id="founders"><td class="h">Founders (OT · YY · KU) <span class="tag signed">founders</span></td><td>Ordinary</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n" data-v="${pct(CM.founderSh).toFixed(4)}">${fP(pct(CM.founderSh))}</td>${money4(CM.founderSh)}<td class="n">—</td><td>${chip('CT')}</td></tr>`);
+    const order=['c42','eo','tit','vw','nab','rjg','dbb','inv','pool'];
+    const H=Object.fromEntries(CM.H.map(h=>[h.id,h])); H.nab=CAPITAL.offRegister.find(x=>x.id==='nab');
+    order.forEach(id=>{ const h=H[id]; if(!h) return;
+      if(id==='nab'){ const inv=1.6e6, entry=80e6; const v215=inv*CAPITAL.todayMarkM*1e6/entry;
+        rows.push(`<tr class="na" data-id="nab" title="${esc(h.note)}"><td class="h">${esc(h.name)} <span class="tag target">secondary</span></td><td title="secondary purchase — no primary dilution">Secondary</td><td>—</td><td class="n">$80.0M</td><td class="n">$1.60M</td><td class="n">—</td><td class="n">— <span class="muted">*</span></td><td class="n" title="CO basis: $1.6M × 215 ÷ 80">${fUSD(v215)}</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">${fX(v215/inv)}</td><td>${chip('CO')}</td></tr>`); return; }
+      const v215=val(h.shares,CAPITAL.todayMarkM); const mult=h.cost?v215/h.cost:null;
+      const ev=h.entryValM!=null?`$${h.entryValM.toFixed(1)}M post${h.implied?' <span class="muted">◐</span>':''}`:(h.pool?'—':'n/s');
+      rows.push(`<tr class="${h.pool?'pool':''}" data-id="${h.id}">${nameCell(h,h.pool?' <span class="tag target">unissued</span>':'')}<td title="${esc(h.cls)}">${esc(h.round.replace(' · first close','').replace(' · final close','').replace(' · first cheque',''))}<span class="muted"> · ${esc((h.cls.match(/[12]×/)||['ord'])[0])}</span></td><td>${esc(h.entry)}${h.id==='vw'?' <span class="muted">1st close</span>':''}</td><td class="n">${ev}</td><td class="n">${h.cost!=null?fUSD(h.cost):(h.pool?'—':'not stated')}</td><td class="n">${h.pctAtEntry!=null?fP(h.pctAtEntry)+(h.implied?' <span class="muted">◐</span>':''):'—'}</td><td class="n" data-v="${pct(h.shares).toFixed(4)}">${fP(pct(h.shares))}</td>${money4(h.shares)}<td class="n">${mult!=null?fX(mult):'—'}</td><td>${chip(h.src)}${h.co?chip('CO'):''}${h.implied?chip('A'):''}</td></tr>`); });
+    /* pending and prospective */
+    const a2=CM.byKey.a2;
+    rows.push(`<tr class="target" data-id="a2"><td class="h">Series A2 · Itqan SPV <span class="tag target">pending ○</span></td><td>Series A2 <span class="muted">· 2× (TS p3–4)</span></td><td>${esc(a2.when)}</td><td class="n" title="$200M pre-money · $205M post">$205.0M post</td><td class="n">${fUSD(a2.raised)}</td><td class="n" data-v="${a2.dilution.toFixed(4)}">${fP(a2.dilution)}</td><td class="n">— <span class="muted">pending</span></td><td class="n">—</td><td class="n">${fUSD(a2.raised)} <span class="muted">(cost)</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${chip('TS')}</td></tr>`);
+    const bc=CAPITAL.offRegister.find(x=>x.id==='bcap');
+    rows.push(`<tr class="na" data-id="bcap" title="${esc(bc.note)}"><td class="h"><img class="mark" src="${bc.logo}" alt="B Capital">B Capital <span class="tag target">prospective</span></td><td>In conversation <span class="muted">· no committed amount</span></td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td>${dash4}<td class="n">—</td><td>${chip('CO')}</td></tr>`);
+    const invested=CM.H.reduce((s,h)=>s+(h.cost||0),0);
+    rows.push(`<tr class="total"><td class="h">Register total · 108,792 FD shares</td><td>11 lines</td><td></td><td class="n"></td><td class="n">${fUSD(invested)}</td><td class="n"></td><td class="n" data-sum="${t.sumPct.toFixed(4)}">${fP(t.sumPct)} ✓</td><td class="n">${fUSD(CAPITAL.todayMarkM*1e6)}</td>${MARKS_M.map(m=>`<td class="n">${fUSD(m*1e6)}</td>`).join('')}<td class="n"></td><td>${chip('CT')}</td></tr>`);
+    capT.innerHTML=head+'<tbody>'+rows.join('')+'</tbody>'; capT.dataset.sum=t.sumPct.toFixed(4); capT.dataset.rows=String(rows.length);
+    if(capK){ const r5=CM.byKey.r500, r1=CM.byKey.r1b;
+      capK.innerHTML=`<div class="k"><b>${fP(CM.founderSh/CM.todaySh*100)}</b>founders' collective today · FD${chip('CT')}</div><div class="k"><b>${fP(a2.foundersFD)}</b>after Series A2 · $5M at $200M pre${chip('TS')}</div><div class="k"><b>${fP(r5.foundersFD)} → ${fP(r1.foundersFD)}</b>after the illustrative $500M / $1B rounds${chip('A')}</div><div class="k"><b>${fPPS(t.pps)}</b>per share at today\u2019s $${CAPITAL.todayMarkM}M mark</div>`; }
   }
-  $$('.cap-tabs .pill').forEach(b=>b.onclick=()=>renderCap(b.dataset.tab));
-  renderCap('inv');
+  renderCapTable();
 
   /* ---- card 15 (slide 18): round-by-round dilution and control ---- */
   const dilT=$('#dil-table'), dilC=$('#c-dil'), dilCheck=$('#dil-check'), dilTitle=$('#dil-title');
   function renderDilution(){
     if(!dilT) return;
     const R=CM.rounds;
-    dilT.innerHTML=`<thead><tr><th>Round</th><th>When</th><th class="n">$ raised</th><th class="n">Price / share</th><th class="n">New shares</th><th class="n">FD after</th><th class="n">Pre-money</th><th class="n">Post-money</th><th class="n">Dilution</th><th class="n">Founders FD</th><th class="n">Founders votes</th><th class="n">Σ holders</th><th>Src</th></tr></thead>`;
+    dilT.innerHTML=`<thead><tr><th>Round</th><th>When</th><th class="n">$ raised</th><th class="n">Price / share</th><th class="n">Pre-money</th><th class="n">Post-money</th><th class="n">Dilution</th><th class="n">Founders FD</th><th class="n">Founders votes</th><th class="n" title="Core42 + Titian + Venture Wave, fully diluted, after the round — second figure: with full Clause 13 pre-emption">Major Investors</th><th class="n">Pool</th><th class="n">Σ</th><th>Src</th></tr></thead>`;
     const tb=document.createElement('tbody');
     R.forEach(r=>{ const tr=document.createElement('tr'); tr.dataset.round=r.key; tr.className=(r.target?'target ':'')+(r.foundersFD<50?'cross':'');
       const pre=fMoney(r.preMoney), post=fMoney(r.postMoney);
-      tr.innerHTML=`<td class="h" title="${esc(r.note||(r.implied?'pre-money and post-money implied on the assumed pre-seed base':(r.src==='A'?'round size assumed at 10% of pre-money — CAPITAL.assumedRaise in content.js':'')))}">${esc(r.label)}${r.implied?' <span class="muted">*</span>':''}${r.src==='A'?' <span class="muted">†</span>':''}</td><td>${esc(r.when)}</td><td class="n" data-v="${r.raised||0}">${r.raised!=null?fUSD(r.raised):'—'}</td><td class="n">${fPPS(r.pps)}</td><td class="n" data-v="${r.newShares}">${r.key==='base'?fN(r.newShares)+' <span class="muted">base</span>':'+'+fN(r.newShares)}</td><td class="n" data-v="${r.postSh}">${fN(r.postSh)}</td><td class="n">${pre}</td><td class="n">${post}</td><td class="n" data-v="${r.dilution.toFixed(4)}">${r.key==='base'?'—':fP(r.dilution)}</td><td class="n" data-v="${r.foundersFD.toFixed(4)}"><b>${fP(r.foundersFD)}</b>${r.foundersFD<50?' <span class="tag risk">&lt; 50%</span>':''}</td><td class="n" data-v="${r.foundersVote.toFixed(4)}">${fP(r.foundersVote)}${r.foundersVote<50?' <span class="tag risk">consent flips</span>':''}</td><td class="n" data-sum="${r.sumPct.toFixed(4)}">${fP(r.sumPct)} ${Math.abs(r.sumPct-100)<1e-9?'✓':'✗'}</td><td>${chip(r.src)}${r.implied?chip('A'):''}</td>`;
+      const mi=r.miPct, miFull=r.miPctFull;
+      tr.innerHTML=`<td class="h" title="${esc(r.note||(r.implied?'pre-money and post-money implied on the assumed pre-seed base':(r.src==='A'?'illustrative round size — 10% of pre-money (CAPITAL.assumedRaise in content.js)':'')))}">${esc(r.label)}${r.implied?' <span class="muted">*</span>':''}${r.src==='A'?' <span class="muted">†</span>':''}</td><td>${esc(r.when)}</td><td class="n" data-v="${r.raised||0}">${r.raised!=null?fUSD(r.raised):'—'}</td><td class="n">${fPPS(r.pps)}</td><td class="n">${pre}</td><td class="n">${post}</td><td class="n" data-v="${r.dilution.toFixed(4)}">${r.key==='base'?'—':fP(r.dilution)}</td><td class="n" data-v="${r.foundersFD.toFixed(4)}"><b>${fP(r.foundersFD)}</b>${r.foundersFD<50?' <span class="tag risk">&lt; 50%</span>':''}</td><td class="n" data-v="${r.foundersVote.toFixed(4)}">${fP(r.foundersVote)}${r.foundersVote<50?' <span class="tag risk">consent flips</span>':''}</td><td class="n" data-v="${mi.toFixed(4)}">${fP(mi)}${r.target?' <span class="muted">· '+fP(miFull)+'†</span>':''}</td><td class="n" data-v="${r.poolPct.toFixed(4)}">${fP(r.poolPct)}</td><td class="n" data-sum="${r.sumPct.toFixed(4)}">${fP(r.sumPct)} ${Math.abs(r.sumPct-100)<1e-9?'✓':'✗'}</td><td>${chip(r.src)}${r.implied?chip('A'):''}</td>`;
       tb.appendChild(tr); });
     dilT.appendChild(tb);
     if(dilCheck){ const ok=CM.selfCheck; dilCheck.classList.toggle('fail',!ok); dilCheck.dataset.pass=String(ok);
       dilCheck.innerHTML=ok?`✓ Self-check passed — ownership sums to 100.00% at every one of the ${R.length} steps and at all four marks (${R.map(r=>r.sumPct.toFixed(2)+'%').join(' · ')}).`:`✗ Self-check FAILED — ownership does not sum to 100.00% at every round.`; }
     /* thresholds text */
     const th=$('#dil-thresholds'); if(th){ const fd=CM.firstBelowFD, vt=CM.firstBelowVote; const r1=CM.byKey.r1b;
-      th.innerHTML=`<b>Where the lines fall.</b> Fully diluted, the founders first drop below 50% ${fd?`at the <b>${esc(fd.label)}</b> (${fP(fd.foundersFD)})`:'at none of the modelled steps'}. On <b>votes</b> — the test that matters (Cl. 1.1, PDF pp. 28–29: Founder Consent becomes Major Investor Director Consent once the Founders hold under 50% of the voting rights; unissued B Shares carry no vote, Cl. 5.2) — they ${vt?`fall below 50% at the <b>${esc(vt.label)}</b> (${fP(vt.foundersVote)})`:`stay above 50% through the $1B stage (<b>${fP(r1.foundersVote)}</b>)`}. At $1B pre-money that holds up to a raise of ≈ <b>${fM(Math.floor(CM.maxRaiseVote))}</b> (fully diluted: ≈ ${fM(Math.floor(CM.maxRaiseFD))}). Schedule 3 (pp. 92–95) is untouched: Board Reserved Matters keep needing Major Investor Director Consent, Major Investor Reserved Matters keep needing Major Investor Consent.`; }
-    if(dilTitle){ const vt=CM.firstBelowVote, fd=CM.firstBelowFD; const last=CM.rounds[CM.rounds.length-1]; dilTitle.textContent=vt?`Founder Consent flips at the ${vt.label}: the founders' votes drop below 50%.`:(fd?`Voting control holds through the ${last.label}; fully diluted, the founders dip under 50% ${fd===last?'there':'at the '+fd.label}.`:'Founders keep control through every modelled round — no line is crossed.'); }
+      th.innerHTML=`<b>Where the lines fall.</b> Fully diluted, the founders first drop below 50% ${fd?`at the <b>${esc(fd.short||fd.label)}</b> (${fP(fd.foundersFD)})`:'at none of the modelled steps'}. On <b>votes</b> — the test that matters (Cl. 1.1, PDF pp. 28–29: Founder Consent becomes Major Investor Director Consent once the Founders hold under 50% of the voting rights; unissued B Shares carry no vote, Cl. 5.2) — they ${vt?`fall below 50% at the <b>${esc(vt.short||vt.label)}</b> (${fP(vt.foundersVote)})`:`stay above 50% through the $1B stage (<b>${fP(r1.foundersVote)}</b>)`}. At $1B pre-money that holds up to a raise of ≈ <b>${fM(Math.floor(CM.maxRaiseVote))}</b> (fully diluted: ≈ ${fM(Math.floor(CM.maxRaiseFD))}). Schedule 3 (pp. 92–95) is untouched: Board Reserved Matters keep needing Major Investor Director Consent, Major Investor Reserved Matters keep needing Major Investor Consent.`; }
+    if(dilTitle){ const vt=CM.firstBelowVote, fd=CM.firstBelowFD; const last=CM.rounds[CM.rounds.length-1]; dilTitle.textContent=vt?`Founder Consent flips at the ${vt.short||vt.label}: the founders' votes drop below 50%.`:(fd?`Voting control holds through the ${last.short||last.label}; fully diluted, the founders dip under 50% ${fd===last?'there':'at the '+(fd.short||fd.label)}.`:'Founders keep control through every modelled round — no line is crossed.'); }
     /* the chart */
     if(dilC){ const w=Math.max(480,dilC.clientWidth||700), h=Math.max(200,dilC.clientHeight||236); const m={l:44,r:14,t:26,b:40}; const iw=w-m.l-m.r, ih=h-m.t-m.b; const n=R.length, gw=iw/n; const yMax=100, y=v=>m.t+ih-v/yMax*ih;
       const short={base:'Base',legacy:'Legacy',seed:'Seed',a1first:'A-1 first',angel:'Angel',a1final:'A-1 final',a2:'A2 · $200M',r500:'$500M',r1b:'$1B'};

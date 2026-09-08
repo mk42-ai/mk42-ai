@@ -1,15 +1,24 @@
 /* Display mode — "Full" shows every counterparty; "Presentation" redacts the sensitive ones deck-wide
-   (text nodes, title/alt/aria attributes, logos, tooltips and the Ask-the-deck exchange) and persists in
+   (text nodes, title/alt/aria attributes, logos, tooltips and the Ask-the-deck exchange; the VVIP Sovereign JV keeps its alias in both modes) and persists in
    localStorage. Everything that is redacted keeps its original value so switching back is lossless. */
 (function () {
   'use strict';
   const KEY = 'airev-deck-mode';
   const RULES = [
-    [/VVIP Sovereign JV/g, 'Confidential Partner C'],
     [/Kairos\s?wealth(?:\s(?:Prive|Holding|Prive Limited|Holding Limited))?/gi, 'Confidential Partner B'],
-    [/B Capital(?:\sGroup)?/g, 'Confidential Partner A']
+    [/B Capital(?:\sGroup)?/g, 'Confidential Partner A'],
+    /* investor names on the capital cards (8 Sep 2026) — Core42 stays: it is a named MSA / sovereign-cloud partner across the deck.
+       'VVIP Sovereign JV' is itself the anonymised name of the sovereign counterparty and is shown as-is in both modes (rule removed 8 Sep 2026). */
+    [/Titian(?:\s+Capital)?(?:\s+RSC(?:\s+Ltd\.?)?)?/g, 'Confidential Partner C'],
+    [/Venture\s?[Ww]ave(?:\s+Capital(?:\s+No\.?\s*9)?(?:\s+Limited)?)?/g, 'Confidential Partner D'],
+    [/Further Ventures\s*\/\s*Nabyl|Nabyl(?:\s*\(Further Ventures\))?|Further Ventures/g, 'Confidential Partner E'],
+    [/Eyad(?:\s+Yousif(?:\s+Ibrahim)?)?\s+Omari|E\.\s?Omari|\bOmari\b/g, 'Confidential Partner F'],
+    [/Robert(?:\s+John)?\s+Grim|Bob\s+Grim|\bGrim\b/g, 'Confidential Partner G'],
+    [/David(?:\s+Bradley)?\s+Bennett|\bBennett\b/g, 'Confidential Partner H'],
+    [/Inveniam(?:\s+Middle\s+East)?(?:\s+Ltd)?/g, 'Confidential Partner I'],
+    [/Itqan(?:\s+Financial\s+Services(?:\s+WLL)?|\s+Investments)?/g, 'Confidential Partner J']
   ];
-  const SENSITIVE = /VVIP Sovereign JV|Kairos\s?wealth|B Capital/i;
+  const SENSITIVE = /Kairos\s?wealth|B Capital|Titian|Venture\s?wave|Nabyl|Further Ventures|Omari|\bGrim\b|Bennett|Inveniam|Itqan/i;
   const ATTRS = ['title', 'alt', 'aria-label', 'data-title', 'placeholder', 'data-cap'];
   const BADGE = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 40"><rect width="132" height="40" rx="8" fill="#0E332C"/><text x="66" y="25" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" font-weight="600" letter-spacing="1.5" fill="#E4CB8C">CONFIDENTIAL</text></svg>');
   const redact = (s) => { s = String(s == null ? '' : s); for (const [re, rep] of RULES) s = s.replace(re, rep); return s; };
@@ -100,7 +109,7 @@
       if (mode === 'presentation' && init && typeof init.body === 'string' && /\/api\/chat/.test(url)) {
         const b = JSON.parse(init.body);
         if (b && typeof b.query === 'string') {
-          b.query += ' (Presentation mode: refer to B Capital only as "Confidential Partner A", to Kairoswealth only as "Confidential Partner B" and to the VVIP Sovereign JV only as "Confidential Partner C"; never use those real names in your answer.)';
+          b.query += ' (Presentation mode: refer to B Capital only as "Confidential Partner A", to Kairoswealth only as "Confidential Partner B", and to the investors Titian, Venturewave, Nabyl / Further Ventures, Eyad Omari, Robert Grim, David Bennett, Inveniam and Itqan only as "Confidential Partner C" to "J" respectively; the sovereign counterparty is always called the VVIP Sovereign JV; never use those real names in your answer.)';
           init = Object.assign({}, init, { body: JSON.stringify(b) });
         }
       }
