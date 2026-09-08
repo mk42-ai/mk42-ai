@@ -73,195 +73,156 @@
   }
   if(document.readyState==='complete') renderCharts(); else addEventListener('load',renderCharts);
 
-  /* ================= Capital · cards 12–14 (slides 16–18): one live model, one shared raise store =================
-     Sources (every number traces here; nothing is typed in by hand):
-       CT  register — AIREV Holding Limited, "Final Cap table post Series-A1", dated 11/6/2025 (reconciled_cap_table_v1.json scenarios[0].rows;
-           OCR ocr_page_1_v1.txt lines 15–27): 11 lines, 108,792 fully diluted shares incl. the 5,000 unissued B Shares (no vote, Cl. 5.2).
-           Founders (Cl. 1.1: OT, YY, KU): Olu Melville Thomas 59,219 (json row 0 / OCR line 15), Youssef Ahmad Youssef 3,500 (row 2 / line 17),
-           Kayaan Keki Unwalla 3,500 (row 3 / line 18) → 66,219 = 60.87% FD, 63.80% of votes.
-       S2  Amended & Restated SHA (Nov 2025), Schedule 2 — PDF pp. 88–91: Core42 25,000 @ $100.00 = $2,500,000 (Part 1); Titian 5,000 @ $800.00 =
-           $4,000,000 and Venturewave Capital No. 9 Limited 3,448 @ $580.00 = $2,000,000 (Part 2); Bennett 250 @ $800 = $200,000 and Grim 94 @ $800
-           = $75,000 (Part 3); Eyad Omari 2,331 @ $107.25 = $249,999.75 (Part 4). Cl. 1.1 Founder Consent (pp. 28–29); Cl. 5.2 / 5.3 voting.
-       TS  Itqan Series A2 term sheet V6, 11 May 2026 — $5,000,000 single tranche (p3); ≈3.50% at $137.85M pre (p4, superseded by $200M pre);
-           existing 5% pool remains (p4); Qualified IPO ≥3× post-money, ≥$50M primary (p5).
-       CO  Chairman overview, 30 Aug 2026 — entry marks G42/Core42 $10M post, VentureWave $60M (marked $80M internally), Nabyl $1.6M secondary at $80M.
-       A   illustrative — the $500M and $1B rounds have no documented size; the defaults below (10% of pre-money) are adjustable on card 13.
-     Rules: price per share = pre-money ÷ pre-round FD shares; new shares = floor(raise ÷ price); votes exclude the 5,000 unissued B Shares (Cl. 5.2);
-     Preferred vote as-converted 1:1 (Cl. 5.3); no option-pool top-up; no pre-emption take-up; no anti-dilution (every price is above the USD 100 Starting Price). */
-  const CAPITAL={
-    registerDate:'11/6/2025 (as printed)',
-    poolShares:5000,
-    defaults:{a2:5000000, r500:50000000, r1b:100000000},                 /* USD — a2 per TS p3; r500 / r1b illustrative · adjustable */
-    ranges:{a2:[0,50000000,500000], r500:[0,250000000,5000000], r1b:[0,500000000,10000000]},
-    holders:[
-      {id:'ot',  name:'Olu Melville Thomas',   code:'OT', cls:'Ordinary', round:'Founder', shares:59219, founder:true, entry:'Founder', src:'CT', line:'json row 0 · OCR line 15'},
-      {id:'yy',  name:'Youssef Ahmad Youssef', code:'YY', cls:'Ordinary', round:'Founder', shares:3500,  founder:true, entry:'Founder', src:'CT', line:'json row 2 · OCR line 17'},
-      {id:'ku',  name:'Kayaan Keki Unwalla',   code:'KU', cls:'Ordinary', round:'Founder', shares:3500,  founder:true, entry:'Founder', src:'CT', line:'json row 3 · OCR line 18'},
-      {id:'inv', name:'Inveniam Middle East',  cls:'Ordinary', round:'Ordinary', shares:1450, entry:'≤ Nov 2025', src:'CT', note:'Inveniam Middle East — no price, amount or date in the cap table or Schedule 2'},
-      {id:'pool',name:'Share Incentive Scheme', cls:'B Shares · unissued', round:'Option pool', shares:5000, pool:true, note:'Share Incentive Scheme — 5,000 unissued B Shares (Cl. 25.1), in the fully diluted base, no vote (Cl. 5.2)', entry:'—', src:'CT'},
-      {id:'eo',  name:'Eyad Omari', cls:'Legacy Pref. · 1×', round:'Legacy', shares:2331, pps:107.25, cost:249999.75, entry:'≤ 31 Jan 2024', roundKey:'legacy', src:'S2', page:'p91'},
-      {id:'c42', name:'Core42 Investments 1 SPV RSC Ltd', cls:'Seed Pref. · 2×', round:'Seed', shares:25000, pps:100, cost:2500000, entry:'31 Jan 2024', roundKey:'seed', src:'S2', page:'p88', logo:'assets/logos/core42.png', co:'$10M post'},
-      {id:'vw',  name:'Venturewave Capital No. 9 Limited', cls:'Series A-1 Pref. · 2×', round:'Series A-1 · first close', shares:3448, pps:580, cost:2000000, entry:'2025', roundKey:'a1first', src:'S2', page:'p89', co:'$60M entry'},
-      {id:'dbb', name:'David Bradley Bennett', cls:'Angel Pref. · 1×', round:'Angel', shares:250, pps:800, cost:200000, entry:'Nov 2025', roundKey:'angel', entryRound:'a1final', src:'S2', page:'p90'},
-      {id:'rjg', name:'Robert John Grim', cls:'Angel Pref. · 1×', round:'Angel', shares:94, pps:800, cost:75000, entry:'Nov 2025', roundKey:'angel', entryRound:'a1final', src:'S2', page:'p90'},
-      {id:'tit', name:'Titian RSC Ltd', cls:'Series A-1 Pref. · 2×', round:'Series A-1 · final close', shares:5000, pps:800, cost:4000000, entry:'Nov 2025', roundKey:'a1final', src:'S2', page:'p89'}
-    ],
-    offRegister:[
-      {id:'nab',  name:'Nabyl (Further Ventures)', round:'Secondary', note:'Nabyl — $1.6M secondary at ≈$80M on the Chairman chart (30 Aug 2026); a secondary purchase creates no register line, so no primary dilution and no identifiable share count', src:'CO', invested:1600000, entryValM:80},
-      {id:'bcap', name:'B Capital', logo:'assets/logos/b-capital.svg', round:'Prospective', note:'B Capital — investor conversation #2 on card 19; the 29 Jun 2026 brief states no committed amount, price or date', src:'CO'}
-    ],
-    rounds:[
-      {key:'base',   label:'Pre-seed base',                                when:'—',             src:'CT', note:'founders 66,219 + Inveniam 1,450 + unissued pool 5,000 — assumed in place before the first cheque'},
-      {key:'legacy', label:'Legacy · first cheque · E. Omari',             when:'≤ 31 Jan 2024', pps:107.25, raised:249999.75, src:'S2', page:'p91', implied:true},
-      {key:'seed',   label:'Seed · Core42',                                when:'31 Jan 2024',   pps:100,    raised:2500000,   src:'S2', page:'p88'},
-      {key:'a1first',label:'Series A-1 first · VentureWave',         when:'2025',          pps:580,    raised:2000000,   src:'S2', page:'p89'},
-      {key:'angel',  label:'Series A-1 final (a) · Angel',           when:'Nov 2025',      pps:800,    raised:275000,    src:'S2', page:'p90'},
-      {key:'a1final',label:'Series A-1 final (b) · Titian',          when:'Nov 2025',      pps:800,    raised:4000000,   src:'S2', page:'p89'},
-      {key:'a2',     label:'Series A2 · $200M pre-money', short:'Series A2', when:'Jan 2027',    preM:200,   src:'TS', target:true, investor:'Series A2 SPV', investorCls:'Series A2 Pref. · 2×', investorNote:'Itqan-arranged SPV (term sheet V6) — pending ○'},
-      {key:'r500',   label:'$500M round · illustrative',  short:'$500M round', when:'≈ Apr 2027', preM:500,  src:'A',  target:true, investor:'$500M-round investors', investorCls:'new money'},
-      {key:'r1b',    label:'$1B round · illustrative',    short:'$1B round',   when:'≈ Jul 2027', preM:1000, src:'A',  target:true, investor:'$1B-round investors',   investorCls:'new money'}
-    ]
-  };
-  const STAGES=['a2','r500','r1b'];
-  const SRC_TITLE={CT:'register — reconciled cap table dated 11/6/2025',S2:'A&R SHA Schedule 2, PDF pp. 88–91',TS:'Itqan Series A2 term sheet V6, 11 May 2026',CO:'Chairman overview, 30 Aug 2026',IM:'Investment Memorandum, Aug 2026',A:'illustrative · adjustable — no document states this round size'};
+  /* ================= Capital · cards 12–14 (slides 16–18): one shared scenario, one chained model =================
+     Register (CT) — AIREV Holding Limited, "Final Cap table post Series-A1", dated 11/6/2025 (reconciled_cap_table_v1.json scenarios[0].rows;
+       OCR ocr_page_1_v1.txt lines 15–27): 11 lines, 108,792 fully diluted shares incl. the 5,000 unissued B Shares (no vote, Cl. 5.2).
+       Founders (Cl. 1.1: OT, YY, KU): Olu Melville Thomas 59,219 (json row 0 / OCR line 15), Youssef Ahmad Youssef 3,500 (row 2 / line 17),
+       Kayaan Keki Unwalla 3,500 (row 3 / line 18) → 66,219 = 60.87% FD, 63.80% of votes.
+     Schedule 2 (S2) — A&R SHA Nov 2025, PDF pp. 88–91: Core42 25,000 @ $100.00 = $2,500,000; Titian 5,000 @ $800.00 = $4,000,000; Venturewave Capital
+       No. 9 Limited 3,448 @ $580.00 = $2,000,000; Bennett 250 @ $800 = $200,000; Grim 94 @ $800 = $75,000; Eyad Omari 2,331 @ $107.25 = $249,999.75.
+     Term sheet (TS) — Itqan Series A2 V6, 11 May 2026: $5,000,000 single tranche (p3) — sits inside the $15M default raise at $200M; existing 5% pool
+       remains (p4). Chairman overview (CO), 30 Aug 2026 — entry marks; Nabyl $1.6M secondary at $80M (no register line).
+     Scenario (A) — pre-money marks are fixed ($200M · $500M · $1B); the three raises are user inputs ($M), persisted in localStorage
+       'airev.scenario.v1', defaults $15M · $50M · $100M (the $1B raise is illustrative). Chained maths per the reconciled model: price_i = pre_i ÷ FD_before_i;
+       new_i = floor(raise_i ÷ price_i); FD_after_i = FD_before_i + new_i; % sold = new_i ÷ FD_after_i; post_i = pre_i + raise_i; $ value = shares × post_i ÷ FD_after_i;
+       votes exclude the 5,000 unissued B Shares (Cl. 5.2), Preferred and new-round shares vote 1:1 (Cl. 5.3); Founder Consent = 50% of voting rights (Cl. 1.1):
+       control retained while founders' voting % > 50%, lost when ≤ 50%; break-even raise_i = (2 × 66,219 − (FD_before_i − 5,000)) × price_i. */
+  const FD0=108792, POOL=5000, FOUNDER_SH=66219;
+  const REGISTER=[
+    {id:'ot',  name:'Olu Melville Thomas',   code:'OT', cls:'Ordinary', round:'Founder', shares:59219, founder:true, entry:'Founder', src:'CT', line:'json row 0 · OCR line 15'},
+    {id:'yy',  name:'Youssef Ahmad Youssef', code:'YY', cls:'Ordinary', round:'Founder', shares:3500,  founder:true, entry:'Founder', src:'CT', line:'json row 2 · OCR line 17'},
+    {id:'ku',  name:'Kayaan Keki Unwalla',   code:'KU', cls:'Ordinary', round:'Founder', shares:3500,  founder:true, entry:'Founder', src:'CT', line:'json row 3 · OCR line 18'},
+    {id:'inv', name:'Inveniam Middle East',  cls:'Ordinary', round:'Ordinary', shares:1450, entry:'≤ Nov 2025', src:'CT', note:'Inveniam Middle East — no price, amount or date in the cap table or Schedule 2'},
+    {id:'pool',name:'Share Incentive Scheme', cls:'B Shares · unissued', round:'Option pool', shares:5000, pool:true, entry:'—', src:'CT', note:'Share Incentive Scheme — 5,000 unissued B Shares (Cl. 25.1), in the fully diluted base, no vote (Cl. 5.2)'},
+    {id:'eo',  name:'Eyad Omari', cls:'Legacy Pref. · 1×', round:'Legacy', shares:2331, pps:107.25, cost:249999.75, entry:'≤ 31 Jan 2024', entryValM:8.0, pctAtEntry:3.108, implied:true, src:'S2', page:'p91'},
+    {id:'c42', name:'Core42 Investments 1 SPV RSC Ltd', cls:'Seed Pref. · 2×', round:'Seed', shares:25000, pps:100, cost:2500000, entry:'31 Jan 2024', entryValM:10.0, pctAtEntry:25.0, src:'S2', page:'p88', logo:'assets/logos/core42.png', co:true},
+    {id:'vw',  name:'Venturewave Capital No. 9 Limited', cls:'Series A-1 Pref. · 2×', round:'Series A-1', shares:3448, pps:580, cost:2000000, entry:'2025', entryValM:60.0, pctAtEntry:3.333, src:'S2', page:'p89', co:true},
+    {id:'dbb', name:'David Bradley Bennett', cls:'Angel Pref. · 1×', round:'Angel', shares:250, pps:800, cost:200000, entry:'Nov 2025', entryValM:87.0, pctAtEntry:0.230, src:'S2', page:'p90'},
+    {id:'rjg', name:'Robert John Grim', cls:'Angel Pref. · 1×', round:'Angel', shares:94, pps:800, cost:75000, entry:'Nov 2025', entryValM:87.0, pctAtEntry:0.086, src:'S2', page:'p90'},
+    {id:'tit', name:'Titian RSC Ltd', cls:'Series A-1 Pref. · 2×', round:'Series A-1', shares:5000, pps:800, cost:4000000, entry:'Nov 2025', entryValM:87.0, pctAtEntry:4.596, src:'S2', page:'p89'}
+  ];
+  const SCENARIO={ key:'airev.scenario.v1', defaults:{a2:15, r500:50, r1b:100}, max:5000,
+    stages:[
+      {key:'a2',   preM:200,  label:'$200M', when:'Jan 2027',   newName:'New investors @ $200M (Series A2)', short:'$200M round (Series A2)', tag:'TS', note:'the $5M Itqan SPV commitment (term sheet V6) sits inside this raise'},
+      {key:'r500', preM:500,  label:'$500M', when:'≈ Apr 2027', newName:'New investors @ $500M', short:'$500M round', tag:'A'},
+      {key:'r1b',  preM:1000, label:'$1B',   when:'≈ Jul 2027', newName:'New investors @ $1B',   short:'$1B round', tag:'A', illustrative:true}
+    ] };
+  const STAGES=SCENARIO.stages.map(s=>s.key);
+  const SRC_TITLE={CT:'register — reconciled cap table dated 11/6/2025',S2:'A&R SHA Schedule 2, PDF pp. 88–91',TS:'Itqan Series A2 term sheet V6, 11 May 2026',CO:'Chairman overview, 30 Aug 2026',IM:'Investment Memorandum, Aug 2026',A:'user input — no document states this round size'};
   const chip=k=>`<span class="src${k==='A'?' a':''}" title="${esc(SRC_TITLE[k]||k)}">${k}</span>`;
   const fUSD=v=>v==null?'—':(Math.abs(v)>=1e9?'$'+(v/1e9).toFixed(2)+'B':Math.abs(v)>=1e6?'$'+(v/1e6).toFixed(2)+'M':'$'+Math.round(v).toLocaleString('en-US'));
-  const fM=v=>v==null?'—':(v>=1000?'$'+(v/1000).toFixed(v%1000?2:1).replace(/\.?0+$/,'')+'B':'$'+(Number.isInteger(v)?v:+v.toFixed(2))+'M');
-  const fMoney=v=>v==null?'—':(v>=1e9?'$'+(v/1e9).toFixed(2)+'B':v>=1e8?'$'+Math.round(v/1e6)+'M':'$'+(v/1e6).toFixed(2)+'M');
+  const fMk=m=>m==null?'—':(m>=1000?'$'+(m/1000).toFixed(m%1000?2:1).replace(/\.?0+$/,'')+'B':'$'+(Number.isInteger(m)?m:+m.toFixed(1))+'M');
   const fP=(v,d=2)=>v==null?'—':v.toFixed(d)+'%';
   const fN=v=>v==null?'—':Math.round(v).toLocaleString('en-US');
   const fX=v=>v==null?'—':v.toFixed(1)+'×';
   const fPPS=v=>v==null?'—':'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const fPP=v=>(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2)+'pp';
+  const arrow=(v,text)=>v<-1e-9?`<span class="dn">▼ ${text}</span>`:v>1e-9?`<span class="up">▲ ${text}</span>`:`<span class="nil">${text}</span>`;
 
-  /* ---- shared raise store: the three round sizes, one place, persisted for the session; every capital card subscribes ---- */
-  const RaiseStore=(()=>{ const KEY='airev-capital-raise'; const subs=[]; const clamp=(k,v)=>{ const [lo,hi]=CAPITAL.ranges[k]; v=Number(v); return Number.isFinite(v)?Math.min(hi,Math.max(lo,Math.round(v))):CAPITAL.defaults[k]; };
-    let state=Object.assign({},CAPITAL.defaults);
-    try{ const saved=JSON.parse(sessionStorage.getItem(KEY)||'null'); if(saved) STAGES.forEach(k=>{ if(saved[k]!=null) state[k]=clamp(k,saved[k]); }); }catch(e){}
-    const persist=()=>{ try{ sessionStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} };
-    const emit=()=>subs.forEach(f=>f(Object.assign({},state)));
-    return { get:()=>Object.assign({},state), isDefault:k=>state[k]===CAPITAL.defaults[k],
-      set:(k,v)=>{ if(!(k in CAPITAL.defaults)) return; const nv=clamp(k,v); if(nv===state[k]) return; state[k]=nv; persist(); emit(); },
-      reset:()=>{ state=Object.assign({},CAPITAL.defaults); persist(); emit(); }, subscribe:f=>subs.push(f) }; })();
-  window.capitalRaise=RaiseStore;
+  /* ---- (A) the shared scenario store ---- */
+  const Scenario=(()=>{ const subs=[]; const clean=(k,v)=>{ v=parseFloat(v); if(!Number.isFinite(v)||v<0) return null; return Math.min(SCENARIO.max,Math.round(v*10)/10); };
+    const load=()=>{ const s=Object.assign({},SCENARIO.defaults); try{ const j=JSON.parse(localStorage.getItem(SCENARIO.key)||'null'); if(j&&typeof j==='object') STAGES.forEach(k=>{ const v=clean(k,j[k]); if(v!=null) s[k]=v; }); }catch(e){} return s; };
+    let state=load();
+    const persist=()=>{ try{ localStorage.setItem(SCENARIO.key,JSON.stringify(state)); }catch(e){} };
+    const emit=()=>subs.forEach(f=>{ try{ f(Object.assign({},state)); }catch(e){ console.error(e); } });
+    window.addEventListener('storage',e=>{ if(e.key===SCENARIO.key||e.key===null){ state=load(); emit(); } });
+    return { get:()=>Object.assign({},state), isDefault:k=>state[k]===SCENARIO.defaults[k],
+      set:(k,v)=>{ if(!(k in SCENARIO.defaults)) return false; const nv=clean(k,v); if(nv==null) return false; if(nv===state[k]) { emit(); return true; } state[k]=nv; persist(); emit(); return true; },
+      reset:()=>{ state=Object.assign({},SCENARIO.defaults); persist(); emit(); }, subscribe:f=>subs.push(f) }; })();
+  window.airevScenario=Scenario;
 
-  /* ---- the ladder, built from the register + Schedule 2 + the three raises ---- */
-  function buildCapital(raises){
-    const H=CAPITAL.holders.map(h=>Object.assign({},h));
-    const founderSh=H.filter(h=>h.founder).reduce((a,h)=>a+h.shares,0);
-    const todaySh=H.reduce((a,h)=>a+h.shares,0); const pool=CAPITAL.poolShares; const votingSh=todaySh-pool;
-    const rounds=[]; let sh=0; const stageHolders=[];
-    const baseSh=H.filter(h=>!h.roundKey).reduce((a,h)=>a+h.shares,0);
-    const idx=k=>CAPITAL.rounds.findIndex(x=>x.key===k);
-    CAPITAL.rounds.forEach(r=>{
-      const o=Object.assign({},r);
-      if(r.key==='base'){ o.newShares=baseSh; o.preSh=0; o.postSh=baseSh; o.raised=null; o.pps=null; sh=baseSh; }
-      else if(r.preM!=null){
-        o.raised=raises[r.key]; o.raiseM=o.raised/1e6; o.preSh=sh; o.pps=r.preM*1e6/sh; o.newShares=Math.floor(o.raised/o.pps); o.postSh=sh+o.newShares;
-        o.preMoney=r.preM*1e6; o.postMoney=o.pps*o.postSh; o.isDefault=o.raised===CAPITAL.defaults[r.key];
-        const inv={id:'new-'+r.key, name:r.investor, note:r.investorNote, cls:r.investorCls, round:o.label, shares:o.newShares, pps:o.pps, cost:o.newShares*o.pps, raised:o.raised, entry:r.when, roundKey:r.key, src:r.src, stage:r.key, target:true};
-        stageHolders.push(inv); sh=o.postSh;
-      } else { const members=H.filter(h=>h.roundKey===r.key); o.newShares=members.reduce((a,h)=>a+h.shares,0); o.preSh=sh; o.postSh=sh+o.newShares; o.preMoney=r.pps*o.preSh; o.postMoney=r.pps*o.postSh; sh=o.postSh; }
-      o.dilution=o.postSh?o.newShares/o.postSh*100:0; o.foundersFD=founderSh/o.postSh*100; o.foundersVote=founderSh/(o.postSh-pool)*100; o.poolPct=pool/o.postSh*100;
-      o.consentHolds=o.foundersVote>=50;
-      { const miIds={c42:'seed',tit:'a1final',vw:'a1first'}; const here=idx(r.key); const miSh=H.filter(h=>miIds[h.id]&&idx(miIds[h.id])<=here).reduce((a,h)=>a+h.shares,0);
-        o.miPct=miSh/o.postSh*100; const prev=rounds[rounds.length-1]; o.miPctFull=(r.preM!=null&&prev)?prev.miPctFullChain:o.miPct; o.miPctFullChain=o.miPctFull; }
-      const lines=H.filter(h=>!h.roundKey||idx(h.roundKey)<=idx(r.key)).map(h=>h.shares).concat(stageHolders.map(h=>h.shares));
-      o.sumPct=lines.reduce((a,v)=>a+v,0)/o.postSh*100; o.lines=lines.length; rounds.push(o); });
-    const byKey=Object.fromEntries(rounds.map(r=>[r.key,r]));
-    /* the three marks = the three stages: price = pre-money ÷ pre-round FD shares; every holder re-priced at that price on the post-round base */
-    const marks=STAGES.map(k=>{ const r=byKey[k]; const extra=stageHolders.filter(h=>STAGES.indexOf(h.stage)<=STAGES.indexOf(k)); return {key:k,label:fM(r.preM),preM:r.preM,round:r,pps:r.pps,totalSh:r.postSh,holders:H.concat(extra),postMoney:r.postMoney,sumPct:H.concat(extra).reduce((a,h)=>a+h.shares,0)/r.postSh*100,foundersFD:r.foundersFD,foundersVote:r.foundersVote}; });
-    H.forEach(h=>{ const r=byKey[h.entryRound||h.roundKey]; if(r){ h.entryValM=r.postMoney/1e6; h.pctAtEntry=h.shares/r.postSh*100; h.implied=!!r.implied; } h.fdPct=h.shares/todaySh*100; h.votePct=h.pool?0:h.shares/votingSh*100; });
-    const firstBelowFD=rounds.find(r=>r.foundersFD<50), firstBelowVote=rounds.find(r=>r.foundersVote<50);
-    const r1b=byKey.r1b; const maxRaiseFD=((founderSh/0.5)-r1b.preSh)*r1b.pps/1e6, maxRaiseVote=((founderSh/0.5+pool)-r1b.preSh)*r1b.pps/1e6;
-    return {raises:Object.assign({},raises),H,founderSh,todaySh,votingSh,pool,rounds,byKey,marks,stageHolders,firstBelowFD,firstBelowVote,maxRaiseFD,maxRaiseVote,
-      foundersFDToday:founderSh/todaySh*100, foundersVoteToday:founderSh/votingSh*100,
-      selfCheck:rounds.every(r=>Math.abs(r.sumPct-100)<1e-9)&&marks.every(m=>Math.abs(m.sumPct-100)<1e-9)};
-  }
-  let CM=buildCapital(RaiseStore.get()); window.capitalModel=CM;
-
-  /* ---- card 12 (slide 16): the dilution line under each stage of the arc ---- */
-  function renderArcDilution(){ $$('.arc .node .dl[data-dil]').forEach(el=>{ const r=CM.byKey[el.dataset.dil]; if(!r) return;
-    el.innerHTML=`<b>${fMoney(r.raised)}</b> raised${r.src==='A'?' (illustrative)':''}${r.isDefault?'':' <span class="tag target">adjusted</span>'} · <b>${fP(r.dilution)}</b> sold · founders <b>${fP(r.foundersFD)}</b> after ${chip(r.src)}`;
-    el.dataset.raised=r.raised; el.dataset.pctSold=r.dilution.toFixed(2); el.dataset.foundersAfter=r.foundersFD.toFixed(2); }); }
-
-  /* ---- card 13 (slide 17): the register, sorted by shares held, re-priced at the three marks; the raise controls live here ---- */
-  const capT=$('#cap-table'), capK=$('#cap-kpis'), capC=$('#cap-controls');
-  function nameCell(h,tag){ const nm=esc(h.name.replace(/ RSC Ltd$/,'').replace(/ Limited$/,''))+(h.code?` (${h.code})`:h.short?` <span class="muted">(${esc(h.short)})</span>`:''); return `<td class="h" title="${esc(h.note||(h.line?h.name+' — '+h.line:h.name))}">${h.logo?`<img class="mark" src="${h.logo}" alt="${esc(h.short||h.name)}">`:''}${nm}${tag||''}</td>`; }
-  function markCells(sharesByStage){ /* sharesByStage: k -> shares held at that mark (null = not yet on the register) */
-    return CM.marks.map(m=>{ const s=sharesByStage(m.key); if(s==null) return '<td class="n">—</td>'; const v=s*m.pps, p=s/m.totalSh*100; return `<td class="n" data-v="${Math.round(v)}" data-pct="${p.toFixed(4)}" title="${fN(s)} sh × ${fPPS(m.pps)} = ${fUSD(v)} · ${fP(p)} of ${fN(m.totalSh)} FD shares after the ${esc(m.round.short||m.round.label)}">${fUSD(v)}<span class="muted"> · ${fP(p,1)}</span></td>`; }).join(''); }
-  function renderCapTable(){
-    if(!capT) return;
-    const head=`<thead><tr><th>Investor</th><th>Round · class</th><th class="n">Shares<br>held</th><th class="n">% FD ·<br>register</th><th class="n">Votes</th><th class="n">Entry<br>valuation</th><th class="n">USD<br>invested</th><th class="n">% bought<br>post-round</th>${CM.marks.map(m=>`<th class="n" title="value = shares × (${esc(m.label)} ÷ pre-round FD shares); % on the post-round base">@ ${esc(m.label)} pre<br><span class="muted">$ · % after</span></th>`).join('')}<th class="n">Multiple<br>@ $200M</th><th>Src</th></tr></thead>`;
+  /* ---- the chained model ---- */
+  function simulate(raises){
+    const H=REGISTER.map(h=>Object.assign({},h)); const votingSh0=FD0-POOL;
+    let fd=FD0; const stages=[];
+    SCENARIO.stages.forEach(s=>{ const raiseM=raises[s.key]; const price=s.preM*1e6/fd; const newSh=Math.floor(raiseM*1e6/price); const fdAfter=fd+newSh; const postM=s.preM+raiseM; const vprice=postM*1e6/fdAfter;
+      const beNew=2*FOUNDER_SH-(fd-POOL); const beRaiseM=beNew>0?beNew*price/1e6:null;
+      stages.push(Object.assign({},s,{raiseM,fdBefore:fd,price,newSh,fdAfter,pctSold:newSh/fdAfter*100,postM,vprice,foundersFD:FOUNDER_SH/fdAfter*100,foundersVote:FOUNDER_SH/(fdAfter-POOL)*100,beNew,beRaiseM,isDefault:raiseM===SCENARIO.defaults[s.key]}));
+      stages[stages.length-1].consentHolds=stages[stages.length-1].foundersVote>50; fd=fdAfter; });
+    const path=(shares,from)=>{ /* % at today (index 0) and after each stage; null before entry */
+      const out=[from==null?shares/FD0*100:null]; stages.forEach((st,i)=>out.push(from==null||i>=from?shares/st.fdAfter*100:null)); return out; };
     const rows=[];
-    const reg=CM.H.slice().sort((a,b)=>b.shares-a.shares || (a.pool?1:0)-(b.pool?1:0) || CAPITAL.holders.findIndex(h=>h.id===a.id)-CAPITAL.holders.findIndex(h=>h.id===b.id));
-    const m200=CM.marks[0];
-    reg.forEach(h=>{ const v200=h.shares*m200.pps; const mult=h.cost?v200/h.cost:null;
-      const ev=h.entryValM!=null?`$${h.entryValM.toFixed(1)}M post${h.implied?' <span class="muted">◐</span>':''}`:(h.founder||h.pool?'—':'n/s');
-      rows.push(`<tr class="${h.founder?'founder':''}${h.pool?' pool':''}" data-id="${h.id}" data-shares="${h.shares}">${nameCell(h,h.founder?' <span class="tag signed">founder</span>':h.pool?' <span class="tag target">unissued</span>':'')}<td title="${esc(h.round)} — ${esc(h.cls)}">${esc(h.round.replace(' · first close','').replace(' · final close',''))}<span class="muted"> · ${esc((h.cls.match(/[12]×/)||['ord'])[0])}</span></td><td class="n" data-v="${h.shares}">${fN(h.shares)}</td><td class="n" data-v="${h.fdPct.toFixed(4)}">${fP(h.fdPct)}</td><td class="n" data-v="${h.votePct.toFixed(4)}">${h.pool?'<span class="muted">no vote</span>':fP(h.votePct)}</td><td class="n">${ev}</td><td class="n">${h.cost!=null?fUSD(h.cost):(h.pool?'—':'n/s')}</td><td class="n">${h.pctAtEntry!=null?fP(h.pctAtEntry)+(h.implied?' <span class="muted">◐</span>':''):'—'}</td>${markCells(()=>h.shares)}<td class="n">${mult!=null?fX(mult):'—'}</td><td>${chip(h.src)}${h.co?chip('CO'):''}${h.implied?chip('A'):''}</td></tr>`); });
-    const fv=CM.founderSh;
-    rows.push(`<tr class="sub" data-id="founders"><td class="h" title="OT 59,219 + YY 3,500 + KU 3,500 = 66,219 shares">Founders collective <span class="tag signed">OT · YY · KU</span></td><td>Ordinary</td><td class="n" data-v="${fv}">${fN(fv)}</td><td class="n" data-v="${CM.foundersFDToday.toFixed(4)}">${fP(CM.foundersFDToday)}</td><td class="n" data-v="${CM.foundersVoteToday.toFixed(4)}">${fP(CM.foundersVoteToday)}</td><td class="n">—</td><td class="n">—</td><td class="n">—</td>${markCells(()=>fv)}<td class="n">—</td><td>${chip('CT')}</td></tr>`);
-    const invested=CM.H.reduce((s,h)=>s+(h.cost||0),0);
-    rows.push(`<tr class="total" data-id="total"><td class="h" title="register as printed ${CAPITAL.registerDate}">Register total</td><td>11 lines</td><td class="n" data-v="${CM.todaySh}">${fN(CM.todaySh)}</td><td class="n" data-sum="${(CM.H.reduce((a,h)=>a+h.shares,0)/CM.todaySh*100).toFixed(4)}">100.00% ✓</td><td class="n" title="voting shares (excl. the 5,000 unissued B Shares)">${fN(CM.votingSh)} v.</td><td class="n"></td><td class="n">${fUSD(invested)}</td><td class="n"></td>${CM.marks.map(m=>`<td class="n" title="post-money after the ${esc(m.round.short||m.round.label)}">${fUSD(m.postMoney)} <span class="muted">post</span></td>`).join('')}<td class="n"></td><td>${chip('CT')}</td></tr>`);
-    /* new-investor rows, one per stage, then the lines with no register shares */
-    CM.stageHolders.forEach(h=>{ const st=STAGES.indexOf(h.stage); const r=CM.byKey[h.stage];
-      rows.push(`<tr class="target" data-id="${h.id}"><td class="h" title="${esc(h.note||h.name)}">${esc(h.name)} <span class="tag target">${h.stage==='a2'?'pending ○':'illustrative ○'}</span></td><td>${esc(h.cls)}</td><td class="n" data-v="${h.shares}">+${fN(h.shares)}</td><td class="n">—</td><td class="n">—</td><td class="n" title="${fMoney(r.preMoney)} pre-money">${fMoney(r.postMoney)} post</td><td class="n" data-v="${h.raised}">${fUSD(h.raised)}</td><td class="n" data-v="${r.dilution.toFixed(4)}">${fP(r.dilution)}</td>${markCells(k=>STAGES.indexOf(k)>=st?h.shares:null)}<td class="n">${h.stage==='a2'?'1.0× <span class="muted">entry</span>':'—'}</td><td>${chip(h.src)}</td></tr>`); });
-    CAPITAL.offRegister.forEach(h=>{ rows.push(`<tr class="na" data-id="${h.id}" title="${esc(h.note)}"><td class="h">${esc(h.name)} <span class="tag target">${h.id==='nab'?'secondary':'prospective'}</span></td><td title="${h.id==='nab'?'secondary purchase — no primary dilution':'in conversation — no committed amount'}">${h.id==='nab'?'Secondary':'In conversation'}</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">${h.entryValM?'$'+h.entryValM.toFixed(1)+'M':'—'}</td><td class="n">${h.invested?fUSD(h.invested):'—'}</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${chip(h.src)}</td></tr>`); });
-    capT.innerHTML=head+'<tbody>'+rows.join('')+'</tbody>'; capT.dataset.rows=String(rows.length); capT.dataset.sum='100.0000';
-    if(capK){ const tiles=[`<div class="k"><b>${fP(CM.foundersFDToday)}</b> FD · ${fP(CM.foundersVoteToday)} votes<br><span class="muted">founders' collective today · register</span>${chip('CT')}</div>`].concat(CM.marks.map(m=>{ const r=m.round; return `<div class="k${r.consentHolds?'':' warn'}" data-stage="${r.key}"><b>${fP(r.foundersFD)}</b> FD · ${fP(r.foundersVote)} votes${r.consentHolds?' · <span class="ok">consent holds</span>':' · <span class="bad">consent flips</span>'}<br><span class="muted">after the ${esc(r.short||r.label)} · ${fMoney(r.raised)} · ${fP(r.dilution)} sold</span>${chip(r.src)}</div>`; }));
-      capK.innerHTML=tiles.join(''); }
+    H.slice().sort((a,b)=>b.shares-a.shares||(a.pool?1:0)-(b.pool?1:0)||REGISTER.findIndex(x=>x.id===a.id)-REGISTER.findIndex(x=>x.id===b.id)).forEach(h=>{ const p=path(h.shares,null);
+      rows.push(Object.assign(h,{kind:'holder',pcts:p,sharesAt:stages.map(()=>h.shares),values:stages.map(st=>h.shares*st.vprice),ppLost:p[0]-p[p.length-1],fdPct:p[0],votePct:h.pool?0:h.shares/votingSh0*100})); });
+    stages.forEach((st,i)=>{ const p=path(st.newSh,i); rows.push({id:'new-'+st.key,kind:'new',stageIndex:i,name:st.newName,shares:st.newSh,pcts:p,sharesAt:stages.map((x,j)=>j>=i?st.newSh:null),values:stages.map((x,j)=>j>=i?st.newSh*x.vprice:null),ppLost:p[i+1]-p[p.length-1],raiseM:st.raiseM,src:st.tag,note:st.note}); });
+    const founders={shares:FOUNDER_SH,fd:[FOUNDER_SH/FD0*100].concat(stages.map(s=>s.foundersFD)),votes:[FOUNDER_SH/votingSh0*100].concat(stages.map(s=>s.foundersVote)),values:stages.map(s=>FOUNDER_SH*s.vprice)};
+    const totals={shares:[FD0].concat(stages.map(s=>s.fdAfter)),pct:[H.reduce((a,h)=>a+h.shares,0)/FD0*100].concat(stages.map((s,i)=>(H.reduce((a,h)=>a+h.shares,0)+stages.slice(0,i+1).reduce((a,x)=>a+x.newSh,0))/s.fdAfter*100))};
+    const firstLost=stages.find(s=>!s.consentHolds);
+    return {raises:Object.assign({},raises),stages,rows,founders,totals,firstLost,selfCheck:totals.pct.every(v=>Math.abs(v-100)<1e-9)&&totals.shares.every((v,i)=>i===0||v===stages[i-1].fdAfter)};
   }
-  /* controls: number + slider per stage, shared through the store */
-  function renderControls(){ if(!capC) return; const st=RaiseStore.get();
-    if(!capC.dataset.built){ capC.dataset.built='1';
-      const meta={a2:{label:'Raise at $200M pre',tag:'TS',note:'Itqan term sheet V6 · $5,000,000'},r500:{label:'Raise at $500M pre',tag:'A',note:'illustrative · adjustable'},r1b:{label:'Raise at $1B pre',tag:'A',note:'illustrative · adjustable'}};
-      capC.innerHTML=STAGES.map(k=>{ const [lo,hi,step]=CAPITAL.ranges[k]; return `<div class="cc" data-k="${k}"><label for="raise-${k}">${meta[k].label} ${chip(meta[k].tag)}<span class="muted"> · ${meta[k].note}</span></label><div class="cc-row"><input type="range" id="raise-${k}-r" min="${lo}" max="${hi}" step="${step}" aria-label="${meta[k].label} (slider, USD)"><input type="number" id="raise-${k}" min="${lo}" max="${hi}" step="${step}" inputmode="numeric" aria-label="${meta[k].label} (USD)"><span class="cc-out" id="raise-${k}-out"></span></div></div>`; }).join('')+`<button type="button" class="pill cc-reset" id="raise-reset" title="Back to $5,000,000 · $50,000,000 · $100,000,000">Reset to defaults</button>`;
-      STAGES.forEach(k=>{ const r=$('#raise-'+k+'-r'), n=$('#raise-'+k); r.addEventListener('input',()=>RaiseStore.set(k,r.value)); n.addEventListener('change',()=>RaiseStore.set(k,n.value)); n.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); RaiseStore.set(k,n.value); } }); });
-      $('#raise-reset').addEventListener('click',()=>RaiseStore.reset());
-      ['touchstart','touchend','pointerdown'].forEach(ev=>capC.addEventListener(ev,e=>e.stopPropagation(),{passive:true})); }
-    STAGES.forEach(k=>{ const r=$('#raise-'+k+'-r'), n=$('#raise-'+k), o=$('#raise-'+k+'-out'); if(r) r.value=st[k]; if(n&&document.activeElement!==n) n.value=st[k]; const rd=CM.byKey[k]; if(o) o.innerHTML=`${fMoney(st[k])} → +${fN(rd.newShares)} sh at ${fPPS(rd.pps)} · ${fP(rd.dilution)} sold${RaiseStore.isDefault(k)?'':' · <span class="tag target">adjusted</span>'}`; });
-    capC.dataset.state=JSON.stringify(st); }
+  let SIM=simulate(Scenario.get()); window.capitalModel=SIM;
 
-  /* ---- card 14 (slide 18): round-by-round dilution and control ---- */
-  const dilT=$('#dil-table'), dilC=$('#c-dil'), dilCheck=$('#dil-check'), dilTitle=$('#dil-title');
-  function renderDilution(){
-    if(!dilT) return; const R=CM.rounds;
-    dilT.innerHTML=`<thead><tr><th>Round</th><th>When</th><th class="n">$ raised</th><th class="n">Price / share</th><th class="n">Pre-money</th><th class="n">Post-money</th><th class="n">Dilution</th><th class="n">Founders FD</th><th class="n">Founders votes</th><th class="n" title="Core42 + Titian + Venture Wave, fully diluted, after the round — second figure: with full Clause 13 pre-emption">Major Investors</th><th class="n">Pool</th><th class="n">Σ</th><th>Src</th></tr></thead>`;
-    const tb=document.createElement('tbody');
-    R.forEach(r=>{ const tr=document.createElement('tr'); tr.dataset.round=r.key; tr.className=(r.target?'target ':'')+(r.foundersFD<50?'cross':''); const pre=fMoney(r.preMoney), post=fMoney(r.postMoney);
-      tr.innerHTML=`<td class="h" title="${esc(r.note||(r.implied?'pre-money and post-money implied on the assumed pre-seed base':(r.src==='A'?'illustrative round size — adjustable on card 13':'')))}">${esc(r.label)}${r.implied?' <span class="muted">*</span>':''}${r.src==='A'?' <span class="muted">†</span>':''}</td><td>${esc(r.when)}</td><td class="n" data-v="${r.raised||0}">${r.raised!=null?fUSD(r.raised):'—'}</td><td class="n">${fPPS(r.pps)}</td><td class="n">${pre}</td><td class="n">${post}</td><td class="n" data-v="${r.dilution.toFixed(4)}">${r.key==='base'?'—':fP(r.dilution)}</td><td class="n" data-v="${r.foundersFD.toFixed(4)}"><b>${fP(r.foundersFD)}</b>${r.foundersFD<50?' <span class="tag risk">&lt; 50%</span>':''}</td><td class="n" data-v="${r.foundersVote.toFixed(4)}">${fP(r.foundersVote)}${r.foundersVote<50?' <span class="tag risk">flips</span>':''}</td><td class="n" data-v="${r.miPct.toFixed(4)}">${fP(r.miPct)}${r.target?' <span class="muted">· '+fP(r.miPctFull)+'†</span>':''}</td><td class="n" data-v="${r.poolPct.toFixed(4)}">${fP(r.poolPct)}</td><td class="n" data-sum="${r.sumPct.toFixed(4)}">${fP(r.sumPct)} ${Math.abs(r.sumPct-100)<1e-9?'✓':'✗'}</td><td>${chip(r.src)}${r.implied?chip('A'):''}</td>`;
-      tb.appendChild(tr); });
-    dilT.appendChild(tb);
-    if(dilCheck){ const ok=CM.selfCheck; dilCheck.classList.toggle('fail',!ok); dilCheck.dataset.pass=String(ok); dilCheck.innerHTML=ok?`✓ Self-check passed — ownership sums to 100.00% at every one of the ${R.length} steps and at all three marks (raises ${STAGES.map(k=>fMoney(CM.raises[k])).join(' · ')}).`:`✗ Self-check FAILED — ownership does not sum to 100.00% at every round.`; }
-    const th=$('#dil-thresholds'); if(th){ const fd=CM.firstBelowFD, vt=CM.firstBelowVote; const r1=CM.byKey.r1b;
-      th.innerHTML=`<b>Where the lines fall.</b> Fully diluted, the founders first drop below 50% ${fd?`at the <b>${esc(fd.short||fd.label)}</b> (${fP(fd.foundersFD)})`:'at none of the modelled steps'}. On <b>votes</b> — the test that matters (Cl. 1.1, PDF pp. 28–29: Founder Consent becomes Major Investor Director Consent once the Founders hold under 50% of the voting rights; unissued B Shares carry no vote, Cl. 5.2) — they ${vt?`fall below 50% at the <b>${esc(vt.short||vt.label)}</b> (${fP(vt.foundersVote)})`:`stay above 50% through the $1B round (<b>${fP(r1.foundersVote)}</b>)`}. At $1B pre-money that holds up to a raise of ≈ <b>${fM(Math.floor(CM.maxRaiseVote))}</b> (fully diluted: ≈ ${fM(Math.floor(CM.maxRaiseFD))}). Schedule 3 (pp. 92–95) is untouched: Board Reserved Matters keep needing Major Investor Director Consent, Major Investor Reserved Matters keep needing Major Investor Consent. Round sizes: card 13.`; }
-    if(dilTitle){ const vt=CM.firstBelowVote, fd=CM.firstBelowFD; const last=R[R.length-1]; dilTitle.textContent=vt?`Founder Consent flips at the ${vt.short||vt.label}: the founders' votes drop below 50%.`:(fd?`Voting control holds through the ${last.short||last.label}; fully diluted, the founders dip under 50% ${fd===last?'there':'at the '+(fd.short||fd.label)}.`:'Founders keep control through every modelled round — no line is crossed.'); }
-    const a2=CM.byKey.a2; const pps=$('#dil-a2-pps'); if(pps){ pps.textContent=fPPS(a2.pps)+' ('+(a2.pps/100).toFixed(1)+'× the Starting Price)'; pps.dataset.v=a2.pps.toFixed(2); }
-    const mi=CM.H.filter(h=>['c42','tit','vw'].includes(h.id)).reduce((a,h)=>a+h.shares,0)/CM.votingSh; const pre=$('#dil-a2-preempt'); if(pre){ pre.textContent=fUSD(mi*a2.raised)+' ('+(mi*100).toFixed(1)+'% — Core42, Titian and Venture Wave\u2019s share of issued capital, '+fN(Math.floor(mi*a2.newShares))+' of the '+fN(a2.newShares)+' new shares)'; pre.dataset.v=(mi*100).toFixed(2); }
-    const miF=$('#dil-mi-full'); if(miF) miF.textContent=fP(CM.byKey.a1final.miPct); const miS=$('#dil-mi-slide'); if(miS) miS.textContent=STAGES.map(k=>fP(CM.byKey[k].miPct)).join(' → ');
-    const pf=$('#dil-pref-a2'); if(pf) pf.textContent=fUSD(17.525e6+2*a2.raised)+' after the A2 (2 × '+fMoney(a2.raised)+')';
-    if(dilC){ const w=Math.max(480,dilC.clientWidth||700), h=Math.max(160,dilC.clientHeight||168); const m={l:44,r:14,t:26,b:40}; const iw=w-m.l-m.r, ih=h-m.t-m.b; const n=R.length, gw=iw/n; const y=v=>m.t+ih-v/100*ih;
-      const short={base:'Base',legacy:'Legacy',seed:'Seed',a1first:'A-1 first',angel:'Angel',a1final:'A-1 final',a2:'A2 · $200M',r500:'$500M',r1b:'$1B'};
-      let g=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Founders' collective holding after each round — fully diluted bars and voting line — against the 50% control line">`;
-      g+='<g class="grid">'; [0,25,50,75,100].forEach(v=>{ g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l-8}" y="${y(v)+4}" text-anchor="end" font-size="10.5" fill="#6C7E75">${v}%</text>`; }); g+='</g>';
-      const bw=Math.min(54,gw*0.56);
-      R.forEach((r,i)=>{ const x=m.l+gw*i+(gw-bw)/2; const yy=y(r.foundersFD); const col=r.foundersFD<50?'#B4533A':(r.target?'#12B886':'#0E7A5F');
-        g+=`<rect x="${x}" y="${yy}" width="${bw}" height="${y(0)-yy}" rx="4" fill="${col}" opacity="${r.target?.78:1}"><title>${esc(r.label)}: founders ${fP(r.foundersFD)} fully diluted · ${fP(r.foundersVote)} of votes · post-money ${fMoney(r.postMoney)}</title></rect>`;
-        g+=`<text class="val" x="${x+bw/2}" y="${yy-6}" text-anchor="middle" font-size="10.5" fill="#10201B">${r.foundersFD.toFixed(1)}%</text>`;
-        g+=`<text x="${m.l+gw*i+gw/2}" y="${h-m.b+16}" text-anchor="middle" font-size="10.5" fill="#44584F">${short[r.key]||r.key}</text>`;
-        if(r.postMoney!=null) g+=`<text x="${m.l+gw*i+gw/2}" y="${h-m.b+29}" text-anchor="middle" font-size="9.5" fill="#6C7E75">${fM(+(r.postMoney/1e6).toFixed(r.postMoney>=1e9?1:0))} post</text>`; });
-      const pts=R.map((r,i)=>({x:m.l+gw*i+gw/2,y:y(r.foundersVote)}));
-      g+=`<path d="M${pts.map(p=>p.x+','+p.y).join(' L')}" fill="none" stroke="#A5884B" stroke-width="2" stroke-dasharray="5,4"/>`;
-      pts.forEach((p,i)=>{ g+=`<circle cx="${p.x}" cy="${p.y}" r="3.5" fill="#fff" stroke="#A5884B" stroke-width="2"><title>${esc(R[i].label)}: ${fP(R[i].foundersVote)} of votes</title></circle>`; });
-      g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(50)}" y2="${y(50)}" stroke="#B4533A" stroke-width="1.5" stroke-dasharray="2,3"/><text x="${m.l+6}" y="${y(50)-5}" font-size="10" font-weight="600" fill="#B4533A">50% control line — below it on votes, Founder Consent → Major Investor Director Consent (Cl. 1.1)</text>`;
-      if(CM.firstBelowFD){ const i=R.indexOf(CM.firstBelowFD); const x=m.l+gw*i+gw/2; g+=`<line x1="${x}" x2="${x}" y1="${m.t}" y2="${y(0)}" stroke="#B4533A" stroke-width="1" stroke-dasharray="3,3"/><text x="${x-6}" y="${m.t+10}" text-anchor="end" font-size="9.5" font-weight="600" fill="#B4533A">FD &lt; 50% here</text>`; }
-      if(CM.firstBelowVote){ const i=R.indexOf(CM.firstBelowVote); const x=m.l+gw*i+gw/2; g+=`<text x="${x+6}" y="${m.t+10}" font-size="9.5" font-weight="600" fill="#B4533A">votes &lt; 50% here</text>`; }
-      g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(0)}" y2="${y(0)}" stroke="#44584F" stroke-width="1"/>`; g+='</svg>'; dilC.innerHTML=g; }
+  /* ---- the scenario bar (cards 12 & 13) and the stage strip (card 14) — one component, two variants ---- */
+  function scenarioBarHTML(variant){ const st=Scenario.get();
+    const blocks=SIM.stages.map(s=>{ const inp=`<span class="sc-in"><span class="cur">$</span><input type="number" min="0" max="${SCENARIO.max}" step="1" inputmode="decimal" data-scn="${s.key}" value="${st[s.key]}" aria-label="Raise at ${s.label} pre-money, USD millions"><span class="unit">M</span><span class="pv">$${st[s.key]}M</span></span>`;
+      const lab=`<span class="sc-lab">raise at <b>${s.label}</b> pre${s.illustrative?' <span class="muted">· illustrative</span>':s.key==='a2'?' <span class="muted">· Series A2</span>':''}${s.isDefault?'':' <span class="tag target">adjusted</span>'}</span>`;
+      if(variant==='strip') return `<div class="sc-stage" data-stage="${s.key}">${lab}${inp}<div class="sc-facts"><span><i>pre</i>${fMk(s.preM)}</span><span><i>post</i>${fMk(s.postM)}</span><span><i>price</i>${fPPS(s.price)}</span><span><i>new sh</i>+${fN(s.newSh)}</span><span><i>% sold</i>${fP(s.pctSold)}</span><span><i>FD after</i>${fN(s.fdAfter)}</span></div></div>`;
+      return `<div class="sc-stage" data-stage="${s.key}">${lab}${inp}<span class="sc-out" title="+${fN(s.newSh)} new shares at ${fPPS(s.price)} · ${fP(s.pctSold)} sold · founders ${fP(s.foundersFD)} fully diluted · ${fP(s.foundersVote)} of votes — Founder Consent ${s.consentHolds?'holds':'lost'}">+${fN(s.newSh)} sh · ${fP(s.pctSold)} · F <b>${fP(s.foundersFD)}</b> · V ${fP(s.foundersVote)} ${s.consentHolds?'<span class="ok">✓</span>':'<span class="bad">✕</span>'}</span></div>`; }).join('');
+    return `<div class="sc-head"><span class="sc-title">Scenario</span><span class="muted">marks are pre-money · raises are inputs, not forecasts</span></div>${blocks}<button type="button" class="pill sc-reset" data-scn-reset title="Back to $15M · $50M · $100M">Reset to defaults</button>`; }
+  function renderScenarioBars(){ $$('[data-scenario-bar]').forEach(bar=>{ const variant=bar.dataset.scenarioBar||'compact'; const focused=document.activeElement&&bar.contains(document.activeElement)?document.activeElement.dataset.scn:null;
+      if(!bar.dataset.built){ bar.dataset.built='1'; bar.classList.add('scenario-bar',variant==='strip'?'strip':'compact');
+        bar.addEventListener('input',e=>{ const k=e.target.dataset&&e.target.dataset.scn; if(!k) return; if(e.target.value==='') return; if(!Scenario.set(k,e.target.value)) e.target.classList.add('invalid'); else e.target.classList.remove('invalid'); });
+        bar.addEventListener('change',e=>{ const k=e.target.dataset&&e.target.dataset.scn; if(!k) return; if(!Scenario.set(k,e.target.value)){ e.target.value=Scenario.get()[k]; e.target.classList.remove('invalid'); } });
+        bar.addEventListener('click',e=>{ if(e.target.closest('[data-scn-reset]')) Scenario.reset(); });
+        bar.addEventListener('keydown',e=>{ if(e.target.dataset&&e.target.dataset.scn&&e.key==='Enter'){ e.preventDefault(); e.target.blur(); } e.stopPropagation(); });
+        ['touchstart','touchend','pointerdown'].forEach(ev=>bar.addEventListener(ev,e=>e.stopPropagation(),{passive:true})); }
+      const html=scenarioBarHTML(variant);
+      if(focused){ /* keep the caret: patch everything except the focused input */ const tmp=document.createElement('div'); tmp.innerHTML=html; const live=bar.querySelector(`input[data-scn="${focused}"]`); const val=live.value; bar.innerHTML=html; const again=bar.querySelector(`input[data-scn="${focused}"]`); again.value=val; again.focus(); try{ again.setSelectionRange(val.length,val.length); }catch(e){} }
+      else bar.innerHTML=html; }); }
+
+  /* ---- card 12 (slide 16): dilution line under each stage of the arc ---- */
+  function renderArcDilution(){ $$('.arc .node .dl[data-dil]').forEach(el=>{ const s=SIM.stages.find(x=>x.key===el.dataset.dil); if(!s) return;
+    el.innerHTML=`<b>${fMk(s.raiseM)}</b> raised${s.illustrative?' (illustrative)':''}${s.isDefault?'':' <span class="tag target">adjusted</span>'} · <b>${fP(s.pctSold)}</b> sold · founders <b>${fP(s.foundersFD)}</b> after ${chip(s.tag)}`;
+    el.dataset.raisedM=s.raiseM; el.dataset.pctSold=s.pctSold.toFixed(2); el.dataset.foundersAfter=s.foundersFD.toFixed(2); }); }
+
+  /* ---- card 13 (slide 17): the register, re-priced at the three post-money marks ---- */
+  const capT=$('#cap-table');
+  function nameCell(h,tag){ const nm=esc((h.name||'').replace(/ RSC Ltd$/,'').replace(/ Limited$/,''))+(h.code?` (${h.code})`:''); return `<td class="h" title="${esc(h.note||(h.line?h.name+' — '+h.line:h.name))}">${h.logo?`<img class="mark" src="${h.logo}" alt="${esc(h.name)}">`:''}${nm}${tag||''}</td>`; }
+  function renderCapTable(){
+    if(!capT) return; const S=SIM.stages;
+    const head=`<thead><tr><th>Investor</th><th>Round · class</th><th class="n">Shares<br>held</th><th class="n">% FD ·<br>register</th><th class="n">Votes</th><th class="n">Entry<br>valuation</th><th class="n">USD<br>invested</th><th class="n">% bought<br>post-round</th>${S.map(s=>`<th class="n" title="value = shares × (post-money ÷ FD after the round); % on the post-round base">after ${esc(s.label)} round<br><span class="muted">$ @ ${fMk(s.postM)} post · %</span></th>`).join('')}<th class="n">Multiple<br>@ $200M</th><th>Src</th></tr></thead>`;
+    const mark=(r)=>S.map((s,i)=>{ const sh=r.sharesAt[i]; if(sh==null) return '<td class="n">—</td>'; const v=r.values[i], p=r.pcts[i+1]; return `<td class="n" data-v="${Math.round(v)}" data-pct="${p.toFixed(4)}" title="${fN(sh)} sh × ${fPPS(s.vprice)} (post-money ÷ FD after) · ${fP(p)} of ${fN(s.fdAfter)} FD shares">${fUSD(v)}<span class="muted"> · ${fP(p,1)}</span></td>`; }).join('');
+    const rows=[];
+    SIM.rows.filter(r=>r.kind==='holder').forEach(h=>{ const mult=h.cost?h.values[0]/h.cost:null; const ev=h.entryValM!=null?`$${h.entryValM.toFixed(1)}M post${h.implied?' <span class="muted">◐</span>':''}`:(h.founder||h.pool?'—':'n/s');
+      rows.push(`<tr class="${h.founder?'founder':''}${h.pool?' pool':''}" data-id="${h.id}" data-shares="${h.shares}">${nameCell(h,h.founder?' <span class="tag signed">founder</span>':h.pool?' <span class="tag target">unissued</span>':'')}<td title="${esc(h.round)} — ${esc(h.cls)}">${esc(h.round)}<span class="muted"> · ${esc((h.cls.match(/[12]×/)||['ord'])[0])}</span></td><td class="n" data-v="${h.shares}">${fN(h.shares)}</td><td class="n" data-v="${h.fdPct.toFixed(4)}">${fP(h.fdPct)}</td><td class="n" data-v="${h.votePct.toFixed(4)}">${h.pool?'<span class="muted">no vote</span>':fP(h.votePct)}</td><td class="n">${ev}</td><td class="n">${h.cost!=null?fUSD(h.cost):(h.pool?'—':'n/s')}</td><td class="n">${h.pctAtEntry!=null?fP(h.pctAtEntry)+(h.implied?' <span class="muted">◐</span>':''):'—'}</td>${mark(h)}<td class="n">${mult!=null?fX(mult):'—'}</td><td>${chip(h.src)}${h.co?chip('CO'):''}${h.implied?chip('A'):''}</td></tr>`); });
+    const F=SIM.founders;
+    rows.push(`<tr class="sub" data-id="founders"><td class="h" title="OT 59,219 + YY 3,500 + KU 3,500 = 66,219 shares">Founders collective <span class="tag signed">OT · YY · KU</span></td><td>Ordinary</td><td class="n" data-v="${F.shares}">${fN(F.shares)}</td><td class="n" data-v="${F.fd[0].toFixed(4)}">${fP(F.fd[0])}</td><td class="n" data-v="${F.votes[0].toFixed(4)}">${fP(F.votes[0])}</td><td class="n">—</td><td class="n">—</td><td class="n">—</td>${S.map((s,i)=>`<td class="n" data-v="${Math.round(F.values[i])}" data-pct="${F.fd[i+1].toFixed(4)}" title="votes ${fP(F.votes[i+1])} — Founder Consent ${s.consentHolds?'holds':'lost'}">${fUSD(F.values[i])}<span class="muted"> · ${fP(F.fd[i+1],1)}</span></td>`).join('')}<td class="n">—</td><td>${chip('CT')}</td></tr>`);
+    const invested=REGISTER.reduce((s,h)=>s+(h.cost||0),0);
+    rows.push(`<tr class="total" data-id="total"><td class="h" title="register as printed 11/6/2025">Register total</td><td>11 lines</td><td class="n" data-v="${FD0}">${fN(FD0)}</td><td class="n" data-sum="${SIM.totals.pct[0].toFixed(4)}">100.00% ✓</td><td class="n" title="voting shares (excl. the 5,000 unissued B Shares)">${fN(FD0-POOL)} v.</td><td class="n"></td><td class="n">${fUSD(invested)}</td><td class="n"></td>${S.map(s=>`<td class="n" title="post-money after the ${esc(s.short)} · ${fN(s.fdAfter)} FD shares">${fUSD(s.postM*1e6)} <span class="muted">post</span></td>`).join('')}<td class="n"></td><td>${chip('CT')}</td></tr>`);
+    SIM.rows.filter(r=>r.kind==='new').forEach(r=>{ const s=S[r.stageIndex]; rows.push(`<tr class="target" data-id="${r.id}"><td class="h" title="${esc(r.note||r.name)}">${esc(r.name)}</td><td>${r.stageIndex===0?'Series A2 Pref. · 2× <span class="tag target">pending ○</span>':'new money <span class="tag target">input ○</span>'}</td><td class="n" data-v="${r.shares}">+${fN(r.shares)}</td><td class="n">—</td><td class="n">—</td><td class="n" title="${fMk(s.preM)} pre-money">${fMk(s.postM)} post</td><td class="n" data-v="${Math.round(s.raiseM*1e6)}">${fUSD(s.raiseM*1e6)}</td><td class="n" data-v="${s.pctSold.toFixed(4)}">${fP(s.pctSold)}</td>${mark(r)}<td class="n">${r.stageIndex===0?'1.0× <span class="muted">entry</span>':'—'}</td><td>${chip(r.src)}</td></tr>`); });
+    capT.innerHTML=head+'<tbody>'+rows.join('')+'</tbody>'; capT.dataset.rows=String(rows.length); capT.dataset.sum='100.0000';
   }
-  function renderCapital(raises){ CM=buildCapital(raises||RaiseStore.get()); window.capitalModel=CM; renderArcDilution(); renderCapTable(); renderControls(); renderDilution(); document.dispatchEvent(new CustomEvent('capitalchange',{detail:{raises:CM.raises}})); }
+
+  /* ---- card 14 (slide 18): the per-holder round simulator ---- */
+  const simT=$('#sim-table'), simRead=$('#sim-readout'), simChart=$('#sim-chart'), simTitle=$('#sim-title');
+  function renderSimulator(){
+    if(!simT) return; const S=SIM.stages, F=SIM.founders;
+    const head=`<thead><tr><th rowspan="2">Holder</th><th colspan="2" class="grp">today · register</th>${S.map(s=>`<th colspan="4" class="grp">after ${esc(s.label)} round${s.key==='a2'?' · Series A2':''} <span class="muted">· ${fMk(s.raiseM)}</span></th>`).join('')}<th colspan="3" class="grp">$ value at post-money</th><th rowspan="2" class="n">pp lost<br>today → $1B</th></tr>
+      <tr><th class="n">shares</th><th class="n">%</th>${S.map(()=>'<th class="n">shares</th><th class="n">%</th><th class="n">Δpp</th><th class="n">rel.</th>').join('')}${S.map(s=>`<th class="n">${fMk(s.postM)}</th>`).join('')}</tr></thead>`;
+    const cells=(r)=>S.map((s,i)=>{ const sh=r.sharesAt[i]; if(sh==null) return '<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td>';
+      const p=r.pcts[i+1], prev=r.pcts[i]; const entry=r.kind==='new'&&i===r.stageIndex; const d=entry?p:p-prev; const rel=entry?null:(prev?d/prev*100:0);
+      return `<td class="n" data-v="${sh}">${entry?'+':''}${fN(sh)}</td><td class="n" data-pct="${p.toFixed(4)}">${fP(p)}</td><td class="n" data-dpp="${d.toFixed(4)}">${entry?`<span class="up">▲ ${p.toFixed(2)}</span>`:arrow(d,Math.abs(d).toFixed(2))}</td><td class="n" data-rel="${rel==null?'':rel.toFixed(4)}">${entry?'<span class="up">new</span>':(d<-1e-9?`<span class="dn">−${Math.abs(rel).toFixed(1)}%</span>`:d>1e-9?`<span class="up">+${Math.abs(rel).toFixed(1)}%</span>`:'<span class="nil">0.0%</span>')}</td>`; }).join('');
+    const vals=(r)=>S.map((s,i)=>r.values[i]==null?'<td class="n">—</td>':`<td class="n" data-v="${Math.round(r.values[i])}">${fUSD(r.values[i])}</td>`).join('');
+    const rows=[];
+    SIM.rows.forEach(r=>{ const tag=r.founder?' <span class="tag signed">founder</span>':r.pool?' <span class="tag target">unissued</span>':r.kind==='new'?` <span class="tag target">${r.stageIndex===0?'pending ○':'input ○'}</span>`:'';
+      const lost=r.kind==='new'?r.pcts[r.stageIndex+1]-r.pcts[r.pcts.length-1]:r.ppLost;
+      rows.push(`<tr class="${r.kind==='new'?'target':(r.founder?'founder':'')}${r.pool?' pool':''}" data-id="${r.id}">${nameCell(r,r.kind==='new'?'':tag)}<td class="n" data-v="${r.kind==='new'?'':r.shares}">${r.kind==='new'?'—':fN(r.shares)}</td><td class="n">${r.kind==='new'?'—':fP(r.pcts[0])}</td>${cells(r)}${vals(r)}<td class="n" data-lost="${lost.toFixed(4)}">${arrow(-lost,Math.abs(lost).toFixed(2)+'pp')}</td></tr>`); });
+    const fc=S.map((s,i)=>{ const d=F.fd[i+1]-F.fd[i]; const rel=d/F.fd[i]*100; return `<td class="n" data-v="${F.shares}">${fN(F.shares)}</td><td class="n" data-pct="${F.fd[i+1].toFixed(4)}" data-vote="${F.votes[i+1].toFixed(4)}" data-consent="${s.consentHolds?'kept':'lost'}"><b>${fP(F.fd[i+1])}</b><br><span class="vote" title="founders' share of voting rights ${fP(F.votes[i+1])} — Founder Consent ${s.consentHolds?'retained (> 50%)':'lost (≤ 50%, Cl. 1.1)'}">V ${F.votes[i+1].toFixed(1)}% ${s.consentHolds?'<span class="chip ok">✓ &gt;50</span>':'<span class="chip bad">✕ ≤50</span>'}</span></td><td class="n" data-dpp="${d.toFixed(4)}">${arrow(d,Math.abs(d).toFixed(2))}</td><td class="n"><span class="dn">−${Math.abs(rel).toFixed(1)}%</span></td>`; }).join('');
+    rows.push(`<tr class="sub founders" data-id="founders"><td class="h" title="OT 59,219 + YY 3,500 + KU 3,500 = 66,219 shares; votes exclude the 5,000 unissued B Shares (Cl. 5.2)">Founders collective <span class="tag signed">OT · YY · KU</span></td><td class="n" data-v="${F.shares}">${fN(F.shares)}</td><td class="n" data-pct="${F.fd[0].toFixed(4)}" data-vote="${F.votes[0].toFixed(4)}"><b>${fP(F.fd[0])}</b><br><span class="vote" title="founders' share of voting rights today ${fP(F.votes[0])}">V ${F.votes[0].toFixed(1)}% <span class="chip ok">✓ &gt;50</span></span></td>${fc}${S.map((s,i)=>`<td class="n" data-v="${Math.round(F.values[i])}">${fUSD(F.values[i])}</td>`).join('')}<td class="n">${arrow(F.fd[3]-F.fd[0],Math.abs(F.fd[3]-F.fd[0]).toFixed(2)+'pp')}</td></tr>`);
+    rows.push(`<tr class="total" data-id="total"><td class="h">Total · FD shares</td><td class="n" data-v="${SIM.totals.shares[0]}">${fN(SIM.totals.shares[0])}</td><td class="n" data-sum="${SIM.totals.pct[0].toFixed(4)}">${fP(SIM.totals.pct[0])}</td>${S.map((s,i)=>`<td class="n" data-v="${SIM.totals.shares[i+1]}">${fN(SIM.totals.shares[i+1])}</td><td class="n" data-sum="${SIM.totals.pct[i+1].toFixed(4)}">${fP(SIM.totals.pct[i+1])}</td><td class="n"></td><td class="n"></td>`).join('')}${S.map(s=>`<td class="n">${fUSD(s.postM*1e6)}</td>`).join('')}<td class="n"></td></tr>`);
+    simT.innerHTML=head+'<tbody>'+rows.join('')+'</tbody>'; simT.dataset.selfcheck=String(SIM.selfCheck);
+    if(simRead){ const lost=SIM.firstLost; const be=S.map(s=>`<span class="be"><i>at ${esc(s.label)}</i> ${s.beRaiseM!=null?`${fMk(+s.beRaiseM.toFixed(1))}`:'already ≤ 50% entering this stage'}</span>`).join('');
+      simRead.innerHTML=`<div class="ctrl ${lost?'bad':'ok'}" data-control="${lost?'lost':'kept'}">${lost?`✕ Control lost at the ${esc(lost.short)} — founders' voting share ${fP(lost.foundersVote)} (≤ 50%, Cl. 1.1)`:`✓ Founders keep control through $1B at these raises — voting share ${fP(S[2].foundersVote)} after the $1B round`}</div><div class="bes"><i>Break-even — founders' voting % hits exactly 50% at a raise of:</i> ${be}</div>`; }
+    if(simTitle){ const lost=SIM.firstLost; simTitle.textContent=lost?`Who loses what, round by round — at these raises Founder Consent is lost at the ${lost.short}.`:`Who loses what, round by round — at these raises the founders keep control through $1B.`; }
+    if(simChart){ const labels=['today',...S.map(s=>s.label)]; const fd=F.fd, vt=F.votes; const w=Math.max(260,simChart.clientWidth||300), h=Math.max(90,simChart.clientHeight||104); const m={l:30,r:8,t:14,b:18}; const iw=w-m.l-m.r, ih=h-m.t-m.b; const y=v=>m.t+ih-v/100*ih; const gw=iw/4, bw=Math.min(40,gw*0.55);
+      let g=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Founders' collective fully diluted % (bars) and voting % (markers) today and after each round against the 50% Founder Consent line">`;
+      [0,50,100].forEach(v=>{ g+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y(v)}" y2="${y(v)}" stroke="${v===50?'#B4533A':'#E3ECE7'}" stroke-width="${v===50?1.4:1}" ${v===50?'stroke-dasharray="3,3"':''}/><text x="${m.l-4}" y="${y(v)+3.5}" text-anchor="end" font-size="8.5" fill="#6C7E75">${v}%</text>`; });
+      labels.forEach((lb,i)=>{ const x=m.l+gw*i+(gw-bw)/2; const col=vt[i]>50?(i?'#12B886':'#0E7A5F'):'#B4533A'; g+=`<rect x="${x}" y="${y(fd[i])}" width="${bw}" height="${y(0)-y(fd[i])}" rx="3" fill="${col}"><title>${lb}: ${fP(fd[i])} FD · ${fP(vt[i])} of votes</title></rect><text x="${x+bw/2}" y="${y(fd[i])-4}" text-anchor="middle" font-size="8.5" fill="#10201B">${fd[i].toFixed(1)}%</text><text x="${m.l+gw*i+gw/2}" y="${h-4}" text-anchor="middle" font-size="8.5" fill="#44584F">${lb}</text>`; });
+      const pts=labels.map((lb,i)=>`${m.l+gw*i+gw/2},${y(vt[i])}`); g+=`<path d="M${pts.join(' L')}" fill="none" stroke="#A5884B" stroke-width="1.6" stroke-dasharray="4,3"/>`; labels.forEach((lb,i)=>{ g+=`<circle cx="${m.l+gw*i+gw/2}" cy="${y(vt[i])}" r="3" fill="#fff" stroke="#A5884B" stroke-width="1.6"><title>votes ${fP(vt[i])}</title></circle>`; });
+      g+=`<text x="${w-m.r}" y="${y(50)-3}" text-anchor="end" font-size="8" font-weight="600" fill="#B4533A">50% of votes · Cl. 1.1</text></svg>`; simChart.innerHTML=g; }
+  }
+  function renderCapital(){ SIM=simulate(Scenario.get()); window.capitalModel=SIM; renderScenarioBars(); renderArcDilution(); renderCapTable(); renderSimulator(); document.dispatchEvent(new CustomEvent('capitalchange',{detail:{raises:SIM.raises}})); }
   renderCapital();
-  RaiseStore.subscribe(()=>renderCapital());
-  addEventListener('resize',()=>renderDilution());
-  /* Print renders the documented defaults; the visitor's session values come back afterwards */
-  addEventListener('beforeprint',()=>renderCapital(Object.assign({},CAPITAL.defaults)));
-  addEventListener('afterprint',()=>renderCapital());
+  Scenario.subscribe(()=>renderCapital());
+  addEventListener('resize',()=>renderSimulator());
 })();
