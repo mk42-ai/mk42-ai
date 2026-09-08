@@ -721,3 +721,35 @@ table.dil-table tr.target td b{color:var(--ink)}
 table.dil-table tr.cross td{background:rgba(180,83,58,.07)}
 table.dil-table .tag{font-size:8.5px; padding:1px 5px; margin-left:4px}
 @media print{ .cap-tabs .pill:not(.on){display:none} table.cap-table td,table.dil-table td{white-space:normal} }
+
+/* ---- Capital cards 14–17 (8 Sep 2026): round-by-round, money in, who came in, control ---- */
+.cap-title{font-size:25px!important; line-height:1.15}
+.chart-title{font-size:10.2px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); font-weight:600}
+.chart-head{display:flex; justify-content:space-between; align-items:baseline; gap:18px; margin:10px 0 4px}
+.chart-head .legend-row{margin-top:0; font-size:10px; gap:6px 11px; justify-content:flex-end}
+.rounds-table-wrap,.money-table-wrap,.who-wrap{margin-top:8px; overflow:hidden; flex:0 0 auto}
+.who-grid .cap-table-wrap{margin-top:0}
+table.rounds-table td.h{min-width:0; white-space:nowrap}
+table.rounds-table td{padding:3px 5px}
+table.money-table td.h{min-width:0; white-space:nowrap}
+table.money-table td{padding:2.5px 5px}
+table.who-table td.h{min-width:0}
+table.who-table td{padding:2.5px 5px}
+.cap-table-wrap.who-wrap{flex:0 0 auto}
+.own-wrap,.money-chart-wrap,.mult-wrap{display:flex; flex-direction:column; min-height:0; flex:1 1 auto}
+.own-chart{height:190px; min-height:150px; flex:1 1 auto}
+.money-chart{height:200px; min-height:150px; flex:1 1 auto}
+.mult-chart{height:118px; min-height:96px; flex:1 1 auto}
+.ctl-title{font-size:25px!important}
+.ctl-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:18px; margin-top:4px; align-items:start}
+.ctl-chart-wrap{display:flex; flex-direction:column; min-height:0}
+.ctl-chart-wrap .chart-title{margin-bottom:4px}
+.ctl-chart{height:244px; min-height:244px}
+.ctl-gates{display:flex; flex-direction:column; gap:5px}
+.ctl-gates .gate{border:1px solid var(--hair); border-radius:8px; background:#fff; padding:4px 9px; font-size:9.7px; line-height:1.32; color:var(--ink-dim)}
+.ctl-gates .gate b{color:var(--ink); font-weight:600}
+.ctl-gates .gate .src{margin-left:3px; font-size:8.5px; padding:0 4px}
+.ctl-bottom{display:grid; grid-template-columns:1.12fr .88fr; gap:10px; margin-top:8px}
+.ctl-bottom .callout{font-size:9.9px; line-height:1.38; padding:7px 11px}
+.ctl-bottom .callout b{font-weight:600}
+@media print{ .ctl-gates .gate{box-shadow:none} table.rounds-table td,table.money-table td,table.who-table td{white-space:normal} }

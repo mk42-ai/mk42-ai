@@ -3,7 +3,7 @@
  "backend": "ondemand-agent",
  "agentId": "6a9c566598ed33a866ffbf13",
  "libraryExternalUserId": "vvip-deck-library",
- "note": "Scrubbed data-room extracts; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV'. Answers come from the OnDemand agent whose system prompt embeds the document registry and these extracts; downloads resolve through /api/media (OnDemand-hosted copies of the extracts).",
+ "note": "Scrubbed data-room extracts; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV'. Answers come from the OnDemand agent whose system prompt embeds the document registry and these extracts; downloads resolve through /api/media (OnDemand-hosted copies of the extracts). One UAE white-label reseller extract was removed from the library on 8 Sep 2026 (that partner is no longer a route in the deck).",
  "docs": [
   {
    "id": "im",
@@ -34,16 +34,6 @@
    "mediaName": "Redington — signed ISV distribution agreement (18 Jun 2026) (scrubbed extract).txt",
    "uploadedAt": "2026-09-05T17:02:16.357Z",
    "file": "library/redington.txt"
-  },
-  {
-   "id": "alphadata",
-   "label": "MoU — AIREV × Alpha Data (white-label reseller)",
-   "type": "pdf",
-   "pages": 4,
-   "mediaId": "6a9c4b18c7b1b42890d90c35",
-   "mediaName": "MoU — AIREV × Alpha Data (white-label reseller) (scrubbed extract).txt",
-   "uploadedAt": "2026-09-05T17:02:16.314Z",
-   "file": "library/alphadata.txt"
   },
   {
    "id": "qc-ar1-sow",

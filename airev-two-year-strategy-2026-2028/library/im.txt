@@ -47,7 +47,7 @@ devices carrying OnDemand by end-2026, compounding to ~1.05M by 2029.
 devices carrying OnDemand by end-2026, compounding to ~1.05M by 2029.
 T he channel layer is signed on every axis: Core42 (G42) and ADQ master services agreements anchor the
 domestic sovereign estate; Redington Gulf distributes across eight MENA markets plus the whole of Africa
-on a published price card; Alpha Data resells a white-label OnDemand across the UAE under a signed MoU;
+on a published price card; [UAE reseller — removed] resells a white-label OnDemand across the UAE under a signed MoU;
 World Wide Technology (WWT) — one of the world’s largest technology resellers — is countersigned as an
 authorized reseller, opening its global enterprise base and US public-sector contracting rails; WISER
 
@@ -375,16 +375,15 @@ Massachusetts law.
 growth target from Q1 2026. One-year term, auto-renewing;
 Massachusetts law.
 
-A.9  Alpha Data PJSC — White-Label Reseller MoU (signed 17 Sep / 8 Oct 2025)
-MoU between AIREV Holding Limited and Alpha Data PJSC (Dubai), signed by Alpha Data’s Chief Operating
-Officer and AIREV’s Founder/CEO. Alpha Data acts as a non-exclusive reseller of the OnDemand platform with
-white-label platform access — presenting OnDemand to its clients under Alpha Data branding within agreed
+A.9  [UAE reseller — removed] — White-Label Reseller MoU (signed 17 Sep / 8 Oct 2025)
+MoU between AIREV Holding Limited and [UAE reseller — removed] (Dubai), signed by [UAE reseller — removed]’s Chief Operating
+Officer and AIREV’s Founder/CEO. [UAE reseller — removed] acts as a non-exclusive reseller of the OnDemand platform with
+white-label platform access — presenting OnDemand to its clients under [UAE reseller — removed] branding within agreed
 guidelines.
 
-OnDemand to its clients under Alpha Data branding within agreed
+OnDemand to its clients under [UAE reseller — removed] branding within agreed
 guidelines. AIREV provides initial and ongoing sales/technical training; the Parties run joint workshops, co-
-branded marketing and shared go-to-market campaigns targeting enterprise and government clients; Alpha
-Data owns prospecting, billing, invoicing and the client relationship; reseller margin / revenue-share structure
+branded marketing and shared go-to-market campaigns targeting enterprise and government clients; [UAE reseller — removed] owns prospecting, billing, invoicing and the client relationship; reseller margin / revenue-share structure
 agreed in a separate annex. Territory: UAE. Quarterly joint business reviews; designated partnership managers;
 IP in OnDemand remains solely with AIREV, white-label use on a license basis.
 
@@ -413,7 +412,7 @@ Appendix B.  Basis of preparation
 Executed documents reviewed: Qualcomm SOW AIR-626 951; Qualcomm Technology License Agreement; Intel
 AI PC MOU (DocuSign-executed); Redington Gulf MoA (DocuSign-executed); WISER Partnership MoU (signed);
 Core42 MSA (countersigned by Core42 CEO); ADQ MSA (signed by both parties); Tenstorrent Commercial
-Collaboration Agreement (DocuSign-completed); Alpha Data PJSC white-label reseller MoU (signed); World
+Collaboration Agreement (DocuSign-completed); [UAE reseller — removed] white-label reseller MoU (signed); World
 Wide Technology (WWT) Reseller Agreement (countersigned).
 
 MoU (signed); World

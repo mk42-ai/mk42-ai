@@ -60,6 +60,15 @@ async function od(method, path, body, timeoutMs) {
 
 /* ---- The agent (OnDemand project) -------------------------------------------------------------- */
 const TEMPLATE_TAIL = '\n\nContext: {context}\nQuestion: {question}';
+/* Deck-side narrative addendum (8 Sep 2026 revision of the Capital lane, partner changes, valuation-arc wording): spliced into the
+   agent's system prompt ahead of the Context/Question template variables so answers track the deck without an agent redeploy. */
+let DECK_ADDENDUM = '';
+try { DECK_ADDENDUM = String(require('./deck-narrative.js') || ''); } catch (e) { DECK_ADDENDUM = ''; }
+function withAddendum(prompt) {
+  if (!DECK_ADDENDUM.trim() || prompt.includes('=== DECK REVISION 8 SEP 2026')) return prompt;
+  const i = prompt.search(/\n[^\n]*\{context\}/);
+  return i > 0 ? prompt.slice(0, i) + '\n\n' + DECK_ADDENDUM.trim() + '\n' + prompt.slice(i) : prompt + '\n\n' + DECK_ADDENDUM.trim();
+}
 let agentCache = { at: 0, agent: null, inflight: null };
 
 /** GET /chat/v1/projects/{id} — the agent's name, endpoint and system prompt (cached per function instance). */
@@ -78,6 +87,7 @@ async function getAgent(force) {
       let prompt = String(d.systemPrompt || '');
       if (!prompt.trim()) { const e = new Error('OnDemand agent has an empty system prompt'); e.status = 503; throw e; }
       if (!/\{context\}/.test(prompt) || !/\{question\}/.test(prompt)) prompt += TEMPLATE_TAIL;
+      prompt = withAddendum(prompt);
       const agent = {
         id: d.id, name: d.name || '', endpointId: CONFIG.endpointId || d.endpointId || 'predefined-openai-gpt4.1',
         systemPrompt: prompt, promptChars: prompt.length, updatedAt: d.updatedAt || null, fetchedAt: new Date().toISOString()
