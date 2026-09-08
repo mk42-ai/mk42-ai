@@ -179,7 +179,7 @@
       const hM=Math.max(6,moneyH(s.raiseM)); const soldH=Math.max(8,ih*s.dilution/100); const keepH=ih-soldH;
       const label=s.key==='a2'?'Series A2':(s.key==='r500'?'$500M round':'$1B round');
       const mark=s.projection?'projection ○':'signed term sheet ●';
-      const tip=`${label} — ${fM(s.preM)} pre-money · ${s.when}${s.projection?' · projection ○':''}. Money in ${fM(s.raiseM)}${s.projection?' (projection ○, 5% of pre-money)':' (Terra draft / Itqan V6 term sheets)'}. Price ${fPPS(s.pps)} per share · ${fN(s.newShares)} new shares · post-money ${fM(+(s.postMoney/1e6).toFixed(s.postMoney>=1e9?2:1))}. New investor ${fP(s.dilution)}; existing holders 100% → ${fP(s.keep)} of their stake (${fP(s.cumKeep)} of a pre-A2 stake after this stage).`;
+      const tip=`${label} — ${fM(s.preM)} pre-money · ${s.when}${s.projection?' · projection ○':''}. Money in ${fM(s.raiseM)}${s.projection?' (projection ○, 5% of pre-money)':' (Series A2 term sheets)'}. Price ${fPPS(s.pps)} per share · ${fN(s.newShares)} new shares · post-money ${fM(+(s.postMoney/1e6).toFixed(s.postMoney>=1e9?2:1))}. New investor ${fP(s.dilution)}; existing holders 100% → ${fP(s.keep)} of their stake (${fP(s.cumKeep)} of a pre-A2 stake after this stage).`;
       g+=`<g class="stage" tabindex="0" role="img" aria-label="${esc(tip)}" data-stage="${s.key}" data-tip="${esc(tip)}">`;
       g+=`<rect class="hit" x="${gx+6}" y="${m.t-70}" width="${gw-12}" height="${ih+70+40}" fill="transparent"/>`;
       /* stage header */
