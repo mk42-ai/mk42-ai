@@ -1,0 +1,53 @@
+# Modular AI for humanitarian aid — deck
+
+Source type: PPTX · 15 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+Original visual generated for this document, AIREV, 2026 Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Cover. Hero visual generated for this document (AIREV, 2026). Open by naming the ask: a 90-day UAE pilot for sovereign humanitarian AI.
+
+Modular compute plus an agentic AI layer turns humanitarian response time from weeks into hours Executive message Source: Delta / DataCenterPOST (2026), months to energise, modular vs traditional data centres. Layers 02 and 03 describe the AIREV OnDemand architecture (Illustrative). Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Three shifts compress the response cycle: power arrives in months, an agentic layer makes compute usable, and sovereign inference keeps the data in-theatre.
+
+layer makes compute usable, and sovereign inference keeps the data in-theatre. Only the 6-18 month figure is externally sourced (Delta/DataCenterPOST 2026).
+
+Power, not silicon, is the binding constraint on AI data-centre growth The infrastructure gap By 2027 40% of AI data centres will be power-constrained, and the two 2030 demand forecasts diverge by roughly 255 TWh. Source: Gartner (2026), data-centre electricity demand 447 TWh (2025) to 565 TWh (2026), +26%, and >1,200 TWh by 2030; IEA 'Energy and AI' (2025), ~945 TWh base case by 2030; Gartner (Nov 2024), 40% of AI data centres power-constrained by 2027. Year axis is to scale; only 2025, 2026 and 2030 are published values.
+
+by 2027. Year axis is to scale; only 2025, 2026 and 2030 are published values. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Lead with the 40% power-constrained figure: it is an operating risk now, not a 2030 problem. The year axis is to scale, so the four-year 2026-2030 gap reads correctly and the Gartner-IEA fan of 255 TWh is visible.
+
+Compute becomes deployable infrastructure, not a fixed site asset The opportunity Source: Delta (2026), 36-60 vs 6-18 months to energise; DataCenterPOST (2026) and Sintel (2026), 8-16 week delivery and 30-70% deployment-time cut; Omdia (2024), USD 11.7bn market by 2027. Photograph: Intelligent Data Centres / Schneider Electric, 2025. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Reframe compute as deployable infrastructure. The four contrast rows are the argument; the Omdia figure shows the supply chain is already scaling to support it.
+
+One integrated stack carries a site from grid power to humanitarian outcome Concept architecture Seven stages link land and power to field applications; the sovereign inference hinge is where physical infrastructure becomes national capability. Source: AIREV OnDemand concept schematic, 2026 (Illustrative); no external statistic is asserted in this exhibit. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Walk the seven stages left to right.
+
+Aid · AIREV OnDemand · August 2026 Notes: Walk the seven stages left to right. Stage 04, sovereign local inference, is the hinge: everything to its left is procurement, everything to its right is national capability.
+
+Rack density, not floor space, is now the design driver for AI infrastructure Physical infrastructure Source: NVIDIA/HPE (2025), GB200 NVL72 ~120 kW/rack design, 130-132 kW under full load; Schneider Electric/NVIDIA (2026), GB300 NVL72 132-142 kW/rack; Introl (2025), legacy air-cooled 20-30 kW/rack; Vertiv datasheet (2026), 33 kW per 1U shelf; DataCenterPOST/Sintel (2026), 8-16 week delivery. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Density is the design driver. Legacy halls cap at 20-30 kW per rack; a GB300 NVL72 rack is 132-142 kW.
+
+Legacy halls cap at 20-30 kW per rack; a GB300 NVL72 rack is 132-142 kW. That is why liquid-ready modular shells are the only realistic path.
+
+Six software layers let a state own the AI capability without owning the hardware risk AIREV OnDemand stack The sovereign value sits in the software layers; the hardware below them is a replaceable partner band. Source: AIREV OnDemand platform architecture, 2026 (Illustrative). Delivery precedent: NVIDIA Technical Blog (2025), 18 telco-led sovereign AI factories across five continents in ~18 months. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes:
+
+AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: The stack answers the ownership question: six software layers governed locally, over a partner-supplied and replaceable hardware band.
+
+Every connectivity tier maps to a named humanitarian outcome From compute to applications Source: AIREV OnDemand capability-to-outcome framework, 2026 (Illustrative); outcome precedents are evidenced on the following page. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Each connectivity tier has a named payoff. This is the accountability slide: infrastructure spend maps to a humanitarian outcome.
+
+Five evidence-backed use cases should be funded ahead of four concepts Priority use cases Positions are judgements, not measurements: the five cases with published precedent sit higher on feasibility and should be sequenced first. Source: xView2 / US DIU (2019-2023); UN Global Pulse (2024); NASA Applied Sciences (2025); SES / AWS Disaster Response, Hurricane Ian broadband restoration (2022-2025); MSF (2024), 60 kWh containerised solar, Ourang, eastern Chad. Axis positions are Illustrative judgements, not measured values.
+
+eastern Chad. Axis positions are Illustrative judgements, not measured values. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Fund the right-hand side first. Five precedent-backed cases can start immediately - satellite damage categorisation, AI-assisted damage assessment, SAR modelling, SES/AWS broadband restoration after Hurricane Ian, and MSF's 60 kWh containerised solar at Ourang in eastern Chad. The four concept cases need feasibility work; the coordinates are judgements.
+
+A phased 18-month journey takes a site from permits to live AI capacity Deployment journey Source: Delta (2026), 6-18 months to energise a modular data centre and up to 60% deployment-time reduction; Sintel (2026), 30-70%. The Integrate phase (10-18 months) is Illustrative. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Plan and Build are anchored to Delta's published modular timelines. Integrate is explicitly illustrative. Scale is deliberately open-ended.
+
+Modular buys speed and density at a capex per MW the benchmarks already support Economics & scalability Modular compresses build time to 6-18 months and lifts rack density to 40-142 kW, inside published capex ranges. Source: Delta (2026), months; Sintel (2026), 30-70% deployment-time cut; Schneider Electric/NVIDIA (2026), kW per rack; JLL/DataCenterScope (2026), shell-and-core USD 10-14m per MW; JLL/DataCenterScope and Feasibility Study Consultant (2026), fully fitted USD 30-45m+ per MW. Ranges are published benchmarks, not a pilot quotation.
+
+USD 30-45m+ per MW. Ranges are published benchmarks, not a pilot quotation. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Two different units, so two range charts rather than one misleading axis. Bars show published low-high ranges. The capex ladder rises with fit-out level; none of it is a pilot quotation.
+
+Local inference is what makes humanitarian data governable, and it already exists Sovereignty & resilience Source: NVIDIA Technical Blog (2025), 18 telco-led sovereign AI factories across five continents in approximately 18 months. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Sovereignty means data locality plus operational independence, and it doubles as national digital resilience. The NVIDIA telco programme shows the pattern is already running at pace.
+
+The UAE already funds humanitarian response at the scale this build requires UAE strategic opportunity A donor ranked third worldwide in 2025 can underwrite a sovereign humanitarian AI capability and export it to partners. Source: UNOCHA FTS (2025), USD 1.46bn = 7.2% of USD 20.28bn tracked humanitarian funding; OECD (2025), USD 3.4bn VVIP Sovereign JV partner at 0.61% of GNI; World Bank (2024), USD 552.32bn nominal GDP; UAE MoFA (2024), >USD 100bn since 1971 across 206 countries. Spokes are Illustrative. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes:
+
+AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: The UAE's donor position and balance sheet make this credible here. UNOCHA tracked humanitarian funding and OECD VVIP Sovereign JV partner are different measures and must not be summed.
+
+Ninety days is enough to prove land, compute and agents end to end 90-day pilot concept Source: PlanetScope PSScene 20260825_024251_57_254a, acquired 2026-08-25 UTC, 5% cloud, 3 m resolution. Imagery (c) Planet Labs PBC. Automated segmentation exhibit unavailable at time of writing (analysis endpoint offline) - imagery shown as illustrative damage-mapping input. Rack figures: Schneider Electric/NVIDIA (2026), kW/rack; pilot phasing is Illustrative. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Ninety days, three windows.
+
+Aid · AIREV OnDemand · August 2026 Notes: Ninety days, three windows. The Planet scene is the kind of imagery the pipeline ingests - the automated segmentation exhibit could not be produced because the analysis endpoint was offline, and no detection result is claimed.
+
+Approve the pilot now: the capability compounds, the crisis window does not Decision & next steps Three decisions today: approve the pilot, pledge illustrative seed capital, and fix the three-party operating model. Source: Illustrative AIREV OnDemand pilot design (2026); the USD 60-80m seed figure for a 10 MW cluster is an unsourced planning assumption, not a published benchmark. Modular AI Infrastructure for Humanitarian Aid · AIREV OnDemand · August 2026 Notes: Close on the three decisions and the operating model.
+
+· August 2026 Notes: Close on the three decisions and the operating model. The USD 60-80m figure is an illustrative planning assumption for a 10 MW cluster, not a costed quotation.

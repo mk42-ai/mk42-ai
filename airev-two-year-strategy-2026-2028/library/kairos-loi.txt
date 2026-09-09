@@ -1,0 +1,325 @@
+# Draft AIREV × Kairoswealth strategic merger LOI (23 Aug 2026)
+
+Source type: DOCX · — pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+STRATEGIC MERGER - LETTER OF INTENT
+Proposed business combination of AIREV, Kairoswealth Holding Limited/ Kairoswealth Prive
+Date: 23 August 2026
+Status: Private, confidential and non-binding, except for the Binding Provisions
+Governing framework: Laws of the Abu Dhabi Global Market; exclusive jurisdiction of the ADGM Courts
+TERM | INDICATIVE POSITION
+Proposed transaction | Strategic share-for-share business combination at holding-company level, preserving Kairoswealth Prive as the ADGM regulated operating subsidiary.
+
+preserving Kairoswealth Prive as the ADGM regulated operating subsidiary.
+Signing investment | USD 2,000,000 to be funded by AIREV under a separate binding investment instrument executed concurrently with this LOI.
+Measurement period | Twelve consecutive months beginning on the effective date of Kairoswealth Prive's Category 4 Financial Services Permission.
+Core scale KPI | At least USD 250,000,000 of Qualifying AUM/AUA onboarded with pre-agreed UAE banks and served through the AIREV/Kairoswealth platform under Kairoswealth Prive's FSP.
+
+served through the AIREV/Kairoswealth platform under Kairoswealth Prive's FSP.
+Conversion Ceiling | Kairoswealth consideration equal to the lower of 20% of the Combined Equity Value and USD 200,000,000, subject to the performance-protection provision in this LOI.
+Conversion Floor | Kairoswealth consideration equal to the higher of 10% of the Reference Combined Equity Value and USD 20,000,000, subject to the performance-protection provision in this LOI and subject to the conversion ceiling.
+1.
+
+provision in this LOI and subject to the conversion ceiling.
+1. PARTIES AND BACKGROUND
+This Strategic Merger Letter of Intent (this "LOI") is entered into among: (i) AIREV [full registered legal name, jurisdiction of incorporation and company number to be confirmed] ("AIREV"); (ii) Kairoswealth Holding Limited, a private company limited by shares incorporated in the Abu Dhabi Global Market ("Kairoswealth Holding");
+
+by shares incorporated in the Abu Dhabi Global Market ("Kairoswealth Holding"); and (iii) Kairoswealth Prive [full registered legal name and company number to be confirmed], an ADGM entity which is the applicant for and, upon issuance, intended holder of the relevant Category 4 Financial Services Permission ("Kairoswealth Prive"). Kairoswealth Holding and Kairoswealth Prive are together referred to as the "Kairoswealth Group", and each of AIREV, Kairoswealth Holding and Kairoswealth Prive is a "Party" and together the "Parties".
+
+Holding and Kairoswealth Prive is a "Party" and together the "Parties".
+The Parties wish to establish an Abu Dhabi-centred, AI-enabled family-office and wealth-advisory ecosystem combining AIREV's technology, strategic relationships and business capabilities with the Kairoswealth proprietary platform, Kairoswealth Holding's ADGM structure and Kairoswealth Prive's regulated financial-services business.
+
+ADGM structure and Kairoswealth Prive's regulated financial-services business.
+The Parties therefore intend to pursue a strategic business combination after a twelve-month execution period, with the equity consideration attributable to the Kairoswealth Group determined by achievement or non-achievement of the KPI Package described in this LOI.
+2. DEFINITIONS AND INTERPRETATION
+Approved UAE Banks. The UAE-incorporated or UAE-licensed banks, private banks, booking centres or custody providers approved in writing by AIREV and the Kairoswealth Group and listed or added to Schedule 3.
+
+writing by AIREV and the Kairoswealth Group and listed or added to Schedule 3.
+Business Combination. The proposed share-for-share merger, acquisition, reorganisation or other holding-company combination through which AIREV and the Kairoswealth Group become members of the same Combined Group while preserving Kairoswealth Prive as the regulated operating subsidiary, subject to FSRA approval.
+Category 4 Licence Effective Date.
+
+subsidiary, subject to FSRA approval.
+Category 4 Licence Effective Date. The date on which Kairoswealth Prive's Category 4 Financial Services Permission becomes effective, and Kairoswealth Prive is legally permitted to commence the relevant regulated activities, after satisfaction of any conditions imposed by the FSRA.
+Combined Group. AIREV, Kairoswealth Holding, Kairoswealth Prive and their respective subsidiaries after giving effect to the Business Combination.
+KPI Achieved.
+
+subsidiaries after giving effect to the Business Combination.
+KPI Achieved. Each Core KPI in Schedule 1 having been achieved in all material respects during the Measurement Period and certified in accordance with the Verification Procedure.
+KPI Package. The financial, market-corridor, regulatory, platform-delivery and intellectual-property KPIs set out in Schedule 1.
+Measurement Period. The period of twelve consecutive months commencing on the Category 4 Licence Effective Date.
+Qualifying AUM/AUA.
+
+months commencing on the Category 4 Licence Effective Date.
+Qualifying AUM/AUA. Assets under management or assets under advice/administration satisfying the eligibility and evidence requirements in Schedule 1; if assets will be described as discretionary assets under management only where the applicable FSP expressly permits such management.
+Reference Combined Equity Value.
+
+FSP expressly permits such management.
+Reference Combined Equity Value. The fully diluted, as-converted equity value of the Combined Group immediately after the proposed Business Combination and issuance of the Kairoswealth Consideration Shares, but immediately before any simultaneous new-money financing, determined under Clause 7.
+Strategic Investment. The proposed USD 2,000,000 investment by AIREV into Kairoswealth Holding under a separate binding instrument.
+3.
+
+by AIREV into Kairoswealth Holding under a separate binding instrument.
+3. STRATEGIC RATIONALE AND INTENDED STRUCTURE
+The Parties intend that the Business Combination will create an Abu Dhabi-headquartered or Abu Dhabi-centred financial technology and family-office platform capable of originating international family-office relationships, onboarding assets into the UAE banking system, delivering regulated services through Kairoswealth Prive and operating a proprietary AI-enabled technology platform from ADGM.
+
+Prive and operating a proprietary AI-enabled technology platform from ADGM.
+The intended legal structure would:
+• Combine AIREV and Kairoswealth Holding at holding-company level through an acquisition, share exchange, new ADGM top company or other economically equivalent structure selected after legal, tax and regulatory advice;
+• Preserve Kairoswealth Prive as the entity holding and exercising the Category 4 FSP and entering regulated client relationships;
+
+and exercising the Category 4 FSP and entering regulated client relationships;
+• Ensure that AIREV's role is limited to technology, analytics, origination, introductions, operational support and other activities permitted by applicable law unless and until AIREV itself holds the relevant permission;
+• Maintain all required regulatory capital, governance, systems and controls within the appropriate regulated entity; and
+• Deliver the ownership outcomes in Clause 6 without creating double counting, artificial dilution or a transfer of the FSP as if it were a separately transferable asset.
+
+or a transfer of the FSP as if it were a separately transferable asset.
+The precise legal form will be agreed in the definitive documents but must preserve the intended economic result and remain subject to all FSRA, ADGM Registration Authority, corporate, shareholder, contractual and other required approvals.
+4.
+
+Authority, corporate, shareholder, contractual and other required approvals.
+4. USD 2,000,000 STRATEGIC INVESTMENT AT SIGNING
+Concurrently with execution of this LOI, the Parties intend to execute a separate binding convertible investment, convertible loan or other mutually agreed investment instrument under which AIREV will fund USD 2,000,000 into Kairoswealth Holding, with funding occurring on the signing date or within two Business Days thereafter.
+
+funding occurring on the signing date or within two Business Days thereafter.
+The definitive investment instrument is expected to provide that:
+• The proceeds will be used solely for the agreed regulatory, technology, personnel, bank-integration, client-onboarding and working-capital purposes described in Schedule 2;
+• Kairoswealth Holding will provide AIREV with monthly financial and KPI reporting, reasonable inspection and information rights, and one non-voting board-observer right, subject to regulatory restrictions;
+
+and one non-voting board-observer right, subject to regulatory restrictions;
+• No material related-party payment, shareholder distribution, founder liquidity or non-budgeted expenditure will be made from the proceeds without AIREV's prior written consent;
+• The investment will not be included in, or increase, the equity value attributed to the Kairoswealth shareholders for purposes of the Kairoswealth Consideration, and will not be counted twice in the Reference Combined Equity Value;
+
+and will not be counted twice in the Reference Combined Equity Value;
+• The treatment of the instrument upon completion of the Business Combination, failure to complete, denial or withdrawal of the FSP, insolvency, misuse of proceeds or material breach will be governed solely by the binding investment instrument; and
+• The Strategic Investment is not consideration for the Category 4 FSP and no value is attributed to the FSP as a transferable asset.
+For avoidance of doubt, this LOI does not itself oblige AIREV to fund the Strategic Investment.
+
+doubt, this LOI does not itself oblige AIREV to fund the Strategic Investment. The funding obligation will arise only when the separate investment instrument has been negotiated, approved, executed and delivered.
+5. MEASUREMENT PERIOD AND KPI PROGRAMME
+The Measurement Period will commence automatically on the Category 4 Licence Effective Date. During that period, the Parties intend to operate under a jointly approved implementation plan designed to achieve the KPI Package.
+
+a jointly approved implementation plan designed to achieve the KPI Package.
+Within twenty Business Days after the Category 4 Licence Effective Date, the Parties intend to approve:
+• The list of Approved UAE Banks and the process for adding banking partners;
+• The family-office origination plan for Japan, offshore Indian family offices, Australia and New Zealand;
+• The platform development, integration, security and production-deployment roadmap;
+• The Category 3 regulatory-readiness roadmap and target Category 3 sub-category or regulated activities;
+
+roadmap and target Category 3 sub-category or regulated activities;
+• The Singapore-to-ADGM intellectual-property completion and operational migration plan;
+• The operating budget and deployment of the Strategic Investment; and
+• The monthly KPI dashboard, evidence pack and responsible executive for each KPI.
+If the KPI Package is achieved and verified before the end of the Measurement Period, the Parties may by mutual written agreement accelerate the proposed Business Combination. Otherwise, KPI status will be measured as at the end of the Measurement Period.
+6.
+
+KPI status will be measured as at the end of the Measurement Period.
+6. OUTCOME-BASED MERGER ECONOMICS
+Subject to the execution of definitive agreements and satisfaction or waiver of the applicable conditions, the Kairoswealth shareholders would exchange or transfer all their shares in Kairoswealth Holding in return for newly issued shares in AIREV or the agreed Combined Group holding company (the "Kairoswealth Consideration Shares").
+
+Combined Group holding company (the "Kairoswealth Consideration Shares").
+6.1 KPI not achieved
+If KPI Achieved has not occurred by the end of the Measurement Period, the notional equity value attributed to the Kairoswealth Consideration Shares (the "Missed-KPI Consideration Value") will be the greater of: (a) ten per cent (10%) of the Reference Combined Equity Value; and (b) USD 10,000,000; provided that the Missed-KPI Consideration Value will not exceed USD 200,000,000.
+
+that the Missed-KPI Consideration Value will not exceed USD 200,000,000.
+6.2 KPI achieved
+If KPI Achieved has occurred, the notional equity value attributed to the Kairoswealth Consideration Shares (the "Achieved-KPI Consideration Value") will be the lower of: (a) twenty per cent (20%) of the Reference Combined Equity Value; and (b) USD 200,000,000. Notwithstanding the foregoing, the Achieved-KPI Consideration Value will not be less than the Missed-KPI Consideration Value calculated at the same Reference Combined Equity Value.
+
+Consideration Value calculated at the same Reference Combined Equity Value.
+6.3 Share percentage and no cash payment
+The percentage of the fully diluted equity of the Combined Group represented by the Kairoswealth Consideration Shares will equal the applicable Consideration Value divided by the Reference Combined Equity Value. The Consideration Value is solely a mechanism for determining the number of Kairoswealth Consideration Shares and does not create an obligation to pay cash.
+
+Consideration Shares and does not create an obligation to pay cash.
+OUTCOME | FORMULA | ILLUSTRATION AT USD 250M
+KPI not achieved | Higher of 10% and USD 10m floor; overall USD 200m cap | USD 25m / 10%
+KPI achieved | Lower of 20% and USD 200m cap; never below missed-KPI value | USD 50m / 20%
+7. VALUATION OF THE COMBINED GROUP
+The Reference Combined Equity Value will be determined using the following hierarchy:
+
+Combined Equity Value will be determined using the following hierarchy:
+(a) First, the equity value implied by a bona fide arm's-length equity financing of AIREV or the proposed Combined Group completed within the six months before the proposed completion date, provided that the financing is not principally undertaken to manipulate the Kairoswealth Consideration;
+(b) Second, a value agreed in writing by AIREV and Kairoswealth Holding within ten Business Days after the end of the Measurement Period; and
+
+Holding within ten Business Days after the end of the Measurement Period; and
+(c) Failing agreement, a valuation determined by an independent internationally recognised valuation firm jointly appointed by the Parties, acting as expert and not as arbitrator, whose determination will be final absent manifest error.
+
+and not as arbitrator, whose determination will be final absent manifest error.
+The valuation will be prepared:
+• On a fully diluted and as-converted basis, including issued shares, options, warrants, convertibles, SAFEs, promised grants and the agreed employee incentive pool;
+• On a post-Business Combination but pre-new-money basis;
+• Using consistent treatment of cash, debt, working capital, contingent liabilities and non-operating assets;
+• Without attributing additional value to the Strategic Investment merely because it was contributed by AIREV;
+
+value to the Strategic Investment merely because it was contributed by AIREV;
+• Without separately valuing the Category 4 FSP as a transferable asset; and
+• After excluding artificial, related-party or non-arm's-length transactions undertaken principally to affect the valuation or exchange ratio.
+Any new-money financing completed simultaneously with or after the Business Combination will dilute the AIREV and Kairoswealth shareholder groups proportionately unless the definitive documents expressly provide otherwise.
+8.
+
+proportionately unless the definitive documents expressly provide otherwise.
+8. KPI VERIFICATION AND CERTIFICATION
+The Parties intend to establish a KPI Steering Committee comprising two representatives appointed by AIREV and two representatives appointed by Kairoswealth Holding. The Committee will review monthly reporting, bank and client evidence, platform delivery, regulatory progress and IP migration.
+
+and client evidence, platform delivery, regulatory progress and IP migration.
+Within fifteen Business Days after the earlier of an early-achievement notice or the end of the Measurement Period, Kairoswealth Holding will deliver a KPI Completion Certificate and supporting evidence pack. AIREV will have fifteen Business Days to confirm the result or deliver a reasoned objection identifying the disputed KPI and supporting basis.
+
+deliver a reasoned objection identifying the disputed KPI and supporting basis.
+Any unresolved financial, valuation or objectively measurable KPI dispute will be referred to an independent accountant, valuation firm or technical expert appropriate to the subject matter. Minor defects or administrative omissions that do not materially impair the relevant deliverable will not, by themselves, prevent certification, provided they are cured within twenty Business Days.
+9.
+
+prevent certification, provided they are cured within twenty Business Days.
+9. INTERIM OPERATING MODEL
+During the Measurement Period, the Parties intend that:
+• Kairoswealth Prive will be the contracting entity for all regulated advisory, arranging or other regulated services within the scope of its actual FSP;
+• AIREV will provide the agreed AI platform, technology, analytics, family-office origination, relationship and operating support to the extent permitted by law and the FSP;
+
+relationship and operating support to the extent permitted by law and the FSP;
+• The Parties will agree written revenue attribution, referral, cost-sharing, client-ownership and data-access rules before regulated client onboarding begins;
+• All clients will undergo the KYC, AML, sanctions, source-of-funds, suitability and classification processes required by applicable law, the FSP, Kairoswealth Prive policies and the relevant Approved UAE Bank;
+
+law, the FSP, Kairoswealth Prive policies and the relevant Approved UAE Bank;
+• All marketing, client communications and use of the AIREV/Kairoswealth brand will accurately identify Kairoswealth Prive as the holder of the FSP for regulated activities;
+• No Party will represent that the FSP is held jointly, transferable or available to an unlicensed entity; and
+• Client and personal data will be processed under documented privacy, cybersecurity, data-governance, access-control and record-retention arrangements.
+
+data-governance, access-control and record-retention arrangements.
+The definitive documents are expected to contain fair transition and non-circumvention protections for clients, banks, staff, technology and relationships contributed by either Party if the Business Combination does not complete.
+10. DUE DILIGENCE AND CONDITIONS TO THE PROPOSED COMBINATION
+
+not complete.
+10. DUE DILIGENCE AND CONDITIONS TO THE PROPOSED COMBINATION
+The proposed Business Combination will remain subject to reciprocal legal, regulatory, financial, tax, commercial, technical, cybersecurity, data, intellectual-property, employment, litigation, sanctions, AML/KYC, ownership and reputational due diligence satisfactory to the relevant Party in its discretion.
+
+due diligence satisfactory to the relevant Party in its discretion.
+The proposed completion conditions are expected to include:
+• Execution of mutually satisfactory definitive business-combination, shareholders, investment, services, IP, employment and ancillary documents;
+• Receipt of all FSRA approvals, including prior change-of-control approval where required, and all ADGM Registration Authority and other regulatory filings;
+• All necessary board, shareholder, investor, lender, contractual and third-party approvals or waivers;
+
+investor, lender, contractual and third-party approvals or waivers;
+• Verification of the Reference Combined Equity Value and the applicable Kairoswealth Consideration;
+• Delivery of complete and accurate pre- and post-completion fully diluted capitalisation tables;
+• No material adverse change in AIREV, the Kairoswealth Group, the FSP, the platform, the IP, the client book, key personnel or banking relationships;
+• Confirmation that all material IP is owned by, assigned to or validly licensed to the agreed Combined Group entity free of undisclosed encumbrances; and
+
+to the agreed Combined Group entity free of undisclosed encumbrances; and
+• No law, order, injunction, regulatory direction or proceeding prohibiting or materially restraining the proposed Business Combination.
+11. REGULATORY PATHWAY AND CATEGORY 3 COMMITMENT
+The Parties acknowledge that only an entity holding the relevant FSP may conduct Regulated Activities in or from ADGM.
+
+holding the relevant FSP may conduct Regulated Activities in or from ADGM. References in this LOI to the "AIREV/Kairoswealth Category 4 platform" describe the commercial, technology and branding structure; the Category 4 FSP itself will be held and exercised solely by Kairoswealth Prive unless the FSRA approves otherwise.
+The Parties intend to disclose and discuss the proposed structure with the FSRA at the appropriate stage and to submit a complete change-of-control application as soon as the FSRA is prepared to review it.
+
+change-of-control application as soon as the FSRA is prepared to review it. No change in direct or indirect control of Kairoswealth Prive will occur before required FSRA approval.
+As a Core KPI, the Kairoswealth Group will develop and pursue a credible pathway to the appropriate Category 3 prudential category and corresponding regulated activities. The commitment requires the board-approved roadmap, resources, governance, capital plan, systems-and-controls gap assessment, FSRA engagement and submission steps in Schedule 1.
+
+gap assessment, FSRA engagement and submission steps in Schedule 1. Regulatory approval itself is not guaranteed and will not be treated as within a Party's unilateral control.
+12. INDICATIVE POST-COMBINATION GOVERNANCE
+The definitive documents are expected to establish governance proportionate to the applicable ownership outcome and acceptable to the FSRA.
+
+proportionate to the applicable ownership outcome and acceptable to the FSRA. The Combined Group board composition, reserved matters, information rights, management appointments, founder and key-person arrangements, transfer restrictions, pre-emption rights, employee incentive pool and exit provisions will be agreed after diligence.
+Kairoswealth Prive will maintain a separate governing body, approved persons, compliance function, MLRO, finance function, risk framework, regulatory capital and operational controls as required by its FSP.
+
+framework, regulatory capital and operational controls as required by its FSP. No shareholder or group governance right will override the duties of Kairoswealth Prive, its governing body or its approved persons to the FSRA or under applicable law.
+13. EXCLUSIVITY AND INTERIM PROTECTION
+From the date of this LOI until the earlier of: (a) ninety days after expiry of the Measurement Period; (b) execution of definitive Business Combination documents;
+
+Measurement Period; (b) execution of definitive Business Combination documents; or (c) written termination of exclusivity by AIREV following a material breach by a Kairoswealth Party, Kairoswealth Holding and Kairoswealth Prive shall not, and shall procure that their shareholders, directors, officers, employees and advisers do not, directly or indirectly solicit, initiate, encourage, negotiate, agree or enter into any competing sale, merger, business combination, disposal of material assets or IP, or transaction involving a change of control of a Kairoswealth Party.
+
+or IP, or transaction involving a change of control of a Kairoswealth Party.
+This restriction does not prohibit a bona fide ordinary-course financing that does not involve a change of control, does not materially impair the proposed Business Combination and has been disclosed to AIREV in advance. The Parties may include more detailed exclusivity, permitted-financing and non-circumvention provisions in the definitive investment instrument.
+14.
+
+and non-circumvention provisions in the definitive investment instrument.
+14. CONFIDENTIALITY, ANNOUNCEMENTS AND REGULATORY DISCLOSURE
+Each Party shall keep confidential the existence and terms of this LOI, the proposed Business Combination, the Strategic Investment, all diligence materials and all non-public information received from another Party. Disclosure is permitted to directors, employees, professional advisers, financing sources and regulators who have a need to know and are bound by confidentiality obligations or where required by law or regulatory process.
+
+by confidentiality obligations or where required by law or regulatory process.
+No public announcement, press release, social-media communication or external use of another Party's name, logo or brand relating to this LOI or the proposed transaction may be made without the other Parties' prior written approval, except where legally required. Nothing in this clause prevents timely and complete disclosure to the FSRA, the ADGM Registration Authority or another competent regulator.
+15.
+
+the FSRA, the ADGM Registration Authority or another competent regulator.
+15. COSTS, TERM AND TERMINATION
+Each Party will bear its own legal, tax, financial, regulatory, technical and other costs arising from the negotiation and evaluation of the proposed transaction, unless the definitive documents provide otherwise.
+The non-binding transaction terms in this LOI may be withdrawn or terminated by any Party at any time by written notice and will automatically be superseded by definitive Business Combination documents.
+
+will automatically be superseded by definitive Business Combination documents. Termination will not affect accrued rights under the Binding Provisions or any separately executed investment, confidentiality, services or other binding agreement.
+16. NON-BINDING STATUS
+Except for Clause 13 (Exclusivity and interim protection), Clause 14 (Confidentiality, announcements and regulatory disclosure), Clause 15 (Costs, term and termination), this Clause 16 (Non-binding status), Clause 17 (General) and any provision expressly stated to be binding (together, the "Binding Provisions"),
+
+provision expressly stated to be binding (together, the "Binding Provisions"), this LOI is a non-binding expression of present intention only.
+No non-binding provision creates any duty to continue negotiations, complete diligence, invest, issue or transfer shares, merge, combine businesses, enter definitive documents or complete any transaction. No Party may rely on this LOI as evidence of committed financing or a legally enforceable obligation to complete the Business Combination.
+
+or a legally enforceable obligation to complete the Business Combination. A binding obligation in relation to the Business Combination will arise only under definitive agreements duly approved, executed and delivered by the relevant parties.
+The use of the words "will", "shall", "must" or similar mandatory language in a non-binding provision describes the Parties' current intended terms and does not make that provision binding.
+17. GENERAL
+17.1 No partnership or authority
+Nothing in this LOI creates a partnership, fiduciary relationship, agency or joint venture.
+
+LOI creates a partnership, fiduciary relationship, agency or joint venture. No Party may bind another Party or make representations on its behalf except under a separate written authority.
+17.2 Assignment
+No Kairoswealth Party may assign a Binding Provision without AIREV's prior written consent. AIREV may assign the benefit of a Binding Provision to an affiliate or designated transaction vehicle, provided that AIREV remains responsible for its obligations under that provision.
+
+that AIREV remains responsible for its obligations under that provision.
+17.3 Counterparts and electronic execution
+This LOI may be executed in counterparts and by electronic signature, each of which will be treated as an original and together constitute the same instrument.
+17.4 Governing law and jurisdiction
+The Binding Provisions and any non-contractual obligations arising from them are governed by the laws of the Abu Dhabi Global Market.
+
+arising from them are governed by the laws of the Abu Dhabi Global Market. The Parties submit to the exclusive jurisdiction of the ADGM Courts in relation to the Binding Provisions, without limiting a Party's right to seek urgent interim or injunctive relief.
+17.5 No waiver; amendments
+A waiver of a Binding Provision is effective only if in writing. Any amendment to this LOI must be in writing and signed by each Party. If a Binding Provision is invalid or unenforceable, it will be modified to the minimum extent necessary and the remaining Binding Provisions will continue in effect.
+
+extent necessary and the remaining Binding Provisions will continue in effect.
+SIGNATURES
+The Parties acknowledge the non-binding status of the proposed Business Combination and agree to be bound only by the Binding Provisions identified in Clause 16.
+For and on behalf of AIREV [FULL REGISTERED LEGAL NAME]
+Signature: ___________________________
+Name: ______________________________
+Title: _______________________________
+Date: ________________________________
+For and on behalf of KAIROSWEALTH HOLDING LIMITED
+Signature: ___________________________
+Name: ______________________________
+
+Signature: ___________________________
+Name: ______________________________
+Title: Director / Authorised Signatory
+Date: ________________________________
+For and on behalf of KAIROSWEALTH PRIVE [FULL REGISTERED LEGAL NAME]
+Signature: ___________________________
+Name: ______________________________
+Title: _______________________________
+Date: ________________________________
+SCHEDULE 1
+KPI PACKAGE AND VERIFICATION FRAMEWORK
+KPI Achieved requires the Core Financial KPI and each Core Strategic KPI below to be achieved in all material respects during the Measurement Period.
+
+below to be achieved in all material respects during the Measurement Period. Minor defects that do not materially impair value or regulatory readiness may be cured under Clause 8.
+KPI | REQUIREMENT | PRIMARY EVIDENCE
+1. Qualifying AUM/AUA | At least USD 250,000,000 of Qualifying AUM/AUA must be onboarded with Approved UAE Banks and remain within the qualifying structure for at least 30 consecutive days during the Measurement Period.
+
+structure for at least 30 consecutive days during the Measurement Period. Each asset pool must be subject to an active client mandate with Kairoswealth Prive; supported by completed KYC, AML, sanctions and source-of-funds review; advised or administered using the AIREV/Kairoswealth technology and operating framework; and treated as discretionary AUM only where expressly permitted by the FSP. Exclude leverage, circular transfers, temporary parking, double counting, undisclosed affiliate capital and assets not genuinely under an active mandate.
+
+undisclosed affiliate capital and assets not genuinely under an active mandate. | Bank or custodian confirmations; client and advisory agreements; compliance approvals; portfolio statements; fee records; reconciled KPI ledger.
+2. International family-office corridors | Establish a credible portfolio of leading family-office or multi-family-office relationships from each of: Japan; offshore Indian family offices (Indian-linked principals or family offices lawfully based outside India); Australia; and New Zealand.
+
+or family offices lawfully based outside India); Australia; and New Zealand. | Executed mandates; bank onboarding; client classification and compliance records; asset confirmations; relationship and origination records.
+3. Category 3 commitment | Within 90 days after the Category 4 Licence Effective Date, approve a Category 3 roadmap identifying the appropriate Category 3 sub-category and regulated activities unless decided otherwise by the board or management of AIREV/ Holding Company.
+
+unless decided otherwise by the board or management of AIREV/ Holding Company. During the Measurement Period, complete the governance, capital, staffing, systems-and-controls and regulatory gap assessment; engage with the FSRA; and, by the end of the Measurement Period, submit a materially complete Category 3 application or FSP-variation application if the FSRA is prepared to accept it. FSRA approval is not itself required for KPI achievement where all actions within the Parties' control have been completed.
+
+achievement where all actions within the Parties' control have been completed. | Board resolution; regulatory business plan; capital plan; gap assessment; FSRA correspondence; application or variation submission evidence.
+4. AI platform delivery | Deliver and place into production a fully developed AI-enabled family-office ecosystem platform integrating the Kairoswealth proprietary platform.
+
+ecosystem platform integrating the Kairoswealth proprietary platform. Minimum modules: digital onboarding and KYC workflow; CRM and relationship management; portfolio and data aggregation; analytics, risk and performance reporting; product and opportunity workflow; document and task management; role-based access; an AI financial-assistant or decision-support layer with human oversight, explainability and audit trails; bank/custodian integration capability; cybersecurity, privacy, resilience and business-continuity controls; and management reporting.
+
+privacy, resilience and business-continuity controls; and management reporting. The platform must be used operationally for the qualifying client base and have no unresolved Severity 1 production defect at acceptance. | Production release and user-acceptance report; architecture and security documentation; access logs; bank/custodian integration evidence; independent technical review; defect register.
+5.
+
+integration evidence; independent technical review; defect register.
+5. Kairoswealth proprietary platform | Complete, document and operationalise the proprietary Kairoswealth software covering onboarding, KYC, portfolio data aggregation, product distribution, portfolio management or advisory analytics, CRM and the AI Financial Assistant, together with source code, build scripts, configuration, technical documentation, credentials, development environments and all rights required for continued operation and commercialisation in ADGM.
+
+and all rights required for continued operation and commercialisation in ADGM. | Repository and credential transfer; software bill of materials; technical documentation; product release; IP and contractor assignments; operational acceptance.
+6. Singapore-to-Abu Dhabi IP migration | Complete, perfect and evidence the legal and operational migration of all material Kairoswealth IP and related assets from Kairoswealth Wealth Holdings Pte. Ltd. in Singapore to Kairoswealth Holding Limited or another agreed ADGM Combined Group entity.
+
+to Kairoswealth Holding Limited or another agreed ADGM Combined Group entity. This includes completion of the existing Singapore-to-ADGM transfer arrangements; title to software, source code, brands, domains, data rights, documentation, contracts and credentials; required third-party consents and registrations; transfer-pricing and tax compliance; and operational control, maintenance and commercial exploitation from Abu Dhabi. No conflicting ownership, licence or encumbrance may remain undisclosed in Singapore. | Executed assignments and completion certificates;
