@@ -789,23 +789,137 @@
   <aside class="notes"><p>Model version thirteen, two scenarios. The UAE base case reaches AED 56.9 million of revenue in year five with break-even in year three; the international case reaches AED 95 million. Toggle between them. NPV is shown at the partner's discount rate and at AIREV's. The counterparty is referred to only as the VVIP Sovereign JV in both modes.</p></aside>
 </section>
 
-<section class="step" data-x="5100" data-y="4600" data-lane="4" data-chapter="Sovereign programmes" data-story="Scale" data-title="Hardware examples">
+<section class="step" id="hardware" data-x="5100" data-y="4600" data-lane="4" data-chapter="Sovereign programmes" data-story="Scale" data-title="Hardware examples">
   <div class="step-inner">
     <div class="eyebrow"><span class="n">23</span>Hardware · datacenter to device</div>
     <h2 class="title rise" style="font-size:28px">OnDemand ships inside the boxes the world already buys.</h2>
-    <div class="hw roomy rise" style="--d:.1s; margin-top:10px">
-      <div class="it"><img src="assets/logos/tenstorrent.svg" alt="Tenstorrent" class="hl-logo"><div class="nm">Galaxy</div><div class="ds">32× Blackhole · 23 PF FP8 · 1 TB · 6U · 8–10 kW · $110–160K</div></div>
-      <div class="it"><span class="logo-dark sm"><img src="assets/logos/supermicro.png" alt="Supermicro" class="hl-logo"></span><div class="nm">AS-2115HV-TNRT</div><div class="ds">Certified; sovereign systems ship preloaded</div></div>
-      <div class="it"><img src="assets/logos/qualcomm.png" alt="Qualcomm" class="hl-logo"><div class="nm">AI200 / AI250 racks</div><div class="ds">Factory pre-load; K8s-native activation</div></div>
-      <div class="it"><img src="assets/logos/qualcomm.png" alt="Qualcomm" class="hl-logo"><div class="nm">Snapdragon X AI PCs</div><div class="ds">45 TOPS Copilot+ · ~11K in the first e& PO</div></div>
-      <div class="it"><img src="assets/logos/qualcomm.png" alt="Qualcomm" class="hl-logo"><div class="nm">AR1+ / XR2+ glasses</div><div class="ds">~10K units · AR runtime Q1 2027</div></div>
-      <div class="it"><img src="assets/logos/intel.png" alt="Intel" class="hl-logo"><div class="nm">Core Ultra · Panther Lake</div><div class="ds">Offline OnDemand for Windows · up to 94% faster TTFT</div></div>
-      <div class="it"><img src="assets/logos/core42.png" alt="Core42" class="hl-logo"><div class="nm">NVIDIA H200 block</div><div class="ds">32 GPUs rented at Core42 · JV day-one compute</div></div>
-      <div class="it"><span class="hl-logos"><img src="assets/logos/cisco.png" alt="Cisco" class="hl-logo"><img src="assets/logos/netapp.png" alt="NetApp" class="hl-logo"></span><div class="nm">Cisco + NetApp "sovereign rack"</div><div class="ds">Fabric + AI data layer + Galaxy/AI200 · one SKU via WWT</div></div>
+    <div class="hw-head rise" style="--d:.08s">
+      <div class="hw-track" role="group" aria-label="Datacenter to device spectrum — click a zone to filter">
+        <button type="button" class="hw-zone dc" data-zone="datacenter" aria-pressed="false"><b>Datacenter <em>5 systems</em></b><span>Galaxy · AS-2115HV-TNRT · AI200 / AI250 racks · H200 block · sovereign rack</span></button>
+        <i class="hw-arrow" aria-hidden="true">→</i>
+        <button type="button" class="hw-zone dv" data-zone="device" aria-pressed="false"><b>Device <em>3 systems</em></b><span>Snapdragon X AI PCs · Panther Lake · AR1+ / XR2+ glasses</span></button>
+      </div>
+      <div class="pills hw-pills" role="group" aria-label="Filter tiles">
+        <button type="button" class="pill on" data-f="all" aria-pressed="true">All</button><button type="button" class="pill" data-f="datacenter" aria-pressed="false">Datacenter</button><button type="button" class="pill" data-f="device" aria-pressed="false">Device</button>
+      </div>
     </div>
-    <div class="fnote">Also: Intel Xeon &amp; Gaudi certified images; Dell certified systems; Moro Hub green hosting. Footprint ~200 MB per AI-PC licence. <span class="src">TT</span><span class="src">QC</span><span class="src">IM</span><span class="src">EX</span></div>
+    <div class="hw spectrum rise" id="hwgrid" data-filter="all" style="--d:.14s" aria-label="Eight certified systems, datacenter to device — click a tile for details">
+      <article class="it" id="hw-t1" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d1" data-zone="datacenter" data-brand="tenstorrent">
+        <div class="lg"><img class="logo l-tenstorrent" src="assets/logos/tenstorrent.svg" alt="Tenstorrent"></div>
+        <div class="nm">Galaxy</div>
+        <div class="ds">32× Blackhole · 23 PF FP8 · 1 TB · 6U</div>
+        <div class="ft"><span class="zone">Datacenter</span><span class="ds2">8–10 kW · $110–160K</span></div>
+        <div class="more" id="hw-d1" role="region" aria-label="Galaxy — details">
+          <ul>
+            <li>Modular DC #1: 23 Galaxy units · 736 Blackhole chips · six racks in one container.</li>
+            <li>Fleet all-in $2.9–4.4M, ~50% cost-shared by Tenstorrent under the LOI.</li>
+            <li>Live with the $500M round around April 2027 — the owned-compute landing zone.</li>
+          </ul>
+          <div class="st"><b>● Agreement (CCA, 1 Sep 2025) · cost-share LOI ◐</b> — definitive agreement to follow. <span class="src">TT</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t2" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d2" data-zone="datacenter" data-brand="supermicro">
+        <div class="lg"><img class="logo l-supermicro" src="assets/logos/supermicro.svg" alt="Supermicro"></div>
+        <div class="nm">AS-2115HV-TNRT</div>
+        <div class="ds">Certified sovereign appliance</div>
+        <div class="ft"><span class="zone">Datacenter</span><span class="ds2">Sovereign systems preloaded</span></div>
+        <div class="more" id="hw-d2" role="region" aria-label="AS-2115HV-TNRT — details">
+          <ul>
+            <li>Reference on-prem appliance for channel deployments via Redington and WWT.</li>
+            <li>Deployable inside Moro Hub’s Tier III campus or at customer sites.</li>
+            <li>Certified sovereign stack refresh with Dell, Cisco and NetApp — Q2 2028 ○.</li>
+          </ul>
+          <div class="st"><b>● Certification</b> — sovereign systems ship with OnDemand preloaded. <span class="src">IM</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t3" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d3" data-zone="datacenter" data-brand="qualcomm">
+        <div class="lg"><img class="logo l-qualcomm" src="assets/logos/qualcomm.svg" alt="Qualcomm"></div>
+        <div class="nm">AI200 / AI250 racks</div>
+        <div class="ds">Factory pre-load · K8s-native activation</div>
+        <div class="ft"><span class="zone">Datacenter</span><span class="ds2">Five silicon families · TLA</span></div>
+        <div class="more" id="hw-d3" role="region" aria-label="AI200 / AI250 racks — details">
+          <ul>
+            <li>Technology License Agreement: $100 per activated unit, perpetual, five silicon families.</li>
+            <li>Sovereign appliance roadmap on AI200 / AI250 racks from Q1 2028 ○; at volume Q2 2028 ○.</li>
+            <li>Installed base 111K (2026) → 562.5K devices (2028E) across the five families ◐.</li>
+          </ul>
+          <div class="st"><b>● Agreement · TLA + SOW</b> — factory pre-load, Kubernetes-native activation. <span class="src">QC</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t4" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d4" data-zone="datacenter" data-brand="core42">
+        <div class="lg"><img class="logo l-core42" src="assets/logos/core42.svg" alt="Core42"><span class="sub">A G42 company</span></div>
+        <div class="nm">NVIDIA H200 block</div>
+        <div class="ds">32 GPUs rented · JV day-one compute</div>
+        <div class="ft"><span class="zone">Datacenter</span><span class="ds2">Owned cluster at month 6</span></div>
+        <div class="more" id="hw-d4" role="region" aria-label="NVIDIA H200 block — details">
+          <ul>
+            <li>Path: open APIs → rented 32× H200 block → month-6 gate on an owned cluster.</li>
+            <li>The owned cluster is the landing zone for the Galaxy fleet — G6 decision, 26 March 2027 ○.</li>
+            <li>Rented overflow stays available beside Moro Hub’s 100 MW solar Tier III hosting.</li>
+          </ul>
+          <div class="st"><b>● Agreements · MSAs (Core42 · ADQ)</b> — day-one JV compute without capex. <span class="src">IM</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t5" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d5" data-zone="datacenter" data-brand="cisco-netapp">
+        <div class="lg"><img class="logo l-cisco" src="assets/logos/cisco.svg" alt="Cisco"><i class="plus" aria-hidden="true">+</i><img class="logo l-netapp" src="assets/logos/netapp.svg" alt="NetApp"></div>
+        <div class="nm">“Sovereign rack” SKU</div>
+        <div class="ds">Fabric + AI data layer · one SKU via WWT</div>
+        <div class="ft"><span class="zone">Datacenter</span><span class="ds2">Pairs with Galaxy / AI200</span></div>
+        <div class="more" id="hw-d5" role="region" aria-label="Sovereign rack — details">
+          <ul>
+            <li>Fabric + AI data layer + Galaxy / AI200 compute — one certified SKU via WWT, Q1 2027 ●.</li>
+            <li>WWT’s reseller agreement carries US federal and state contract flow-downs ●.</li>
+            <li>Data stays resident in-country; the government channel reaches GCC, US and EU accounts.</li>
+          </ul>
+          <div class="st"><b>◐ Channel via the WWT rack · ● WWT reseller agreement</b> <span class="src">IM</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t6" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d6" data-zone="device" data-brand="qualcomm">
+        <div class="lg"><img class="logo l-qualcomm" src="assets/logos/qualcomm.svg" alt="Qualcomm"></div>
+        <div class="nm">Snapdragon X AI PCs</div>
+        <div class="ds">45 TOPS Copilot+ · ~11K in first e&amp; PO</div>
+        <div class="ft"><span class="zone">Device</span><span class="ds2">e&amp; AI PC wave · Q2 2027</span></div>
+        <div class="more" id="hw-d6" role="region" aria-label="Snapdragon X AI PCs — details">
+          <ul>
+            <li>First e&amp; programme: ~10K AR glasses + ~11K AI PCs + ~4K appliances = 25,000 devices ◐.</li>
+            <li>Qualcomm / e&amp; AI PC wave: ~11K units activated — Q2 2027 ○.</li>
+            <li>$100 per activated unit under the perpetual TLA ●; footprint ~200 MB per AI-PC licence.</li>
+          </ul>
+          <div class="st"><b>● TLA + SOW · ◐ e&amp; SOW, 25K-device programme</b> <span class="src">QC</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t7" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d7" data-zone="device" data-brand="intel">
+        <div class="lg"><img class="logo l-intel" src="assets/logos/intel.svg" alt="Intel"></div>
+        <div class="nm">Core Ultra · Panther Lake</div>
+        <div class="ds">Offline OnDemand for Windows</div>
+        <div class="ft"><span class="zone">Device</span><span class="ds2">Up to 94% faster TTFT</span></div>
+        <div class="more" id="hw-d7" role="region" aria-label="Core Ultra · Panther Lake — details">
+          <ul>
+            <li>AI PC MOU 12 Dec 2025 ●; the Panther Lake offline build delivered 26 Feb 2026.</li>
+            <li>A fully offline sovereign assistant on Intel AI PCs through 2027–2028, beyond Qualcomm silicon.</li>
+            <li>Channel volume on Panther Lake from Q1 2028 ○; Xeon &amp; Gaudi certified images too.</li>
+          </ul>
+          <div class="st"><b>● MoU signed</b> — up to 94% faster time-to-first-token. <span class="src">IM</span></div>
+        </div>
+      </article>
+      <article class="it" id="hw-t8" role="button" tabindex="0" aria-expanded="false" aria-controls="hw-d8" data-zone="device" data-brand="qualcomm">
+        <div class="lg"><img class="logo l-qualcomm" src="assets/logos/qualcomm.svg" alt="Qualcomm"></div>
+        <div class="nm">AR1+ / XR2+ glasses</div>
+        <div class="ds">~10K units · AR runtime Q1 2027</div>
+        <div class="ft"><span class="zone">Device</span><span class="ds2">e&amp; AR glasses wave · Q1 2027</span></div>
+        <div class="more" id="hw-d8" role="region" aria-label="AR1+ / XR2+ glasses — details">
+          <ul>
+            <li>AR runtime for Qualcomm XR2 / AR1 glasses released Q1 2027 ○.</li>
+            <li>e&amp; AR glasses wave: the AR runtime on ~10K units — part of the 25,000-device programme.</li>
+            <li>OnDemand on XR2 / AR1 glasses at volume by Q2 2028 ○.</li>
+          </ul>
+          <div class="st"><b>● TLA + SOW · ◐ e&amp; SOW</b> — the third of the five silicon families. <span class="src">QC</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="fnote hw-fnote">Also: Intel Xeon &amp; Gaudi certified images; Dell certified systems; Moro Hub green hosting. Footprint ~200 MB per AI-PC licence. <span class="src">TT</span><span class="src">QC</span><span class="src">IM</span><span class="src">EX</span></div>
   </div>
-  <aside class="notes"><p>What the certified stack ships on: Supermicro appliances, Qualcomm devices from Snapdragon X laptops to AR glasses, Intel Panther Lake AI PCs, Tenstorrent Galaxy racks and the Cisco and NetApp sovereign rack via WWT. The photographs and figures are partner materials; the point is one SKU across every tier from data centre to device.</p></aside>
+  <aside class="notes"><p>The certified stack laid out as a spectrum from data centre to device — click a tile for its proof points and the instrument behind it. Five datacenter systems: the Tenstorrent Galaxy rack (32 Blackhole chips, 23 petaflops FP8, the unit of modular DC #1), the certified Supermicro AS-2115HV-TNRT appliance that ships preloaded, Qualcomm's AI200 and AI250 racks with factory pre-load, the 32-GPU NVIDIA H200 block rented at Core42 for the JV's day-one compute, and the Cisco and NetApp sovereign rack sold as one SKU through WWT. Three device tiers: Snapdragon X AI PCs (45 TOPS, about eleven thousand in the first e&amp; order), Intel Core Ultra Panther Lake with offline OnDemand for Windows, and the AR1+ and XR2+ glasses (about ten thousand units, AR runtime in the first quarter of 2027). The point is one SKU across every tier from data centre to device.</p></aside>
 </section>
 
 <section class="step" data-x="6800" data-y="4600" data-lane="4" data-chapter="Sovereign programmes" data-story="Scale" data-title="Africa build-out (potential)">

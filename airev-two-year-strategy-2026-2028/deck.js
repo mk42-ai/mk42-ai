@@ -197,3 +197,68 @@
   document.dispatchEvent(new CustomEvent('deckready'));
   window.deck={goTo,showOverview,toggleOverview,steps,get current(){return cur;}};
 })();
+
+/* ---- card 23 (#28) · Hardware — Datacenter → Device spectrum (9 Sep 2026) ----
+   Eight tiles: click / tap or Enter / Space expands one inline detail panel at a time, Esc closes it; the zone buttons on the
+   track and the All · Datacenter · Device pills filter the grid (tiles fade out, then get the hidden attribute).
+   Key handling lives on the tiles themselves and only stops propagation for Enter / Space / Esc, so the deck's arrow-key
+   navigation is untouched and works whenever no tile has focus. Presentation-mode redaction (mode.js) is unaffected; print CSS
+   renders every tile expanded and static regardless of filter or open state. */
+(function(){
+  const card=document.getElementById('hardware'); if(!card) return;
+  const grid=card.querySelector('#hwgrid'); if(!grid) return;
+  const tiles=[...grid.querySelectorAll('.it')];
+  const zones=[...card.querySelectorAll('.hw-zone')];
+  const pills=[...card.querySelectorAll('.hw-pills .pill')];
+  const reduce=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
+  const timers=new Map();
+  let filter='all';
+
+  function setOpen(t,on){ t.classList.toggle('open',on); t.setAttribute('aria-expanded',on?'true':'false'); }
+  function closeAll(except){ tiles.forEach(o=>{ if(o!==except && o.classList.contains('open')) setOpen(o,false); }); }
+  function toggle(t){ const on=!t.classList.contains('open'); closeAll(t); setOpen(t,on); }
+  function applyFilter(f){
+    f=(f==='datacenter'||f==='device')?f:'all';
+    filter=f; grid.dataset.filter=f;
+    pills.forEach(p=>{ const on=p.dataset.f===f; p.classList.toggle('on',on); p.setAttribute('aria-pressed',on?'true':'false'); });
+    zones.forEach(z=>z.setAttribute('aria-pressed',z.dataset.zone===f?'true':'false'));
+    const instant=!!(reduce&&reduce.matches);
+    tiles.forEach(t=>{
+      const show=f==='all'||t.dataset.zone===f;
+      clearTimeout(timers.get(t));
+      if(show){
+        if(t.hidden){ t.hidden=false; void t.offsetWidth; }   /* un-hide first, then let the fade-in run */
+        t.classList.remove('out');
+      } else {
+        if(t.classList.contains('open')) setOpen(t,false);
+        if(document.activeElement===t) t.blur();
+        t.classList.add('out');
+        if(instant) t.hidden=true;
+        else timers.set(t,setTimeout(()=>{ if(t.classList.contains('out')) t.hidden=true; },380));
+      }
+    });
+  }
+
+  tiles.forEach(t=>{
+    t.addEventListener('click',e=>{ if(e.target.closest('.more')) return; toggle(t); });
+    t.addEventListener('keydown',e=>{
+      if(e.target!==t) return;                                  /* only when the tile itself has focus */
+      const k=e.key;
+      if(k==='Enter'||k===' '||k==='Spacebar'){ e.preventDefault(); e.stopPropagation(); toggle(t); }
+      else if((k==='Escape'||k==='Esc') && t.classList.contains('open')){ e.preventDefault(); e.stopPropagation(); setOpen(t,false); }
+      /* arrow keys and everything else fall through to the deck */
+    });
+  });
+  pills.forEach(p=>p.addEventListener('click',()=>applyFilter(p.dataset.f)));
+  zones.forEach(z=>z.addEventListener('click',()=>applyFilter(z.dataset.zone===filter?'all':z.dataset.zone)));
+  [...pills,...zones].forEach(b=>b.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') e.stopPropagation(); })); /* native button activation; the deck must not advance */
+
+  /* leaving the card closes any open panel and drops tile focus so the deck's Enter / Space keep navigating */
+  document.addEventListener('stepchange',e=>{
+    if(e.detail && e.detail.step===card) return;
+    closeAll();
+    if(card.contains(document.activeElement)) document.activeElement.blur();
+  });
+
+  window.hardwareSpectrum={tiles, filter:applyFilter, toggle, closeAll, get current(){ return filter; }};
+})();

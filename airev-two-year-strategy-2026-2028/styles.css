@@ -728,3 +728,93 @@ table.holder-table tr.total td{font-weight:600}
 table.holder-table .mark{height:14px; width:auto; max-width:60px; vertical-align:middle; margin-right:7px; object-fit:contain}
 table.holder-table .tag{font-size:8.5px; padding:1px 5px; margin-left:5px}
 @media print{ .stage-chart rect.bar{transform:none!important} .stage-chart text.lab{opacity:1!important} table.holder-table td,table.cap-table td{white-space:normal} }
+
+/* ================= 9 Sep 2026 · card 23 (#28) Hardware · Datacenter → Device spectrum =================
+   Compact content-height tiles on a 4-column grid (2 columns below 1280 px), a slim segmented Datacenter → Device track
+   with clickable zones + All / Datacenter / Device pills, official monochrome-ink logos (brand colour on hover / focus / open),
+   inline detail panels (one open at a time; Enter / Space / Esc), print renders everything expanded and static. */
+.hw-head{display:flex; align-items:center; gap:14px; margin-top:4px}
+.hw-track{flex:1 1 auto; min-width:0; display:grid; grid-template-columns:5fr 22px 3fr; align-items:stretch; gap:6px}
+.hw-zone{position:relative; overflow:hidden; min-width:0; text-align:left; border:1px solid var(--hair); border-radius:10px; background:#fff; padding:11px 14px 9px; cursor:pointer; font-family:var(--sans); color:var(--ink); box-shadow:0 1px 0 rgba(16,32,27,.03), 0 10px 26px -14px rgba(16,32,27,.14); transition:border-color .2s ease, background-color .2s ease, box-shadow .2s ease}
+.hw-zone::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--emerald)}
+.hw-zone.dv::before{background:var(--gold)}
+.hw-zone b{display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--emerald); line-height:1.2}
+.hw-zone.dv b{color:var(--gold)}
+.hw-zone b em{font-style:normal; letter-spacing:.04em; text-transform:none; font-size:10.5px; font-weight:500; color:var(--ink-faint)}
+.hw-zone span{display:block; margin-top:5px; font-size:11.5px; line-height:1.35; color:var(--ink-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hw-zone:hover{border-color:rgba(14,122,95,.45)}
+.hw-zone.dv:hover{border-color:rgba(165,136,75,.55)}
+.hw-zone:focus-visible{outline:2px solid var(--emerald-b); outline-offset:2px}
+.hw-zone[aria-pressed="true"]{background:var(--emerald-soft); border-color:rgba(14,122,95,.45)}
+.hw-zone.dv[aria-pressed="true"]{background:var(--gold-soft); border-color:rgba(165,136,75,.55)}
+.hw-arrow{align-self:center; text-align:center; font-style:normal; color:var(--gold); font-size:18px; line-height:1; font-family:var(--sans)}
+.hw-pills{margin:0; flex:0 0 auto; gap:6px; flex-wrap:nowrap}
+.hw-pills .pill{padding:6px 11px; font-size:11px}
+.hw-pills .pill:focus-visible{outline:2px solid var(--emerald-b); outline-offset:2px}
+
+.hw.spectrum{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:auto; gap:14px; align-items:stretch; align-content:start; flex:0 0 auto; min-height:0; margin-top:14px}
+.hw.spectrum .it{position:relative; display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; min-width:0; padding:22px 22px 20px; background:var(--card); border:1px solid var(--hair); border-radius:12px; box-shadow:0 1px 0 rgba(16,32,27,.03), 0 10px 26px -14px rgba(16,32,27,.14); cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transform:translateY(0); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, opacity .3s ease}
+.hw.spectrum .it:hover,.hw.spectrum .it:focus-visible,.hw.spectrum .it.open{transform:translateY(-2px); border-color:rgba(14,122,95,.38); box-shadow:0 1px 0 rgba(16,32,27,.03), 0 18px 36px -16px rgba(16,32,27,.24)}
+.hw.spectrum .it:focus-visible{outline:2px solid var(--emerald-b); outline-offset:3px}
+.hw.spectrum .it.open{border-color:var(--emerald)}
+.hw.spectrum .it.out{opacity:0; transform:scale(.97); pointer-events:none}
+.hw.spectrum .it[hidden]{display:none}
+
+/* logo row: fixed 36 px, logos left on one shared baseline; optical size per brand via --lh (height) / --lb (lift above the row's bottom edge) */
+.hw.spectrum .it .lg{display:flex; align-items:flex-end; gap:10px; height:36px; margin-bottom:9px; min-width:0}
+.hw.spectrum .it .logo{display:block; height:var(--lh,22px); width:auto; max-width:200px; object-fit:contain; object-position:left bottom; margin:0 0 var(--lb,7px); flex:0 0 auto;
+  filter:brightness(0) saturate(100%) invert(70%) sepia(38%) saturate(503%) hue-rotate(110deg) brightness(12%) contrast(95%)} /* = deck ink #10201B */
+.hw.spectrum .it:hover .logo,.hw.spectrum .it:focus-visible .logo,.hw.spectrum .it.open .logo{filter:none} /* brand colour on hover / focus / open */
+.hw.spectrum .it .plus{font-style:normal; font-size:15px; line-height:1; color:var(--ink-faint); margin:0 -3px 8px; flex:0 0 auto}
+.hw.spectrum .it .lg .sub{margin-left:auto; align-self:flex-end; margin-bottom:8px; font-size:9.5px; letter-spacing:.04em; color:var(--ink-faint); white-space:nowrap}
+
+.hw.spectrum .it .nm{font-family:var(--serif); font-weight:500; font-size:21px; line-height:1.15; letter-spacing:-.008em; color:var(--ink)}
+.hw.spectrum .it .ds{margin-top:5px; font-size:13px; line-height:1.4; color:var(--ink-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+/* bottom row: zone chip + the second spec line (revealed on hover / focus / open — it already has its slot, so nothing shifts) */
+.hw.spectrum .it .ft{display:flex; align-items:center; gap:10px; margin-top:9px; min-height:18px; min-width:0}
+.hw.spectrum .it .ft .zone{flex:0 0 auto; font-size:9px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--emerald); background:var(--emerald-soft); border-radius:999px; padding:3px 8px; white-space:nowrap; line-height:1.2}
+.hw.spectrum .it[data-zone="device"] .ft .zone{color:var(--gold); background:var(--gold-soft)}
+.hw.spectrum .it .ds2{flex:1 1 auto; min-width:0; font-size:11.5px; line-height:1.3; color:var(--ink-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0; transform:translateX(-4px); transition:opacity .25s ease, transform .25s ease}
+.hw.spectrum .it:hover .ds2,.hw.spectrum .it:focus-visible .ds2,.hw.spectrum .it.open .ds2{opacity:1; transform:none}
+
+.hw.spectrum .it .more{display:none; margin-top:10px; padding-top:8px; border-top:1px dashed var(--hair2)}
+.hw.spectrum .it.open .more{display:block; animation:hwReveal .3s ease}
+@keyframes hwReveal{from{opacity:0; transform:translateY(-4px)} to{opacity:1; transform:none}}
+.hw.spectrum .it .more ul{list-style:none; margin:0; padding:0}
+.hw.spectrum .it .more li{position:relative; padding-left:11px; font-size:11px; line-height:1.4; color:var(--ink-dim); margin-bottom:3px}
+.hw.spectrum .it .more li::before{content:""; position:absolute; left:0; top:5.5px; width:4.5px; height:4.5px; border-radius:50%; background:var(--emerald)}
+.hw.spectrum .it[data-zone="device"] .more li::before{background:var(--gold)}
+.hw.spectrum .it .more .st{margin-top:5px; font-size:10.5px; line-height:1.4; color:var(--ink-dim)}
+.hw.spectrum .it .more .st b{color:var(--ink); font-weight:600}
+.hw.spectrum .it .more .src{margin-left:4px}
+
+.hw-fnote{display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:10px; line-height:1.5; padding-top:10px}
+.hw-fnote .src{font-size:8.5px; padding:0 4px; line-height:14px; margin-left:4px; vertical-align:baseline}
+
+@media (max-width:1279px){
+  .hw.spectrum{grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px}
+  .hw.spectrum .it{display:grid; grid-template-columns:160px minmax(0,1fr); grid-template-rows:auto auto auto; column-gap:18px; padding:16px 20px 15px; align-items:start}
+  .hw.spectrum .it .lg{grid-row:1 / span 3; margin:0; height:36px}
+  .hw.spectrum .it .ft{margin-top:8px}
+  .hw.spectrum .it .more{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion:reduce){ .hw.spectrum .it,.hw.spectrum .it .ds2,.hw.spectrum .it .more,.hw-zone,.hw-pills .pill{transition:none!important; animation:none!important} }
+@media print{
+  #hardware.step{height:auto; min-height:var(--H)} #hardware .step-inner{height:auto; overflow:visible}
+  .hw.spectrum{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .hw.spectrum .it,.hw.spectrum .it[hidden]{display:flex!important; opacity:1!important; transform:none!important; box-shadow:none; pointer-events:auto; border-color:var(--hair)}
+  .hw.spectrum .it .more{display:block!important; animation:none!important}
+  .hw.spectrum .it .ds2{opacity:1!important; transform:none!important}
+  .hw-pills{display:none!important} .hw-zone{box-shadow:none}
+  .hw.spectrum .it,.hw.spectrum .it .ds2,.hw.spectrum .it .more,.hw.spectrum .it .logo,.hw-zone{transition:none!important; animation:none!important}
+}
+/* per-brand optical normalisation (9 Sep 2026): x-height 15 px for the lowercase / mixed wordmarks (→ ascender / cap ≈ 22 px), cap height 21 px for the
+   SUPERMICRO caps wordmark, 18 px for the uniform-height core42 glyphs; Cisco's bridge bars fill 30.5 px so its small wordmark stays legible; every
+   text baseline sits 5.4 px above the 36 px row's bottom edge (--lb = 5.4 px − the mark's own descent below its baseline). */
+.hw.spectrum .it .logo.l-tenstorrent{--lh:30.5px; --lb:-0.8px}
+.hw.spectrum .it .logo.l-intel{--lh:22.3px; --lb:5.1px}
+.hw.spectrum .it .logo.l-qualcomm{--lh:26.3px; --lb:1.6px}
+.hw.spectrum .it .logo.l-netapp{--lh:23.9px; --lb:1px}
+.hw.spectrum .it .logo.l-cisco{--lh:30.5px; --lb:5.2px}
+.hw.spectrum .it .logo.l-supermicro{--lh:27.3px; --lb:4.4px}
+.hw.spectrum .it .logo.l-core42{--lh:18.9px; --lb:5px}
