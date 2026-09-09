@@ -828,3 +828,15 @@ table.holder-table .tag{font-size:8.5px; padding:1px 5px; margin-left:5px}
 .capital-tables > div:last-child table.t.compact th{font-size:10.5px; padding:8px}
 .capital-tables > div:last-child table.t.compact td{padding:8px 8px; font-size:12.6px; vertical-align:middle}
 table.t.investors th.n, table.t.investors td.n{width:28px; padding-right:4px; color:var(--ink-faint)}
+
+/* ===== 9 Sep 2026 · QA pass 2 fixes =====
+   card 15 (#19) "Who came in at what": the KPI chip row is a nowrap flex row; the Presentation-mode substitutions ("Confidential Partner E …")
+   are longer than the real names and pushed the row 160 px past the card. Chips may now shrink and their captions wrap; nothing changes in
+   Full mode, where the row still fits on one line. */
+.cap-kpis{min-width:0; max-width:100%}
+.cap-kpis .k{min-width:0; flex:0 1 auto; white-space:normal}
+/* print: the .rise entrance transition (translateY 14 px → 0) must not be in flight when the print layout is captured — otherwise the
+   footnotes of the non-active cards (cover, Sources) sit 14 px low and get clipped in the print snapshot. */
+@media print{ .step .rise,.step{transition:none!important} }
+/* print: no trailing blank page after the last card */
+@media print{ #canvas .step:last-of-type{page-break-after:auto; break-after:auto} }
