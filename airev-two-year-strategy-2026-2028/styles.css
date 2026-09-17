@@ -867,7 +867,7 @@ table.t.investors th.n, table.t.investors td.n{width:28px; padding-right:4px; co
 .step.cover-video.hero-media .hero-scrim{background:linear-gradient(90deg,rgba(4,41,34,.84) 0%,rgba(4,41,34,.62) 44%,rgba(4,41,34,.16) 100%), linear-gradient(180deg,rgba(4,41,34,.08) 0%,rgba(4,41,34,0) 35%,rgba(4,41,34,.50) 100%)}
 /* card 01 (lane 01 · Position): the divider illustration sits under a white veil so the data card stays ink-on-white and fully legible */
 .step.hero-media.veil > .hero-media-stack{background:#fff}
-.step.hero-media.veil .hero-scrim{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 48%,rgba(255,255,255,.70) 100%), linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.55) 100%)}
+.step.hero-media.veil .hero-scrim{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.90) 46%,rgba(255,255,255,.60) 100%), linear-gradient(180deg,rgba(255,255,255,.90) 0%,rgba(255,255,255,.40) 100%)}
 /* card 03 · the analogy: the remastered hero and its loop inside the existing .img-card frame */
 .img-card.hero-media{position:relative}
 .img-card.hero-media .hero-poster{position:absolute; inset:0}
