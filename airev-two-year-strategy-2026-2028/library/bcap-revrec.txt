@@ -1,0 +1,606 @@
+# Commercial model & revenue recognition brief — B Capital
+
+Source type: PDF · 3 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+ΛIREV · OnDemand — AIREV Holding Limited, Oﬃce 2458, Level 24, Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, UAE · STRICTLY CONFIDENTIAL — PREPARED FOR
+BCAPITAL
+AIREV Holding Limited — Commercial Model & Revenue Recognition Brief (Prepared for
+BCapital)
+Dated 31 August 2026 · A4 portrait, monochrome. Every material claim carries a superscript mapping to the numbered SOURCES list on page 3. Items marked assumption are
+illustrative and not contracted.
+1 · Revenue recognition — JV equity method vs.
+
+illustrative and not contracted.
+1 · Revenue recognition — JV equity method vs. AIREV direct revenue
+The joint venture is classiﬁed under IFRS 11 as a joint venture (joint control, rights to net assets) and is accounted for by AIREV Holding Limited under IAS
+28 using the equity method.6 The JV is a separate reporting entity and records 100% of its own revenue, costs, assets and liabilities. AIREV does not
+line-by-line consolidate 50% of JV revenue or 50% of JV costs — proportionate consolidation is prohibited for joint ventures.6
+1.1 Worked example — JV P&L vs.
+
+is prohibited for joint ventures.6
+1.1 Worked example — JV P&L vs. what AIREV Holding Limited books (illustrative)
+JV P&L line6
+JV entity books (100%)
+AIREV Holding Limited books — IAS 28 equity method6
+Revenue
+AED 10,000,000
+Nil. AIREV does NOT recognise AED 5,000,000 of revenue.
+Costs
+AED (6,000,000)
+Nil. AIREV does NOT recognise AED 3,000,000 of costs.
+Net proﬁt
+AED 4,000,000
+AED 2,000,000 only — one line, “Share of proﬁt of a joint venture”
+(50% × AED 4.0m).
+Ownership
+AIREV 50% / VVIP Sovereign JV partner 50%
+Drives the single-line share; does not gross up revenue or costs.
+
+partner 50%
+Drives the single-line share; does not gross up revenue or costs.
+Eﬀect on AIREV
+Revenue from the JV = AED nil; income-sta tement eﬀect = AED
+2,000,000, below the operating line.
+Explicit statement. AIREV does not recognise AED 5M of revenue or AED 3M of costs in its own books.6 Its only entry from the JV is AED 2M — the 50% share of the JV’s AED 4M net proﬁt (50% ×
+AED 4M = AED 2M) — presented as a single line in AIREV’s P&L.
+
+net proﬁt (50% ×
+AED 4M = AED 2M) — presented as a single line in AIREV’s P&L. The JV’s own books continue to carry the full AED 10M revenue, AED 6M costs and AED 4M net proﬁt.6
+1.2 Investment carrying-value roll-forward (same example)
+Movement6
+AED
+Where recognised
+Opening — initial contribution, “Investment in JV”
+5,000,000
+Balance sheet — non-current asset
+Add: 50% share of JV net proﬁt
+2,000,000
+P&L — share of proﬁt of a joint venture
+Less: distributions received from the JV
+nil (this example)
+Reduces carrying value; not P&L
+Closing carrying value
+7,000,000
+
+example)
+Reduces carrying value; not P&L
+Closing carrying value
+7,000,000
+Balance sheet — single equity-acc ounted line
+Note for the VVIP Sovereign JV partner ﬁnancial model. Because only the net result is equity-acc ounted, the VVIP Sovereign JV partner model can present JV net proﬁt split 50/50 between AIREV and VVIP Sovereign JV partner (AED 2.0m each above) without
+either party presenting the other’s revenue or costs.6 Carrying value reconciles as AED 5M initial contribution + AED 2M share of proﬁt = AED 7M, consistent with the roll-forward above and with
+the journal entries in §1.4.6
+
+consistent with the roll-forward above and with
+the journal entries in §1.4.6
+1.3 JV activity vs. AIREV’s direct (non-JV) revenue
+Dimension
+JV activity (equity-ac counted)
+AIREV direct, non-JV activity (gross)
+Recognition basis
+IFRS 11 / IAS 28 — equity method6
+IFRS 15 — recognised GROSS in AIREV Holding Limited’s books6
+Income statement
+One net line: share of proﬁt of a JV
+Gross revenue and gross costs / channel margin
+Balance sheet
+Single “Investment in JV” carrying value
+Trade receivables, contract assets and liabilities
+Contracting party
+The JV contracts in its own name
+
+assets and liabilities
+Contracting party
+The JV contracts in its own name
+AIREV Holding Limited remains the contracting party and retains
+all rights and obligations (MOA recitals)3
+Invoicing entity
+The JV entity
+AIREV or its designated aﬃliate, expressly including the wholly-owned
+subsidiary School Hack FZ-LLC; payment of an aﬃliate invoice is full
+and valid payment (Annexure A cl. 1.2; Annexure B cl.
+
+aﬃliate invoice is full
+and valid payment (Annexure A cl. 1.2; Annexure B cl. 4)3
+Consolidation
+Not consolidated line by line
+Consolidated in full — School Hack FZ-LLC is wholly owned, so aﬃliate
+invoicing is presentation, not a change of principal3
+1.4 Two presentation points that follow
+(a) Journal entries in AIREV Holding Limited (illustrat ive). On contribution: Dr Investment in JV AED 5,000,000 / Cr Cash AED 5,000,000. At period end: Dr Investment in JV AED 2,000,000 / Cr Share
+of proﬁt of a joint venture (P&L) AED 2,000,000.
+
+in JV AED 2,000,000 / Cr Share
+of proﬁt of a joint venture (P&L) AED 2,000,000. On a distribution: Dr Cash / Cr Investment in JV — no P&L eﬀect. No revenue line is ever touched by the JV.6 Losses are recognised only to the extent
+of the carrying value unless AIREV has incurred obligations on the JV’s behalf.6
+(b) Channel margin is a reduction in transaction price, not an expense. Redington is appointed as a Purchaser buying for resale in the Territory, so AIREV’s direct revenue is recognised at the
+amount invoiced to Redington — i.e.
+
+AIREV’s direct revenue is recognised at the
+amount invoiced to Redington — i.e. after the 8%+8% (Direct) or 15%+20% (Partner-Led) stack — rather than gross-to-e nd-custome r with a matching selling cost.3, 6 That is why the page-3 model
+reports Net to AIREV.
+1.5 Revenue-stream map — how each stream lands in the BCapital model
+Revenue stream
+Recognition basis / principal- agent
+Timing under IFRS 15
+Where it lands in the model
+JV activity (50/50 with VVIP Sovereign JV partner)
+IAS 28 equity method — not revenue6
+As the JV earns; single net line
+“Share of proﬁt of a joint venture”, below the
+
+the JV earns; single net line
+“Share of proﬁt of a joint venture”, below the
+operating line
+Qualcomm per-device licence, USD 100/unit
+Gross; AIREV is principal (LICENSOR to QTI)1
+Licence element at a point in time on activation;
+the bundled L1–L3 support and quarterly updates
+run 36 months from activation, so they are
+distinct performance obligations and part of the
+USD 100 is deferred and released over 36 months1
+Licence revenue + deferred support/update
+revenue
+Redington channel sales in the Territory
+Gross at the price invoiced to Redington, which
+
+channel sales in the Territory
+Gross at the price invoiced to Redington, which
+buys for resale as Purchaser; the 8%+8% / 15%+20%
+stack reduces the transaction price3
+Licences on shipment against proof of delivery;
+services after a formal go-ahead3
+Net-to-AIREV revenue (the page-3 Net to AIREV
+column)
+Enterprise seat licences (32 / 64 / 128 / 256)
+Gross; deployment mode sets the licence vs
+hosting mix5
+Year 1 on delivery or over the term by mode; Year
+2+ renewal ~35% of Year 1 over the renewal term3,
+Recurring licence revenue
+Tools, conﬁguration and L2–L4 support
+
+renewal term3,
+Recurring licence revenue
+Tools, conﬁguration and L2–L4 support
+Gross; distinct performance obligations5
+One-time builds on acceptance; support over time
+as performed
+Services revenue
+OEM bundle (e.g. proposed Lenovo 12-month
+bundle)4
+Gross; consideration payable by the OEM4
+Over the bundled period from ﬁrst-boot
+activation; OEM-share subscription thereafter4
+Bundle revenue, then subscription share
+Key judgement to ﬂag in diligence.
+
+Bundle revenue, then subscription share
+Key judgement to ﬂag in diligence. The USD 100 per-unit fee is not a pure licence fee: Appendix B bundles L1–L3 support and quarterly updates for 36 months from activation into the same
+USD 100.1 Under IFRS 15 the transaction price must therefore be allocated between the licence (point in time) and the support / update obligations (over 36 months), so reported revenue in the
+activation year is lower than the gross ﬁgures modelled on page 3, with the balance carried as a contract liability and released over three years.
+
+with the balance carried as a contract liability and released over three years. The page-3 table is deliberately presented on a
+billings / gross-licence basis, which is the right basis for channel and unit economics but is not the IFRS 15 revenue proﬁle.1, 5
+The one-sentence version for BCapital. The JV contributes a single equity-acc ounted proﬁt line to AIREV; the per-device licence business, the Redington channel
+business and the enterprise seat-tier business on pages 2–3 sit outside the JV and are recognised gross in AIREV Holding Limited.3, 6 Routing an invoice through
+
+are recognised gross in AIREV Holding Limited.3, 6 Routing an invoice through
+School Hack FZ-LLC changes the invoicing entity only — not the contracting party, the rights, the obligations or the consolidated top line.3
+ΛIREV · OnDemand | Commercial Model & Revenue Recognition Brief | Strictly confidential — BCapital Page 1 of 3
+
+2 · Key commercial terms — agreement by agreement
+Counterparty & instrument
+Date, status & signatories
+Key commercial terms (clause / appendix cited)
+Src
+1. Qualcomm Technologies, Inc.
+Technology License Agreement (execution copy).
+AIREV is LICENSOR; QTI is licensee.
+
+License Agreement (execution copy).
+AIREV is LICENSOR; QTI is licensee.
+Eﬀective Date 1 Jun 2026. Signed for AIREV by Olu
+Melville Thomas, Founder/CEO; QTI block blank
+in this copy.
+Appendix A-1 Security Software Technology
+Package: per-unit licence fee USD 100 per device,
+pay-as-you-go; no minimum contract value
+commitment; no minimum unit/purchase
+commitment, no volume commitment, no upfront
+fee; licence perpetual (lifetime, non-expiring);
+eligible platforms Snapdragon AI PC, Cloud AI 100/
+Ultra, Dragonwing, XR2/AR1, AI200/AI250; L1–L3
+support; quarterly updates 36 months; global.
+
+XR2/AR1, AI200/AI250; L1–L3
+support; quarterly updates 36 months; global.
+Appendix B Associated Fees: USD 100 uniform
+across all eligible platforms; R&D / platform-e
+nablement priced separately under a mutually
+executed SOW; indicative, expressly non-binding
+expansion tiers USD 90 (20,001–50 ,000), USD 80
+(50,001–10 0,000), negotiated above 100,001.
+Appendix C Support and Maintenance Services
+(P1 response 4 business hours). Diligence point: the
+App. B tier note cites a “5,000-Unit minimum
+commitment”, contradicting the no-minimum
+wording elsewhere.
+2. Intel — Intel Corporation (UK) Ltd.
+
+the no-minimum
+wording elsewhere.
+2. Intel — Intel Corporation (UK) Ltd. – Dubai
+Branch
+AI PC Memorandum of Understanding.
+Stated eﬀective date 12 Dec 2025; executed 16
+Dec 2025 by Taha Khalifa (GM Middle East and
+Africa, Intel) and Olu Thomas (Muhammed
+Khalid), Founder & CEO, AIREV; acknowledged 11
+Dec 2025 by Dennis Luo (GM Worldwide Dev.
+Relations & Innovation). Signed but expressly non-
+binding.
+
+(GM Worldwide Dev.
+Relations & Innovation). Signed but expressly non-
+binding.
+Non-binding MOU to integrate, optimise and
+commercially launch the OnDemand Agentic AI
+platform on Intel next-gener ation AI PC
+architectures, timed to the Panther Lake launch,
+leveraging Intel XPU and OpenVINO. Value pillars:
+data sovereignty (no third-party AI services; data
+stays on device); built-in security & governance
+(RBAC/SSO, encryption, comprehensive logging /
+audit trails, policy engine, human-in-t he-loop; SOC 2
+Type I & II and ISO 27001:2022); oﬄine capability;
+
+human-in-t he-loop; SOC 2
+Type I & II and ISO 27001:2022); oﬄine capability;
+deployment ﬂexibility (on-device, cloud, on-prem,
+sovereign). No fee, volume or revenue-share term
+is contracted; no contract exists until a separate
+binding agreement is signed.
+3. Redington Gulf FZE
+Memorandum of Agreement — non-exclusive
+distribution / reseller appointment.
+Eﬀective Date 18 Jun 2026; signed, DocuSign
+Envelope ID 6F28CBED-9 B4E-8B4C-8 1A7-EF9BAD
+7ACE59. Term one (1) year unless terminated.
+
+6F28CBED-9 B4E-8B4C-8 1A7-EF9BAD
+7ACE59. Term one (1) year unless terminated.
+Non-exclusive authorised distributo r/reseller in the
+Territory (Annexure B: UAE, Oman, KSA, Qatar,
+Kuwait, Bahrain, Jordan, Egypt, whole of Africa).
+Clause 5 (Reselling Commissions): Direct Sales
+Model (AIREV-led) — Redington 8%, reseller/p
+artner 8%; Partner-Led Sales Model — Redington
+15%, reseller/p artner 20%.
+
+artner 8%; Partner-Led Sales Model — Redington
+15%, reseller/p artner 20%. Invoicing: licences
+invoiced post-shipment against proof of delivery;
+for services, invoices are raised to the Purchaser
+after a formal go-ahead; invoices may be issued by
+the Company or its designated aﬃliate, including
+School Hack FZ-LLC; 60 days, USD (Annexure A cl.
+1.2; Annexure B cl. 4). Annexure B pricing: 32 seats
+USD 110,000; 64 seats USD 200,000 average; 128
+seats USD 360,000; Year 2+ renewal ~35% of Year
+1. Events: The Pitch Room yes, The Vertical yes,
+Tech@First Sight yes; event sponsorship No.
+4.
+
+Room yes, The Vertical yes,
+Tech@First Sight yes; event sponsorship No.
+4. Lenovo
+OnDemand Lenovo Value Proposition Brief —
+internal working brief.
+Unsigned; no counterparty execution. Prepared
+by Youssef Youssef, Co-Founder & COO, AIREV
+Holding Limited. Terms are proposed levers, not
+contracted.
+Deal levers: limit the bundle to premium NPU
+models only so the programme pushes buyers up
+the range; the licence activates on ﬁrst boot (not
+at shipping) so laptops sitting in a warehouse do
+not burn the free period; brand the one-click
+migration as a Lenovo feature and make it
+
+the free period; brand the one-click
+migration as a Lenovo feature and make it
+contractually exclusive to Lenovo; AIREV and its
+partners carry ﬁrst and second line support so it
+never touches Lenovo’s cost per unit; bundle for a
+set period (e.g. 12 months), then renew as a paid
+subscription with Lenovo taking a share.
+Positioning: the sovereign AI workstation for
+government / regulated buyers; a DIY build has no
+approval gate, no licensing, no audit trail and no
+support contract, which is what a government
+buyer cannot sign oﬀ.
+5.
+
+and no
+support contract, which is what a government
+buyer cannot sign oﬀ.
+5. Enterprise License Pricing
+OnDemand Enterprise Price Card — internal
+pricing.
+Unsigned internal deck; seat-tier chart also
+circulated as ondemand-e nterprise- price-card -
+annual-li cense-by-s eat-tier-u .png. Quote validity 60
+days.
+Annual licence by seat tier across three deployment
+modes — Fully Managed (Cloud Hosted, AIREV / JV
+sovereign cloud), BYOC (customer cloud) and BYOH
+(customer hardware); tabulated below. Year 2+
+renewal ~35% of Year 1 in every mode.
+
+hardware); tabulated below. Year 2+
+renewal ~35% of Year 1 in every mode. Minimum
+32 seats; 5% volume discount at 128+ seats;
+marketplace fee (10%) included; multi-year
+10%/15%.
+2.1 OnDemand Enterprise price card — annual licence by seat tier (USD)
+Deployment mode5
+32 seats
+64 seats
+128 seats
+256 seats
+Year 1 — Fully
+Managed (Cloud
+Hosted)
+204,000
+384,000
+720,000
+1,368,000
+Year 1 — BYOC
+(customer cloud, self-
+hosted)
+144,000
+264,000
+480,000
+912,000
+Year 1 — BYOH
+(customer hardware,
+software-only)
+132,000
+240,000
+432,000
+816,000
+Year 2+ renewal —
+Fully Managed (~35%
+of Yr 1)
+72,000
+132,000
+
+432,000
+816,000
+Year 2+ renewal —
+Fully Managed (~35%
+of Yr 1)
+72,000
+132,000
+252,000
+480,000
+Year 2+ renewal —
+BYOC (~35% of Yr 1)
+54,000
+96,000
+168,000
+324,000
+Year 2+ renewal —
+BYOH (~35% of Yr 1)
+48,000
+84,000
+150,000
+288,000
+Deployment notes: BYOC adds a USD 18,000 encrypted deployment kit; BYOH is lowest-cost, on-prem; Fully Managed has zero infrastructure overhead.5 Cross-check (analysis): Redington Annexure
+
+has zero infrastructure overhead.5 Cross-check (analysis): Redington Annexure
+B unit prices equal the BYOH card price divided by exactly 1.20 at every tier (132,000÷1.2=110,000; 240,000÷1.2=200,000; 432,000÷1.2=360,000)3, 5 — AIREV’s net after a ~16.7% channel stack,
+consistent with the contracted Direct-model 8%+8%=16%.3 The ~35% Year-2+ renewal rate appears independently in the price card and in Annexure B.3, 5 The ﬁgures above are the exact deck values
+and supersede the rounded approximations circulated from the price-card chart image, which agree with them to within 1–6%.5
+
+from the price-card chart image, which agree with them to within 1–6%.5
+ΛIREV · OnDemand | Commercial Model & Revenue Recognition Brief | Strictly confidential — BCapital Page 2 of 3
+
+3 · How we make money — the Qualcomm / AI PC per-device licence engine, renewals and recurring income
+Silicon → OEM → distribution → installed base.
+
+renewals and recurring income
+Silicon → OEM → distribution → installed base. Silicon partners drive platform integration at the SoC/NPU layer: Qualcomm under a signed TLA pricing
+the Agentic OS at USD 100 per activated device uniformly across every eligible platform1, and Intel under a non-binding MOU to optimise the same
+platform on Panther Lake via XPU and OpenVINO2. OEMs — Lenovo plus additional OEMs — ship the licence attached to premium NPU devices only,
+activating on ﬁrst boot rather than at shipment4.
+
+to premium NPU devices only,
+activating on ﬁrst boot rather than at shipment4. Redington provides distribution reach across the Territory under a signed non-exclusive MOA at 8%+8%
+(Direct) or 15%+20% (Partner-Led)3.
+Renewals are negotiated and contracted on an OEM-by-OEM basis — there is no single group-wide renewal. Each OEM programme sets its own
+bundled period and renewal share; the Lenovo brief proposes a 12-month bundle that then renews as a paid subscription with the OEM taking a share4.
+After the bundled period the installed base converts into recurring subscription income.
+
+bundled period the installed base converts into recurring subscription income. Recurring revenue builds from four layers: (i) per-device attach at
+USD 1001; (ii) renewal conversion of the bundled base on ~35%-of-Year-1 economics3, 5; (iii) subscription share retained after the OEM cut4; and (iv)
+repeat / expansion sales into the same accounts and up the seat tiers (32 → 64 → 128 → 256), plus tools, conﬁguration and support attach5.
+Recurring income, stated plainly. The Qualcomm AI PC channel bills twice for the same device.
+
+stated plainly. The Qualcomm AI PC channel bills twice for the same device. First as a one-oﬀ USD 100 per-unit licence when the device activates — pay-as-you-go, with no
+minimum unit or contract-value commitment, so this leg scales only with attached volume.1 Then as recurring subscription income once the OEM’s bundled period ends and the seat converts to a
+paid renewal at the documented ~35%-of-Year-1 renewal economics.3, 5 Each OEM renewal is negotiated and contracted separately — OEM by OEM — so recurring income is the sum of
+
+and contracted separately — OEM by OEM — so recurring income is the sum of
+individually negotiated programmes, not one group-wide renewal event.4 The installed base is therefore the asset: every activated AI PC is both a booked licence today and a renewal candidate
+at the end of its bundled period.1, 4
+3.1 Unit economics and recurring- revenue build (illustrative)
+Channel
+model3
+Devices
+attached
+Gross
+licence rev.
+@ USD 100/
+unit, USD
+m1
+Channel
+margin3
+Net to
+AIREV, USD
+ARR @ 40%
+assump.
+ARR @ 55%
+assump.
+ARR @ 70%
+assump.
+
+margin3
+Net to
+AIREV, USD
+ARR @ 40%
+assump.
+ARR @ 55%
+assump.
+ARR @ 70%
+assump.
+Direct (8%
+100,000
+10.0
+16%
+8.40
+1.18
+1.62
+2.06
+Direct (8%
+500,000
+50.0
+16%
+42.00
+5.88
+8.09
+10.29
+Direct (8%
+1,000,000
+100.0
+16%
+84.00
+11.76
+16.17
+20.58
+Partner-
+Led (15%
++20%)
+100,000
+10.0
+35%
+6.50
+0.91
+1.25
+1.59
+Partner-
+Led (15%
++20%)
+500,000
+50.0
+35%
+32.50
+4.55
+6.26
+7.96
+Partner-
+Led (15%
++20%)
+1,000,000
+100.0
+35%
+65.00
+9.10
+12.51
+15.93
+Method and assumptions.
+
+(15%
++20%)
+1,000,000
+100.0
+35%
+65.00
+9.10
+12.51
+15.93
+Method and assumptions. Gross = devices × the contracted USD 100 per-unit fee.1 Net to AIREV = gross × (1 − channel margin), using the contracted Redington stacks (Direct 8%+8%=16%; Partner-
+Led 15%+20%=35%).3 ARR (USD m) = devices × renewal conversion × (USD 100 × 35% renewal rate) × (1 − channel margin) — USD 29.40 per renewed device p.a. on Direct, USD 22.75 on Partner-Led.
+
+— USD 29.40 per renewed device p.a. on Direct, USD 22.75 on Partner-Led.
+The 35% renewal rate is documented3, 5; the 40% / 55% / 70% conversion rates are stated assumptions for sensitivity, not contracted ﬁgures, and no device volume is contracted —
+Qualcomm carries no minimum unit or contract-value commitment.1 Above 20,000 units realised ASP would fall below USD 100 if the indicative non-binding tiers (USD 90 / 80 / negotiated) were
+
+USD 100 if the indicative non-binding tiers (USD 90 / 80 / negotiated) were
+applied, so the 500k and 1m rows are an upper bound.1 Channel margin is applied to 100% of volume; OEM-direct volume bypassing Redington carries none and a higher net.3
+3.2 Market context
+• AI-advanced PC penetration is projected to rise 52% YoY to ~59% of global PC shipments in 2026, from ~39% in 2025.7
+• Global PC shipments grew 3.2% YoY in Q1 2026 to 63.3m units; Lenovo led with 16.5m units and 26% share, its highest ﬁrst-quarter performance on
+record.8
+
+16.5m units and 26% share, its highest ﬁrst-quarter performance on
+record.8
+• Counter-si gnal: IDC forecasts global PC shipments to decline 11.3% in 2026 on the memory shortage, relief unlikely before end-2027, while PC revenues
+still grow 1.6% in 2026 on higher ASPs — a direct risk to attach volume.9
+• AI PC market USD 58.07bn in 2025 rising to USD 69.19bn in 2026, 18.66% CAGR to USD 321.41bn by 2035.10
+• NPU roadmap: Qualcomm Snapdragon X2 Elite / X2 Plus deliver 80–85 TOPS Hexagon NPU vs 45 TOPS on the ﬁrst-gene ration X Elite, with 150+ OEM
+design wins announced at CES 2026.11
+
+ﬁrst-gene ration X Elite, with 150+ OEM
+design wins announced at CES 2026.11
+• Microsoft Copilot+ threshold is ≥40 TOPS NPU; Windows 10 end of support on 14 October 2025 drives refresh into 2026.12
+• Gartner forecasts worldwide AI spending of USD 2.52–2.59tn in 2026, +44–47% YoY; AI software USD 452.5bn in 2026.13
+SOURCES — (A) internal / uploaded documents
+[1] AIREV_TLA_July 31_Final_C lean_signe d (1) (1).pdf — Technology License Agreement, Qualcomm Technologies, Inc.
+
+d (1) (1).pdf — Technology License Agreement, Qualcomm Technologies, Inc. (licensee) / AIREV Holding Limited (LICENSOR); Eﬀective Date 1 June 2026;
+execution copy; signed by Olu Melville Thomas, Founder/CEO (QTI block blank). Cited: Appendix A-1 (Deal at a Glance) — USD 100 per-unit licence fee, no minimum contract value, no minimum
+purchase commitment; Appendix B (Associated Fees) — Commercial Structure, Uniform Pricing, Expansion Volume Tiers (incl. the 5,000-Unit reference); Appendix C.
+[2] AIREV-Intel AIPC MOU December 2025 V3 (1) (1).pdf — MOU, Intel Corporation (UK) Ltd.
+
+AIPC MOU December 2025 V3 (1) (1).pdf — MOU, Intel Corporation (UK) Ltd. – Dubai Branch / AIREV Holding Limited; stated eﬀective 12 Dec 2025, executed 16 December 2025;
+signed, non-binding; DocuSign Envelope 551E8CE5-A 833-41CE-A 7C7-D0BB36 1E73F4. Cited: Schedule — Objective, Core Value Pillars, Scope of Work, Marketing, Timescales.
+[3] ISV_Reding ton_180626 _signed (3) (3) (1).pdf — Memorandum of Agreement, AIREV Holding Limited / Redington Gulf FZE; Eﬀective Date 18 June 2026; signed; DocuSign Envelope 6F28CBED-9
+B4E-8B4C-8 1A7-EF9BAD 7ACE59. Cited: recitals; cl.
+
+DocuSign Envelope 6F28CBED-9
+B4E-8B4C-8 1A7-EF9BAD 7ACE59. Cited: recitals; cl. 1 Appointment / Territory; cl. 15.1 term; Annex. A cl. 1 Payment Terms and cl. 1.2 (aﬃliate invoicing); Annex. B cl. 2 Territories, cl. 3 Pricing, cl. 4
+Invoicing Details, cl. 5 Reselling Commissions (8% / 8% Direct; 15% / 20% Partner-Led), cl. 6 Event Participation.
+[4] OnDemand_L enovo_Valu e_Proposit ion_Brief (2).docx — Lenovo; internal brief, unsigned, undated; prepared by Youssef Youssef, Co-Founder & COO, AIREV Holding Limited.
+
+undated; prepared by Youssef Youssef, Co-Founder & COO, AIREV Holding Limited. Cited: “Deal levers for the
+commercial discussion”; “The Sovereign AI Workstation”; “If someone pushes back”; Part B.
+[5] Enterprise License Pricing (2).pptx + OnDemand Enterprise Price Card seat-tier chart ondemand-e nterprise- price-card -annual-li cense-by-s eat-tier-u .png — internal pricing, unsigned. Cited: slide 3
+“Flexible Infrastructure Choices” (Year 1 and Year 2+ licence by seat tier and deployment mode); slide 7 “Important Notes”.
+
+Year 2+ licence by seat tier and deployment mode); slide 7 “Important Notes”.
+SOURCES — (B) external citations
+[6] IFRS Foundation — IFRS 11 Joint Arrangements (joint-venture classiﬁca tion; proportionate consolidation prohibited) and IAS 28 Investments in Associates and Joint Ventures (equity method: cost,
+plus share of post-acqui sition proﬁt, less distributi ons), in issue at 31 Aug 2026. AED ﬁgures in §1.1–1.2 are an illustrative worked example, not from any uploaded document.
+
+in §1.1–1.2 are an illustrative worked example, not from any uploaded document.
+[7] Counterpoint Research, AI PC Tracker & Forecast, 2026 — AI-advanced PC penetration +52% YoY to ~59% of global shipments in 2026, from ~39% in 2025. counterpoi ntresearc h .com/en/ re ports/a i-a
+dvance d-pc s-to- surpa ss-h alf-of -gl obal-sh ip ments-in - 2026
+[8] Counterpoint Research, 17 April 2026 — global PC shipments +3.2% YoY in Q1 2026 to 63.3m units; Lenovo 16.5m units, 26% share.
+
+shipments +3.2% YoY in Q1 2026 to 63.3m units; Lenovo 16.5m units, 26% share. counterpoi ntresearc h .com/en/ in sights/ glo bal-pc -shi pment s-q1-
+2026
+[9] IDC, 2026 — global PC shipments forecast to decline 11.3% in 2026 on the memory shortage; relief unlikely before end-2027. idc.com/re source-ce n ter/blog /p c-marke t-e nters- vola tile- terri tory -as-
+me mor y-short ag e-persis t s-through -2027/
+[10] Precedence Research, 2026 — AI PC market USD 58.07bn (2025) → USD 69.19bn (2026); 18.66% CAGR to USD 321.41bn by 2035. precedence research.
+
+→ USD 69.19bn (2026); 18.66% CAGR to USD 321.41bn by 2035. precedence research. c om/ai-pc -m arket
+[11] PCMag / FinancialC ontent, January–February 2026 — Snapdragon X2 Elite / X2 Plus 80–85 TOPS Hexagon NPU vs 45 TOPS ﬁrst-gene ration X Elite; 150+ OEM design wins announced at CES 2026.
+pcmag.com/ news/qual c omm-laun ch es-snap dra gon-x2 -plu s-chi ps-fo r-la ptops- ces -2026
+[12] Counterpoint Research, 2026 — Microsoft Copilot+ threshold ≥40 TOPS NPU; Windows 10 end of support 14 October 2025 drives refresh into 2026 (same AI PC Tracker & Forecast programme as
+
+2025 drives refresh into 2026 (same AI PC Tracker & Forecast programme as
+[13] Gartner, January–May 2026 — worldwide AI spending USD 2.52tn (Jan 2026 forecast, +44% YoY), revised to USD 2.59tn (May 2026, +47% YoY); AI software USD 452.5bn in 2026. itwire.com /
+business - it-news/ da ta/gart ner -says- worl dwide -ai-s pend ing-wi ll- total-u s$ 2-5-tril l ion-in-20 26
+ΛIREV · OnDemand | Commercial Model & Revenue Recognition Brief | Strictly confidential — BCapital Page 3 of 3

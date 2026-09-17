@@ -1,0 +1,1034 @@
+# Qualcomm AR1 technical SOW — e& opportunity
+
+Source type: PDF · 32 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+Statement of Work — Technical
+OnDemand × Qualcomm Snapdragon AR1 Hybrid Edge-Cloud AI
+Smart Glasses Platform
+AIRev Holding, LTD. / OnDemand by AIREV • September 4, 2026
+CO-BRANDED TECHNICAL STATEMENT OF WORK · QUALCOMM AR/VR DIVISION BU × ONDEMAND BY AIREV
+Qualcomm × AIRev partnership signing ceremony — the relationship this Technical SOW extends to Snapdragon AR1 smart glasses.
+For: Qualcomm Technologies, Inc.
+
+SOW extends to Snapdragon AR1 smart glasses.
+For: Qualcomm Technologies, Inc. — AR/VR Division BU (e& Opportunity End-State)
+Document ID: AIR-AR1-eAND-TSOW-2026-09 · Version 1.0 · September 4, 2026
+Classification: Confidential — For Qualcomm & AIRev Internal Use
+
+Contents
+SECTION
+PAGE
+Document Control & Partnership Context
+1. Executive Summary
+2. e& Opportunity Reference — Qualcomm AR/VR BU End State
+3. Hybrid Approach — Architecture Overview
+4. Edge Engineering Detail
+5. Two Operating Modes
+6. On-Device Models — Hugging Face Model Cards (AIREV harness-tr ained)
+7.
+
+6. On-Device Models — Hugging Face Model Cards (AIREV harness-tr ained)
+7. Hardware Alignment — Snapdragon AR1 / AR1+ & Glasses
+8. Deliverables
+9. Engineering Plan & Milestones
+10. Agent-Gene rated Placeholder Pricing
+11. Assumptions, Dependencies, Acceptance Criteria, Risks
+12. Appendix
+List of ﬁgures
+FIGURE
+PAGE
+Figure 3-1 — Reﬁned hybrid edge-cloud architecture (primary)
+Figure 3-2 — Original hybrid architecture diagram (supporting)
+Figure 4-1 — On-glass response time vs.
+
+architecture diagram (supporting)
+Figure 4-1 — On-glass response time vs. answer length (AR1+ SLM)
+Figure 4-2 — Snapdragon AR1+ Gen 1 chip hero visual
+Figure 4-3 — Ray-Ban-style glasses with OnDemand preinstalled (concept)
+Figure 4-4 — Private / Oﬄine Mode concept illustration
+Figure 6-1 — Indicative on-glass weight footprint by quantization
+Figure 7-1 — Ray-Ban Meta smart glasses (AR1 Gen 1) reference
+Figure 7-2 — Snapdragon AR1+ Gen 1 announcement visual
+Figure 9-1 — Milestone duration (weeks)
+Figure 10-1 — Placeholder fee split by milestone (donut)
+
+duration (weeks)
+Figure 10-1 — Placeholder fee split by milestone (donut)
+Figure 10-2 — Placeholder fee by milestone (bar)
+Figure A-1 — Architecture diagram, large reprint
+Companion document: Standard SOW / Project Statement AIR-AR1-eA ND-2026. Classiﬁca tion: Conﬁdential — For
+Qualcomm & AIRev Internal Use.
+
+ND-2026. Classiﬁca tion: Conﬁdential — For
+Qualcomm & AIRev Internal Use.
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 2 of 32
+
+Document Control & Partnership Context
+This Technical Statement of Work (Technical SOW) is the engineering companion to the standard
+Project Statement AIR-AR1-eA ND-2026 issued under QTI's General Terms and Conditions.
+
+Statement AIR-AR1-eA ND-2026 issued under QTI's General Terms and Conditions. It
+deﬁnes the architecture, on-device engineering, operating modes, models, hardware alignment,
+deliverables, plan and placeholder commercial structure for a factory-pr einstalle d OnDemand by
+AIREV agentic AI application on Snapdragon AR1 / AR1+ Gen 1 smart glasses, positioned as the
+Qualcomm AR/VR Division BU software end-state for the e& (etisalat and) UAE distribution and
+edge-AI channel.
+
+end-state for the e& (etisalat and) UAE distribution and
+edge-AI channel.
+Field
+Value
+Document ID
+AIR-AR1-eA ND-TSOW-2 0 26-09
+Title
+Statement of Work — Technical: OnDemand ×
+Qualcomm Snapdragon AR1 Hybrid Edge-Cloud AI
+Smart Glasses Platform
+Prepared for
+Qualcomm Technologies, Inc. (QTI) — AR/VR
+Division BU (e& Opportunity End-State)
+Prepared by
+AIRev Holding, LTD.
+
+— AR/VR
+Division BU (e& Opportunity End-State)
+Prepared by
+AIRev Holding, LTD. / OnDemand by AIREV
+Version / Date
+v1.0 — September 4, 2026
+Classiﬁcation
+Conﬁdential — For Qualcomm & AIRev Internal
+Use
+Companion document
+Standard SOW / Project Statement AIR-AR1-eA
+ND-2026 (Docusign envelope to be assigned)
+Related agreements
+SoW AIR-626951 (AI Solution Stack Development,
+Jan 31 2025); Technology License Agreement (ﬁnal
+clean, Jul 31 2026); Qualcomm × AIRev MoU (Aug
+2026)
+Governing terms
+QTI General Terms and Conditions — qualcomm.c
+om/procur e ment
+Approvals
+Party
+Name / Title
+Signature
+Date
+
+— qualcomm.c
+om/procur e ment
+Approvals
+Party
+Name / Title
+Signature
+Date
+AIRev Holding, LTD.
+Qualcomm
+Technologies, Inc. —
+AR/VR Division BU
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 3 of 32
+
+e& (etisalat and) —
+channel
+acknowledgement
+(optional)
+“Your voice never leaves the device.”
+Design principle #1 of this engagement: all speech-to-text and text-to-speech runs on the
+glasses' Snapdragon AR1 Hexagon NPU. Only text intents or embeddings — never audio — may
+optionally traverse to the OnDemand cloud, and only when the wearer has Full Mode switched
+on.
+
+to the OnDemand cloud, and only when the wearer has Full Mode switched
+on.
+Press coverage, Gulf News (August 2026): AIRev × Qualcomm signing against the Qualcomm and OnDemand logo
+backdrop — the MoU that frames this AR1 smart-glasses end-state.
+Source: Gulf News press photo (AIRev media archive).
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 4 of 32
+
+1. Executive Summary
+AIRev will deliver a factory-pr einstalled OnDemand agentic AI application for Snapdragon AR1 /
+AR1+ Gen 1 smart glasses.
+
+OnDemand agentic AI application for Snapdragon AR1 /
+AR1+ Gen 1 smart glasses. The application implements a hybrid edge-cloud architecture: speech-
+to-text (STT), text-to-speech (TTS) and small language models (SLMs) run fully on-device on the
+Hexagon NPU — voice never leaves the device — while an optional, wearer-con trolled cloud path
+oﬄoads larger foundation models, real-time data fetch, shopping, e-mail interaction and voice/
+video calls to OnDemand cloud orchestration.
+
+e-mail interaction and voice/
+video calls to OnDemand cloud orchestration.
+The engagement is positioned as the Qualcomm AR/VR Division BU software end-state for the
+e& opportunity: OnDemand becomes the agentic AI workbench preinstalled on AR1-class glasses,
+deployable at scale through e&'s retail (EASE stores) and enterprise channels in the UAE and wider
+MENA region, on the foundation of the Qualcomm × e& strategic collaboration on AI at the Edge
+(May 16, 2025) and the live industrial AI deployments announced in October 2025 that already
+include smart glasses.
+
+AI deployments announced in October 2025 that already
+include smart glasses.
+Edge-ﬁrst by design
+Always-on wake word, on-
+device STT/TTS and a 0.8B /
+2B AIREV harness-tr ained
+SLM with mini-RAG over
+private memory keep the
+assistant fully conversational
+with zero cloud dependency
+in Private Mode.
+Hybrid when you want
+it
+Full Mode opens a secure,
+text-only channel to
+OnDemand cloud
+orchestration: larger
+foundation models, live
+data, shopping, e-mail and
+calls — audio is still
+processed on the glasses
+ﬁrst.
+
+shopping, e-mail and
+calls — audio is still
+processed on the glasses
+ﬁrst.
+Channel-ready end-state
+Factory / OEM kit preinstall,
+e& pilot SKU, demo kit and
+OEM integration guide make
+the stack deployable through
+e& retail and enterprise
+verticals (energy, transport,
+manufacturing, retail, public
+safety).
+
+enterprise
+verticals (energy, transport,
+manufacturing, retail, public
+safety).
+Engagement at a glance
+Dimension
+Summary
+Platform
+Qualcomm Snapdragon AR1 Gen 1 (Ray-Ban Meta
+class) and Snapdragon AR1+ Gen 1 (AWE 2025)
+smart glasses
+Software
+OnDemand by AIREV agent runtime — factory-pr
+einstalle d ﬁrmware/app image, signed
+Operating modes
+Private Mode (oﬄine, on-edge only) and Full Mode
+(cloud-con nected, text-intents only leave the
+device)
+On-device models
+airev-ae/Q wen-0.8B- A gentJSON (0.8B) and airev-ai/
+g emma-4-e2 b -ondeman d (~2B) — AIREV harness-tr
+ained, quantized for Hexagon NPU
+
+b -ondeman d (~2B) — AIREV harness-tr
+ained, quantized for Hexagon NPU
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 5 of 32
+
+Cloud path
+OnDemand cloud orchestration: larger FMs, real-
+time data fetch, shopping agent, e-mail agent,
+voice/video calls
+Channel
+e& UAE retail (EASE autonomous stores, exclusive-
+device programmes) + e& enterprise verticals;
+Qualcomm Engineering Center Abu Dhabi support
+Duration
+Two quarters — September 2026 to March 2027
+(M0 kickoﬀ Sep 15, 2026 → M5 acceptance Mar 31,
+2027)
+Placeholder fee
+
+2027
+(M0 kickoﬀ Sep 15, 2026 → M5 acceptance Mar 31,
+2027)
+Placeholder fee
+USD 480,000 across ﬁve milestones — agent-gene
+rated placeholder, NOT a binding commercial oﬀer
+(see Section 10)
+Governing terms
+QTI General Terms and Conditions (qualcomm.
+com/procu r ement); companion Project Statement
+AIR-AR1-eA ND-2026
+Why now
+• Silicon is ready: Snapdragon AR1+ Gen 1 demonstrated a ~1B-parameter SLM running entirely
+on-glass (Llama 1B demo, AWE 2025) with ~1.2 s ﬁrst-token latency and ~13 tokens/s
+(Qualcomm FY2025 Q3 materials).
+
+with ~1.2 s ﬁrst-token latency and ~13 tokens/s
+(Qualcomm FY2025 Q3 materials).
+• Models are ready: AIREV's harness-tr ained sub-1B and ~2B agent models (GRPO/SFT, tool-
+calling, JSON generation) already exist on Hugging Face under Apache-2.0.
+• Channel is ready: e& has moved from pilots to live industrial edge-AI deployments with
+Qualcomm (Oct 2025), embedded Agentic AI into core connectivity plans (Aug 17, 2026) and
+operates exclusive device-retail programmes.
+
+plans (Aug 17, 2026) and
+operates exclusive device-retail programmes.
+• Relationship is ready: SoW AIR-626951, the TLA and the August 2026 MoU give Qualcomm
+and AIRev an executed commercial and legal foundation to extend into the AR/VR BU.
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 6 of 32
+
+2. e& Opportunity Reference — Qualcomm
+AR/VR BU End State
+2.1 Qualcomm × e& strategic collaboration
+On May 16, 2025 Qualcomm Technologies, Inc.
+
+× e& strategic collaboration
+On May 16, 2025 Qualcomm Technologies, Inc. and e& announced a strategic collaboration to
+drive technological development and commercialization across advanced connectivity, 5G and
+edge-AI technologies for the UAE's government, enterprise and industrial sectors (Qualcomm press
+release). The announced workstreams map directly onto this SOW:
+• Edge AI devices — from PCs to XR devices and wearables powered by Snapdragon platforms,
+integrating LLMs for on-device generative AI and security-f ocused inferencing from edge to
+cloud.
+
+on-device generative AI and security-f ocused inferencing from edge to
+cloud.
+• Industrial and enterprise 5G edge-AI gateways for core vertical sectors.
+• Smart mobility and safety solutions and connected industrial IoT.
+• Support from the newly established Qualcomm Engineering Center in Abu Dhabi to evaluate
+use cases in energy, manufacturing, logistics, retail and smart mobility.
+
+use cases in energy, manufacturing, logistics, retail and smart mobility.
+In October 2025 e& UAE announced the move from pilot programmes to live deployments of
+industrial AI solutions with Qualcomm across energy, transportation and public safety —
+explicitly including smart glasses alongside 5G gateways, AI PCs, drones and mobility systems. This
+SOW supplies the agentic software layer that those smart-glasses deployments currently lack.
+
+the agentic software layer that those smart-glasses deployments currently lack.
+2.2 e& proﬁle — why it is the ideal AR1 distribution channel
+Attribute
+e& (etisalat and) — reference facts
+Scale
+Global technology group headquartered in Abu
+Dhabi, operating in 38 countries; FY2024 revenue ≈
+AED 59.2 billion, net proﬁt ≈ AED 10.8 billion
+Sovereign AI infrastructure
+e& UAE × Core42 sovereign AI compute and GPU
+Connect (Jul 20, 2026); NVIDIA H100 GPU clusters
+within OCI; in-country inference platforms with
+Intel and Dell
+Cloud
+OneCloud — hyperscale sovereign cloud powered
+
+with
+Intel and Dell
+Cloud
+OneCloud — hyperscale sovereign cloud powered
+by Oracle Alloy with 200+ OCI services hosted in-
+country (Sep 2025); Microsoft Azure Operator
+Nexus (Feb 2024)
+Agentic AI
+First regional telco to embed Agentic AI into core
+mobile and ﬁxed connectivity plans (Aug 17, 2026)
+Connectivity
+≈99.5% FTTH coverage, 5–10 Gbps ﬁbre plans, 5.5G
+multi-gigabit, RedCap 5G tested for IoT/wearables
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 7 of 32
+
+Device retail
+EASE (e& Autonomous Store Experience) AI-
+
+Page 7 of 32
+
+Device retail
+EASE (e& Autonomous Store Experience) AI-
+powered stores — Al Kifaf (Oct 2023), Dubai Mall
+(Sep 2024); exclusive distributor programmes (e.g.,
+Samsung Galaxy S25 Edge) and Motorola
+partnerships
+Enterprise reach
+e& enterprise digital-tr ansformat i on arm across
+energy, transport, manufacturing, retail and public
+safety verticals
+Sources: e& FY2024 results (Feb 25, 2025); e& newsroom (Sep 24, 2025; Jul 20, 2026; Aug 17, 2026); e& EASE launch
+(Oct 16, 2023); e& UAE media centre (2025–2026). See Appendix C for links.
+
+(Oct 16, 2023); e& UAE media centre (2025–2026). See Appendix C for links.
+2.3 Qualcomm AR/VR BU end-state
+OnDemand as the agentic AI workbench on AR1 — preinstalled at factory on AR1 / AR1+
+glasses, exposed to end-users through the HUD/voice experience and to developers through AR1-
+adapted Agent, Workﬂow, Key-Management and Playground APIs.
+
+through AR1-
+adapted Agent, Workﬂow, Key-Management and Playground APIs.
+Native execution on Hexagon NPU — STT, TTS, wake word, SLM inference and mini-RAG
+embeddings execute on the AR1 Hexagon NPU / micro-NPU and always-on audio path —
+consistent with the native-exe cution preference established in SoW AIR-626951 for Qualcomm
+accelerators.
+
+cution preference established in SoW AIR-626951 for Qualcomm
+accelerators.
+Qualcomm Inference Suite / Playground patterns — the cloud side reuses the Inference Suite
+and Playground integration patterns already delivered under AIR-626951, so a Full Mode request
+can be served from Qualcomm Cloud AI accelerators or from e& sovereign compute.
+Scale through e& channels — e& retail SKUs (EASE stores, device bundles) and enterprise pilots
+in UAE/MENA verticals, backed by the Qualcomm Engineering Center in Abu Dhabi.
+
+in UAE/MENA verticals, backed by the Qualcomm Engineering Center in Abu Dhabi.
+2.4 Prior Qualcomm–AIRev relationship
+Instrument
+Date
+Scope / relevance to this SOW
+SoW AIR-626951
+Jan 31, 2025 (executed Feb 4,
+2025)
+AI Solution Stack Development
+— Cloud AI 100 Ultra +
+Qualcomm Inference Suite +
+OnDemand AI workbench on
+Qualcomm Playground; APIs,
+documentation, dashboards,
+agents; USD 250,000 over one
+quarter
+Technology License Agreement
+(TLA)
+Final clean version Jul 31, 2026
+(drafts Jun 24 / Jun 30, 2026)
+Licensing framework for
+OnDemand technology on
+Qualcomm platforms — the
+
+2026)
+Licensing framework for
+OnDemand technology on
+Qualcomm platforms — the
+reference pattern for the
+optional per-device licence
+model in Section 10
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 8 of 32
+
+MoU signing
+Aug 2026 (Gulf News coverage)
+Qualcomm × AIRev
+memorandum of
+understanding, signing
+observed by H.E. Dr Thani Al
+Zeyoudi; expands the
+collaboration to edge/indus trial
+(Dragonwing) and device
+programmes
+Qualcomm × AIREV partnership signing ceremony — the executed relationship that this Technical SOW extends into the
+AR/VR Division BU.
+
+relationship that this Technical SOW extends into the
+AR/VR Division BU.
+Source: AIRev media archive (_DSC9664).
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 9 of 32
+
+3. Hybrid Approach — Architecture
+Overview
+The platform is a single OnDemand agent runtime with two execution planes. Everything the
+wearer says is handled on the glasses; everything the wearer wants done in the world can — with
+consent — be orchestrated in the cloud from a text-only intent.
+Figure 3-1 — Reﬁned hybrid edge-cloud architecture.
+
+from a text-only intent.
+Figure 3-1 — Reﬁned hybrid edge-cloud architecture. LEFT (on-device / edge): Snapdragon AR1 / AR1+ glasses with factory-
+pr einstalled OnDemand, always-on STT and TTS, on-edge SLM 0.8B / 2B on the Hexagon NPU, mini-RAG over past
+interactions, documents, artifacts and memories, and a local private memory store. CENTRE: the two operating modes —
+Private Mode (oﬄine, green shield) and Full Mode (cloud-con nected, bidirectional secure channel for text intents only).
+
+Mode (cloud-con nected, bidirectional secure channel for text intents only).
+RIGHT (cloud): larger foundation models, hybrid real-time data fetch, shopping agent, e-mail interaction, voice/video calls
+and OnDemand cloud orchestration. Audio never leaves the device.
+Source: AIRev architecture visual, reﬁned against real Snapdragon AR1 and Ray-Ban Meta hardware references (Sep 2026).
+3.1 Factory-level preinstall
+OnDemand by AIREV is delivered as a signed component of the glasses ﬁrmware image for Ray-
+Ban Meta / Wayfarer-class form factors and OEM/ODM kit builds destined for e& channel SKUs.
+
+form factors and OEM/ODM kit builds destined for e& channel SKUs.
+Preinstallation at factory (rather than a post-purchase download) guarantees the on-device model,
+STT/TTS engines and secure memory store are present and attested from ﬁrst boot, and allows e&
+to ship a diﬀerenti ated, privacy-ﬁrst SKU.
+
+from ﬁrst boot, and allows e&
+to ship a diﬀerenti ated, privacy-ﬁrst SKU.
+3.2 Kit build plan
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 10 of 32
+
+Component
+Plane
+Notes
+OnDemand agent runtime
+On-device
+Agent loop, tool router, mode
+controller, HUD/voice UX, OTA-
+updatable under Qualcomm
+signing
+STT engine
+On-device (Hexagon NPU /
+always-on audio)
+Streaming ASR with wake-word
+gating; multilingual EN/AR ﬁrst
+for the UAE market
+TTS engine
+On-device (Hexagon NPU)
+Low-latency neural TTS to the
+custom open-ear speakers;
+barge-in aware
+Quantized SLM
+
+neural TTS to the
+custom open-ear speakers;
+barge-in aware
+Quantized SLM
+On-device (Hexagon NPU)
+airev-ae/Q wen-0.8B- A gentJSON
+(AR1 Gen 1 / AR1+) and airev-ai/
+g emma-4-e2 b -ondeman d
+(AR1+), int4/int8 weights
+Mini-RAG store
+On-device
+Local embeddings + vector
+index over interactions,
+documents, artifacts, memories;
+incremental, power-aware
+indexing
+Secure enclave private memory
+On-device
+Encrypted at rest under
+Qualcomm secure boot /
+trusted execution; wearer-era
+sable; never synced in Private
+Mode
+Companion phone bridge
+(optional)
+Phone
+BLE/Wi-Fi bridge for
+connectivity, notiﬁcations and
+
+bridge
+(optional)
+Phone
+BLE/Wi-Fi bridge for
+connectivity, notiﬁcations and
+companion Playground UI; not
+required for Private Mode
+Cloud connector
+On-device ↔ Cloud
+Mutually authenticated TLS
+channel carrying text intents /
+embeddings only; active in Full
+Mode only
+OnDemand cloud orchestration
+Cloud
+Larger FMs, agent marketplace,
+workﬂows, real-time data,
+shopping, e-mail, calls;
+Qualcomm Inference Suite / e&
+sovereign compute options
+3.3 What stays on the edge vs.
+
+Inference Suite / e&
+sovereign compute options
+3.3 What stays on the edge vs. what goes to the cloud
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 11 of 32
+
+Stays on the glasses — always
+• Raw audio, microphone streams, wake-
+word detection
+• STT transcripts and TTS synthesis
+• SLM reasoning for local intents and tool
+routing
+• Mini-RAG index, private memories,
+documents and artifacts
+• Mode state, consent state, keys in the
+secure enclave
+May go to the cloud — Full Mode only
+• Text intents / compact embeddings selected by
+the on-device router
+
+Mode only
+• Text intents / compact embeddings selected by
+the on-device router
+• Tool-call payloads for shopping, e-mail, calls and
+data fetch
+• Requests for larger foundation -model reasoning
+• Telemetry limited to opt-in, anonymised
+performance counters
+• Never audio, never raw memory stores
+3.4 Request lifecycle
+1. Wake word ﬁres on the always-on audio path; the 5-mic array beam-forms the wearer's voice.
+2. On-device STT streams text into the OnDemand agent loop; audio buﬀers are discarded after
+transcription.
+3.
+
+the OnDemand agent loop; audio buﬀers are discarded after
+transcription.
+3. The on-edge SLM classiﬁes the intent and consults mini-RAG over private memory.
+4. Private Mode — the SLM answers or executes a local tool (timers, notes, memory recall,
+translations, device control) and TTS speaks the result.
+5. Full Mode — if the intent needs live data, a purchase, e-mail or a call, the router sends a text
+intent to OnDemand cloud orchestration; the result returns as text and is spoken on-device.
+6.
+
+cloud orchestration; the result returns as text and is spoken on-device.
+6. Every turn is appended to the local memory store; cloud results are cached locally so they
+remain available oﬄine.
+Figure 3-2 — Original (ﬁrst-pass) hybrid architecture diagram, retained as supporting material to show the design lineage
+of Figure 3-1.
+Source: AIRev architecture visual (ﬁrst pass, Sep 2026).
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 12 of 32
+
+4. Edge Engineering Detail
+“Your voice never leaves the device.”
+
+Page 12 of 32
+
+4. Edge Engineering Detail
+“Your voice never leaves the device.”
+STT and TTS execute completely on-edge on the Snapdragon AR1 Hexagon NPU, micro-NPU and
+always-on audio path. There is no code path in the OnDemand AR1 runtime that transmits
+microphone audio oﬀ the glasses — in either operating mode.
+4.1 Speech pipeline on the AR1 audio path
+Always-on wake word / low-power voice activation — runs on the AR1 low-power audio
+subsystem, aligned with the platform's 'always-on audio' and wake-with- voice capabilities; the
+main NPU stays asleep until the wake word is conﬁrmed.
+
+voice capabilities; the
+main NPU stays asleep until the wake word is conﬁrmed.
+On-device streaming STT — a quantized streaming ASR model on the Hexagon NPU emits partial
+transcripts within a few hundred milliseconds, with EN/AR support prioritised for the UAE launch
+and additional locales added via OTA model packs.
+On-device neural TTS — a compact neural vocoder pipeline renders speech to the custom
+speakers with barge-in support so the wearer can interrupt the assistant.
+
+speakers with barge-in support so the wearer can interrupt the assistant.
+Audio hygiene — 5-mic beam-forming, echo cancellation for the open-ear speakers and a privacy
+LED / HUD indicator whenever the microphones are active.
+4.2 On-edge small language models
+Two AIREV harness-tr ained SLMs serve local NLU, tool routing and conversational continuity (full
+model cards in Section 6).
+
+tool routing and conversational continuity (full
+model cards in Section 6). The 0.8B model is the default on AR1 Gen 1-class memory budgets and
+the always-res ident router on AR1+; the ~2B Gemma-4-E2B model is loaded on AR1+ for richer
+oﬄine reasoning and plugin orchestration when thermal and battery headroom allow. Both emit
+strict JSON tool calls, which is what makes a sub-1B model dependable as an on-glass agent.
+
+tool calls, which is what makes a sub-1B model dependable as an on-glass agent.
+4.3 Mini-RAG over private memory
+A local retrieval layer indexes past interactions, documents, artifacts and explicit memories
+(“remember where I parked”) into an on-device vector store. Retrieval happens before every SLM
+turn, giving the oﬄine assistant continuity across days without any cloud account. Indexing is
+deferred to charging or idle windows to protect battery, and the store lives inside the secure
+enclave-backed encrypted partition.
+
+and the store lives inside the secure
+enclave-backed encrypted partition.
+4.4 Privacy, latency, battery and thermal envelope
+Concern
+Reference envelope
+Engineering response
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 13 of 32
+
+Privacy
+Audio never leaves the device;
+text intents leave only in Full
+Mode with wearer consent
+Privacy LED, per-mode data-
+ﬂow policy enforced in the
+runtime, whitepaper deliverable
+D11
+Latency (on-glass SLM)
+~1.2 s ﬁrst token, ~13 tokens/s
+for a ~1B model on AR1+
+(Qualcomm FY2025 Q3
+materials)
+Streaming TTS begins on the
+
+a ~1B model on AR1+
+(Qualcomm FY2025 Q3
+materials)
+Streaming TTS begins on the
+ﬁrst sentence; typical 30–40
+token answers complete in ≈
+3.5–4.3 s
+Battery
+Ray-Ban Meta class: up to 36 h
+with charging case; SLM turns
+are bursty
+Wake-word gating, NPU duty-
+cycling, deferred indexing, 2B
+model gated by battery level
+Thermal
+Temple-mounted SoC; AR1+
+package 26% smaller with
+better power management
+Token budget per turn, model
+down-shift 2B → 0.8B under
+thermal pressure, cloud oﬄoad
+in Full Mode
+Memory
+int4/int8 quantized weights;
+0.8B ≈ 0.45–0.8 GB, 2B ≈ 1.1–2.0
+GB weights (indicative)
+
+quantized weights;
+0.8B ≈ 0.45–0.8 GB, 2B ≈ 1.1–2.0
+GB weights (indicative)
+Model residency policy per SKU;
+mini-RAG index capped and
+pruned
+Figure 4-1 — On-glass response time vs. answer length; derived from the AR1+ ~1B SLM ﬁgures (1.2 s ﬁrst token, ~13 tok/
+Derived curve: t(n) = 1.2 s + n ÷ 13 tok/s, using the on-glass ~1B SLM ﬁgures Qualcomm published for AR1+ Gen 1. It
+sets the UX budget: answers are streamed sentence-b y-sentenc e to TTS so perceived latency stays near the ﬁrst-
+token ﬂoor.
+
+y-sentenc e to TTS so perceived latency stays near the ﬁrst-
+token ﬂoor.
+4.5 Hardware visuals
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 14 of 32
+
+Figure 4-2 — Snapdragon AR1+ Gen 1 hero product visual:
+on-glass AI silicon for the OnDemand edge runtime (AIRev
+concept render).
+Figure 4-3 — Ray-Ban-style smart glasses with OnDemand
+preinstalled at factory: HUD reﬂection shows the OnDemand
+app and voice waveform (AIRev concept render).
+
+HUD reﬂection shows the OnDemand
+app and voice waveform (AIRev concept render).
+Figure 4-4 — Private / Oﬄine Mode concept: on-device UI cards for 'Private Mode ON', local SLM 0.8B/2B, mini-RAG over
+memories, docs and artifacts, on-edge STT + TTS, and a crossed-out cloud — voice never leaves the device.
+Source: AIRev concept illustration (Sep 2026).
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 15 of 32
+
+5. Two Operating Modes
+The wearer chooses, at any moment and from the glasses themselves, how far the assistant may
+reach.
+
+at any moment and from the glasses themselves, how far the assistant may
+reach. The two modes share one runtime, one memory store and one voice; they diﬀer only in
+whether a text-only cloud channel is open.
+PRIVATE MODE — oﬄine / on-edge only
+Green shield on the HUD. No cloud
+dependency. A limited-reach agent that remains
+fully conversational through the on-edge SLM,
+mini-RAG and on-device STT/TTS. Past
+interactions, documents, artifacts and memories
+remain intact and searchable. Local tools: notes,
+reminders, timers, memory recall, translation,
+device and media control, cached data.
+
+timers, memory recall, translation,
+device and media control, cached data. Works in
+aircraft, secure facilities and no-coverage areas.
+FULL MODE — cloud-conn ected
+Blue cloud on the HUD. A bidirectional,
+mutually authenticated channel to
+OnDemand cloud orchestration carries text
+intents and returns text results. Unlocks
+larger foundation models, hybrid real-time
+data fetch, the shopping agent, e-mail
+interaction and voice/video calls. Audio is still
+captured, transcribed and synthesised on-
+device ﬁrst — the cloud never hears the
+wearer.
+
+transcribed and synthesised on-
+device ﬁrst — the cloud never hears the
+wearer.
+5.1 Comparison
+Dimension
+Private Mode (oﬄine / on-edge)
+Full Mode (cloud-con nected)
+Latency
+≈1.2 s ﬁrst token on-glass; no
+network round-trip
+First token ≈ network RTT +
+cloud FM time (typically 0.6–1.5
+s on e& 5G/5.5G); heavier tasks
+tolerate longer
+Privacy
+Nothing leaves the device —
+audio, text or memory
+Text intents / embeddings only,
+encrypted in transit; audio and
+raw memory never leave
+Capability
+Local NLU, tool routing, memory
+recall, translation, device
+control, cached answers
+
+NLU, tool routing, memory
+recall, translation, device
+control, cached answers
+Larger FMs, live data, shopping,
+e-mail, calls, marketplace agents
+and workﬂows
+Connectivity
+None required; BLE to phone
+optional
+Wi-Fi, phone tether or
+(roadmap) RedCap 5G via e&
+Battery
+Bursty NPU use; wake-word
+gated; 2B model gated by
+charge level
+Radio + NPU; long cloud tasks
+streamed to limit awake time
+Data residency
+On the glasses only
+OnDemand cloud on
+Qualcomm Inference Suite or
+e& sovereign compute (Core42 /
+OneCloud) for UAE residency
+Availability
+Always — including oﬄine
+When connected and when the
+
+residency
+Availability
+Always — including oﬄine
+When connected and when the
+wearer has enabled Full Mode
+Visual cue
+Green shield + 'oﬄine' glyph
+Blue cloud + secure-link glyph
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 16 of 32
+
+5.2 Mode switching UX
+• Voice: “OnDemand, go private” / “OnDemand, go full” — conﬁrmed by TTS and a HUD glyph; a
+long-press on the temple touchpad toggles as well.
+• Policy: enterprise SKUs can pin Private Mode (MDM proﬁle) for secure sites; consumer SKUs
+default to Private Mode until the wearer opts in.
+
+secure sites; consumer SKUs
+default to Private Mode until the wearer opts in.
+• Continuity: switching modes never loses context — the same local memory feeds both; cloud
+answers are cached locally for later oﬄine recall.
+• Transparency: the HUD shows exactly what was sent (text intent) whenever Full Mode
+dispatches a request; a per-session log is stored locally.
+5.3 Example interactions by mode
+Wearer says
+Private Mode (oﬄine)
+Full Mode (cloud-con nected)
+“Remind me to call Omar at 6.”
+
+Mode (oﬄine)
+Full Mode (cloud-con nected)
+“Remind me to call Omar at 6.”
+Local reminder created;
+conﬁrmed by TTS
+Same — never needs the cloud
+“What did the engineer tell me
+about the pump yesterday?”
+Mini-RAG recall from private
+memory; spoken summary
+Same, plus optional cross-refe
+rence to e-mail if enabled
+“Translate this sign to Arabic.”
+On-device OCR + SLM
+translation (camera frame stays
+on device)
+Same; larger FM used only for
+long or specialist text
+“Re-order the ﬁlters we bought
+last month.”
+
+only for
+long or specialist text
+“Re-order the ﬁlters we bought
+last month.”
+Reads the cached order from
+memory; explains that checkout
+requires Full Mode
+Shopping agent completes the
+order via OnDemand cloud;
+conﬁrmation cached locally
+“Reply to Sara: I will be 10
+minutes late.”
+Drafts the reply locally and
+queues it for when Full Mode is
+enabled
+E-mail agent sends
+immediately; thread summary
+returned as text
+“Call the site supervisor.”
+
+sends
+immediately; thread summary
+returned as text
+“Call the site supervisor.”
+Places the call via the paired
+phone (no cloud)
+Calls agent resolves the contact
+and places the call; live
+transcript on HUD
+“What is the price of Brent right
+now?”
+Returns the last cached value
+with its timestamp
+Real-time data-fetch agent
+returns the live value
+Private Mode is not a degraded mode — it is the default
+mode.
+The on-edge SLM + mini-RAG + on-device STT/TTS stack is designed so a wearer who never
+enables Full Mode still gets a complete, personal, conversational assistant.
+
+enables Full Mode still gets a complete, personal, conversational assistant.
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 17 of 32
+
+6. On-Device Models — Hugging Face
+Model Cards (AIREV harness-tr ained)
+AIREV trains compact agent models against the OnDemand agent harness — the same tool-calling /
+JSON-gener ation contract the cloud platform uses — so the on-glass models are drop-in members
+of the same agent ecosystem. Metadata below was read from the AIREV Hugging Face accounts on
+September 4, 2026.
+
+below was read from the AIREV Hugging Face accounts on
+September 4, 2026.
+6.1 Model A — 0.8B class: airev-ae/Q wen-0.8B-A gentJSON
+Field
+Value
+Repository
+huggingfac e.co/aire v -ae/Qwen -0 .8B-Age ntJ SON
+Base model
+Qwen/Qwen3 .5-0.8B (ﬁnetune)
+Pipeline
+text-gener ation (conversat ional, EN)
+Tags
+tool-calling, function-c alling, agent, edge-ai,
+mobile, GRPO, agentic, json-gener ation, sub-1B,
+qwen, ondemand
+Training dataset
+airev-ae/q wen-agent i c-json-c re am
+License
+apache-2.0
+Created / community
+2026-03-25 · 4 likes · ≈162 downloads (safetensors,
+qwen3_5_text)
+Role on AR1
+
+2026-03-25 · 4 likes · ≈162 downloads (safetensors,
+qwen3_5_text)
+Role on AR1
+On-glass agent JSON / tool-calling SLM for Private
+Mode and edge routing; always-res ident router on
+AR1+
+6.2 Model B — ~2B class: airev-ai/g emma-4-e2b -ondemand
+Field
+Value
+Repository
+huggingfac e.co/aire v -ai/gemm a- 4-e2b-o nde mand
+Base model
+google/gem ma-4-E2B (ﬁnetune)
+Pipeline
+text-gener ation (transformers; image-text -to-text
+capable, conversati onal, EN)
+Tags
+gemma-4, plugin-orc hestratio n , function-c alling,
+grpo, sft, on-demand, agentic
+License
+apache-2.0
+Created
+2026-04-09 (safetensors, gemma4)
+
+on-demand, agentic
+License
+apache-2.0
+Created
+2026-04-09 (safetensors, gemma4)
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 18 of 32
+
+Role on AR1
+Slightly larger on-edge / near-edge agentic model
+for richer oﬄine reasoning and plugin
+orchestration on AR1+; optional multimodal
+grounding from the 12 MP camera
+Related internal lineage
+airev-ai/A IREV-Agent -0.8B (private) — Qwen3.5-0.8B ﬁnetune trained with GRPO on airev/agen tic-
+tool- c alling-9 0k ; tags include function-c alling, tool-use, agentic, edge-ai, on-device, gated-delt a-
+
+function-c alling, tool-use, agentic, edge-ai, on-device, gated-delt a-
+network s and BFCL (Berkeley Function-C alling Leaderboard) evaluation. It is the internal harness
+lineage from which the public 0.8B AgentJSON model derives, and remains the benchmark baseline
+for tool-call accuracy on AR1.
+6.3 Deployment matrix
+Model
+Params
+Repo
+Role on AR1
+Quantization
+target
+NPU target
+(Hexagon)
+airev-ae/Q
+wen-0.8B- A
+gentJSON
+0.8 B
+airev-ae/Q
+wen-0.8B- A
+gentJSON
+Private Mode
+agent, intent
+router, JSON
+tool calls (AR1
+Gen 1 + AR1+)
+int4 weights /
+int8 activations
+(int8 fallback)
+Hexagon NPU
+(QNN / AI
+
++ AR1+)
+int4 weights /
+int8 activations
+(int8 fallback)
+Hexagon NPU
+(QNN / AI
+Engine Direct),
+micro-NPU for
+wake-word
+airev-ai/g
+emma-4-e2 b -
+ondeman d
+~2 B (E2B
+eﬀective)
+airev-ai/g
+emma-4-e2 b -
+ondeman d
+Richer oﬄine
+reasoning,
+plugin
+orchestration,
+optional vision
+grounding
+(AR1+)
+int4 weights,
+KV-cache int8
+Hexagon NPU
+(QNN), loaded
+on demand
+airev-ai/A IREV-
+Agen t -0.8B
+(private)
+0.8 B
+internal
+Harness lineage
+/ BFCL baseline;
+not shipped
+Evaluation only
+Figure 6-1 — Indicative on-glass weight footprint by quantization (weights only; planning ﬁgures).
+
+on-glass weight footprint by quantization (weights only; planning ﬁgures).
+Indicative planning ﬁgures (≈1 byte/param int8, ≈0.55 byte/param int4 including scales); ﬁnal footprints are measured
+on AR1/AR1+ reference hardware in Milestone 2.
+Confidential — For Qualcomm & AIRev Internal Use · AIR-AR1-eAND-TSOW-2026-09 Page 19 of 32
+
+7. Hardware Alignment — Snapdragon AR1
+/ AR1+ & Glasses
+The runtime targets the two Snapdragon AR-series platforms that deﬁne today's AI-glasses
+category.
+
+the two Snapdragon AR-series platforms that deﬁne today's AI-glasses
+category. Snapdragon AR1 Gen 1 powers Ray-Ban Meta; Snapdragon AR1+ Gen 1, announced at
+AWE 2025, is the platform on which Qualcomm demonstrated an assistant running entirely

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="VVIP Sovereign JV emblem (counterparty not disclosed)">
+<circle cx="60" cy="60" r="56" fill="#0E332C"/><circle cx="60" cy="60" r="48" fill="none" stroke="#E4CB8C" stroke-width="2"/>
+<circle cx="60" cy="60" r="41" fill="none" stroke="rgba(228,203,140,.45)" stroke-width="1" stroke-dasharray="3 4"/>
+<path d="M60 22 L66 38 L83 38 L69 48 L74 64 L60 54 L46 64 L51 48 L37 38 L54 38 Z" fill="#E4CB8C"/>
+<text x="60" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#F6FFFF">JV</text>
+<text x="60" y="102" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8.5" letter-spacing="1.5" fill="#9FB8AF">SOVEREIGN</text></svg>

@@ -1,0 +1,370 @@
+# Sovereign Defense OS — joint licensing agreement (v8)
+
+Source type: PDF · 20 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+SCC |
+| JOINT LICENSING & COMMERCIAL AGREEMENT |
+Sovereign Defense
+Operating System
+SCC Sentinel x OnDemand Agentic OS
+Pricing & Commercial Model - Air-gapped, sovereign, Zero Trust
+27 June 2026 CONFIDENTIAL - Specialist Computer Centres (UK) & AIREV / OnDemand
+
+1. Pricing & Business Model
+The Sovereign Defense Operating System bundles the OnDemand Agentic OS (300+ agents,
+3,000+ tools, any LLM) with SCC Sentinel, SCC's pan-government accredited private sovereign
+cloud.
+
+with SCC Sentinel, SCC's pan-government accredited private sovereign
+cloud. This document sets out the joint SCC x OnDemand commercial model: per-GPU / per-node
+pricing, deployment sizing and the three-track licensing model.
+Dimension
+Joint SCC x OnDemand Position
+Pricing unit
+Per-GPU / year, sold in 8-GPU node increments
+Headline list
+$18,750 / GPU / year (single node, 1-year)
+Commercial tracks
+Subscription - Perpetual - Consumption
+Market (2025 -> 2034/35)
+USD 117.5B-154.7B -> 651B-1.32T (18.7-27%
+CAGR)
+Supported Hardware
+Hardware-a gnostic with no vendor lock-in.
+
+(18.7-27%
+CAGR)
+Supported Hardware
+Hardware-a gnostic with no vendor lock-in. Any accelerator with >= 80 GB HBM per GPU is
+compatible ; mixed NVIDIA / AMD estates are permitted. Per-GPU pricing applies uniformly across
+the estate.
+Category
+Supported Hardware
+NVIDIA GPUs
+H100 80GB, H200 141GB, Blackwell B200 /
+GB200
+AMD GPUs
+Instinct MI300X 192GB, MI325X, MI350
+Edge & servers
+AI PCs, edge silicon (NPUs), GPU servers (8-
+GPU node = unit)
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 2 of 20
+
+2.
+
+x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 2 of 20
+
+2. Cloud Sizing & Deployment
+Three deployment topologies run the identical OnDemand five-layer stack on SCC Sentinel, differing
+in connectivity and classification ceiling. The minimum is one control plane (8 cores / 32 GB RAM /
+100 GB) + one 8-GPU node (2 TB RAM / 30 TB NVMe), scaling to multi-SU (1,280+ GPUs).
+
++ one 8-GPU node (2 TB RAM / 30 TB NVMe), scaling to multi-SU (1,280+ GPUs).
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 3 of 20
+
+Figure - Deployment Topology
+Deployment Topology - On-Prem / Air-Gapped / Cloud
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 4 of 20
+
+3. Defense Persona Tiers (T-Shirt Sizing)
+Each defence persona maps to a sizing tier - Small, Medium, Large, Extra Large - fixing node
+count, GPU count, supported users, DoD Impact Level and annual price.
+
+node
+count, GPU count, supported users, DoD Impact Level and annual price. IL4 (Controlled Unclassified
+Information), IL5 (CUI + unclassified National Security Systems) and IL6 (classified up to Secret).
+Sizes align 1:1 with the pricing tiers: S = 1 node / 8 GPUs / ~250 users / IL4 / $150,000/yr; M = 4
+nodes / 32 GPUs / ~1,000 users / IL4-IL5 / $600,000/yr; L = 16 nodes / 128 GPUs / ~4,000 users /
+IL5 / $2,400,000/yr; XL = 32 nodes / 256 GPUs / 8,000+ users / IL6 / $4,800,000/yr.
+
+/ $2,400,000/yr; XL = 32 nodes / 256 GPUs / 8,000+ users / IL6 / $4,800,000/yr.
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 5 of 20
+
+Figure - DoD Defense-Se curity Persona Tiers
+Persona Tiers mapped to IL4 / IL5 / IL6
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 6 of 20
+
+T-Shirt Sizing - S
+Small - 1 node / 8 GPUs / ~250 users / IL4 / $150,000 per year
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 7 of 20
+
+T-Shirt Sizing - M
+
+Defense OS - Pricing & Commercial Model Page 7 of 20
+
+T-Shirt Sizing - M
+Medium - 4 nodes / 32 GPUs / ~1,000 users / IL4-IL5 / $600,000 per year
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 8 of 20
+
+T-Shirt Sizing - L
+Large - 16 nodes / 128 GPUs / ~4,000 users / IL5 / $2,400,000 per year
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 9 of 20
+
+T-Shirt Sizing - XL
+Extra Large - 32 nodes / 256 GPUs / 8,000+ users / IL6 / $4,800,000 per year
+
+Extra Large - 32 nodes / 256 GPUs / 8,000+ users / IL6 / $4,800,000 per year
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 10 of 20
+
+4. Per-GPU Pricing
+The joint SCC x OnDemand pricing model is a node-based ladder with a hard $150,000 / year
+minimum floor (one 8-GPU node = Small tier). Headline list: $18,750 per GPU / year (single node,
+1-year) = $150,000 / node / year, inclusive of the SCC Sentinel sovereign platform, accreditation &
+Zero-Trust uplift. Sold in 8-GPU node increments; Scalable Unit = 256 GPUs / 32 nodes (Extra
+Large).
+
+in 8-GPU node increments; Scalable Unit = 256 GPUs / 32 nodes (Extra
+Large). Tiers scale up from the floor with volume discounts deepening up the ladder; term logic: 1-
+and 2-year at list; 3-year -5%, 4-year -10%, 5-year -12% on the per-GPU rate, never below the
+$150,000 floor.
+Table A - Annual Subscription Price by Tier (USD / year)
+Configuration Nodes
+GPUs
+1 yr
+2 yr
+3 yr
+4 yr
+5 yr
+Small (S)
+$150,000
+$150,000
+$150,000
+$150,000
+$150,000
+Medium (M)
+$600,000
+$600,000
+$564,300
+$534,600
+$522,720
+Large (L)
+$2,400,000
+$2,400,000
+$2,234,400
+$2,116,800
+$2,069,760
+Extra Large
+(XL)
+$4,800,000
+
+$2,400,000
+$2,234,400
+$2,116,800
+$2,069,760
+Extra Large
+(XL)
+$4,800,000
+$4,800,000
+$4,423,200
+$4,190,400
+$4,097,280
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 11 of 20
+
+Figure - Per-GPU / Per-Node Pricing Ladder
+Pricing Ladder - S $150k floor -> M $600k -> L $2.4M -> XL $4.8M / year
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 12 of 20
+
+5.
+
+OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 12 of 20
+
+5. Volume Discounts & Total Contract Value
+Pricing scales linearly from the $150,000 / year Small floor to $4,800,000 / year for Extra Large (1
+Scalable Unit), with volume discounts deepening up the ladder and term discounts on multi-year
+commitments (3-yr -5%, 4-yr -10%, 5-yr -12%). Table B shows total contract value (TCV) by tier and
+term - every figure at or above the $150,000 floor.
+
+value (TCV) by tier and
+term - every figure at or above the $150,000 floor.
+Table B - Total Contract Value by Tier & Term (USD)
+Configuration
+1 yr
+2 yr
+3 yr
+4 yr
+5 yr
+Small (S)
+$150,000
+$300,000
+$450,000
+$600,000
+$750,000
+Medium (M)
+$600,000
+$1,200,000
+$1,692,900
+$2,138,400
+$2,613,600
+Large (L)
+$2,400,000
+$4,800,000
+$6,703,200
+$8,467,200
+$10,348,800
+Extra Large (XL)
+$4,800,000
+$9,600,000
+$13,269,600
+$16,761,600
+$20,486,400
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 13 of 20
+
+Figure - Price-As-Y ou-Scale Volume Discount
+
+& Commercial Model Page 13 of 20
+
+Figure - Price-As-Y ou-Scale Volume Discount
+Volume & Term Discount Curve (3-yr -5%, 4-yr -10%, 5-yr -12%)
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 14 of 20
+
+6. Per-Node Economics
+The 8-GPU node is the atomic billing unit, with a $150,000 / node / year minimum ($18,750 per
+GPU / year). Per-node economics hold the floor at the Small tier and improve only via multi-year term
+discounts at larger tiers, where the larger annual commitment absorbs the discount while every node-
+year stays at or above $150,000.
+
+absorbs the discount while every node-
+year stays at or above $150,000.
+Table C - Per-Node & Per-GPU Build-Up (List, 1-Year)
+Configuration
+Nodes
+GPUs
+Per-GPU / yr
+(list)
+Per-Node / yr
+(list)
+Annual (list)
+Small (S)
+$18,750
+$150,000
+$150,000
+Medium (M)
+$18,750
+$150,000
+$600,000
+Large (L)
+$18,750
+$150,000
+$2,400,000
+Extra Large (XL)
+$18,750
+$150,000
+$4,800,000
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 15 of 20
+
+7.
+
+OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 15 of 20
+
+7. Commercial Model & Support
+Three commercial tracks let the Licensee match acquisition to budget cycle, classification and
+deployment topology. The joint premium reflects the bundled SCC Sentinel sovereign cloud
+platform, pan-government accreditation, air-gap certification and the full agentic OS (300+
+agents, 3,000+ tools).
+Commercial Track
+Joint SCC x OnDemand
+Subscription - 1 yr
+$18,750 / GPU (list, $150k node floor)
+Subscription - 3 yr
+$17,812 / GPU (S floored at $150k node)
+Perpetual (incl.
+
+Subscription - 3 yr
+$17,812 / GPU (S floored at $150k node)
+Perpetual (incl. 5-yr support)
+$56,250 / GPU (3x annual list)
+Consumption (PAYG)
+$8.60 / GPU / hr (all-in, sovereign)
+• Subscription (default) - annual per-tier price (Tables A/B), 1-5 yr; $150,000 / year minimum
+(Small); best for most IL4/IL5 programmes and OPEX budgeting.
+• Perpetual - one-time $56,250 / GPU ($450,000 / node) incl. 5-yr support; best for air-gapped IL6
+/ fixed-capital; tier discounts apply.
+
+5-yr support; best for air-gapped IL6
+/ fixed-capital; tier discounts apply.
+• Consumption - $8.60 / GPU / hr all-in on SCC Sentinel (90-day min; annualises above the
+$150k node floor); best for surge, exercises and pilots.
+Recommended: 3-year Subscription at the Large tier (16 nodes / 128 GPUs; $2,234,400 / year;
+$6,703,200 TCV) with Gold support, on SCC Sentinel with an air-gapped option for IL6.
+Support & Services
+Four tiers priced as an annual % of licence value, with Sev-1 response targets; higher tiers add
+security-c leared engineers and on-site response for IL5/IL6.
+
+higher tiers add
+security-c leared engineers and on-site response for IL5/IL6. Availability target 99.9%.
+Tier
+Fee
+Coverage
+Sev-1
+Bronze
+Email, business hours
+Next business day
+Silver
+Phone + priority
+tickets
+8 hours
+Gold
+12%
+24x5, account
+manager
+4 hours
+Platinum
+18%
+24x7, cleared
+engineers, on-site IL5/
+IL6
+1 hour
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 16 of 20
+
+8. Strategic Partnerships - Qualcomm & Intel
+OnDemand's sovereign AI stack is delivered with tier-one silicon partners.
+
+OnDemand's sovereign AI stack is delivered with tier-one silicon partners. Alongside leading
+regional sovereign-AI partners, OnDemand holds strategic partnerships with both Qualcomm and
+Intel - underwriting edge performance, supply assurance and joint go-to-market for national-scale
+deployments.
+• Qualcomm - edge AI at scale across the Snapdragon ecosystem; 20,000 OnDemand license
+units pre-sold (UAE-US); on-device sovereign inference for disconnected and forward
+operations.
+
+on-device sovereign inference for disconnected and forward
+operations.
+• Intel - strategic MoU for agentic AI across the region; workloads optimised and validated on
+Intel Xeon 6 and Gaudi 3; joint co-sell, co-market and edge-deplo yment validation for sovereign
+estates.
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 17 of 20
+
+Figure - Intel x AIREV / OnDemand Signing
+Genuine Intel-AIREV / OnDemand signing - October 2025
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 18 of 20
+
+9.
+
+OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 18 of 20
+
+9. Sovereign Edge Silicon - Emerging-M arket
+Strategy
+OnDemand operates a tiered-silicon strategy. Frontier accelerators are reserved for the most
+demanding Western-market workloads; for the African CPU market, OnDemand fields proven,
+export-cle ared, cost-optimised silicon - candidly, “second-class chips” relative to the bleeding edge,
+yet more than sufficient for the sovereign AI, public-sector and defence workloads these nations
+actually run.
+
+sovereign AI, public-sector and defence workloads these nations
+actually run.
+The strategic case for a presidential audience is simple: sovereignty and sufficiency over
+specification. Export-cleared edge silicon sidesteps the cost, supply-chain fragility and export-
+control exposure of frontier parts, while delivering ample throughput for agentic-AI services, e-
+government, and national-s ecurity analytics - all inside a fully sovereign, air-gapped estate at the
+$150,000 / node floor. It is the fastest, most affordable path to continental AI self-reliance.
+
+floor. It is the fastest, most affordable path to continental AI self-reliance.
+OnDemand-b randed sovereign AI edge container - rapid-deploy node for emerging-m arket
+estates
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 19 of 20
+
+Figure - Sovereign Edge Silicon (Qualcomm x
+OnDemand)
+Qualcomm edge silicon, OnDemand-e nabled - export-cle ared, cost-optimised for emerging
+markets
+CONFIDENTIAL - SCC Sentinel x OnDemand | Sovereign Defense OS - Pricing & Commercial Model Page 20 of 20

@@ -1,0 +1,543 @@
+# Redington — signed ISV distribution agreement (18 Jun 2026)
+
+Source type: PDF · 11 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+MEMORANDUM OF AGREEMENT
+This Memorandum of Agreement (the "Agreement") is made and entered into on 18th June 2026 (“Effective Date”),
+BETWEEN
+AIREV Holding Limited, a company incorporated in United Arab Emirates and having its office at Office 2458,
+Level 24, Al Sila Tower, Abu Dhabi Global Market Square, Al Maryah Island, Abu Dhabi, United Arab Emirates
+(hereinafter called we/ the “Company”), which expression, unless the context provides otherwise, shall mean
+and include its successors and permitted assigns, of the one part;
+
+shall mean
+and include its successors and permitted assigns, of the one part;
+WHEREAS, for operational, administrative and invoicing purposes, the Company may utilise its wholly-owned
+subsidiary, School Hack FZ-LLC, to perform certain functions under this Agreement; provided that AIREV Holding
+Limited shall remain the contracting party and shall retain all rights and obligations under this Agreement;
+AND
+Redington Gulf FZE, a company incorporated in the United Arab Emirates and having its office at Plot S30902,
+
+incorporated in the United Arab Emirates and having its office at Plot S30902,
+PO Box 17266, Jebel Ali Free Zone, Dubai, United Arab Emirates (hereinafter called the "Purchaser"), which
+expression, unless the context provides otherwise, shall mean and include its successors and permitted
+assigns, of the other part.
+The Company and the Purchaser are hereinafter collectively referred to as the "Parties" and individually as a
+"Party".
+
+collectively referred to as the "Parties" and individually as a
+"Party".
+WHEREAS:
+The Company provides artificial intelligence software solutions, AI platforms, SaaS products, enterprise AI
+infrastructure, educational technology solutions, licensing, implementation, support and related professional
+services through OnDemand OS. The complete list of products and services is set out in the annexure to this
+Agreement.
+The Company is desirous to sell the products and services to the Purchaser in the Territory based on the terms
+and conditions hereinafter appearing.
+
+in the Territory based on the terms
+and conditions hereinafter appearing.
+NOW, THEREFORE, in consideration of the premises and the mutual covenants and undertakings
+hereinafter set forth, the Parties hereby agree as follows:
+1. Appointment, Reseller Model and Territory
+1.1 Subject to the terms and conditions of this Agreement, the Company appoints Purchaser as a non-exclusive authorised
+distributor/reseller of the Products and Services in the Territory.
+
+authorised
+distributor/reseller of the Products and Services in the Territory. Purchaser may market, promote, resell, distribute and make
+available the Products and Services either directly or through its affiliates, channel partners, resellers, system integrators
+and/or end customers.
+1.2 Nothing in this Agreement shall restrict Purchaser from dealing with, distributing, reselling, promoting or supporting
+products or services of any third party, including products or services that may be similar to or competitive with the Products
+and Services.
+
+services that may be similar to or competitive with the Products
+and Services.
+1.3 The “Territory” shall mean the countries expressly listed in Annexure B of this Agreement, as may be amended by mutual
+written agreement of the Parties. In case of any inconsistency between the Territory stated in the main body of this Agreement
+and Annexure B, Annexure B shall prevail.
+
+in the main body of this Agreement
+and Annexure B, Annexure B shall prevail.
+1.4 Purchaser may service customers, affiliates, partners or opportunities having a reasonable connection with the Territory,
+including where the customer headquarters, affiliate, deployment, billing entity, resale partner or end-user usage is connected
+to the Territory, subject to applicable laws and export control requirements
+
+1.5 Purchaser agrees to exercise its best efforts to (a) promote the sale of and obtain orders for the Products and
+
+best efforts to (a) promote the sale of and obtain orders for the Products and
+services in the Territory; (b) conduct its business in a manner that always reflects favorably on the Products and the
+goodwill and reputation of the Company. The Company, in return, agrees to provide all necessary resources and
+assistance to ensure the Purchaser can effectively fulfill its obligations under this clause.
+2.
+
+the Purchaser can effectively fulfill its obligations under this clause.
+2. Purchaser Obligations and Restrictions: Purchaser will not (a) copy, display, distribute, or otherwise use the
+Products in any manner or for any purpose not expressly authorized by this Agreement; or (b) create derivative
+works of or otherwise modify the Products; or (c) reverse engineer, decompile or disassemble the Products or the
+metadata created by the Products; or (d) disclose results of any benchmarking tests without prior consent; or (e)
+
+(d) disclose results of any benchmarking tests without prior consent; or (e)
+use the Products in a manner that violates an individual’s privacy right set forth by statute, rule, regulation or case
+law. Purchaser will delete any demonstration copies of Products installed on servers or workstations under a
+customer’s control upon completion of a demonstration at a customer’s location.
+3.
+
+control upon completion of a demonstration at a customer’s location.
+3. Technical Support Services: “Technical Support Services” refers to the technical support and maintenance
+services provided by the Company according to then-current technical support policy and procedure listed at the
+technical support policy when the services are purchased. For Products licensed for purposes of demonstration,
+laboratory and business development and proofs of concept for Approved Opportunities lasting less than 90 days,
+the Company will provide standard Technical Support Services to Purchaser at no charge.
+
+will provide standard Technical Support Services to Purchaser at no charge. Each order for Products
+licensed for a perpetual term to be resold to a customer will state the price of standard Technical Support Services
+for a period of one year commencing on the date of delivery of those Products (if applicable). Each customer will
+purchase Technical Support Services for periods after the initial year of service directly from the Purchaser.
+4.
+
+for periods after the initial year of service directly from the Purchaser.
+4. Training, Enablement and Sales Support: The Company agrees to provide comprehensive training on its
+products and services to the Purchaser and its Partners (if applicable), to enable the Purchaser to effectively
+market, sell, and provide after-sales service. The Company also agrees to continuously provide necessary support
+in terms of up-to-date information about the products and services, customer service, and technical support.
+5.
+
+about the products and services, customer service, and technical support.
+5. Order of Precedence
+5.1 In the event of conflict or inconsistency between documents, the following order of precedence shall apply:
+(a) any mutually signed amendment;
+(b) the applicable order form, statement of work or service addendum;
+(c) Annexure B, but only for commercial, territory, pricing and invoicing matters;
+(d) the main body of this Agreement; and
+(e) any policies, links, online terms or external documents referenced in this Agreement.
+
+links, online terms or external documents referenced in this Agreement.
+5.2 No online terms, external policies, support policies or referenced documents shall apply to Purchaser unless expressly
+accepted by Purchaser in writing.
+5.3 The Company shall not unilaterally amend any online terms, policies or referenced documents in a manner that adversely
+affects Purchaser, its affiliates, partners, resellers or customers during an active order term.
+6. Intellectual Property Ownership: The Company, its affiliates and licensors will own all right, title and interest
+in and to the Products.
+
+and licensors will own all right, title and interest
+in and to the Products. Each party will own and retain all rights in its trademarks, logos and other brand elements.
+To the extent a party grants any rights or licenses to its Trademarks to the other party in connection with this
+Agreement, the other party’s use of such Trademarks will be subject to the reasonable trademark guidelines
+provided in writing by the party that owns the Trademarks.
+
+trademark guidelines
+provided in writing by the party that owns the Trademarks. All usage of intellectual property rights, trademarks,
+and brand elements shall be done in a manner that benefits both parties, and any usage that could potentially
+harm the other party’s business interests shall be strictly avoided.
+7.
+
+harm the other party’s business interests shall be strictly avoided.
+7. Warranties
+7.1 The Company represents and warrants that the Products and Services shall:
+(a) materially conform to the applicable documentation, specifications, order and agreed use cases;
+(b) be provided with reasonable skill, care and diligence in accordance with applicable industry standards;
+
+(c) not knowingly contain malicious code, disabling devices or security vulnerabilities intentionally introduced by the Company;
+
+devices or security vulnerabilities intentionally introduced by the Company;
+(d) not infringe, misappropriate or violate the intellectual property or proprietary rights of any third party;
+(e) comply with applicable laws and regulatory requirements relevant to the Company’s provision of the Products and Services;
+(f) be fit for the purpose expressly communicated to and accepted by the Company in writing; and
+(g) be supported, maintained and updated in a professional and commercially reasonable manner during the applicable term.
+
+a professional and commercially reasonable manner during the applicable term.
+7.2 In case of breach of warranty, the Company shall promptly repair, replace, re-perform or provide a workaround at no
+additional cost. If the breach cannot be remedied within a reasonable period, Purchaser shall be entitled to a refund, credit or
+other equitable remedy.
+
+Purchaser shall be entitled to a refund, credit or
+other equitable remedy.
+7.3 Any disclaimer of warranties shall not limit the Company’s express warranties, indemnity obligations, confidentiality
+obligations, data protection obligations, security obligations, fraud, wilful misconduct, gross negligence or breach of applicable
+law.
+8. Marketing Funds: The Company may provide funds to the Purchaser for marketing of its products in the
+territory. Such funds may be provided based on the execution of certain marketing activities as may be mutually
+agreed by the Parties in writing.
+9.
+
+marketing activities as may be mutually
+agreed by the Parties in writing.
+9. Deal registration
+9.1 Purchaser may register opportunities with the Company by email or through any mutually agreed process. A deal registration
+shall be deemed accepted unless rejected by the Company in writing within five (5) business days with reasonable justification.
+9.2 Once an opportunity is registered and accepted, the Company shall not directly or indirectly engage with, quote, sell to,
+fulfil through, support or enable any competing channel for the same opportunity without Purchaser’s prior written consent.
+
+channel for the same opportunity without Purchaser’s prior written consent.
+9.3 Deal registration protection shall remain valid for at least one hundred eighty (180) days from acceptance and shall
+automatically extend where the opportunity remains active.
+9.4 In case of any dispute regarding deal ownership, the Parties shall act in good faith and preserve Purchaser’s registered
+opportunity rights until the dispute is resolved.
+
+Purchaser’s registered
+opportunity rights until the dispute is resolved.
+9.5 Any breach by the Company of an accepted deal registration shall entitle Purchaser to receive the agreed margin,
+commission or economic benefit that Purchaser would have earned had the opportunity been fulfilled through Purchaser.
+10.
+
+would have earned had the opportunity been fulfilled through Purchaser.
+10. Limitation of liability
+10.1 Subject to the exclusions set out below, each Party’s aggregate liability under this Agreement shall not exceed the amounts
+paid or payable by Purchaser to the Company under the relevant order giving rise to the claim during the twelve (12) months
+preceding the event giving rise to liability.
+
+during the twelve (12) months
+preceding the event giving rise to liability.
+10.2 Neither Party shall be liable for indirect, incidental, special, punitive or consequential damages, or loss of profits, revenue
+or business, except to the extent such losses form part of a third-party claim covered by an indemnity obligation.
+
+losses form part of a third-party claim covered by an indemnity obligation.
+10.3 The liability cap and exclusion of damages shall not apply to:
+(a) fraud, wilful misconduct or gross negligence;
+(b) breach of confidentiality;
+(c) breach of data protection or security obligations;
+(d) intellectual property infringement or indemnity claims;
+(e) payment obligations;
+(f) breach of applicable law;
+(g) regulatory fines, penalties or third-party claims caused by the liable Party;
+(h) unauthorised use or disclosure of data or confidential information; or
+
+(h) unauthorised use or disclosure of data or confidential information; or
+(i) claims arising from death, personal injury or property damage caused by the liable Party.
+11. Force Majeure: Neither party shall be held liable or responsible to the other party nor be deemed to have
+defaulted under or breached this Agreement for failure or delay in fulfilling or performing any term of this
+Agreement when such failure or delay is caused by or results from causes beyond the reasonable control of the
+
+delay is caused by or results from causes beyond the reasonable control of the
+affected party, including but not limited to fire, floods, embargoes, war, acts of war (whether war is declared or
+not), insurrections, riots, civil commotions, strikes, lockouts or other labor disturbances, acts of God or acts,
+omissions or delays in acting by any governmental authority or the other party.
+
+12.
+
+or delays in acting by any governmental authority or the other party.
+
+12. Data Protection and Security
+12.1 Each Party shall comply with all applicable data protection, privacy, cybersecurity and information security laws,
+regulations and regulatory requirements applicable to its activities under this Agreement.
+12.2 The Parties shall process personal data only for the purposes of performing this Agreement and in accordance with
+documented instructions, applicable law and any data processing terms agreed between the Parties.
+
+applicable law and any data processing terms agreed between the Parties.
+12.3 The Company shall implement and maintain appropriate technical and organisational measures to protect personal data,
+confidential information and customer data against unauthorised access, loss, misuse, alteration, disclosure or destruction.
+12.4 The Company shall not access, use, disclose, transfer, retain or process Purchaser data, customer data or personal data
+except as necessary to provide the Products and Services or as otherwise authorised in writing.
+
+to provide the Products and Services or as otherwise authorised in writing.
+12.5 The Company shall notify Purchaser without undue delay, and in any event within forty-eight (48) hours, after becoming
+aware of any actual or suspected data breach, security incident or unauthorised access affecting Purchaser, its affiliates,
+partners, resellers or customers.
+12.6 The Company shall not transfer personal data or customer data across borders unless such transfer is lawful and subject
+to appropriate safeguards required under applicable law.
+
+is lawful and subject
+to appropriate safeguards required under applicable law.
+12.7 Upon termination or expiry of this Agreement, the Company shall return or securely delete Purchaser data and customer
+data, unless retention is required by applicable law.
+12.8 The Company shall ensure that any subcontractor, affiliate, hosting provider or third party involved in processing Purchaser
+data, customer data or personal data is bound by written obligations no less protective than those set out in this Agreement.
+13.
+
+obligations no less protective than those set out in this Agreement.
+13. Mutual Representations and Warranties: Each party represents and warrants to the other party that: (a) it is
+duly organized, validly existing and in good standing as a corporation or other entity under the laws of the
+jurisdiction of its incorporation or other organization; (b) it has the full right, power and authority to enter into and
+perform its obligations and that its performance of its obligations does not and will not violate the terms of any
+
+performance of its obligations does not and will not violate the terms of any
+agreement between Purchaser and any third party; (c) the execution of this Agreement by its representative whose
+signature is set forth at the end of this Agreement has been duly authorized by all necessary corporate or
+organizational action of such party; and (d) when executed and delivered by both parties, this Agreement will
+constitute the legal, valid and binding obligation of such party, enforceable against such party in accordance with
+its terms.
+14.
+
+of such party, enforceable against such party in accordance with
+its terms.
+14. Indemnification
+14.1 Indemnification by Company
+14.1.1 The Company shall defend, indemnify and hold harmless Purchaser, its affiliates, officers, directors, employees,
+partners, resellers, system integrators and customers from and against any third-party claim, loss, liability, damage, cost or
+expense arising out of or relating to:
+(a) any allegation that the Products, Services, documentation, deliverables, platform, software, AI models, tools or materials
+
+documentation, deliverables, platform, software, AI models, tools or materials
+supplied by or on behalf of the Company infringe, misappropriate or violate any intellectual property, proprietary or other third-
+party rights;
+(b) breach of the Company’s warranties, representations or obligations under this Agreement;
+(c) breach of applicable law by the Company, its affiliates, subcontractors or licensors;
+(d) data breach, security incident or unauthorised access caused by the Company, its Products or Services;
+(e) fraud, wilful misconduct, gross negligence or unlawful act of the Company; or
+
+fraud, wilful misconduct, gross negligence or unlawful act of the Company; or
+(f) any claim arising from the design, development, functionality, performance, security, compliance or failure of the Products
+or Services.
+14.1.2 The Company’s indemnity shall include all damages, settlements, costs, expenses, reasonable legal fees, regulatory
+fines, penalties, customer claims, business disruption costs and amounts finally awarded or agreed in settlement.
+
+business disruption costs and amounts finally awarded or agreed in settlement.
+14.1.3 The Company shall not be relieved of liability merely because the Products or Services are used with third-party systems,
+data, infrastructure or software, unless the claim would not have arisen but for an unauthorised modification or combination
+made by Purchaser or the customer contrary to the Company’s written instructions.
+
+by Purchaser or the customer contrary to the Company’s written instructions.
+14.1.4 If any Product or Service becomes or is likely to become subject to an infringement claim, the Company shall, at its own
+cost and without disrupting Purchaser’s customer commitments:
+(a) procure the right to continue using the Product or Service;
+(b) modify it so that it becomes non-infringing without material loss of functionality;
+
+(c) replace it with a substantially equivalent non-infringing alternative; or
+
+(c) replace it with a substantially equivalent non-infringing alternative; or
+(d) refund all amounts paid for the affected Product or Service and compensate Purchaser for related customer exposure.
+14.2 Indemnification by Purchaser
+14.2.1 Purchaser shall indemnify the Company only against third-party claims arising directly from:
+(a) Purchaser’s unauthorised modification of the Products;
+(b) Purchaser’s material breach of applicable law;
+(c) Purchaser’s gross negligence, wilful misconduct or fraud; or
+(d) Purchaser’s unauthorised representations or commitments made on behalf of the Company.
+
+unauthorised representations or commitments made on behalf of the Company.
+14.2.2 Purchaser shall not be liable for claims arising from:
+(a) the design, development, functionality, performance, security, compliance or infringement of the Products or Services;
+(b) materials, documentation, claims, warranties or representations provided or approved by the Company;
+(c) the Company’s breach of this Agreement or applicable law;
+(d) acts or omissions of the Company, its affiliates, subcontractors or licensors; or
+
+or omissions of the Company, its affiliates, subcontractors or licensors; or
+(e) customer claims caused by any defect, delay, non-performance, security issue or infringement relating to the Products or
+Services.
+14.3 Indemnity Process: Each party’s indemnification obligations are conditioned on the indemnified party: (a)
+promptly giving written notice of the claim to the indemnifying party; (b) giving the indemnifying party sole control
+of the defense and settlement of the claim (provided that the indemnifying party may not settle any claim unless
+
+claim (provided that the indemnifying party may not settle any claim unless
+the settlement is for monetary damages only and unconditionally releases the indemnified party of all liability for
+the claim); and (c) providing to the indemnifying party all available information and assistance in connection with
+the claim, at the indemnifying party’s request and expense.
+15. Term, Termination and Existing Orders
+15.1 This Agreement shall commence on the Effective Date and shall continue for a period of one (1) year, unless terminated
+earlier in accordance with this Agreement.
+
+of one (1) year, unless terminated
+earlier in accordance with this Agreement. Thereafter, it shall automatically renew for successive one (1) year periods unless
+either Party gives the other Party at least thirty (30) days’ prior written notice of non-renewal.
+15.2 Either Party may terminate this Agreement for material breach if the breach remains uncured for thirty (30) days after
+written notice.
+
+breach if the breach remains uncured for thirty (30) days after
+written notice.
+15.3 Termination of this Agreement shall not automatically terminate any active customer order, subscription, license, support
+commitment, service engagement or renewal already accepted before the effective date of termination, unless expressly
+required by applicable law or agreed in writing.
+15.4 The Company shall continue to honour all active orders, licenses, subscriptions, warranties, support obligations and
+customer commitments sold through Purchaser for the remainder of the applicable term.
+
+commitments sold through Purchaser for the remainder of the applicable term.
+15.5 Purchaser shall be entitled to a reasonable wind-down period of at least ninety (90) days to complete active opportunities,
+transition customers, collect receivables and close pending transactions.
+15.6 Upon termination or expiry, each Party shall pay all undisputed amounts accrued up to the effective date of termination.
+Termination shall not affect accrued rights, remedies or obligations.
+
+Termination shall not affect accrued rights, remedies or obligations.
+15.7 Clauses relating to payment, confidentiality, data protection, security, warranties, indemnity, limitation of liability, audit
+restrictions, governing law, dispute resolution, customer commitments and accrued rights shall survive termination or expiry
+of this Agreement.
+16. Confidentiality
+16.1 Each Party shall protect the other Party’s Confidential Information using at least the same degree of care it uses to protect
+its own confidential information, but in no event less than reasonable care.
+
+its own confidential information, but in no event less than reasonable care.
+16.2 Each Party shall use the other Party’s Confidential Information only for the purpose of performing or exercising its rights
+under this Agreement and shall not disclose such Confidential Information to any third party except to its affiliates, employees,
+officers, directors, contractors, advisors, representatives or subcontractors who have a need to know and are bound by
+confidentiality obligations no less protective than those set out in this Agreement.
+
+obligations no less protective than those set out in this Agreement.
+
+16.3 Each Party shall be responsible for any unauthorised access, use or disclosure of the other Party’s Confidential
+Information by its affiliates, employees, contractors, advisors, representatives or subcontractors.
+16.4 Each Party shall take reasonable measures to protect the other Party’s Confidential Information from unauthorised
+access, disclosure, loss or misuse.
+
+Confidential Information from unauthorised
+access, disclosure, loss or misuse.
+16.5 Confidential Information shall not include information that the receiving Party can demonstrate: (a) is or becomes publicly
+available without breach of this Agreement; (b) was lawfully known to the receiving Party before disclosure; (c) is lawfully
+received from a third party without restriction; or (d) is independently developed without use of the disclosing Party’s
+Confidential Information.
+
+developed without use of the disclosing Party’s
+Confidential Information.
+16.6 Confidential Information may be disclosed where required by law, regulation, court order or governmental authority,
+provided that the receiving Party gives prior written notice to the disclosing Party to the extent legally permitted and reasonably
+cooperates to limit the scope of such disclosure.
+16.7 The obligations in this clause shall survive termination or expiry of this Agreement.
+17.
+
+in this clause shall survive termination or expiry of this Agreement.
+17. Compliance, Audit and Investigation Rights
+17.1 Each Party shall comply with applicable anti-bribery, anti-corruption, sanctions, export control, anti-money laundering,
+trade compliance and other applicable laws in connection with its performance under this Agreement.
+
+other applicable laws in connection with its performance under this Agreement.
+17.2 Any audit right shall be limited to records directly relevant to transactions under this Agreement, shall be exercised no
+more than once in any twelve (12) month period, during normal business hours, upon at least fifteen (15) business days’ prior
+written notice, and subject to Purchaser’s confidentiality, data protection, customer confidentiality and internal security
+requirements.
+
+data protection, customer confidentiality and internal security
+requirements.
+17.3 The Company shall not have access to Purchaser’s general corporate books, unrelated business records, customer
+confidential information, pricing strategy, internal margins, employee records or commercially sensitive information not
+directly relevant to this Agreement.
+
+or commercially sensitive information not
+directly relevant to this Agreement.
+17.4 Either Party may terminate this Agreement for a proven material compliance breach by the other Party, provided that the
+terminating Party has reasonable evidence of the breach and has given written notice describing the breach, except where
+immediate termination is required by applicable law or regulatory authority.
+17.5 Each Party shall be responsible for compliance by its own affiliates, employees, subcontractors, representatives and
+agents.
+
+by its own affiliates, employees, subcontractors, representatives and
+agents.
+17.6 The Company shall not unilaterally determine that Purchaser has breached this Agreement without reasonable evidence
+and without giving Purchaser a fair opportunity to respond, unless immediate action is required under applicable law.
+18. Export Control and Sanctions
+18.1 Each Party represents that it is not listed on any applicable sanctions or restricted party list and shall comply with
+applicable export control and sanctions laws in connection with this Agreement.
+
+applicable export control and sanctions laws in connection with this Agreement.
+18.2 Purchaser shall not knowingly resell or supply the Products or Services to any party or territory prohibited under applicable
+sanctions or export control laws.
+18.3 The Company shall be responsible for providing Purchaser with accurate export classification, product restrictions,
+prohibited use restrictions, country restrictions and other compliance information reasonably required for resale and
+distribution.
+
+other compliance information reasonably required for resale and
+distribution.
+18.4 Purchaser shall not be liable for any failure caused by inaccurate, incomplete or delayed compliance information provided
+by the Company.
+18.5 The Company shall indemnify Purchaser against any claim, penalty, fine, loss or damage arising from incorrect, incomplete
+or misleading export control, sanctions or product compliance information provided by the Company.
+19.
+
+sanctions or product compliance information provided by the Company.
+19. Product Continuity and Discontinuation
+19.1 The Company shall not discontinue, materially reduce, suspend or adversely modify any Product or Service already sold,
+quoted, ordered, registered or committed through Purchaser without providing reasonable prior written notice and a
+commercially reasonable transition plan.
+
+19.2 The Company shall continue to support all active customer subscriptions, licenses, renewals, support terms and
+committed service periods sold through Purchaser, unless otherwise agreed in writing.
+
+service periods sold through Purchaser, unless otherwise agreed in writing.
+19.3 Where discontinuation, suspension or material modification affects an active customer commitment, the Company shall
+provide, at no additional cost to Purchaser, a substantially equivalent alternative, workaround, migration support, credit or
+refund, as reasonably required to protect Purchaser and its customers.
+
+or
+refund, as reasonably required to protect Purchaser and its customers.
+19.4 The Company shall be responsible for any customer claim, service credit, penalty, refund or commercial exposure suffered
+by Purchaser due to the Company’s discontinuation, suspension, failure or material reduction of the Products or Services
+20.
+
+suspension, failure or material reduction of the Products or Services
+20. General
+20.1 Assignment: Neither Party may assign this Agreement without the prior written consent of the other Party,
+except that Purchaser may assign or transfer this Agreement to any affiliate or group company, or in connection
+with any merger, restructuring, reorganisation or transfer of business, without requiring the Company’s prior
+consent.
+
+or transfer of business, without requiring the Company’s prior
+consent.
+20.2 Notices: All notices, requests, demands, waivers, consents and other communications hereunder will be in
+writing and will be served by personal service, certified or registered mail or confirmed electronic or facsimile
+transmission at the address of the receiving party set forth below (or at such different address as may be
+designated by such party by written notice to the other party), and shall be deemed complete upon receipt.
+
+written notice to the other party), and shall be deemed complete upon receipt.
+If to the Company:
+Attn: Olu Melville Thomas (MK)
+Title: Founder/CEO
+Email: mk@airev.ae
+If to Purchaser:
+Redington Gulf FZE
+Office No: Burjuman Business Tower, Level 12 and 16, Burjuman Mall, Mankhool, Dubai - UAE
+Attn: Mr. Prasanth P.
+Title: General Manager (Legal)
+Email: legal.mea@redingtongroup.com
+20.3 Governing Law: This Agreement will be governed by and construed in accordance with the laws of Emirate
+of Dubai and the Parties agree to submit to the exclusive jurisdiction of the courts located within the same.
+
+to submit to the exclusive jurisdiction of the courts located within the same.
+20.4 Equitable Relief: The Parties agree that any breach of the obligations of this Agreement may result in
+irreparable harm to the non-breaching Party and that the remedy at law for any breach may be inadequate.
+Therefore, in addition to any and all remedies available at law, the non-breaching Party will be entitled to seek an
+injunction or other equitable remedies in all legal proceedings in the event of any threatened or actual violation of
+any or all of the provisions of this Agreement.
+
+or actual violation of
+any or all of the provisions of this Agreement.
+20.5 Relationship of the Parties: Purchaser’s relationship with the Company is that of an independent
+contractor, and nothing contained in this Agreement shall be construed to (i) give either Party the power to direct
+and control the day-to-day activities of the other party, (ii) deem either Party as partner joint venture partner, co-
+owner, employee, agent or franchisee of the other Party, or (iii) except as expressly permitted by the Company in
+
+of the other Party, or (iii) except as expressly permitted by the Company in
+a Service Addendum, allow Purchaser to create or assume any obligation or make any representation on behalf
+of the Company for any purpose whatsoever.
+20.6 Waiver; Amendment; Severability: A Party’s failure enforce any provision in this Agreement will not
+constitute a waiver unless in writing. No amendment hereof will be effective unless in writing and signed by both
+parties.
+
+hereof will be effective unless in writing and signed by both
+parties. If any provision of this Agreement is unenforceable, it will be changed and interpreted to accomplish the
+
+objectives of such provision to the extent legally permissible; the remaining provisions will continue in full force
+and effect.
+20.7 Counterparts: This Agreement may be executed in counterparts, each of which is deemed an original, but
+all of which together are deemed to be one and the same agreement.
+
+but
+all of which together are deemed to be one and the same agreement. A signed copy of this Agreement delivered
+by e-mail or other means of electronic transmission is deemed to have the same legal effect as delivery of an
+original signed copy of this Agreement.
+IN WITNESS WHEREOF, the parties hereto have executed this Agreement as of the Effective Date.
+Company Airev Holding Limited
+Purchaser: (Redington Gulf FZE)
+Signature:
+Signature:
+Printed Name: Olu Melville Thomas
+Mr. Prasanth P.
+Title: Founder/CEO
+General Manager (Legal)
+Date: 18 June 2026
+19/6/2026 | 10:19 PDT
+
+Annexure A
+1.
+
+General Manager (Legal)
+Date: 18 June 2026
+19/6/2026 | 10:19 PDT
+
+Annexure A
+1. Payment Terms:
+1.1 The Prices for the products purchased by Purchaser under this agreement are subject to the prices mutually
+agreed upon. All such prices are in US dollars. Unless otherwise specified, payment shall be due within sixty (60)
+days from the date of invoice.
+
+payment shall be due within sixty (60)
+days from the date of invoice.
+1.2 For operational, administrative, and invoicing purposes, the Company may perform certain obligations and/or
+issue invoices through its affiliates, including School Hack FZ-LLC, or any other affiliated entity designated by
+the Company in writing from time to time. The

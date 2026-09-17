@@ -1,0 +1,29 @@
+# Tenstorrent Galaxy fleet deployment map v2
+
+Source type: PDF · 12 pages · data-room extract (scrubbed; the joint-venture counterparty is referred to only as 'VVIP Sovereign JV').
+
+Fleet at a glance 736 Blackhole chips · 529 PF Block FP8 · 23 TB GDDR6 @ 368 TB/s · six racks · $2.9–4.4M all-in Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Executive summary Five calls behind the recommendation — and the two gates that hold the fleet PO Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Model placement & memory math Memory capacity, not compute, dictates the layout — 8 + 13 + 2 = 23 units Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Hardware & facility Official unit spec, the capex build-up to $2.9–4.4M and the power envelope Spec Value Spec Value Accelerators 32× Blackhole ASIC (Tensix) Fabric 10×400 GbE/ASIC → 32 TB/s Compute 23 PFLOPS Block FP8 Scale-out 56×800 GbE QSFP-DD → 11.2 TB/s SRAM 6.2 GB @ 2.9 PB/s Host 1× EPYC 9004 · ≤576 GB DDR5 DRAM 1 TB GDDR6 @ 16 TB/s Form factor 6U air-cooled, front-to-back Power 8–10 kW avg / 12 kW max Price $160k list · $110k at Apr GA Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Rack & pool map 23 units plus storage across six racks — API traffic north-south, TP traffic stays in-rack Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Software stack, bottom to top All open source — tt-installer to a golden image, one serving container per unit Layer Component Deployment note Host & driver Ubuntu 22.04/24.04 · tt-kmd · tt-flash · tt-smi tt-installer + golden image (Ansible/MAAS) Runtime TT-Metalium / TT-NN · TT-Forge (MLIR) “90% of HF models work” — function, not speed Serving tt-inference-server · vLLM-TT · SGLang One container per unit, OpenAI-compatible Orchestration Kubernetes (RKE2/kubeadm) + Helm chart 1 pod :
+
+OpenAI-compatible Orchestration Kubernetes (RKE2/kubeadm) + Helm chart 1 pod : 1 Galaxy · K3 pairs by pod affinity Gateway LiteLLM / Envoy router Per-tenant quotas, metering, priority classes Weights & data MinIO/NFS store · per-host NVMe cache Blue-green: reserve → canary 5% → flip Observability Prometheus + Grafana · tt-smi exporter p50 TTFT < 2 s at 32k ctx · p95 < 6 s Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Capacity math Decode is the constraint — ceiling = bandwidth ÷ active bytes per token, × a 35–55% efficiency band Output share of mix Base kernels With speculative decode (×1.7) 15% — prefill-heavy agents 3.4–5.3M TPM 5.8–9.0M TPM 20% — planning case 2.6–4.0M TPM 4.3–6.8M TPM — clears target 30% — chat-heavy 1.7–2.7M TPM 2.9–4.5M TPM Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Rollout — gate the fleet PO on P0/P1 Order at P0 start; the fleet-build phase is supply-gated, not engineering-gated Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Top risks and mitigations Every High/High exposure is bounded by a gate, a supported fallback or a locked price Risk L / I Mitigation A · K3 (KDA) and V4-Flash (CSA/HCA) not TT-validated High / High P0/P1 gates before PO; fallback Kimi K2 + V3/R1 B · V4-Flash-Vision-Exp weights unpublished Med / Med Launch on 0731 (MIT); swap on first-party release C · Throughput model misses — no public benchmarks Med / High Ceilings × efficiency; P0 re-sizes 23 → 16 or 28 D · List price drift $110k → $160k in 4 months Med / Med Lock supercluster pricing now;
+
+price drift $110k → $160k in 4 months Med / Med Lock supercluster pricing now; PO at P0 start E · TT software maturity — rough edges remain Med / Med Pin tested images; support contract; SGLang path F · Single EPYC host per unit is a SPOF Med / Low K8s reschedules to reserve; spares; DACs day 1 Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Counter-arguments — read before committing Four objections the fleet case has to survive before sign-off Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
+
+Assumptions & sources Every figure is either a stated assumption or a public, pre-negotiation source • K3/3.1 = Kimi K3, 27/07 open weights — no K3.1 announced as of 23/08; treated as a drop-in successor • Vision 22/08 = DeepSeek-V4-Flash-Vision-Exp, API launch 21/08 UTC (22/08 GST) • 4–5M TPM = blended input + output across the whole fleet at an 80–85% / 15–20% mix • Throughput figures are engineering estimates (BW ÷ bytes/token × 25–55%), pending P0 benchmarks • Prices are public list or reported figures, pre-negotiation — supercluster rates are not yet locked Tenstorrent Galaxy fleet deployment map v1 — 23 Aug 2026 — INTERNAL
