@@ -432,7 +432,7 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 /* ================= cover · looping motion hero video (autoplay · muted · loop · playsinline) ================= */
 .step.cover-video{background:#061A15; color:#F6FFFF; border-color:#2E5049}
 .step.cover-video .hero-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; pointer-events:none;
-  background:#061A15 url('assets/cover-motion-poster.jpg') center/cover no-repeat}
+  background:transparent} /* 17 Sep 2026: the poster is the <picture> beneath the video (see the hero-media block at the end of this file) */
 .step.cover-video .hero-scrim{position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(90deg,rgba(4,41,34,.84) 0%,rgba(4,41,34,.62) 44%,rgba(4,41,34,.16) 100%), linear-gradient(180deg,rgba(4,41,34,.08) 0%,rgba(4,41,34,0) 35%,rgba(4,41,34,.50) 100%)}
 .step.cover-video .step-inner{position:relative; z-index:2}
@@ -447,7 +447,7 @@ figure.photo figcaption{font-size:11px; color:var(--ink-dim); padding:8px 12px; 
 .step.cover-video .fnote b{color:#EAF2F0}
 .step.cover-video .ov-label{background:rgba(4,41,34,.88); color:#fff}
 .step.cover-video .ov-label small{color:#4FC9A6}
-@media print{ .step.cover-video .hero-video{display:none} .step.cover-video{background:#061A15 url('assets/cover-motion-poster.jpg') center/cover no-repeat} }
+@media print{ .step.cover-video .hero-video{display:none} .step.cover-video{background:#061A15} } /* 17 Sep 2026: print shows the cover's poster <picture> */
 
 /* ================= roomy variants — fill the sparse cards at 1440×900 without changing the design system ================= */
 .colstack{display:flex; flex-direction:column; min-height:0}
@@ -840,3 +840,59 @@ table.t.investors th.n, table.t.investors td.n{width:28px; padding-right:4px; co
 @media print{ .step .rise,.step{transition:none!important} }
 /* print: no trailing blank page after the last card */
 @media print{ #canvas .step:last-of-type{page-break-after:auto; break-after:auto} }
+
+/* ===== 17 Sep 2026 · upgraded visual assets (GPT-Image heroes + Runway loops) =====
+   .hero-media cards carry a media stack behind .step-inner: a <picture> poster (AVIF → WebP → JPG, explicit width/height, lazy
+   except the cover), an optional looping <video> (WebM → MP4, muted, playsinline, no audio track) and a scrim. media.js plays only the
+   active card's loop and pauses the rest; prefers-reduced-motion (or ?motion=reduce) never autoplays and shows the poster with a small
+   play control; the Strategy Map (body.overview) and print always show the poster. Logo / brand / institution assets are untouched. */
+.step.hero-media{background-image:none}
+.step.hero-media > .hero-media-stack{position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:#0E332C}
+.step.hero-media > .step-inner{position:relative; z-index:2}
+.hero-media .hero-poster{position:absolute; inset:0; display:block; margin:0}
+.hero-media .hero-poster img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block}
+.hero-media .hero-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block; pointer-events:none; opacity:0; transition:opacity .6s ease}
+.hero-media.playing .hero-video{opacity:1}
+.hero-media .hero-scrim{position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,41,34,.94) 0%,rgba(4,41,34,.80) 42%,rgba(4,41,34,.34) 100%), linear-gradient(180deg,rgba(4,41,34,0) 0%,rgba(4,41,34,0) 70%,rgba(4,41,34,.28) 100%)}
+/* chapter dividers: the scrim above keeps the chapter cards on the dark OnDemand ground with the illustration opening to the right */
+.step.chapter.hero-media{background:#0E332C}
+.step.chapter.hero-media::after{z-index:1}
+/* cover: keep the cover's own scrim (defined in the cover block above) */
+.step.cover-video.hero-media > .hero-media-stack{background:#061A15}
+.step.cover-video.hero-media .hero-scrim{background:linear-gradient(90deg,rgba(4,41,34,.84) 0%,rgba(4,41,34,.62) 44%,rgba(4,41,34,.16) 100%), linear-gradient(180deg,rgba(4,41,34,.08) 0%,rgba(4,41,34,0) 35%,rgba(4,41,34,.50) 100%)}
+/* card 01 (lane 01 · Position): the divider illustration sits under a white veil so the data card stays ink-on-white and fully legible */
+.step.hero-media.veil > .hero-media-stack{background:#fff}
+.step.hero-media.veil .hero-scrim{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 48%,rgba(255,255,255,.70) 100%), linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.55) 100%)}
+/* card 03 · the analogy: the remastered hero and its loop inside the existing .img-card frame */
+.img-card.hero-media{position:relative}
+.img-card.hero-media .hero-poster{position:absolute; inset:0}
+.img-card.hero-media .hero-video{z-index:1}
+.img-card.hero-media .cap{z-index:2}
+/* reduced motion: never autoplay — poster only, with a subtle play control (media.js also honours ?motion=reduce via html.reduce-motion) */
+.motion-toggle{display:none; position:absolute; right:14px; bottom:14px; z-index:3; align-items:center; gap:6px; font:600 10.5px var(--sans); letter-spacing:.08em; text-transform:uppercase;
+  color:#EAF2F0; background:rgba(4,41,34,.72); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:6px 11px 6px 9px; cursor:pointer; pointer-events:auto; backdrop-filter:blur(4px)}
+.motion-toggle::before{content:"▶"; font-size:9px}
+.motion-toggle[aria-pressed="true"]::before{content:"❚❚"; font-size:8px}
+.motion-toggle:hover{background:rgba(4,41,34,.9)}
+.motion-toggle:focus-visible{outline:2px solid #4FC9A6; outline-offset:2px}
+.veil .motion-toggle{color:var(--ink); background:rgba(255,255,255,.85); border-color:var(--hair2)}
+.step.hero-media > .hero-media-stack .motion-toggle{pointer-events:auto}
+@media (prefers-reduced-motion:reduce){
+  .hero-media:not(.user-play) .hero-video{display:none}
+  .hero-media .motion-toggle{display:inline-flex}
+}
+html.reduce-motion .hero-media:not(.user-play) .hero-video{display:none}
+html.reduce-motion .hero-media .motion-toggle{display:inline-flex}
+/* the Strategy Map shows posters, never a playing loop */
+body.overview .hero-media .hero-video{visibility:hidden}
+body.overview .motion-toggle{display:none!important}
+/* print: the <video> is hidden and the poster <picture> prints at full card size */
+@media print{
+  .hero-media .hero-video{display:none!important}
+  .hero-media .hero-poster{display:block!important}
+  .hero-media .hero-poster img{display:block!important; opacity:1!important}
+  .motion-toggle{display:none!important}
+  .step.hero-media > .hero-media-stack{position:absolute; inset:0}
+  .step.cover-video{background:#061A15}
+}
