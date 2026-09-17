@@ -43,10 +43,13 @@
       if (shouldPlay(v)) { if (v.paused) play(v); }
       else { if (v.autoplay) v.autoplay = false; if (!v.paused) v.pause(); }
     });
-    warmNext();
+    scheduleWarm();
   }
 
-  /* the next hero card's loop is fetched ahead so arrow-key navigation starts it without a stall */
+  /* the next hero card's loop is fetched ahead so arrow-key navigation starts it without a stall — 2.5 s after the last
+     navigation, so it never competes with the active card's own loop and poster */
+  let warmTimer = null;
+  function scheduleWarm() { clearTimeout(warmTimer); warmTimer = setTimeout(warmNext, 2500); }
   function warmNext() {
     const steps = window.deck && window.deck.steps; if (!steps) return;
     const cur = window.deck.current;

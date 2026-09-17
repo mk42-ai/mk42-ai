@@ -34,7 +34,10 @@ a{color:var(--emerald)}
   position:absolute; left:0; top:0; width:0; height:0; transform-origin:0 0;
   transition:transform .95s cubic-bezier(.65,.02,.25,1);
   will-change:transform;
+  visibility:hidden; /* 17 Sep 2026: the plane is revealed by deck.js once every card has its left/top — the cards no longer paint stacked
+                        at the origin and then jump into place (that first-paint jump scored a 0.99 layout shift on the cover in Lighthouse) */
 }
+#canvas.placed{visibility:visible}
 body.no-anim #canvas{transition:none}
 .lane-label{
   position:absolute; font-family:var(--serif); font-weight:500; color:rgba(16,32,27,.10);
@@ -226,6 +229,7 @@ body.overview #ov-hint{display:block}
 
 @media print{
   body{overflow:visible; background:#fff}
+  #canvas{visibility:visible}
   body::before,#chrome-top,#chrome-bottom,#progress,#help,#notes,#ov-hint{display:none!important}
   #viewport{position:static; overflow:visible}
   #canvas{position:static; transform:none!important; width:auto; height:auto}

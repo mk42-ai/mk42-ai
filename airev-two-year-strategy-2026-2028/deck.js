@@ -22,6 +22,8 @@
     s.addEventListener('click',()=>{ if(overview){ goTo(i); } });
   });
 
+  canvas.classList.add('placed'); /* every card now has its left/top — reveal the plane (see #canvas{visibility:hidden} in styles.css) */
+
   /* ---- lane labels & connecting lines (drawn from data on <section data-lane>) ---- */
   const lanes={};
   steps.forEach(s=>{ const ln=s.dataset.lane; if(ln===undefined) return; (lanes[ln]=lanes[ln]||[]).push(s); });
